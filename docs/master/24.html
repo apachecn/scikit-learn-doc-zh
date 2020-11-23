@@ -1,0 +1,1764 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.5. 分解成分中的信号（矩阵分解问题） · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="25.html" />
+    
+    
+    <link rel="prev" href="23.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >2.5. 分解成分中的信号（矩阵分解问题）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="25-&#x5206;&#x89E3;&#x6210;&#x5206;&#x4E2D;&#x7684;&#x4FE1;&#x53F7;&#xFF08;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x95EE;&#x9898;&#xFF09;">2.5. &#x5206;&#x89E3;&#x6210;&#x5206;&#x4E2D;&#x7684;&#x4FE1;&#x53F7;&#xFF08;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x95EE;&#x9898;&#xFF09;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x6B66;&#x5668;&#x5927;&#x5E08;&#x4E00;&#x4E2A;&#x6311;&#x4FE9;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@png</a>
+        <a href="https://github.com/barrycg" target="_blank">@barrycg</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x67E0;&#x6AAC;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x7247;&#x523B;</a></p>
+<h2 id="251-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF08;pca&#xFF09;">2.5.1. &#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF08;PCA&#xFF09;</h2>
+<h3 id="2511-&#x51C6;&#x786E;&#x7684;pca&#x548C;&#x6982;&#x7387;&#x89E3;&#x91CA;&#xFF08;exact-pca-and-probabilistic-interpretation&#xFF09;">2.5.1.1. &#x51C6;&#x786E;&#x7684;PCA&#x548C;&#x6982;&#x7387;&#x89E3;&#x91CA;&#xFF08;Exact PCA and probabilistic interpretation&#xFF09;</h3>
+<p>PCA &#x7528;&#x4E8E;&#x5BF9;&#x5177;&#x6709;&#x4E00;&#x7EC4;&#x8FDE;&#x7EED;&#x6B63;&#x4EA4;&#x5206;&#x91CF;(Orthogonal component <em>&#x8BD1;&#x6CE8;: &#x6216;&#x8BD1;&#x4E3A;&#x6B63;&#x4EA4;&#x6210;&#x5206;,&#x4E0B;&#x51FA;&#x73B0; &#x6210;&#x5206; &#x548C; &#x5206;&#x91CF; &#x662F;&#x540C;&#x610F;&#x8BCD;</em>)&#x7684;&#x591A;&#x53D8;&#x91CF;&#x6570;&#x636E;&#x96C6;&#x8FDB;&#x884C;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#x5316;&#x7684;&#x5206;&#x89E3;&#x3002; &#x5728; scikit-learn &#x4E2D;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x4E00;&#x4E2A;&#x53D8;&#x6362;&#x5668;&#x5BF9;&#x8C61;&#xFF0C; &#x901A;&#x8FC7; <code>fit</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x62DF;&#x5408;&#x51FA; <em>n</em> &#x4E2A;&#x6210;&#x5206;&#xFF0C; &#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5C06;&#x65B0;&#x7684;&#x6570;&#x636E;&#x6295;&#x5F71;(project, &#x4EA6;&#x53EF;&#x7406;&#x89E3;&#x4E3A;&#x5206;&#x89E3;)&#x5230;&#x8FD9;&#x4E9B;&#x6210;&#x5206;&#x4E2D;&#x3002;</p>
+<p>&#x5728;&#x5E94;&#x7528;SVD(&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;) &#x4E4B;&#x524D;, PCA &#x662F;&#x5728;&#x4E3A;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x805A;&#x96C6;&#x800C;&#x4E0D;&#x662F;&#x7F29;&#x653E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x3002;&#x53EF;&#x9009;&#x53C2;&#x6570; <code>whiten=True</code> &#x4F7F;&#x5F97;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x6295;&#x5F71;&#x5230;&#x5947;&#x5F02;&#xFF08;singular&#xFF09;&#x7A7A;&#x95F4;&#x4E0A;&#xFF0C;&#x540C;&#x65F6;&#x5C06;&#x6BCF;&#x4E2A;&#x6210;&#x5206;&#x7F29;&#x653E;&#x5230;&#x5355;&#x4F4D;&#x65B9;&#x5DEE;&#x3002; &#x5982;&#x679C;&#x4E0B;&#x6E38;&#x6A21;&#x578B;&#x5BF9;&#x4FE1;&#x53F7;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#x4F5C;&#x51FA;&#x5F3A;&#x5047;&#x8BBE;&#xFF0C;&#x8FD9;&#x901A;&#x5E38;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x4F7F;&#x7528;RBF&#x5185;&#x6838;&#x7684; SVM &#x7B97;&#x6CD5;&#x548C; K-Means &#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;iris&#x6570;&#x636E;&#x96C6;&#x7684;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#xFF0C;&#x8BE5;&#x6570;&#x636E;&#x96C6;&#x5305;&#x542B;4&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x901A;&#x8FC7;PCA&#x964D;&#x7EF4;&#x540E;&#x6295;&#x5F71;&#x5230;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#x7684;&#x4E8C;&#x7EF4;&#x7A7A;&#x95F4;&#x4E0A;&#xFF1A;</p>
+<p><img src="img/6479476ebd2e5d741f1a712f671fccb6.jpg" alt="https://scikit-learn.org/stable/_images/sphx_glr_plot_pca_vs_lda_001.png"></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x5BF9;&#x8C61;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86; PCA &#x7B97;&#x6CD5;&#x7684;&#x6982;&#x7387;&#x89E3;&#x91CA;&#xFF0C;&#x5176;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x53EF;&#x89E3;&#x91CA;&#x7684;&#x65B9;&#x5DEE;&#x91CF;&#x7ED9;&#x51FA;&#x6570;&#x636E;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x3002;PCA&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86;&#x5728;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#xFF08;cross-validation&#xFF09;&#x4E2D;&#x4F7F;&#x7528; <em>score</em> &#x65B9;&#x6CD5;&#xFF1A;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html" target="_blank"><img src="img/1c25ce7b0d4e2c7da1f0e73d2565c431.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_pca_vs_fa_model_selection_0011.png"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html#sphx-glr-auto-examples-decomposition-plot-pca-vs-lda-py" target="_blank">Comparison of LDA and PCA 2D projection of Iris dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html#sphx-glr-auto-examples-decomposition-plot-pca-vs-fa-model-selection-py" target="_blank">Model selection with Probabilistic PCA and Factor Analysis (FA)</a></li>
+</ul>
+</blockquote>
+<h3 id="2512-&#x589E;&#x91CF;pca-incremental-pca">2.5.1.2. &#x589E;&#x91CF;PCA (Incremental PCA)</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x5BF9;&#x8C61;&#x975E;&#x5E38;&#x6709;&#x7528;, &#x4F46; &#x9488;&#x5BF9;&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5E94;&#x7528;, &#x4ECD;&#x7136;&#x5177;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x9650;&#x5236;&#x3002; &#x6700;&#x5927;&#x7684;&#x9650;&#x5236;&#x662F; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x4EC5;&#x652F;&#x6301;&#x6279;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x6240;&#x6709;&#x8981;&#x5904;&#x7406;&#x7684;&#x6570;&#x636E;&#x5FC5;&#x987B;&#x653E;&#x5728;&#x4E3B;&#x5185;&#x5B58;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA" title="sklearn.decomposition.IncrementalPCA" target="_blank"><code>IncrementalPCA</code></a> &#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x5F62;&#x5F0F;, &#x5373;&#x5141;&#x8BB8;&#x90E8;&#x5206;&#x8BA1;&#x7B97;&#x4EE5;&#x5C0F;&#x578B;&#x6279;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;, &#x800C;&#x5F97;&#x5230;&#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x7B97;&#x6CD5;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#x7ED3;&#x679C;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA" title="sklearn.decomposition.IncrementalPCA" target="_blank"><code>IncrementalPCA</code></a> &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x6838;&#x5916;&#xFF08;out-of-core&#xFF09;&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF1A;</p>
+<ul>
+<li>&#x57FA;&#x4E8E;&#x4ECE;&#x672C;&#x5730;&#x786C;&#x76D8;&#x6216;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x8FDE;&#x7EED;&#x83B7;&#x53D6;&#x7684;&#x6570;&#x636E;&#x5757;&#x4E4B;&#x4E0A;, &#x4F7F;&#x7528; <code>partial_fit</code> &#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x5728; memory mapped file (&#x901A;&#x8FC7; <code>numpy.memmap</code> &#x521B;&#x5EFA;)&#x4E0A;&#x4F7F;&#x7528; fit &#x65B9;&#x6CD5;&#x3002;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA" title="sklearn.decomposition.IncrementalPCA" target="_blank"><code>IncrementalPCA</code></a> &#x7C7B;&#x4E3A;&#x4E86;&#x589E;&#x91CF;&#x5F0F;&#x7684;&#x66F4;&#x65B0; explained<em>variance_ratio</em> &#xFF0C;&#x4EC5;&#x9700;&#x8981;&#x5B58;&#x50A8;&#x4F30;&#x8BA1;&#x51FA;&#x7684;&#x5206;&#x91CF;&#x548C;&#x566A;&#x58F0;&#x65B9;&#x5DEE;&#x3002; &#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x91CF;&#x4F9D;&#x8D56;&#x4E8E;&#x6BCF;&#x4E2A;&#x6279;&#x6B21;&#x7684;&#x6837;&#x672C;&#x6570;&#x91CF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x6837;&#x672C;&#x603B;&#x91CF;&#x3002;</p>
+<p>&#x5728;&#x5E94;&#x7528;SVD&#x4E4B;&#x524D;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.IncrementalPCA.html#sklearn.decomposition.IncrementalPCA" title="sklearn.decomposition.IncrementalPCA" target="_blank"><code>IncrementalPCA</code></a>&#x5C31;&#x50CF;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a>&#x4E00;&#x6837;,&#x4E3A;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x805A;&#x96C6;&#x800C;&#x4E0D;&#x662F;&#x7F29;&#x653E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_incremental_pca.html" target="_blank"><img src="img/e84b0861711b65f28923da7c268645e7.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_incremental_pca_0011.png"></a><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_incremental_pca.html" target="_blank"><img src="img/22c1b7663568bf6c404a07778507a93e.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_incremental_pca_0021.png"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_incremental_pca.html#sphx-glr-auto-examples-decomposition-plot-incremental-pca-py" target="_blank">Incremental PCA</a></li>
+</ul>
+</blockquote>
+<h3 id="2513-&#x57FA;&#x4E8E;&#x968F;&#x673A;&#x5316;svd&#x7684;pca">2.5.1.3. &#x57FA;&#x4E8E;&#x968F;&#x673A;&#x5316;SVD&#x7684;PCA</h3>
+<p>&#x901A;&#x8FC7;&#x4E22;&#x5F03;&#x5177;&#x6709;&#x8F83;&#x4F4E;&#x5947;&#x5F02;&#x503C;&#x7684;&#x5947;&#x5F02;&#x5411;&#x91CF;&#x7684;&#x5206;&#x91CF;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x964D;&#x7EF4;&#x5230;&#x4F4E;&#x7EF4;&#x7A7A;&#x95F4;&#x5E76;&#x4FDD;&#x7559;&#x5927;&#x90E8;&#x5206;&#x65B9;&#x5DEE;&#x4FE1;&#x606F;&#x662F;&#x975E;&#x5E38;&#x6709;&#x610F;&#x4E49;&#x7684;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;64x64&#x50CF;&#x7D20;&#x7684;&#x7070;&#x5EA6;&#x7EA7;&#x56FE;&#x50CF;&#x8FDB;&#x884C;&#x4EBA;&#x8138;&#x8BC6;&#x522B;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x7EF4;&#x6570;&#x4E3A;4096&#xFF0C;&#x5728;&#x8FD9;&#x6837;&#x5927;&#x7684;&#x6570;&#x636E;&#x4E0A;&#x8BAD;&#x7EC3;&#x542B;RBF&#x5185;&#x6838;&#x7684;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#x662F;&#x5F88;&#x6162;&#x7684;&#x3002;&#x6B64;&#x5916;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x56FA;&#x6709;&#x7EF4;&#x5EA6;&#x8FDC;&#x4F4E;&#x4E8E;4096&#xFF0C;&#x56E0;&#x4E3A;&#x4EBA;&#x8138;&#x7684;&#x6240;&#x6709;&#x7167;&#x7247;&#x90FD;&#x770B;&#x8D77;&#x6765;&#x6709;&#x70B9;&#x76F8;&#x4F3C;&#x3002;&#x6837;&#x672C;&#x4F4D;&#x4E8E;&#x8F83;&#x4F4E;&#x7EF4;&#x5EA6;&#x7684;&#x6D41;&#x4F53;&#x4E0A;&#xFF08;&#x4F8B;&#x5982;&#x7EA6;200&#x7EF4;&#xFF09;&#x3002; PCA&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x964D;&#x4F4E;&#x7EF4;&#x6570;&#x5E76;&#x540C;&#x65F6;&#x4FDD;&#x7559;&#x5927;&#x90E8;&#x5206;&#x53EF;&#x63CF;&#x8FF0;&#x7684;&#x65B9;&#x5DEE;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x53EF;&#x9009;&#x53C2;&#x6570; <code>svd_solver=&apos;randomized&apos;</code> &#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x3002;&#x65E2;&#x7136;&#x6211;&#x4EEC;&#x5C06;&#x8981;&#x4E22;&#x5F03;&#x5927;&#x90E8;&#x5206;&#x5947;&#x5F02;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x4EC5;&#x4EC5;&#x5C31;&#x5B9E;&#x9645;&#x8F6C;&#x6362;&#x4E2D;&#x6240;&#x9700;&#x7684;&#x5947;&#x5F02;&#x5411;&#x91CF;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97; PCA &#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x53D8;&#x5F97;&#x5F02;&#x5E38;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;&#x4EE5;&#x4E0B;&#x663E;&#x793A;&#x4E86;&#x6765;&#x81EA; Olivetti &#x6570;&#x636E;&#x96C6;&#x7684; 16 &#x4E2A;&#x6837;&#x672C;&#x8096;&#x50CF;&#xFF08;&#x4EE5; 0.0 &#x4E3A;&#x4E2D;&#x5FC3;&#xFF09;&#x3002;&#x53F3;&#x4FA7;&#x662F;&#x524D; 16 &#x4E2A;&#x5947;&#x5F02;&#x5411;&#x91CF;&#x91CD;&#x753B;&#x7684;&#x8096;&#x50CF;&#x3002;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5927;&#x5C0F;&#x4E3A; <img src="img/eba6c21adbb5d5905624446cc970a7d3.jpg" alt="n_{samples} = 400"> &#x548C; <img src="img/f34cef4cb73bfa4cbe2f9b4300a8940c.jpg" alt="n_{features} = 64 \times 64 = 4096"> &#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x524D; 16 &#x4E2A;&#x5947;&#x5F02;&#x5411;&#x91CF;, &#x4F7F;&#x5F97;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x5C0F;&#x4E8E; 1 &#x79D2;&#x3002;</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/4b3d9c4467b467af3714ba45c54e5c2e.jpg" alt="orig_img"></a> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/9a55689143b2e4d90adcdfe1f95b9ffd.jpg" alt="pca_img"></a></strong></p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4F7F;&#x7528;&#x53EF;&#x9009;&#x53C2;&#x6570; <code>svd_solver=&apos;randomized&apos;</code> &#xFF0C;&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x4E2D;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x7ED9;&#x51FA;&#x8F93;&#x5165;&#x4F4E;&#x7EF4;&#x7A7A;&#x95F4;&#x5927;&#x5C0F; <code>n_components</code> &#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#x5230;, &#x5982;&#x679C; <img src="img/a6dba4aa006d4689de18a4de5acaa949.jpg" alt="n_{\max} = \max(n_{\mathrm{samples}}, n_{\mathrm{features}})"> &#x4E14; <img src="img/c3c22734435fdd94f6819708bc55d8a6.jpg" alt="n_{\min} = \min(n_{\mathrm{samples}}, n_{\mathrm{features}})">, &#x5BF9;&#x4E8E;PCA&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x968F;&#x673A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;&#xFF1A;<img src="img/3a876d35f8a2c82a19a71b0fd52f7153.jpg" alt="O(n_{\max}^2 \cdot n_{\mathrm{components}})">, &#x800C;&#x4E0D;&#x662F; <img src="img/38a411931f9f49e71b888f7998427122.jpg" alt="O(n_{\max}^2 \cdot n_{\min})"> &#x3002;</p>
+<p>&#x5C31;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x800C;&#x8A00;, &#x968F;&#x673A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;&#x91CF;&#x548C; <img src="img/e7a3ba1e52e7e8add5e2c14602a92e3a.jpg" alt="2 \cdot n_{\max} \cdot n_{\mathrm{components}}">, &#x800C;&#x4E0D;&#x662F; <img src="img/d3c1bd7a2bac2e7cc22203e423d56e7e.jpg" alt="n_{\max}\cdot n_{\min}"> &#x6210;&#x6B63;&#x6BD4;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x9009;&#x62E9;&#x53C2;&#x6570; <code>svd_solver=&apos;randomized&apos;</code> &#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x7684; <code>inverse_transform</code> &#x7684;&#x5B9E;&#x73B0;, &#x5E76;&#x4E0D;&#x662F;&#x5BF9;&#x5E94; <code>transform</code> &#x7684;&#x9006;&#x53D8;&#x6362;&#xFF08;&#x5373;&#x4F7F; &#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684; <code>whiten=False</code>&#xFF09;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html#sphx-glr-auto-examples-applications-plot-face-recognition-py" target="_blank">Faces recognition example using eigenfaces and SVMs</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html#sphx-glr-auto-examples-decomposition-plot-faces-decomposition-py" target="_blank">Faces dataset decompositions</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="http://arxiv.org/abs/0909.4061" target="_blank">&#x201C;Finding structure with randomness: Stochastic algorithms for constructing approximate matrix decompositions&#x201D;</a> Halko, et al., 2009</li>
+</ul>
+</blockquote>
+<h3 id="2514-&#x6838;-pca">2.5.1.4. &#x6838; PCA</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html#sklearn.decomposition.KernelPCA" title="sklearn.decomposition.KernelPCA" target="_blank"><code>KernelPCA</code></a> &#x662F; PCA &#x7684;&#x6269;&#x5C55;&#xFF0C;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x6838;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x975E;&#x7EBF;&#x6027;&#x964D;&#x7EF4;&#xFF08;dimensionality reduction&#xFF09; (&#x53C2;&#x9605; <a href="metrics.html#metrics">&#x6210;&#x5BF9;&#x7684;&#x77E9;&#x9635;, &#x7C7B;&#x522B;&#x548C;&#x6838;&#x51FD;&#x6570;</a>)&#x3002; &#x5B83;&#x5177;&#x6709;&#x8BB8;&#x591A;&#x5E94;&#x7528;&#xFF0C;&#x5305;&#x62EC;&#x53BB;&#x566A;, &#x538B;&#x7F29;&#x548C;&#x7ED3;&#x6784;&#x5316;&#x9884;&#x6D4B;&#xFF08; structured prediction &#xFF09; (kernel dependency estimation&#xFF08;&#x5185;&#x6838;&#x4F9D;&#x8D56;&#x4F30;&#x8BA1;&#xFF09;)&#x3002;
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.KernelPCA.html#sklearn.decomposition.KernelPCA" title="sklearn.decomposition.KernelPCA" target="_blank"><code>KernelPCA</code></a> &#x652F;&#x6301; <code>transform</code> &#x548C; <code>inverse_transform</code> &#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_kernel_pca.html" target="_blank"><img src="img/64ecb0afa71752378a987a33e1e4e76f.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_kernel_pca_0011.png"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_kernel_pca.html#sphx-glr-auto-examples-decomposition-plot-kernel-pca-py" target="_blank">Kernel PCA</a></li>
+</ul>
+</blockquote>
+<h3 id="2515-&#x7A00;&#x758F;&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;--sparsepca-&#x548C;-minibatchsparsepca-">2.5.1.5. &#x7A00;&#x758F;&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790; ( SparsePCA &#x548C; MiniBatchSparsePCA )</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html#sklearn.decomposition.SparsePCA" title="sklearn.decomposition.SparsePCA" target="_blank"><code>SparsePCA</code></a> &#x662F; PCA &#x7684;&#x4E00;&#x4E2A;&#x53D8;&#x4F53;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x63D0;&#x53D6;&#x80FD;&#x6700;&#x5927;&#x7A0B;&#x5EA6;&#x5F97;&#x91CD;&#x5EFA;&#x6570;&#x636E;&#x7684;&#x7A00;&#x758F;&#x5206;&#x91CF;&#x96C6;&#x5408;&#x3002;</p>
+<p>&#x5C0F;&#x6279;&#x91CF;&#x7A00;&#x758F; PCA ( <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.MiniBatchSparsePCA.html#sklearn.decomposition.MiniBatchSparsePCA" title="sklearn.decomposition.MiniBatchSparsePCA" target="_blank"><code>MiniBatchSparsePCA</code></a> ) &#x662F;&#x4E00;&#x4E2A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparsePCA.html#sklearn.decomposition.SparsePCA" title="sklearn.decomposition.SparsePCA" target="_blank"><code>SparsePCA</code></a> &#x7684;&#x53D8;&#x4F53;&#xFF0C;&#x5B83;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x4F46;&#x51C6;&#x786E;&#x5EA6;&#x6709;&#x6240;&#x964D;&#x4F4E;&#x3002;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#xFF0C;&#x901A;&#x8FC7;&#x8FED;&#x4EE3;&#x8BE5;&#x7EC4;&#x7279;&#x5F81;&#x7684;&#x5C0F;&#x5757;&#x6765;&#x8FBE;&#x5230;&#x901F;&#x5EA6;&#x7684;&#x589E;&#x52A0;&#x3002;</p>
+<p>Principal component analysis&#xFF08;&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF09; (<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a>) &#x7684;&#x7F3A;&#x70B9;&#x5728;&#x4E8E;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x63D0;&#x53D6;&#x7684;&#x6210;&#x5206;&#x5177;&#x6709;&#x72EC;&#x5360;&#x7684;&#x5BC6;&#x5EA6;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5373;&#x5F53;&#x8868;&#x793A;&#x4E3A;&#x539F;&#x59CB;&#x53D8;&#x91CF;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x5177;&#x6709;&#x975E;&#x96F6;&#x7CFB;&#x6570;&#xFF0C;&#x4F7F;&#x4E4B;&#x96BE;&#x4EE5;&#x89E3;&#x91CA;&#x3002;&#x5728;&#x8BB8;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x771F;&#x6B63;&#x7684;&#x57FA;&#x7840;&#x5206;&#x91CF;&#x53EF;&#x4EE5;&#x88AB;&#x66F4;&#x81EA;&#x7136;&#x5730;&#x60F3;&#x8C61;&#x4E3A;&#x7A00;&#x758F;&#x5411;&#x91CF;; &#x4F8B;&#x5982;&#x5728;&#x9762;&#x90E8;&#x8BC6;&#x522B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x5206;&#x91CF;&#x53EF;&#x80FD;&#x81EA;&#x7136;&#x5730;&#x6620;&#x5C04;&#x5230;&#x9762;&#x90E8;&#x7684;&#x67D0;&#x4E2A;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x7A00;&#x758F;&#x7684;&#x4E3B;&#x6210;&#x5206;&#x4EA7;&#x751F;&#x66F4;&#x8282;&#x7EA6;&#x3001;&#x53EF;&#x89E3;&#x91CA;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x660E;&#x786E;&#x5F3A;&#x8C03;&#x4E86;&#x6837;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#x6027;&#x6765;&#x81EA;&#x54EA;&#x4E9B;&#x539F;&#x59CB;&#x7279;&#x5F81;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x4F7F;&#x7528;&#x7A00;&#x758F; PCA &#x63D0;&#x53D6; Olivetti &#x4EBA;&#x8138;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684; 16 &#x4E2A;&#x5206;&#x91CF;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6B63;&#x5219;&#x5316;&#x9879;&#x4EA7;&#x751F;&#x4E86;&#x8BB8;&#x591A;&#x96F6;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x81EA;&#x7136;&#x7ED3;&#x6784;&#x5BFC;&#x81F4;&#x4E86;&#x975E;&#x96F6;&#x7CFB;&#x6570;&#x5782;&#x76F4;&#x76F8;&#x90BB; &#xFF08;vertically adjacent&#xFF09;&#x3002;&#x8BE5;&#x6A21;&#x578B;&#x5E76;&#x4E0D;&#x5177;&#x5907;&#x7EAF;&#x6570;&#x5B66;&#x610F;&#x4E49;&#x7684;&#x6267;&#x884C;: &#x6BCF;&#x4E2A;&#x5206;&#x91CF;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF; <img src="img/0fac1c7ec23344da41ff45485bb3ac12.jpg" alt="h \in \mathbf{R}^{4096}">, &#x9664;&#x975E;&#x4EBA;&#x6027;&#x5316;&#x5730;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x4E3A; 64x64 &#x50CF;&#x7D20;&#x7684;&#x56FE;&#x50CF;&#xFF0C;&#x5426;&#x5219;&#x6CA1;&#x6709;&#x5782;&#x76F4;&#x76F8;&#x90BB;&#x6027;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x4E0B;&#x9762;&#x663E;&#x793A;&#x7684;&#x5206;&#x91CF;&#x770B;&#x8D77;&#x6765;&#x5C40;&#x90E8;&#x5316;&#xFF08;appear local)&#x662F;&#x6570;&#x636E;&#x7684;&#x5185;&#x5728;&#x7ED3;&#x6784;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x8FD9;&#x79CD;&#x5C40;&#x90E8;&#x6A21;&#x5F0F;&#x4F7F;&#x91CD;&#x5EFA;&#x8BEF;&#x5DEE;&#x6700;&#x5C0F;&#x5316;&#x3002;&#x6709;&#x4E00;&#x79CD;&#x8003;&#x8651;&#x5230;&#x90BB;&#x63A5;&#x6027;&#x548C;&#x4E0D;&#x540C;&#x7ED3;&#x6784;&#x7C7B;&#x578B;&#x7684;&#x5BFC;&#x81F4;&#x7A00;&#x758F;&#x7684;&#x89C4;&#x8303;&#xFF08;sparsity-inducing norms&#xFF09;,&#x53C2;&#x89C1; <a href="#jen09">[Jen09]</a> &#x5BF9;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4E86;&#x89E3;&#x3002;&#x6709;&#x5173;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7A00;&#x758F; PCA &#x7684;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x90E8;&#x5206;&#x3002;</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/9a55689143b2e4d90adcdfe1f95b9ffd.jpg" alt="pca_img"></a> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/aba080a369ca542a90a264a04dd518c5.jpg" alt="spca_img"></a></strong></p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6709;&#x591A;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x8BA1;&#x7B97;&#x7A00;&#x758F;PCA &#x95EE;&#x9898;&#x7684;&#x516C;&#x5F0F;&#x3002; &#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x57FA;&#x4E8E; <a href="#mrl09">[Mrl09]</a> &#x3002;&#x5BF9;&#x5E94;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x7684;&#x89E3;&#x51B3;&#x662F;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x60E9;&#x7F5A;&#x9879;&#xFF08;L1&#x8303;&#x6570;&#x7684;&#xFF09; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1"> &#x7684; PCA &#x95EE;&#x9898;&#xFF08;dictionary learning&#xFF08;&#x5B57;&#x5178;&#x5B66;&#x4E60;&#xFF09;&#xFF09;:</p>
+<p><img src="img/d6d6e6638cd01ead4811579660e36b44.jpg" alt="(U^*, V^*) = \underset{U, V}{\operatorname{arg\,min\,}} &amp; \frac{1}{2}||X-UV||_2^2+\alpha||V||_1 \\\text{subject to\,} &amp; ||U_k||_2 = 1 \text{ for all }0 \leq k &lt; n_{components}"></p>
+<p>&#x7A00;&#x758F;&#x63A8;&#x5BFC;&#xFF08;sparsity-inducing&#xFF09; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1"> &#x89C4;&#x8303;&#x4E5F;&#x53EF;&#x4EE5;&#x5F53;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x5F88;&#x5C11;&#x65F6;,&#x907F;&#x514D;&#x4ECE;&#x566A;&#x58F0;&#x4E2D;&#x62DF;&#x5408;&#x5206;&#x91CF;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8D85;&#x53C2;&#x6570; <code>alpha</code> &#x6765;&#x8C03;&#x6574;&#x60E9;&#x7F5A;&#x7A0B;&#x5EA6;&#xFF08;&#x6216;&#x79F0;&#x7A00;&#x758F;&#x5EA6;&#xFF09;&#x3002;&#x503C;&#x8F83;&#x5C0F;&#x4F1A;&#x5BFC;&#x81F4;&#x6E29;&#x548C;&#x7684;&#x6B63;&#x5219;&#x5316;&#x56E0;&#x5F0F;&#x5206;&#x89E3;&#xFF0C;&#x800C;&#x8F83;&#x5927;&#x7684;&#x503C;&#x5C06;&#x8BB8;&#x591A;&#x7CFB;&#x6570;&#x7F29;&#x5C0F;&#x5230;&#x96F6;&#x3002;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>
+&#x867D;&#x7136;&#x672C;&#x7740;&#x5728;&#x7EBF;&#x7B97;&#x6CD5;&#x7684;&#x7CBE;&#x795E;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.MiniBatchSparsePCA.html#sklearn.decomposition.MiniBatchSparsePCA" title="sklearn.decomposition.MiniBatchSparsePCA" target="_blank"><code>MiniBatchSparsePCA</code></a> &#x7C7B;&#x4E0D;&#x5B9E;&#x73B0; <code>partial_fit</code> , &#x56E0;&#x4E3A;&#x5728;&#x7EBF;&#x7B97;&#x6CD5;&#x662F;&#x4EE5;&#x7279;&#x5F81;&#x4E3A;&#x5BFC;&#x5411;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4EE5;&#x6837;&#x672C;&#x4E3A;&#x5BFC;&#x5411;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html#sphx-glr-auto-examples-decomposition-plot-faces-decomposition-py" target="_blank">Faces dataset decompositions</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>[Mrl09] <a href="http://www.di.ens.fr/sierra/pdfs/icml09.pdf" target="_blank">&#x201C;Online Dictionary Learning for Sparse Coding&#x201D;</a> J. Mairal, F. Bach, J. Ponce, G. Sapiro, 2009</li>
+<li>[Jen09] <a href="www.di.ens.fr/~fbach/sspca_AISTATS2010.pdf">&#x201C;Structured Sparse Principal Component Analysis&#x201D;</a> R. Jenatton, G. Obozinski, F. Bach, 2009</li>
+</ul>
+</blockquote>
+<h2 id="252-&#x622A;&#x65AD;&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;&#x548C;&#x9690;&#x8BED;&#x4E49;&#x5206;&#x6790;">2.5.2. &#x622A;&#x65AD;&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;&#x548C;&#x9690;&#x8BED;&#x4E49;&#x5206;&#x6790;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html#sklearn.decomposition.TruncatedSVD" title="sklearn.decomposition.TruncatedSVD" target="_blank"><code>TruncatedSVD</code></a> &#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;&#xFF08;SVD&#xFF09;&#x7684;&#x53D8;&#x4F53;&#xFF0C;&#x5B83;&#x53EA;&#x8BA1;&#x7B97; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x4E2A;&#x6700;&#x5927;&#x7684;&#x5947;&#x5F02;&#x503C;&#xFF0C;&#x5176;&#x4E2D; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x662F;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5F53;&#x622A;&#x65AD;&#x7684; SVD&#x88AB;&#x5E94;&#x7528;&#x4E8E; term-document&#x77E9;&#x9635;&#xFF08;&#x7531; <code>CountVectorizer</code> &#x6216; <code>TfidfVectorizer</code> &#x8FD4;&#x56DE;&#xFF09;&#x65F6;&#xFF0C;&#x8FD9;&#x79CD;&#x8F6C;&#x6362;&#x88AB;&#x79F0;&#x4E3A; <a href="http://nlp.stanford.edu/IR-book/pdf/18lsi.pdf" target="_blank">latent semantic analysis</a> (LSA), &#x56E0;&#x4E3A;&#x5B83;&#x5C06;&#x8FD9;&#x6837;&#x7684;&#x77E9;&#x9635;&#x8F6C;&#x6362;&#x4E3A;&#x4F4E;&#x7EF4;&#x5EA6;&#x7684;&quot;&#x8BED;&#x4E49;&quot;&#x7A7A;&#x95F4;&#x3002;&#x7279;&#x522B;&#x5730;&#x662F; LSA &#x80FD;&#x591F;&#x62B5;&#x6297;&#x540C;&#x4E49;&#x8BCD;&#x548C;&#x591A;&#x4E49;&#x8BCD;&#x7684;&#x5F71;&#x54CD;&#xFF08;&#x4E24;&#x8005;&#x5927;&#x81F4;&#x610F;&#x5473;&#x7740;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x6709;&#x591A;&#x91CD;&#x542B;&#x4E49;&#xFF09;, &#x8FD9;&#x5BFC;&#x81F4; term-document &#x77E9;&#x9635;&#x8FC7;&#x5EA6;&#x7A00;&#x758F;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x8BF8;&#x5982;&#x4F59;&#x5F26;&#x76F8;&#x4F3C;&#x6027;&#x7684;&#x5EA6;&#x91CF;&#x4E0B;&#x8868;&#x73B0;&#x51FA;&#x5DEE;&#x7684;&#x76F8;&#x4F3C;&#x6027;&#x3002;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>
+LSA &#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x9690;&#x8BED;&#x4E49;&#x7D22;&#x5F15; LSI&#xFF0C;&#x5C3D;&#x7BA1;&#x4E25;&#x683C;&#x5730;&#x8BF4;&#x5B83;&#x662F;&#x6307;&#x7528;&#x4E8E;&#x4FE1;&#x606F;&#x68C0;&#x7D22;&#x7684;&#x6301;&#x4E45;&#x7D22;&#x5F15;&#xFF08;persistent indexes&#xFF09;&#x3002;</p>
+</blockquote>
+<p>&#x4ECE;&#x6570;&#x5B66;&#x89D2;&#x5EA6;&#x6765;&#x8BF4;, &#x8BAD;&#x7EC3;&#x6837;&#x672C; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x7528;&#x622A;&#x65AD;&#x7684;SVD &#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x4F4E;&#x79E9;&#x7684;&#xFF08; low-rank&#xFF09;&#x8FD1;&#x4F3C;&#x503C; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X">:</p>
+<p><img src="img/21b6e31779ad3b1a382b13e65ec917c7.jpg" alt="X \approx X_k = U_k \Sigma_k V_k^\top"></p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#xFF0C;<img src="img/dedef2ddd0f96df639d4c85fffb9bbd5.jpg" alt="U_k \Sigma_k^\top"> &#x662F;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x8BAD;&#x7EC3;&#x96C6;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x4E2A;&#x7279;&#x5F81;&#xFF08;&#x5728; API &#x4E2D;&#x88AB;&#x79F0;&#x4E3A; <code>n_components</code> &#xFF09;&#x3002;</p>
+<p>&#x8FD8;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x96C6; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X">, &#x6211;&#x4EEC;&#x4E58;&#x4EE5; <img src="img/cc41a8d314f9b97ecdf236aa0c21d984.jpg" alt="V_k">:</p>
+<p><img src="img/6081a672a0d5d6cc7563c531599dde91.jpg" alt="X&apos; = X V_k"></p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>
+&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;(NLP) &#x548C;&#x4FE1;&#x606F;&#x68C0;&#x7D22;(IR) &#x6587;&#x732E;&#x4E2D;&#x7684; LSA &#x7684;&#x5927;&#x591A;&#x6570;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x662F;&#x4EA4;&#x6362;&#x77E9;&#x9635; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x7684;&#x5750;&#x6807;&#x8F74;,&#x4F7F;&#x5176;&#x5177;&#x6709; <code>n_features</code> &#xD7; <code>n_samples</code> &#x7684;&#x5F62;&#x72B6;&#x3002; &#x6211;&#x4EEC; &#x5728; scikit-learn API &#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x65B9;&#x5F0F;&#x5448;&#x73B0; LSA, &#x627E;&#x5230;&#x7684;&#x5947;&#x5F02;&#x503C;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;</p>
+</blockquote>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html#sklearn.decomposition.TruncatedSVD" title="sklearn.decomposition.TruncatedSVD" target="_blank"><code>TruncatedSVD</code></a> &#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x4E8E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a>, &#x4F46;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#x5B83;&#x5E94;&#x7528;&#x4E8E;&#x6837;&#x672C;&#x77E9;&#x9635; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x800C;&#x4E0D;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x3002;&#x5F53;&#x4ECE;&#x7279;&#x5F81;&#x503C;&#x4E2D;&#x51CF;&#x53BB; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x7684;&#x6BCF;&#x5217;&#xFF08;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;per-feature&#xFF09;&#x7684;&#x5747;&#x503C;&#x65F6;&#xFF0C;&#x5728;&#x5F97;&#x5230;&#x7684;&#x77E9;&#x9635;&#x4E0A;&#x5E94;&#x7528; truncated SVD &#x76F8;&#x5F53;&#x4E8E; PCA &#x3002; &#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html#sklearn.decomposition.TruncatedSVD" title="sklearn.decomposition.TruncatedSVD" target="_blank"><code>TruncatedSVD</code></a> &#x8F6C;&#x6362;&#x5668;&#xFF08;transformer&#xFF09;&#x63A5;&#x53D7; <code>scipy.sparse</code> &#x77E9;&#x9635;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x5B83;&#x4EEC;&#x8FDB;&#x884C;&#x5BC6;&#x96C6;&#xFF08;densify&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;&#x5BF9;&#x4E8E;&#x4E2D;&#x578B;&#x5927;&#x5C0F;&#x6587;&#x6863;&#x7684;&#x96C6;&#x5408;, &#x5BC6;&#x96C6;&#x5316; &#xFF08;densifying&#xFF09;&#x4E5F;&#x53EF;&#x80FD;&#x586B;&#x6EE1;&#x5185;&#x5B58;&#x3002;</p>
+<p>&#x867D;&#x7136; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html#sklearn.decomposition.TruncatedSVD" title="sklearn.decomposition.TruncatedSVD" target="_blank"><code>TruncatedSVD</code></a> &#x8F6C;&#x6362;&#x5668;&#xFF08;transformer&#xFF09;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#xFF08;&#x7A00;&#x758F;&#x7684;&#xFF09;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x4E0A;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F46;&#x8FD8;&#x662F;&#x5EFA;&#x8BAE;&#x5728; LSA/document &#x5904;&#x7406;&#x80CC;&#x666F;&#x4E2D;&#xFF0C;&#x5728; tf&#x2013;idf &#x77E9;&#x9635;&#x4E0A;&#x7684;&#x539F;&#x59CB;&#x9891;&#x7387;&#x8BA1;&#x6570;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x7279;&#x522B;&#x5730;&#xFF0C;&#x5E94;&#x8BE5;&#x6253;&#x5F00;&#x5B50;&#x7EBF;&#x6027;&#x7F29;&#x653E;&#xFF08;sublinear scaling&#xFF09;&#x548C;&#x9006;&#x6587;&#x6863;&#x9891;&#x7387;&#xFF08;inverse document frequency&#xFF09; (<code>sublinear_tf=True, use_idf=True</code>) &#x4EE5;&#x4F7F;&#x7279;&#x5F81;&#x503C;&#x66F4;&#x63A5;&#x8FD1;&#x4E8E;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#xFF0C;&#x8865;&#x507F; LSA &#x5BF9;&#x6587;&#x672C;&#x6570;&#x636E;&#x7684;&#x9519;&#x8BEF;&#x5047;&#x8BBE;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/text/document_clustering.html#sphx-glr-auto-examples-text-document-clustering-py" target="_blank">Clustering text documents using k-means</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>Christopher D. Manning, Prabhakar Raghavan and Hinrich Sch&#xFC;tze (2008), <em>Introduction to Information Retrieval</em>, Cambridge University Press, chapter 18: <a href="http://nlp.stanford.edu/IR-book/pdf/18lsi.pdf" target="_blank">Matrix decompositions &amp; latent semantic indexing</a></li>
+</ul>
+</blockquote>
+<h2 id="253-&#x8BCD;&#x5178;&#x5B66;&#x4E60;">2.5.3. &#x8BCD;&#x5178;&#x5B66;&#x4E60;</h2>
+<h3 id="2531-&#x5E26;&#x6709;&#x9884;&#x8BA1;&#x7B97;&#x8BCD;&#x5178;&#x7684;&#x7A00;&#x758F;&#x7F16;&#x7801;">2.5.3.1. &#x5E26;&#x6709;&#x9884;&#x8BA1;&#x7B97;&#x8BCD;&#x5178;&#x7684;&#x7A00;&#x758F;&#x7F16;&#x7801;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.SparseCoder.html#sklearn.decomposition.SparseCoder" title="sklearn.decomposition.SparseCoder" target="_blank"><code>SparseCoder</code></a> &#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x4F30;&#x8BA1;&#x5668; &#xFF08;estimator&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5C06;&#x4FE1;&#x53F7;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;,&#x9884;&#x8BA1;&#x7B97;&#x7684;&#x8BCD;&#x5178;&#x5185;&#x539F;&#x5B50;&#xFF08;atoms&#xFF09;&#x7684;&#x7A00;&#x758F;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#xFF08;sparse linear combination&#xFF09;&#xFF0C;&#x5982;&#x79BB;&#x6563;&#x5C0F;&#x6CE2;&#x57FA;&#xFF08; discrete wavelet basis &#xFF09;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x4E0D;&#x5B9E;&#x73B0; <code>fit</code> &#x65B9;&#x6CD5;&#x3002;&#x8BE5;&#x8F6C;&#x6362;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x7A00;&#x758F;&#x7F16;&#x7801;&#x95EE;&#x9898;: &#x5C06;&#x6570;&#x636E;&#x7684;&#x8868;&#x793A;&#x4E3A;&#x5C3D;&#x53EF;&#x80FD;&#x5C11;&#x7684;&#x8BCD;&#x5178;&#x539F;&#x5B50;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x3002; &#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x7684;&#x6240;&#x6709;&#x53D8;&#x4F53;&#x5B9E;&#x73B0;&#x4EE5;&#x4E0B;&#x53D8;&#x6362;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>transform_method</code> &#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x63A7;&#x5236;:</p>
+<ul>
+<li>Orthogonal matching pursuit(&#x8FFD;&#x6C42;&#x6B63;&#x4EA4;&#x5339;&#x914D;) (<a href="linear_model.html#omp">&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#x6CD5;&#xFF08;OMP&#xFF09;</a>)</li>
+<li>Least-angle regression (&#x6700;&#x5C0F;&#x89D2;&#x5EA6;&#x56DE;&#x5F52;)(<a href="linear_model.html#least-angle-regression">&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;</a>)</li>
+<li>Lasso computed by least-angle regression(&#x6700;&#x5C0F;&#x89D2;&#x5EA6;&#x56DE;&#x5F52;&#x7684;Lasso &#x8BA1;&#x7B97;)</li>
+<li>Lasso using coordinate descent ( &#x4F7F;&#x7528;&#x5750;&#x6807;&#x4E0B;&#x964D;&#x7684;Lasso)(<a href="linear_model.html#lasso">Lasso</a>)</li>
+<li>Thresholding(&#x9608;&#x503C;)</li>
+</ul>
+<p>&#x9608;&#x503C;&#x65B9;&#x6CD5;&#x901F;&#x5EA6;&#x975E;&#x5E38;&#x5FEB;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x4EA7;&#x751F;&#x7CBE;&#x786E;&#x7684;&#x91CD;&#x5EFA;&#x3002; &#x5B83;&#x4EEC;&#x5728;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#x7684;&#x6587;&#x732E;&#x4E2D;&#x5DF2;&#x88AB;&#x8BC1;&#x660E;&#x662F;&#x6709;&#x7528;&#x7684;&#x3002;&#x5BF9;&#x4E8E;&#x56FE;&#x50CF;&#x91CD;&#x5EFA;&#x4EFB;&#x52A1;&#xFF0C;&#x8FFD;&#x6C42;&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x6700;&#x7CBE;&#x786E;&#x3001;&#x65E0;&#x504F;&#x7684;&#x91CD;&#x5EFA;&#x3002;</p>
+<p>&#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x5BF9;&#x8C61;&#x901A;&#x8FC7; <code>split_code</code> &#x53C2;&#x6570;&#x63D0;&#x4F9B;&#x7A00;&#x758F;&#x7F16;&#x7801;&#x7ED3;&#x679C;&#x4E2D;&#x7684;&#x6B63;&#x503C;&#x548C;&#x8D1F;&#x503C;&#x5206;&#x79BB;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x3002;&#x5F53;&#x4F7F;&#x7528;&#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x6765;&#x63D0;&#x53D6;&#x5C06;&#x7528;&#x4E8E;&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7684;&#x7279;&#x5F81;&#x65F6;&#xFF0C;&#x8FD9;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5141;&#x8BB8;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x91CD;&#x4ECE;&#x6B63;&#x52A0;&#x8F7D;&#xFF08;loading&#xFF09;&#x5206;&#x914D;&#x7ED9;&#x76F8;&#x5E94;&#x7684;&#x8D1F;&#x52A0;&#x8F7D;&#x7684;&#x7279;&#x5B9A;&#x539F;&#x5B50;&#x3002;</p>
+<p>&#x5355;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x5206;&#x5272;&#x7F16;&#x7801;&#x5177;&#x6709;&#x957F;&#x5EA6; <code>2 * n_components</code> &#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x89C4;&#x5219;&#x6784;&#x9020;: &#x9996;&#x5148;&#xFF0C;&#x8BA1;&#x7B97;&#x957F;&#x5EA6;&#x4E3A; <code>n_components</code> &#x7684;&#x5E38;&#x89C4;&#x7F16;&#x7801;&#x3002;&#x7136;&#x540E;&#xFF0C; <code>split_code</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A; <code>n_components</code> &#x6761;&#x76EE;&#x5C06;&#x7528;&#x5E38;&#x89C4;&#x7F16;&#x7801;&#x5411;&#x91CF;&#x7684;&#x6B63;&#x90E8;&#x5206;&#x586B;&#x5145;&#x3002;&#x5206;&#x5272;&#x7F16;&#x7801;&#x7684;&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#x7528;&#x7F16;&#x7801;&#x5411;&#x91CF;&#x7684;&#x8D1F;&#x90E8;&#x5206;&#x586B;&#x5145;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6B63;&#x53F7;&#x3002;&#x56E0;&#x6B64;&#xFF0C; split_code &#x662F;&#x975E;&#x8D1F;&#x7684;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_sparse_coding.html#sphx-glr-auto-examples-decomposition-plot-sparse-coding-py" target="_blank">Sparse coding with a precomputed dictionary</a></li>
+</ul>
+</blockquote>
+<h3 id="2532-&#x901A;&#x7528;&#x8BCD;&#x5178;&#x5B66;&#x4E60;">2.5.3.2. &#x901A;&#x7528;&#x8BCD;&#x5178;&#x5B66;&#x4E60;</h3>
+<p>&#x8BCD;&#x5178;&#x5B66;&#x4E60;( <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.DictionaryLearning.html#sklearn.decomposition.DictionaryLearning" title="sklearn.decomposition.DictionaryLearning" target="_blank"><code>DictionaryLearning</code></a> ) &#x662F;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x56E0;&#x5F0F;&#x5206;&#x89E3;&#x95EE;&#x9898;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5728;&#x62DF;&#x5408;&#x6570;&#x636E;&#x7684;&#x7A00;&#x758F;&#x7F16;&#x7801;&#x4E2D;&#x8868;&#x73B0;&#x826F;&#x597D;&#x7684;&#xFF08;&#x901A;&#x5E38;&#x662F;&#x8FC7;&#x5B8C;&#x5907;&#x7684;&#xFF08;overcomplete&#xFF09;&#xFF09;&#x8BCD;&#x5178;&#x3002;</p>
+<p> &#x4F7F;&#x7528;&#x8FC7;&#x5B8C;&#x5907;&#x8BCD;&#x5178;&#x7684;&#x539F;&#x5B50;&#x7684;&#x7A00;&#x758F;&#x7EC4;&#x5408;&#x6765;&#x8868;&#x793A;&#x6570;&#x636E;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x54FA;&#x4E73;&#x52A8;&#x7269;&#x521D;&#x7EA7;&#x89C6;&#x89C9;&#x76AE;&#x5C42;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x8865;&#x4E01;&#x7684;&#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x5DF2;&#x88AB;&#x8BC1;&#x660E;&#x5728;&#x8BF8;&#x5982;&#x56FE;&#x50CF;&#x5B8C;&#x6210;&#x3001;&#x4FEE;&#x590D;&#x548C;&#x53BB;&#x566A;&#xFF0C;&#x4EE5;&#x53CA;&#x6709;&#x76D1;&#x7763;&#x7684;&#x8BC6;&#x522B;&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#x4E2D;&#x8868;&#x73B0;&#x826F;&#x597D;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x88AB;&#x89C6;&#x4E3A;&#x901A;&#x8FC7;&#x4EA4;&#x66FF;&#x66F4;&#x65B0;&#x7A00;&#x758F;&#x7F16;&#x7801;&#x6765;&#x89E3;&#x51B3;&#x7684;&#x4F18;&#x5316;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x4F5C;&#x4E3A;&#x89E3;&#x51B3;&#x591A;&#x4E2A; Lasso &#x95EE;&#x9898;&#x7684;&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x5B57;&#x5178;&#x56FA;&#x5B9A;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x66F4;&#x65B0;&#x5B57;&#x5178;&#x4EE5;&#x6700;&#x5927;&#x7A0B;&#x5EA6;&#x7684;&#x62DF;&#x5408;&#x51FA;&#x7A00;&#x758F;&#x7F16;&#x7801;&#x3002;</p>
+<p><img src="img/9b4b00422c0cec29f80a03fe1d772100.jpg" alt="(U^*, V^*) = \underset{U, V}{\operatorname{arg\,min\,}} &amp; \frac{1}{2}||X-UV||_2^2+\alpha||U||_1 \\\text{subject to\,} &amp; ||V_k||_2 = 1 \text{ for all }0 \leq k &lt; n_{\mathrm{atoms}}"></p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/9a55689143b2e4d90adcdfe1f95b9ffd.jpg" alt="pca_img2"></a> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/86f7969b00fb3d0914f0bababac102a0.jpg" alt="dict_img2"></a></strong></p>
+<p>&#x5728;&#x4F7F;&#x7528;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#x6765;&#x62DF;&#x5408;&#x8BCD;&#x5178;&#x4E4B;&#x540E;&#xFF0C;&#x53D8;&#x6362;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x7A00;&#x758F;&#x7F16;&#x7801;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x4E0E;&#x6240;&#x6709;&#x7684;&#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x5BF9;&#x8C61;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x3002;(&#x53C2;&#x89C1; <a href="#sparsecoder">&#x5E26;&#x6709;&#x9884;&#x8BA1;&#x7B97;&#x8BCD;&#x5178;&#x7684;&#x7A00;&#x758F;&#x7F16;&#x7801;</a>)&#x3002;</p>
+<p> &#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9650;&#x5236;&#x5B57;&#x5178;&#x548C;/&#x6216;&#x7F16;&#x7801;&#x4E3A;&#x6B63;&#x6765;&#x5339;&#x914D;&#x6570;&#x636E;&#x4E2D;&#x53EF;&#x80FD;&#x8868;&#x73B0;&#x7684;&#x7EA6;&#x675F;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x6B63;&#x7EA6;&#x675F;&#x5E94;&#x7528;&#x7684;&#x8138;&#x90E8;&#x56FE;&#x50CF;&#x3002;&#x7EA2;&#x8272;&#x8868;&#x793A;&#x8D1F;&#x503C;, &#x84DD;&#x8272;&#x8868;&#x793A;&#x6B63;&#x503C;,&#x767D;&#x8272;&#x8868;&#x793A;&#x96F6;&#x503C;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html" target="_blank"><img src="img/sphx_glr_plot_faces_decomposition_0111.png" alt="dl"></a>
+<a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html" target="_blank"><img src="img/sphx_glr_plot_faces_decomposition_0121.png" alt="dl-pd"></a>
+<a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html" target="_blank"><img src="img/sphx_glr_plot_faces_decomposition_0131.png" alt="dl-pc"></a>
+<a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html" target="_blank"><img src="img/sphx_glr_plot_faces_decomposition_0141.png" alt="dl-pd&amp;pc"></a></p>
+<p>&#x4EE5;&#x4E0B;&#x56FE;&#x50CF;&#x663E;&#x793A;&#x4E86;&#x5B57;&#x5178;&#x5B66;&#x4E60;&#x662F;&#x5982;&#x4F55;&#x4ECE;&#x6D63;&#x718A;&#x8138;&#x90E8;&#x7684;&#x90E8;&#x5206;&#x56FE;&#x50CF;&#x4E2D;&#x63D0;&#x53D6;&#x7684;4x4&#x50CF;&#x7D20;&#x56FE;&#x50CF;&#x8865;&#x4E01;&#x4E2D;&#x8FDB;&#x884C;&#x8BCD;&#x5178;&#x5B66;&#x4E60;&#x7684;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html" target="_blank"><img src="img/1cde7e5f92efe9056f9f53e23ea04102.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_image_denoising_0011.png"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html#sphx-glr-auto-examples-decomposition-plot-image-denoising-py" target="_blank">Image denoising using dictionary learning</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="http://www.di.ens.fr/sierra/pdfs/icml09.pdf" target="_blank">&#x201C;Online dictionary learning for sparse coding&#x201D;</a> J. Mairal, F. Bach, J. Ponce, G. Sapiro, 2009</li>
+</ul>
+</blockquote>
+<h3 id="2533-&#x5C0F;&#x6279;&#x91CF;&#x5B57;&#x5178;&#x5B66;&#x4E60;">2.5.3.3. &#x5C0F;&#x6279;&#x91CF;&#x5B57;&#x5178;&#x5B66;&#x4E60;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.MiniBatchDictionaryLearning.html#sklearn.decomposition.MiniBatchDictionaryLearning" title="sklearn.decomposition.MiniBatchDictionaryLearning" target="_blank"><code>MiniBatchDictionaryLearning</code></a> &#x5B9E;&#x73B0;&#x4E86;&#x66F4;&#x5FEB;&#x3001;&#x66F4;&#x9002;&#x5408;&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5B57;&#x5178;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#xFF0C;&#x5176;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#xFF0C;&#x4F46;&#x51C6;&#x786E;&#x5EA6;&#x6709;&#x6240;&#x964D;&#x4F4E;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.MiniBatchDictionaryLearning.html#sklearn.decomposition.MiniBatchDictionaryLearning" title="sklearn.decomposition.MiniBatchDictionaryLearning" target="_blank"><code>MiniBatchDictionaryLearning</code></a> &#x5C06;&#x6570;&#x636E;&#x5206;&#x6210;&#x5C0F;&#x6279;&#x91CF;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x5728;&#x6307;&#x5B9A;&#x6B21;&#x6570;&#x7684;&#x8FED;&#x4EE3;&#x4E2D;&#x5FAA;&#x73AF;&#x4F7F;&#x7528;&#x5C0F;&#x6279;&#x91CF;&#xFF0C;&#x4EE5;&#x5728;&#x7EBF;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x76EE;&#x524D;&#x5B83;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x505C;&#x6B62;&#x6761;&#x4EF6;&#x3002;</p>
+<p>&#x4F30;&#x8BA1;&#x5668;&#x8FD8;&#x5B9E;&#x73B0;&#x4E86; <code>partial_fit</code>, &#x5B83;&#x901A;&#x8FC7;&#x5728;&#x4E00;&#x4E2A;&#x5C0F;&#x6279;&#x5904;&#x7406;&#x4E2D;&#x4EC5;&#x8FED;&#x4EE3;&#x4E00;&#x6B21;&#x6765;&#x66F4;&#x65B0;&#x5B57;&#x5178;&#x3002; &#x5F53;&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x7684;&#x6570;&#x636E;&#x4ECE;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x4E0D;&#x5BB9;&#x6613;&#x83B7;&#x5F97;&#xFF0C;&#x6216;&#x8005;&#x6570;&#x636E;&#x8D85;&#x51FA;&#x5185;&#x5B58;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x8FED;&#x4EE3;&#x65B9;&#x6CD5;&#x3002;</p>
+<blockquote>
+<p><strong>&#x5B57;&#x5178;&#x5B66;&#x4E60;&#x805A;&#x7C7B;</strong></p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_dict_face_patches.html" target="_blank"><img src="img/b335c88114c4fec7e72304006810c82c.jpg" alt="https://scikit-learn.org/stable/_images/sphx_glr_plot_dict_face_patches_001.png"></a></p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x5B57;&#x5178;&#x5B66;&#x4E60;&#x6765;&#x63D0;&#x53D6;&#x8868;&#x793A;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x7528;&#x4E8E;&#x7A00;&#x758F;&#x7F16;&#x7801;&#xFF09;&#x65F6;&#xFF0C;&#x805A;&#x7C7B;&#x53EF;&#x4EE5;&#x662F;&#x5B66;&#x4E60;&#x5B57;&#x5178;&#x7684;&#x826F;&#x597D;&#x4E2D;&#x95F4;&#x65B9;&#x6CD5;&#x3002; &#x4F8B;&#x5982;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html#sklearn.cluster.MiniBatchKMeans" title="sklearn.cluster.MiniBatchKMeans" target="_blank"><code>MiniBatchKMeans</code></a> &#x4F30;&#x8BA1;&#x5668;&#x80FD;&#x9AD8;&#x6548;&#x8BA1;&#x7B97;&#x5E76;&#x4F7F;&#x7528; <code>partial_fit</code> &#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;</strong>: &#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x9762;&#x90E8;&#x90E8;&#x5206;&#x7684;&#x5B57;&#x5178; <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_dict_face_patches.html#sphx-glr-auto-examples-cluster-plot-dict-face-patches-py" target="_blank">Online learning of a dictionary of parts of faces</a></p>
+</blockquote>
+<h2 id="254-&#x56E0;&#x5B50;&#x5206;&#x6790;">2.5.4. &#x56E0;&#x5B50;&#x5206;&#x6790;</h2>
+<p>&#x5728;&#x65E0;&#x76D1;&#x7763;&#x7684;&#x5B66;&#x4E60;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x96C6; <img src="img/ddb7802ca4af9cffa650eec942feb790.jpg" alt="X = \{x_1, x_2, \dots, x_n\}">. &#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x6570;&#x5B66;&#x63CF;&#x8FF0;&#xFF1F; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x7684;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;<code>&#x8FDE;&#x7EED;&#x9690;&#x53D8;&#x91CF;&#x6A21;&#x578B;</code></p>
+<p><img src="img/75a6f2c15bfb418edcb993c4e27873d0.jpg" alt="x_i = W h_i + \mu + \epsilon"></p>
+<p>&#x77E2;&#x91CF; <img src="img/3d52bf36b893b26195748e89c94273f0.jpg" alt="h_i"> &#x88AB;&#x79F0;&#x4E3A; &#x201C;&#x9690;&#x6027;&#x7684;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x4E0D;&#x53EF;&#x89C2;&#x5BDF;&#x7684;&#x3002; <img src="img/58ef9e1b5d2ee139dcb588a3879ca1a6.jpg" alt="\epsilon"> &#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x7B26;&#x5408;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x7684;&#x566A;&#x58F0;&#x9879;&#xFF0C;&#x5E73;&#x5747;&#x503C;&#x4E3A; 0&#xFF0C;&#x534F;&#x65B9;&#x5DEE;&#x4E3A; <img src="img/36f54997ff4df647587d1bfd2ddb3ee2.jpg" alt="\Psi"> &#xFF08;&#x5373; <img src="img/e5012484ffa6afb2c720d363b39a36b0.jpg" alt="\epsilon \sim \mathcal{N}(0, \Psi)">&#xFF09;&#xFF0C; <img src="img/b6cea83c1722562f844aebd98fb3f59d.jpg" alt="\mu"> &#x662F;&#x504F;&#x79FB;&#x5411;&#x91CF;&#x3002; &#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x88AB;&#x79F0;&#x4E3A; &#x201C;&#x751F;&#x6210;&#x7684;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x4ECE; <img src="img/3d52bf36b893b26195748e89c94273f0.jpg" alt="h_i"> &#x751F;&#x6210; <img src="img/cf52655ee609af9f3c27c06448a5bf67.jpg" alt="x_i"> &#x3002; &#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x6240;&#x6709;&#x7684; <img src="img/cf52655ee609af9f3c27c06448a5bf67.jpg" alt="x_i"> &#x4F5C;&#x4E3A;&#x5217;&#x6765;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x77E9;&#x9635; <img src="img/36aff9afacf42a6a0b903bb6cd3409dc.jpg" alt="\mathbf{X}"> &#xFF0C;&#x5E76;&#x5C06;&#x6240;&#x6709;&#x7684; <img src="img/3d52bf36b893b26195748e89c94273f0.jpg" alt="h_i"> &#x4F5C;&#x4E3A;&#x77E9;&#x9635; <img src="img/a243fb2cabe46c32a3a66214f514d623.jpg" alt="\mathbf{H}"> &#x7684;&#x5217;&#xFF0C; &#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5199;&#xFF08;&#x9002;&#x5F53;&#x5B9A;&#x4E49;&#x7684; <img src="img/4e6d5ce51d78cff57187dc09b6710a7c.jpg" alt="\mathbf{M}"> &#x548C; <img src="img/355df435a05593b653d7d988c06e5d3c.jpg" alt="\mathbf{E}"> &#xFF09;:</p>
+<p><img src="img/337f0e255aa71dafb655629cb09a0c14.jpg" alt="\mathbf{X} = W \mathbf{H} + \mathbf{M} + \mathbf{E}"></p>
+<p>&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC; <em>&#x5206;&#x89E3;</em> &#x77E9;&#x9635; <img src="img/36aff9afacf42a6a0b903bb6cd3409dc.jpg" alt="\mathbf{X}">. &#x5982;&#x679C;&#x7ED9;&#x51FA; <img src="img/3d52bf36b893b26195748e89c94273f0.jpg" alt="h_i">&#xFF0C;&#x4E0A;&#x8FF0;&#x65B9;&#x7A0B;&#x81EA;&#x52A8;&#x5730;&#x8868;&#x793A;&#x4EE5;&#x4E0B;&#x6982;&#x7387;&#x89E3;&#x91CA;&#xFF1A;</p>
+<p><img src="img/d47bd99afb1d5dd3bff5b9809371c476.jpg" alt="p(x_i|h_i) = \mathcal{N}(Wh_i + \mu, \Psi)"></p>
+<p>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x6982;&#x7387;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x9690;&#x53D8;&#x91CF; <img src="img/c5f49595b56010ad04fce358940848e5.jpg" alt="h"> &#x7684;&#x5148;&#x9A8C;&#x5206;&#x5E03;&#x3002; &#x6700;&#x76F4;&#x63A5;&#x7684;&#x5047;&#x8BBE;&#xFF08;&#x57FA;&#x4E8E;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x7684;&#x826F;&#x597D;&#x6027;&#x8D28;&#xFF09;&#x662F; <img src="img/55f40b1e092983fff81024042966adec.jpg" alt="h \sim \mathcal{N}(0, \mathbf{I})">. &#x8FD9;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x4F5C;&#x4E3A; <img src="img/5c82dbae35dc43d2f556f9f284d9d184.jpg" alt="x"> &#x7684;&#x8FB9;&#x9645;&#x5206;&#x5E03;:</p>
+<p><img src="img/b6a1f98637a242005be08bb10541a524.jpg" alt="p(x) = \mathcal{N}(\mu, WW^T + \Psi)"></p>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8FDB;&#x4E00;&#x6B65;&#x5047;&#x8BBE;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x9690;&#x53D8;&#x91CF; <img src="img/c5f49595b56010ad04fce358940848e5.jpg" alt="h"> &#x662F;&#x591A;&#x4F59;&#x7684; &#x2013; <img src="img/5c82dbae35dc43d2f556f9f284d9d184.jpg" alt="x"> &#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x7528;&#x5747;&#x503C;&#x548C;&#x534F;&#x65B9;&#x5DEE;&#x6765;&#x5EFA;&#x6A21;&#x3002; &#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x4E4B;&#x4E00;&#x8FDB;&#x884C;&#x66F4;&#x5177;&#x4F53;&#x7684;&#x6784;&#x9020;&#x3002; &#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x9644;&#x52A0;&#x5047;&#x8BBE;&#x662F;&#x5C06;&#x8BEF;&#x5DEE;&#x534F;&#x65B9;&#x5DEE; <img src="img/36f54997ff4df647587d1bfd2ddb3ee2.jpg" alt="\Psi"> &#x6784;&#x9020;&#x6210;&#x5982;&#x4E0B;:</p>
+<ul>
+<li><img src="img/cd8ca25fe0dc0cc43949bcaa5d2674c2.jpg" alt="\Psi = \sigma^2 \mathbf{I}">: &#x8FD9;&#x4E2A;&#x5047;&#x8BBE;&#x80FD;&#x63A8;&#x5BFC;&#x51FA; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x7684;&#x6982;&#x7387;&#x6A21;&#x578B;&#x3002;</li>
+<li><img src="img/e64298b4d9439c3db54eeddbf3d92b4b.jpg" alt="\Psi = \mathrm{diag}(\psi_1, \psi_2, \dots, \psi_n)">: &#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x79F0;&#x4E3A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html#sklearn.decomposition.FactorAnalysis" title="sklearn.decomposition.FactorAnalysis" target="_blank"><code>FactorAnalysis</code></a>, &#x4E00;&#x4E2A;&#x7ECF;&#x5178;&#x7684;&#x7EDF;&#x8BA1;&#x6A21;&#x578B;&#x3002; &#x77E9;&#x9635;W&#x6709;&#x65F6;&#x79F0;&#x4E3A; &#x201C;&#x56E0;&#x5B50;&#x52A0;&#x8F7D;&#x77E9;&#x9635;&#x201D;&#x3002;</li>
+</ul>
+<p>&#x4E24;&#x4E2A;&#x6A21;&#x578B;&#x57FA;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4F4E;&#x9636;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x6765;&#x4F30;&#x8BA1;&#x4E00;&#x4E2A;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E24;&#x4E2A;&#x6A21;&#x578B;&#x90FD;&#x662F;&#x6982;&#x7387;&#x6027;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x96C6;&#x6210;&#x5230;&#x66F4;&#x590D;&#x6742;&#x7684;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#x56E0;&#x5B50;&#x5206;&#x6790;&#x5668;&#x7684;&#x6DF7;&#x5408;&#x3002;&#x5982;&#x679C;&#x9690;&#x53D8;&#x91CF;&#x57FA;&#x4E8E;&#x975E;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x7684;&#x5148;&#x9A8C;&#xFF0C;&#x5219;&#x5F97;&#x5230;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x578B;&#xFF08;&#x4F8B;&#x5982;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html#sklearn.decomposition.FastICA" title="sklearn.decomposition.FastICA" target="_blank"><code>FastICA</code></a> &#xFF09;&#x3002;</p>
+<p>&#x56E0;&#x5B50;&#x5206;&#x6790; <em>&#x53EF;&#x4EE5;</em> &#x4EA7;&#x751F;&#x4E0E;<code>PCA</code>&#x7C7B;&#x4F3C;&#x7684;&#x6210;&#x5206;&#xFF08;&#x4F8B;&#x5982;&#x5176;&#x52A0;&#x8F7D;&#x77E9;&#x9635;&#x7684;&#x5217;&#xFF09;&#x3002; &#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x4E9B;&#x6210;&#x5206;&#x6CA1;&#x6709;&#x901A;&#x7528;&#x7684;&#x6027;&#x8D28;&#xFF08;&#x4F8B;&#x5982;&#x5B83;&#x4EEC;&#x662F;&#x5426;&#x662F;&#x6B63;&#x4EA4;&#x7684;&#xFF09;:</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/9a55689143b2e4d90adcdfe1f95b9ffd.jpg" alt="pca_img3"></a> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/1f8c02d4fdbdbcaa014972bca5620cf3.jpg" alt="fa_img3"></a></strong></p>
+<p>&#x56E0;&#x5B50;&#x5206;&#x6790;( <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> ) &#x7684;&#x4E3B;&#x8981;&#x4F18;&#x70B9;&#x662F;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x5730;&#x5BF9;&#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x7684;&#x6BCF;&#x4E2A;&#x65B9;&#x5411;&#xFF08;&#x5F02;&#x65B9;&#x5DEE;&#x566A;&#x58F0;&#xFF09;&#x7684;&#x65B9;&#x5DEE;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;:</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/67f62308a1f409829599e546c843d53f.jpg" alt="https://scikit-learn.org/stable/_images/sphx_glr_plot_faces_decomposition_008.png"></a></p>
+<p>&#x5728;&#x5F02;&#x65B9;&#x5DEE;&#x566A;&#x58F0;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x6BD4;&#x6982;&#x7387; PCA &#x4F5C;&#x51FA;&#x66F4;&#x597D;&#x7684;&#x6A21;&#x578B;&#x9009;&#x62E9;:</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html" target="_blank"><img src="img/30fc2a610fc7de5c19317e1fc584765f.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_pca_vs_fa_model_selection_0021.png"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html#sphx-glr-auto-examples-decomposition-plot-pca-vs-fa-model-selection-py" target="_blank">Model selection with Probabilistic PCA and Factor Analysis (FA)</a></li>
+</ul>
+</blockquote>
+<h2 id="255-&#x72EC;&#x7ACB;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF08;ica&#xFF09;">2.5.5. &#x72EC;&#x7ACB;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF08;ICA&#xFF09;</h2>
+<p>&#x72EC;&#x7ACB;&#x5206;&#x91CF;&#x5206;&#x6790;&#x5C06;&#x591A;&#x53D8;&#x91CF;&#x4FE1;&#x53F7;&#x5206;&#x89E3;&#x4E3A;&#x72EC;&#x7ACB;&#x6027;&#x6700;&#x5F3A;&#x7684;&#x52A0;&#x6027;&#x5B50;&#x7EC4;&#x4EF6;&#x3002; &#x5B83;&#x901A;&#x8FC7; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html#sklearn.decomposition.FastICA" title="sklearn.decomposition.FastICA" target="_blank"><code>Fast ICA</code></a> &#x7B97;&#x6CD5;&#x5728; scikit-learn &#x4E2D;&#x5B9E;&#x73B0;&#x3002; ICA &#x901A;&#x5E38;&#x4E0D;&#x7528;&#x4E8E;&#x964D;&#x4F4E;&#x7EF4;&#x5EA6;&#xFF0C;&#x800C;&#x662F;&#x7528;&#x4E8E;&#x5206;&#x79BB;&#x53E0;&#x52A0;&#x4FE1;&#x53F7;&#x3002; &#x7531;&#x4E8E; ICA &#x6A21;&#x578B;&#x4E0D;&#x5305;&#x62EC;&#x566A;&#x58F0;&#x9879;&#xFF0C;&#x56E0;&#x6B64;&#x8981;&#x4F7F;&#x6A21;&#x578B;&#x6B63;&#x786E;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x767D;&#x5316;(whitening)&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x5728;&#x5185;&#x90E8;&#x4F7F;&#x7528; whiten &#x53C2;&#x6570;&#x6216;&#x624B;&#x52A8;&#x4F7F;&#x7528; PCA &#x7684;&#x4E00;&#x79CD;&#x53D8;&#x4F53;&#x3002;</p>
+<p>ICA &#x901A;&#x5E38;&#x7528;&#x4E8E;&#x5206;&#x79BB;&#x6DF7;&#x5408;&#x4FE1;&#x53F7;&#xFF08;&#x79F0;&#x4E3A; <em>&#x76F2;&#x6E90;&#x5206;&#x79BB;</em> &#x7684;&#x95EE;&#x9898;&#xFF09;&#xFF0C;&#x5982;&#x4E0B;&#x4F8B;&#x6240;&#x793A;:</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html" target="_blank"><img src="img/61a79d63783315d8e68d8ecf1324105f.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_ica_blind_source_separation_0011.png"></a></p>
+<p>ICA &#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5BFB;&#x627E;&#x5177;&#x6709;&#x7A00;&#x758F;&#x6027;&#x7684;&#x5206;&#x91CF;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x5206;&#x89E3;:</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/9a55689143b2e4d90adcdfe1f95b9ffd.jpg" alt="pca_img4"></a> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/390e2bdab30b6e7421082f13e8cfd6b0.jpg" alt="ica_img4"></a></strong></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html#sphx-glr-auto-examples-decomposition-plot-ica-blind-source-separation-py" target="_blank">Blind source separation using FastICA</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_vs_pca.html#sphx-glr-auto-examples-decomposition-plot-ica-vs-pca-py" target="_blank">FastICA on 2D point clouds</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html#sphx-glr-auto-examples-decomposition-plot-faces-decomposition-py" target="_blank">Faces dataset decompositions</a></li>
+</ul>
+</blockquote>
+<h2 id="256-&#x975E;&#x8D1F;&#x77E9;&#x9635;&#x5206;&#x89E3;nmf-&#x6216;-nnmf">2.5.6. &#x975E;&#x8D1F;&#x77E9;&#x9635;&#x5206;&#x89E3;(NMF &#x6216; NNMF)</h2>
+<h3 id="2561-nmf-&#x4E0E;-frobenius-&#x8303;&#x6570;">2.5.6.1. NMF &#x4E0E; Frobenius &#x8303;&#x6570;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> <a href="#id22">[1]</a> &#x662F;&#x5728;&#x6570;&#x636E;&#x548C;&#x5206;&#x91CF;&#x662F;&#x975E;&#x8D1F;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x65B9;&#x6CD5;&#x3002; &#x5728;&#x6570;&#x636E;&#x77E9;&#x9635;&#x4E0D;&#x5305;&#x542B;&#x8D1F;&#x503C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x63D2;&#x5165; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x800C;&#x4E0D;&#x662F; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x6216;&#x5176;&#x53D8;&#x4F53;&#x3002; &#x901A;&#x8FC7;&#x4F18;&#x5316; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x4E0E;&#x77E9;&#x9635;&#x4E58;&#x79EF; <img src="img/d822c46462e0ffda4dd99f74a070b6b3.jpg" alt="WH"> &#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB; <img src="img/adf83056bc2bd05628e24c40cb728b3d.jpg" alt="d"> &#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6837;&#x672C; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x5206;&#x89E3;&#x4E3A;&#x4E24;&#x4E2A;&#x975E;&#x8D1F;&#x77E9;&#x9635; <img src="img/369b6e6bd43ee84fe99e14c8d78cdc9f.jpg" alt="W"> &#x548C; <img src="img/9ad9b5d15124615ced9c9721a8ef4d3b.jpg" alt="H">&#x3002; &#x6700;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x662F; Frobenius &#x5E73;&#x65B9;&#x8303;&#x6570;&#xFF0C;&#x5B83;&#x662F;&#x6B27;&#x51E0;&#x91CC;&#x5FB7;&#x8303;&#x6570;&#x5230;&#x77E9;&#x9635;&#x7684;&#x63A8;&#x5E7F;:</p>
+<p><img src="img/ad946e6478bb10e60ac9663066f26ee8.jpg" alt="d_{\mathrm{Fro}}(X, Y) = \frac{1}{2} ||X - Y||_{\mathrm{Fro}}^2 = \frac{1}{2} \sum_{i,j} (X_{ij} - {Y}_{ij})^2"></p>
+<p>&#x4E0E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" title="sklearn.decomposition.PCA" target="_blank"><code>PCA</code></a> &#x4E0D;&#x540C;&#xFF0C;&#x901A;&#x8FC7;&#x53E0;&#x52A0;&#x5206;&#x91CF;&#x800C;&#x4E0D;&#x51CF;&#x53BB;&#xFF0C;&#x4EE5;&#x52A0;&#x6CD5;&#x65B9;&#x5F0F;&#x83B7;&#x5F97;&#x5411;&#x91CF;&#x7684;&#x8868;&#x793A;&#x3002;&#x8FD9;&#x79CD;&#x52A0;&#x6027;&#x6A21;&#x578B;&#x5BF9;&#x4E8E;&#x8868;&#x793A;&#x56FE;&#x50CF;&#x548C;&#x6587;&#x672C;&#x662F;&#x6709;&#x6548;&#x7684;&#x3002;</p>
+<p>[Hoyer, 2004] <a href="#id23">[2]</a> &#x7814;&#x7A76;&#x8868;&#x660E;&#xFF0C;&#x5F53;&#x5904;&#x4E8E;&#x4E00;&#x5B9A;&#x7EA6;&#x675F;&#x65F6;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x6570;&#x636E;&#x96C6;&#x57FA;&#x4E8E;&#x67D0;&#x5B50;&#x90E8;&#x5206;&#x7684;&#x8868;&#x793A;&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x53EF;&#x89E3;&#x91CA;&#x7684;&#x6A21;&#x578B;&#x3002;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5C55;&#x793A;&#x4E86;&#x4E0E; PCA &#x7279;&#x5F81;&#x9762;&#x76F8;&#x6BD4;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x4ECE; Olivetti &#x9762;&#x90E8;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x56FE;&#x50CF;&#x4E2D;&#x53D1;&#x73B0;&#x7684;16&#x4E2A;&#x7A00;&#x758F;&#x5206;&#x91CF;&#x3002;</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/9a55689143b2e4d90adcdfe1f95b9ffd.jpg" alt="pca_img5"></a> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html" target="_blank"><img src="img/bc08d23c9d8a06975f20eb514faae9ef.jpg" alt="nmf_img5"></a></strong></p>
+<p><code>init</code> &#x5C5E;&#x6027;&#x786E;&#x5B9A;&#x4E86;&#x5E94;&#x7528;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x5BF9;&#x65B9;&#x6CD5;&#x7684;&#x6027;&#x80FD;&#x6709;&#x5F88;&#x5927;&#x7684;&#x5F71;&#x54CD;&#x3002;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x5B9E;&#x73B0;&#x4E86;&#x975E;&#x8D1F;&#x53CC;&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;&#x65B9;&#x6CD5;&#x3002;NNDSVD <a href="#id24">[4]</a> &#x57FA;&#x4E8E;&#x4E24;&#x4E2A; SVD &#x8FC7;&#x7A0B;&#xFF0C;&#x4E00;&#x4E2A;&#x4F30;&#x7B97;&#x6570;&#x636E;&#x77E9;&#x9635;, &#x53E6;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x5355;&#x4F4D;&#x79E9;&#x77E9;&#x9635;&#x7684;&#x4EE3;&#x6570;&#x6027;&#x8D28;&#x4F30;&#x7B97;&#x7684;&#x90E8;&#x5206;SVD&#x56E0;&#x5B50;&#x7684;&#x6B63;&#x90E8;&#x5206;&#x3002;&#x57FA;&#x672C;&#x7684; NNDSVD &#x7B97;&#x6CD5;&#x66F4;&#x9002;&#x5408;&#x7A00;&#x758F;&#x5206;&#x89E3;&#x3002;&#x5176;&#x53D8;&#x4F53; NNDSVDa&#xFF08;&#x5168;&#x90E8;&#x96F6;&#x503C;&#x66FF;&#x6362;&#x4E3A;&#x6240;&#x6709;&#x5143;&#x7D20;&#x7684;&#x5E73;&#x5747;&#x503C;&#xFF09;&#x548C; NNDSVDar&#xFF08;&#x96F6;&#x503C;&#x66FF;&#x6362;&#x4E3A;&#x6BD4;&#x6570;&#x636E;&#x5E73;&#x5747;&#x503C;&#x9664;&#x4EE5;100&#x5C0F;&#x7684;&#x968F;&#x673A;&#x6270;&#x52A8;&#xFF09;&#x5728;&#x7A20;&#x5BC6;&#x60C5;&#x51B5;&#x65F6;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x4E58;&#x6CD5;&#x66F4;&#x65B0; ( Multiplicative Update &#x2018;mu&#x2019;) &#x6C42;&#x89E3;&#x5668;&#x65E0;&#x6CD5;&#x66F4;&#x65B0;&#x521D;&#x59CB;&#x5316;&#x4E2D;&#x5B58;&#x5728;&#x7684;&#x96F6;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x4E0E;&#x5F15;&#x5165;&#x5927;&#x91CF;&#x96F6;&#x7684;&#x57FA;&#x672C; NNDSVD &#x7B97;&#x6CD5;&#x8054;&#x5408;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x8F83;&#x5DEE;&#x7684;&#x7ED3;&#x679C;; &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x4F18;&#x5148;&#x4F7F;&#x7528; NNDSVDa &#x6216; NNDSVDar&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>init=&quot;random&quot;</code>&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x786E;&#x7F29;&#x653E;&#x7684;&#x968F;&#x673A;&#x975E;&#x8D1F;&#x77E9;&#x9635;&#x6765;&#x521D;&#x59CB;&#x5316; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a>&#x3002; &#x6574;&#x6570;&#x79CD;&#x5B50;&#x6216; <code>RandomState</code> &#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x7ED9; <code>random_state</code> &#x4EE5;&#x63A7;&#x5236;&#x91CD;&#x73B0;&#x6027;&#x3002;</p>
+<p>&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x4E2D;&#xFF0C;L1 &#x548C; L2 &#x5148;&#x9A8C;&#x53EF;&#x4EE5;&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x635F;&#x5931;&#x51FD;&#x6570;&#x4E2D;&#x4EE5;&#x4F7F;&#x6A21;&#x578B;&#x6B63;&#x5219;&#x5316;&#x3002; L2 &#x5148;&#x9A8C;&#x4F7F;&#x7528; Frobenius &#x8303;&#x6570;&#xFF0C;&#x800C;L1 &#x5148;&#x9A8C;&#x4F7F;&#x7528; L1 &#x8303;&#x6570;&#x3002;&#x4E0E; <code>ElasticNet</code> &#x4E00;&#x6837;&#xFF0C; &#x6211;&#x4EEC;&#x901A;&#x8FC7; <code>l1_ratio</code> (<img src="img/b91e4507d9fd7068b02f689d697f8714.jpg" alt="\rho">) &#x53C2;&#x6570;&#x548C;&#x6B63;&#x5219;&#x5316;&#x5F3A;&#x5EA6;&#x53C2;&#x6570; <code>alpha</code> (<img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha">) &#x6765;&#x63A7;&#x5236; L1 &#x548C; L2 &#x7684;&#x7EC4;&#x5408;&#x3002;&#x90A3;&#x4E48;&#x5148;&#x9A8C;&#x9879;&#x662F;:</p>
+<p><img src="img/be8c80153a3cafbe4309f1fe3b62d96b.jpg" alt="\alpha \rho ||W||_1 + \alpha \rho ||H||_1+ \frac{\alpha(1-\rho)}{2} ||W||_{\mathrm{Fro}} ^ 2+ \frac{\alpha(1-\rho)}{2} ||H||_{\mathrm{Fro}} ^ 2"></p>
+<p>&#x6B63;&#x5219;&#x5316;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x4E3A;:</p>
+<p><img src="img/2c1da71c882c95ba6660cdad0d976f6d.jpg" alt="d_{\mathrm{Fro}}(X, WH)+ \alpha \rho ||W||_1 + \alpha \rho ||H||_1+ \frac{\alpha(1-\rho)}{2} ||W||_{\mathrm{Fro}} ^ 2+ \frac{\alpha(1-\rho)}{2} ||H||_{\mathrm{Fro}} ^ 2"></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x6B63;&#x5219;&#x5316; W &#x548C; H . &#x516C;&#x5171;&#x51FD;&#x6570; <code>non_negative_factorization</code> &#x5141;&#x8BB8;&#x901A;&#x8FC7; <code>regularization</code> &#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x66F4;&#x7CBE;&#x7EC6;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x5C06; &#x4EC5;W &#xFF0C;&#x4EC5;H &#x6216;&#x4E24;&#x8005;&#x6B63;&#x5219;&#x5316;&#x3002;</p>
+<h3 id="2562-&#x5177;&#x6709;-beta-divergence-&#x7684;-nmf">2.5.6.2. &#x5177;&#x6709; beta-divergence &#x7684; NMF</h3>
+<p>&#x5982;&#x524D;&#x6240;&#x8FF0;&#xFF0C;&#x6700;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x662F; Frobenius &#x5E73;&#x65B9;&#x8303;&#x6570;&#xFF0C;&#x8FD9;&#x662F;&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x8303;&#x6570;&#x5230;&#x77E9;&#x9635;&#x7684;&#x63A8;&#x5E7F;:</p>
+<p><img src="img/3776f899ba5f1d7432c553c6c3aae381.jpg" alt="d_{\mathrm{Fro}}(X, Y) = \frac{1}{2} ||X - Y||_{Fro}^2 = \frac{1}{2} \sum_{i,j} (X_{ij} - {Y}_{ij})^2"></p>
+<p>&#x5176;&#x4ED6;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x53EF;&#x7528;&#x4E8E; NMF&#xFF0C;&#x4F8B;&#x5982;&#xFF08;&#x5E7F;&#x4E49;&#xFF09; Kullback-Leibler(KL) &#x6563;&#x5EA6;&#xFF0C;&#x4E5F;&#x79F0;&#x4E3A; I-divergence:</p>
+<p><img src="img/33f1b6fb64999d2af571c675b7f17f34.jpg" alt="d_{KL}(X, Y) = \sum_{i,j} (X_{ij} \log(\frac{X_{ij}}{Y_{ij}}) - X_{ij} + Y_{ij})"></p>
+<p>&#x6216;&#x8005;&#xFF0C; Itakura-Saito(IS) divergence:</p>
+<p><img src="img/345ab99b5a1246fb019e249dae570191.jpg" alt="d_{IS}(X, Y) = \sum_{i,j} (\frac{X_{ij}}{Y_{ij}} - \log(\frac{X_{ij}}{Y_{ij}}) - 1)"></p>
+<p>&#x8FD9;&#x4E09;&#x4E2A;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x662F; beta-divergence &#x51FD;&#x6570;&#x65CF;&#x7684;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#xFF0C;&#x5176;&#x53C2;&#x6570;&#x5206;&#x522B;&#x4E3A; <img src="img/c63c614232be2789284b906792195a15.jpg" alt="\beta = 2, 1, 0"> <a href="#id26">[6]</a> &#x3002; beta-divergence &#x5B9A;&#x4E49;&#x5982;&#x4E0B;:</p>
+<p><img src="img/1da4a8f74cdb166cdc91e2f691cf3ac5.jpg" alt="d_{\beta}(X, Y) = \sum_{i,j} \frac{1}{\beta(\beta - 1)}(X_{ij}^\beta + (\beta-1)Y_{ij}^\beta - \beta X_{ij} Y_{ij}^{\beta - 1})"></p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_beta_divergence.html" target="_blank"><img src="img/10bfda066ccebace59b1d11135e10196.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_beta_divergence_0011.png"></a></p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728; <img src="img/a19f2294e2649252ad2b5766d295e75e.jpg" alt="\beta \in (0; 1)"> &#x4E0A;&#x5B9A;&#x4E49;&#x65E0;&#x6548;&#xFF0C;&#x4EC5;&#x4EC5;&#x5206;&#x522B;&#x8FDE;&#x7EED;&#x6269;&#x5C55;&#x5230; <img src="img/8c4beae51da320d8fffd739a9e9e3852.jpg" alt="d_{KL}"> &#x548C; <img src="img/aee8fc1c253da16851991ef3ceff663b.jpg" alt="d_{IS}"> &#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html#sklearn.decomposition.NMF" title="sklearn.decomposition.NMF" target="_blank"><code>NMF</code></a> &#x4F7F;&#x7528;  &#x5750;&#x6807;&#x4E0B;&#x964D; ( Coordinate Descent &#x2018;cd&#x2019;) <a href="#id25">[5]</a> &#x548C;&#x4E58;&#x6CD5;&#x66F4;&#x65B0;( Multiplicative Update &#x2018;mu&#x2019;) <a href="#id26">[6]</a> &#x6765;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A;&#x6C42;&#x89E3;&#x5668;&#x3002; &#x2018;mu&#x2019; &#x6C42;&#x89E3;&#x5668;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x4E8E;&#x4F18;&#x5316;&#x6BCF;&#x4E2A; beta-divergence&#xFF0C;&#x5305;&#x62EC; Frobenius &#x8303;&#x6570; (<img src="img/6875a3a68e07bfa51a631f014fcf8a4f.jpg" alt="\beta=2">) &#xFF0C; &#xFF08;&#x5E7F;&#x4E49;&#xFF09; Kullback-Leibler divergence (<img src="img/04388b884d40fc8b56559b6c2364e7ce.jpg" alt="\beta=1">) &#x548C;Itakura-Saito divergence&#xFF08;beta = 0&#xFF09;&#xFF09;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5BF9;&#x4E8E; <img src="img/67f9d3900eb064f6354d23271f16c2b0.jpg" alt="\beta \in (1; 2)">&#xFF0C;&#x2019;mu&#x2019; &#x6C42;&#x89E3;&#x5668;&#x660E;&#x663E;&#x5FEB;&#x4E8E; <img src="img/533e54759d696211ebe7819cc107d3bc.jpg" alt="\beta"> &#x7684;&#x5176;&#x4ED6;&#x503C;&#x3002;&#x8FD8;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x4F7F;&#x7528;&#x8D1F;&#x6570;&#xFF08;&#x6216;0&#xFF0C;&#x5373; &#x2018;itakura-saito&#x2019; &#xFF09; <img src="img/533e54759d696211ebe7819cc107d3bc.jpg" alt="\beta">&#xFF0C;&#x8F93;&#x5165;&#x77E9;&#x9635;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x96F6;&#x503C;&#x3002;</p>
+<p>&#x2018;cd&#x2019; &#x6C42;&#x89E3;&#x5668;&#x53EA;&#x80FD;&#x4F18;&#x5316; Frobenius &#x8303;&#x6570;&#x3002;&#x7531;&#x4E8E; NMF &#x7684;&#x6F5C;&#x5728;&#x975E;&#x51F8;&#x6027;&#xFF0C;&#x5373;&#x4F7F;&#x4F18;&#x5316;&#x76F8;&#x540C;&#x7684;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x6C42;&#x89E3;&#x5668;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x6536;&#x655B;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x3002;</p>
+<p>NMF&#x6700;&#x9002;&#x7528;&#x4E8E; <code>fit_transform</code> &#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x77E9;&#x9635;W.&#x77E9;&#x9635; H &#x88AB;&#x5B58;&#x50A8;&#x5230;&#x62DF;&#x5408;&#x6A21;&#x578B;&#x4E2D;&#x7684;<code>components_</code> &#x5C5E;&#x6027;; &#x65B9;&#x6CD5; <code>transform</code> &#x5C06;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x5B58;&#x50A8;&#x7684;&#x5206;&#x91CF;,&#x5206;&#x89E3;&#x65B0;&#x7684;&#x77E9;&#x9635; X_new:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">1.2</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">0.8</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">1</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.decomposition <span class="hljs-keyword">import</span> NMF
+<span class="hljs-meta">&gt;&gt;&gt; </span>model = NMF(n_components=<span class="hljs-number">2</span>, init=<span class="hljs-string">&apos;random&apos;</span>, random_state=<span class="hljs-number">0</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>W = model.fit_transform(X)
+<span class="hljs-meta">&gt;&gt;&gt; </span>H = model.components_
+<span class="hljs-meta">&gt;&gt;&gt; </span>X_new = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">6.1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">3.2</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">4</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>W_new = model.transform(X_new)
+</code></pre>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html#sphx-glr-auto-examples-decomposition-plot-faces-decomposition-py" target="_blank">Faces dataset decompositions</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html#sphx-glr-auto-examples-applications-plot-topics-extraction-with-nmf-lda-py" target="_blank">Topic extraction with Non-negative Matrix Factorization and Latent Dirichlet Allocation</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_beta_divergence.html#sphx-glr-auto-examples-decomposition-plot-beta-divergence-py" target="_blank">Beta-divergence loss functions</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>[1] <a href="http://www.columbia.edu/~jwp2128/Teaching/W4721/papers/nmf_nature.pdf" target="_blank">&#x201C;Learning the parts of objects by non-negative matrix factorization&#x201D;</a> D. Lee, S. Seung, 1999</li>
+<li>[2] <a href="http://www.jmlr.org/papers/volume5/hoyer04a/hoyer04a.pdf" target="_blank">&#x201C;Non-negative Matrix Factorization with Sparseness Constraints&#x201D;</a> P. Hoyer, 2004</li>
+<li>[4] <a href="http://scgroup.hpclab.ceid.upatras.gr/faculty/stratis/Papers/HPCLAB020107.pdf" target="_blank">&#x201C;SVD based initialization: A head start for nonnegative matrix factorization&#x201D;</a> C. Boutsidis, E. Gallopoulos, 2008</li>
+<li>[5] <a href="http://www.bsp.brain.riken.jp/publications/2009/Cichocki-Phan-IEICE_col.pdf" target="_blank">&#x201C;Fast local algorithms for large scale nonnegative matrix and tensor factorizations.&#x201D;</a> A. Cichocki, P. Anh-Huy, 2009</li>
+<li>[6]  <a href="http://http://arxiv.org/pdf/1010.1763v3.pdf" target="_blank">&#x201C;Algorithms for nonnegative matrix factorization with the beta-divergence&#x201D;</a> C. Fevotte, J. Idier, 2011</li>
+</ul>
+</blockquote>
+<h2 id="257-&#x9690;-dirichlet-&#x5206;&#x914D;&#xFF08;lda&#xFF09;">2.5.7. &#x9690; Dirichlet &#x5206;&#x914D;&#xFF08;LDA&#xFF09;</h2>
+<p>&#x9690; Dirichlet &#x5206;&#x914D;&#x662F;&#x79BB;&#x6563;&#x6570;&#x636E;&#x96C6;&#xFF08;&#x5982;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;&#xFF09;&#x7684;&#x96C6;&#x5408;&#x7684;&#x751F;&#x6210;&#x6982;&#x7387;&#x6A21;&#x578B;&#x3002; &#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x4E3B;&#x9898;&#x6A21;&#x578B;&#xFF0C;&#x7528;&#x4E8E;&#x4ECE;&#x6587;&#x6863;&#x96C6;&#x5408;&#x4E2D;&#x53D1;&#x73B0;&#x62BD;&#x8C61;&#x4E3B;&#x9898;&#x3002;</p>
+<p>LDA &#x7684;&#x56FE;&#x5F62;&#x6A21;&#x578B;&#x662F;&#x4E00;&#x4E2A;&#x4E09;&#x7EA7;&#x751F;&#x6210;&#x6A21;&#x578B;:</p>
+<p><img src="img/30641b10b766d35775b6bbb4d21e74b7.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/lda_model_graph.png"></p>
+<p>&#x5173;&#x4E8E;&#x4E0A;&#x8FF0;&#x56FE;&#x5F62;&#x6A21;&#x578B;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x7B26;&#x53F7;&#x7684;&#x8BF4;&#x660E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;Hoffman et al.(2013)&#x4E2D;&#x627E;&#x5230;:</p>
+<ul>
+<li>&#x8BED;&#x6599;&#x5E93;&#x662F;D&#x4E2A;&#x6587;&#x6863;&#x7684;&#x96C6;&#x5408;&#x3002;</li>
+<li>&#x6587;&#x6863;&#x662F;&#x7531;N&#x4E2A;&#x5355;&#x8BCD;&#x7EC4;&#x6210;&#x7684;&#x5E8F;&#x5217;&#x3002;</li>
+<li>&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x6709;K&#x4E2A;&#x4E3B;&#x9898;&#x3002;</li>
+<li>&#x8FD9;&#x4E9B;&#x6846;&#x8868;&#x793A;&#x91CD;&#x590D;&#x91C7;&#x6837;&#x3002;</li>
+</ul>
+<p>&#x5728;&#x56FE;&#x5F62;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x751F;&#x6210;&#x8FC7;&#x7A0B;&#x4E2D;&#x8D77;&#x7740;&#x4E00;&#x5B9A;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x9634;&#x5F71;&#x8282;&#x70B9;&#x8868;&#x793A;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x672A;&#x9634;&#x5F71;&#x8282;&#x70B9;&#x8868;&#x793A;&#x9690;&#x85CF;&#x7684;(&#x6F5C;&#x5728;&#x7684;)&#x53D8;&#x91CF;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x7684;&#x5355;&#x8BCD;&#x662F;&#x6211;&#x4EEC;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x552F;&#x4E00;&#x6570;&#x636E;&#x3002;&#x6F5C;&#x5728;&#x53D8;&#x91CF;&#x51B3;&#x5B9A;&#x4E86;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x4E3B;&#x9898;&#x7684;&#x968F;&#x673A;&#x6DF7;&#x5408;&#x548C;&#x6587;&#x6863;&#x4E2D;&#x5355;&#x8BCD;&#x7684;&#x5206;&#x5E03;&#x3002;LDA&#x7684;&#x76EE;&#x6807;&#x662F;&#x5229;&#x7528;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x8BCD;&#x8BED;&#x6765;&#x63A8;&#x65AD;&#x9690;&#x542B;&#x7684;&#x4E3B;&#x9898;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x5F53;&#x5EFA;&#x6A21;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;&#x65F6;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x5047;&#x8BBE;&#x5177;&#x6709; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D"> &#x6587;&#x6863;&#x548C; <img src="img/e279b8169ddd6581c5606c868ba52fae.jpg" alt="K"> &#x4E3B;&#x9898;&#x7684;&#x8BED;&#x6599;&#x5E93;&#x7684;&#x4EE5;&#x4E0B;&#x751F;&#x6210;&#x8FC7;&#x7A0B;, &#x5176;&#x4E2D;<img src="img/e279b8169ddd6581c5606c868ba52fae.jpg" alt="K"> &#x5BF9;&#x5E94; API &#x4E2D;&#x7684; <code>n_components</code>:</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x4E3B;&#x9898; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>&#x2208;</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">k\in K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">&#x2208;</span><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>, &#x7ED8;&#x5236; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>&#x3B2;</mi><mi>k</mi></msub><mo>&#x223C;</mo><mi>D</mi><mi>i</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>l</mi><mi>e</mi><mi>t</mi><mo>(</mo><mi>&#x3B7;</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\beta_k \thicksim Dirichlet(\eta) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.05278em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel amsrm">&#x223C;</span><span class="mord mathit" style="margin-right:0.02778em;">D</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03588em;">&#x3B7;</span><span class="mclose">)</span></span></span></span>. &#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x5355;&#x8BCD;&#x7684;&#x5206;&#x5E03;, &#x6BD4;&#x5982;, &#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x5728; topic <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> &#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#x3002; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B7;</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">&#x3B7;</span></span></span></span> &#x5BF9;&#x5E94; topic_word_prior&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x6587;&#x6863; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mo>&#x2208;</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">d\in D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">d</span><span class="mrel">&#x2208;</span><span class="mord mathit" style="margin-right:0.02778em;">D</span></span></span></span>, &#x7ED8;&#x5236;&#x4E3B;&#x9898;&#x6982;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>&#x3B8;</mi><mi>k</mi></msub><mo>&#x223C;</mo><mi>D</mi><mi>i</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>h</mi><mi>l</mi><mi>e</mi><mi>t</mi><mo>(</mo><mi>&#x3B1;</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\theta_k \thicksim Dirichlet(\alpha) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">&#x3B8;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel amsrm">&#x223C;</span><span class="mord mathit" style="margin-right:0.02778em;">D</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mclose">)</span></span></span></span>. <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span> &#x5BF9;&#x5E94; doc_topic_prior&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6587;&#x6863; <img src="img/adf83056bc2bd05628e24c40cb728b3d.jpg" alt="d"> &#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD; <img src="img/43e13b580daefe5ba754b790dfbd216c.jpg" alt="i">:<ol>
+<li>&#x7ED8;&#x5236;&#x4E3B;&#x9898;&#x7D22;&#x5F15; <img src="img/4a733ee899c074bde7a4d5292c9fc83e.jpg" alt="z_{di} \sim \mathrm{Multinomial}(\theta_d)"></li>
+<li>&#x7ED8;&#x5236;&#x89C2;&#x5BDF;&#x8BCD; <img src="img/526e2da298d085b5fd557f49433d4143.jpg" alt="w_{ij} \sim \mathrm{Multinomial}(beta_{z_{di}}.)"></li>
+</ol>
+</li>
+</ol>
+<p>&#x5BF9;&#x4E8E;&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#xFF0C;&#x540E;&#x9A8C;&#x5206;&#x5E03;&#x4E3A;:</p>
+<p><img src="img/5d0c433dc4dc7ca883ac8173e6e2096f.jpg" alt="p(z, \theta, \beta |w, \alpha, \eta) =  \frac{p(z, \theta, \beta|\alpha, \eta)}{p(w|\alpha, \eta)}"></p>
+<p>&#x7531;&#x4E8E;&#x540E;&#x9A8C;&#x5206;&#x5E03;&#x96BE;&#x4EE5;&#x5904;&#x7406;&#xFF0C;&#x53D8;&#x4F53;&#x8D1D;&#x53F6;&#x65AF;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x5206;&#x5E03; <img src="img/8fae035cff5a2ccfbc80e38fab4907cd.jpg" alt="q(z,\theta,\beta | \lambda, \phi, \gamma)"> &#x53BB;&#x8FD1;&#x4F3C;&#x4F30;&#x7B97;&#xFF0C; &#x5E76;&#x4E14;&#x4F18;&#x5316;&#x4E86;&#x8FD9;&#x4E9B;&#x53D8;&#x4F53;&#x53C2;&#x6570; <img src="img/0f92bc682b050115d03c625ce770c77d.jpg" alt="\lambda">, <img src="img/ff5e98366afa13070d3b410c55a80db1.jpg" alt="\phi">, <img src="img/6552bde3d3999c1a9728016416932af7.jpg" alt="\gamma"> &#x4EE5;&#x6700;&#x5927;&#x5316;Evidence Lower Bound (ELBO):</p>
+<p><img src="img/6d8b62cf31afb168e2b2acb89d6abccd.jpg" alt="\log\: P(w | \alpha, \eta) \geq L(w,\phi,\gamma,\lambda) \overset{\triangle}{=} E_{q}[\log\:p(w,z,\theta,\beta|\alpha,\eta)] - E_{q}[\log\:q(z, \theta, \beta)]"></p>
+<p>&#x6700;&#x5927;&#x5316; ELBO &#x76F8;&#x5F53;&#x4E8E;&#x6700;&#x5C0F;&#x5316; <img src="img/2c2dcc83fc38e46810a36e59b2614a5c.jpg" alt="q(z,\theta,\beta)"> &#x548C;&#x540E;&#x9A8C; <img src="img/7efe29500f4af973643a15b3ed29a926.jpg" alt="p(z, \theta, \beta |w, \alpha, \eta)"> &#x4E4B;&#x95F4;&#x7684; Kullback-Leibler(KL) &#x6563;&#x5EA6;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html#sklearn.decomposition.LatentDirichletAllocation" title="sklearn.decomposition.LatentDirichletAllocation" target="_blank"><code>LatentDirichletAllocation</code></a> &#x5B9E;&#x73B0;&#x5728;&#x7EBF;&#x53D8;&#x4F53;&#x8D1D;&#x53F6;&#x65AF;&#x7B97;&#x6CD5;&#xFF0C;&#x652F;&#x6301;&#x5728;&#x7EBF;&#x548C;&#x6279;&#x91CF;&#x66F4;&#x65B0;&#x65B9;&#x6CD5;&#x3002; &#x6279;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x5728;&#x6BCF;&#x6B21;&#x5B8C;&#x5168;&#x4F20;&#x9012;&#x6570;&#x636E;&#x540E;&#x66F4;&#x65B0;&#x53D8;&#x4F53;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x7EBF;&#x65B9;&#x6CD5;&#x4ECE;&#x5C0F;&#x6279;&#x91CF;&#x6570;&#x636E;&#x70B9;&#x4E2D;&#x66F4;&#x65B0;&#x53D8;&#x4F53;&#x53D8;&#x91CF;&#x3002;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>
+&#x867D;&#x7136;&#x5728;&#x7EBF;&#x65B9;&#x6CD5;&#x4FDD;&#x8BC1;&#x6536;&#x655B;&#x5230;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x70B9;&#xFF0C;&#x6700;&#x4F18;&#x70B9;&#x7684;&#x8D28;&#x91CF;&#x548C;&#x6536;&#x655B;&#x901F;&#x5EA6;&#x53EF;&#x80FD;&#x53D6;&#x51B3;&#x4E8E;&#x4E0E;&#x5C0F;&#x6279;&#x91CF;&#x5927;&#x5C0F;&#x548C;&#x5B66;&#x4E60;&#x7387;&#x76F8;&#x5173;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+</blockquote>
+<p>&#x5F53; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html#sklearn.decomposition.LatentDirichletAllocation" title="sklearn.decomposition.LatentDirichletAllocation" target="_blank"><code>LatentDirichletAllocation</code></a> &#x5E94;&#x7528;&#x4E8E; &#x201C;document-term&#x201D; &#x77E9;&#x9635;&#x65F6;&#xFF0C;&#x77E9;&#x9635;&#x5C06;&#x88AB;&#x5206;&#x89E3;&#x4E3A; &#x201C;topic-term&#x201D; &#x77E9;&#x9635;&#x548C; &#x201C;document-topic&#x201D; &#x77E9;&#x9635;&#x3002; &#x867D;&#x7136; &#x201C;topic-term&#x201D; &#x77E9;&#x9635;&#x5728;&#x6A21;&#x578B;&#x4E2D;&#x88AB;&#x5B58;&#x50A8;&#x4E3A; <code>components_</code> &#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>transform</code> &#x65B9;&#x6CD5;&#x8BA1;&#x7B97; &#x201C;document-topic&#x201D; &#x77E9;&#x9635;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html#sklearn.decomposition.LatentDirichletAllocation" title="sklearn.decomposition.LatentDirichletAllocation" target="_blank"><code>LatentDirichletAllocation</code></a> &#x8FD8;&#x5B9E;&#x73B0;&#x4E86; <code>partial_fit</code> &#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x53EF;&#x7528;&#x4E8E;&#x5F53;&#x6570;&#x636E;&#x88AB;&#x987A;&#x5E8F;&#x63D0;&#x53D6;&#x65F6;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html#sphx-glr-auto-examples-applications-plot-topics-extraction-with-nmf-lda-py" target="_blank">Topic extraction with Non-negative Matrix Factorization and Latent Dirichlet Allocation</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="https://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf" target="_blank">&#x201C;Latent Dirichlet Allocation&#x201D;</a> D. Blei, A. Ng, M. Jordan, 2003</li>
+<li><a href="https://www.cs.princeton.edu/~blei/papers/HoffmanBleiBach2010b.pdf" target="_blank">&#x201C;Online Learning for Latent Dirichlet Allocation&#x201D;</a> M. Hoffman, D. Blei, F. Bach, 2010</li>
+<li><a href="http://www.columbia.edu/~jwp2128/Papers/HoffmanBleiWangPaisley2013.pdf" target="_blank">&#x201C;Stochastic Variational Inference&#x201D;</a> M. Hoffman, D. Blei, C. Wang, J. Paisley, 2013</li>
+</ul>
+</blockquote>
+<p>&#x53C2;&#x8003; <a href="7.html#1662-&#x964D;&#x7EF4;">Neighborhood Components Analysis</a> &#x7684;&#x964D;&#x7EF4;&#x65B9;&#x5F0F;.</p>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="23.html" class="navigation navigation-prev " aria-label="Previous page: 2.4. 双聚类">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="25.html" class="navigation navigation-next " aria-label="Next page: 2.6. 协方差估计">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.5. 分解成分中的信号（矩阵分解问题）","level":"1.3.2.5","depth":3,"next":{"title":"2.6. 协方差估计","level":"1.3.2.6","depth":3,"path":"docs/master/25.md","ref":"docs/master/25.md","articles":[]},"previous":{"title":"2.4. 双聚类","level":"1.3.2.4","depth":3,"path":"docs/master/23.md","ref":"docs/master/23.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/24.md","mtime":"2020-11-23T10:54:46.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

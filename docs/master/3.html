@@ -1,0 +1,1514 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.2. 线性和二次判别分析 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.html" />
+    
+    
+    <link rel="prev" href="2.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >1.2. 线性和二次判别分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="12-&#x7EBF;&#x6027;&#x548C;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;">1.2. &#x7EBF;&#x6027;&#x548C;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;&#xFF1A;
+        <a href="https://github.com/AnybodyHome" target="_blank">@AnybodyHome</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@numpy</a>
+        <a href="https://github.com/loopyme" target="_blank">@Loopy</a>
+        <a href="https://github.com/lovelybuggies" target="_blank">@N!no</a>
+&#x7FFB;&#x8BD1;&#x8005;&#xFF1A;
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@FAME</a>
+        <a href="https://github.com/lovelybuggies" target="_blank">@N!no</a></p>
+<p>&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;&#xFF08;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis</code></a>&#xFF09;&#x548C;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;&#xFF08;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis.html#sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis" target="_blank"><code>discriminant_analysis.QuadraticDiscriminantAnalysis</code></a>&#xFF09;&#x662F;&#x4E24;&#x4E2A;&#x7ECF;&#x5178;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x3002; &#x6B63;&#x5982;&#x4ED6;&#x4EEC;&#x540D;&#x5B57;&#x6240;&#x63CF;&#x8FF0;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x4ED6;&#x4EEC;&#x5206;&#x522B;&#x4EE3;&#x8868;&#x4E86;&#x7EBF;&#x6027;&#x51B3;&#x7B56;&#x5E73;&#x9762;&#x548C;&#x4E8C;&#x6B21;&#x51B3;&#x7B56;&#x5E73;&#x9762;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x5206;&#x7C7B;&#x5668;&#x5341;&#x5206;&#x5177;&#x6709;&#x5438;&#x5F15;&#x529B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x95ED;&#x5F0F;&#x89E3;&#xFF08;&#x5373;&#x89E3;&#x6790;&#x89E3;&#xFF09;&#x3002;&#x5176;&#x672C;&#x8EAB;&#x5177;&#x6709;&#x591A;&#x5206;&#x7C7B;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x5DF2;&#x7ECF;&#x88AB;&#x8BC1;&#x660E;&#x5F88;&#x6709;&#x6548;&#xFF0C;&#x800C;&#x4E14;&#x65E0;&#x9700;&#x8C03;&#x8282;&#x8D85;&#x53C2;&#x6570;&#x3002;</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/classification/plot_lda_qda.html" target="_blank"><img src="img/sphx_glr_plot_lda_qda_0011.png" alt="ldaqda"></a></strong></p>
+<p>&#x4EE5;&#x4E0A;&#x8FD9;&#x4E9B;&#x56FE;&#x50CF;&#x5C55;&#x793A;&#x4E86;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;&#x4EE5;&#x53CA;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;&#x7684;&#x51B3;&#x7B56;&#x8FB9;&#x754C;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x884C;&#x8868;&#x660E;&#x4E86;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;&#x53EA;&#x80FD;&#x5B66;&#x4E60;&#x7EBF;&#x6027;&#x8FB9;&#x754C;&#xFF0C; &#x800C;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;&#x5219;&#x53EF;&#x4EE5;&#x5B66;&#x4E60;&#x4E8C;&#x6B21;&#x8FB9;&#x754C;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x76F8;&#x5BF9;&#x800C;&#x8A00;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;&#xFF1A;</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/classification/plot_lda_qda.html" target="_blank">Linear and Quadratic Discriminant Analysis with covariance ellipsoid</a>&#xFF1A;LDA&#x548C;QDA&#x5728;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x4E0A;&#x7684;&#x5BF9;&#x6BD4;</li>
+</ul>
+</blockquote>
+<h2 id="121-&#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;&#x6765;&#x964D;&#x7EF4;">1.2.1. &#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;&#x6765;&#x964D;&#x7EF4;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis</code></a> &#x901A;&#x8FC7;&#x628A;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;&#x6295;&#x5F71;&#x5230;&#x7531;&#x6700;&#x5927;&#x5316;&#x7C7B;&#x95F4;&#x5206;&#x79BB;&#x6240;&#x7EC4;&#x6210;&#x7684;&#x7EBF;&#x6027;&#x5B50;&#x7A7A;&#x95F4;&#xFF0C;&#x6765;&#x6267;&#x884C;&#x6709;&#x76D1;&#x7763;&#x964D;&#x7EF4;&#xFF08;&#x8BE6;&#x7EC6;&#x7684;&#x5185;&#x5BB9;&#x89C1;&#x4E0B;&#x9762;&#x7684;&#x6570;&#x5B66;&#x63A8;&#x5BFC;&#x90E8;&#x5206;&#xFF09;&#x3002;&#x8F93;&#x51FA;&#x7684;&#x7EF4;&#x5EA6;&#x5FC5;&#x7136;&#x4F1A;&#x6BD4;&#x539F;&#x6765;&#x7684;&#x7C7B;&#x522B;&#x6570;&#x91CF;&#x66F4;&#x5C11;&#x7684;&#x3002;&#x56E0;&#x6B64;&#x5B83;&#x603B;&#x4F53;&#x800C;&#x8A00;&#x662F;&#x5341;&#x5206;&#x5F3A;&#x5927;&#x7684;&#x964D;&#x7EF4;&#x65B9;&#x5F0F;&#xFF0C;&#x540C;&#x6837;&#x4E5F;&#x4EC5;&#x4EC5;&#x5728;&#x591A;&#x5206;&#x7C7B;&#x73AF;&#x5883;&#x4E0B;&#x624D;&#x80FD;&#x611F;&#x89C9;&#x5230;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis.transform" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis.transform</code></a> &#x4E2D;&#x3002;&#x5173;&#x4E8E;&#x7EF4;&#x5EA6;&#x7684;&#x6570;&#x91CF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>n_components</code> &#x53C2;&#x6570;&#x6765;&#x8C03;&#x8282;&#x3002; &#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x4E0D;&#x4F1A;&#x5BF9; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis.fit" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis.fit</code></a> &#x6216;&#x8005; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis.predict" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis.predict</code></a> &#x4EA7;&#x751F;&#x5F71;&#x54CD;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html#sphx-glr-auto-examples-decomposition-plot-pca-vs-lda-py" target="_blank">Comparison of LDA and PCA 2D projection of Iris dataset</a>: &#x5728; Iris &#x6570;&#x636E;&#x96C6;&#x5BF9;&#x6BD4; LDA &#x548C; PCA &#x4E4B;&#x95F4;&#x7684;&#x964D;&#x7EF4;&#x5DEE;&#x5F02;</p>
+</blockquote>
+<h2 id="122-lda-&#x548C;-qda-&#x5206;&#x7C7B;&#x5668;&#x7684;&#x6570;&#x5B66;&#x516C;&#x5F0F;">1.2.2. LDA &#x548C; QDA &#x5206;&#x7C7B;&#x5668;&#x7684;&#x6570;&#x5B66;&#x516C;&#x5F0F;</h2>
+<p>LDA &#x548C; QDA &#x90FD;&#x662F;&#x6E90;&#x4E8E;&#x7B80;&#x5355;&#x7684;&#x6982;&#x7387;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x4E9B;&#x6A21;&#x578B;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x7C7B;&#x522B; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x7684;&#x76F8;&#x5173;&#x5206;&#x5E03;<img src="img/a71a1d9e35b09d284da476b2175edf6f.jpg" alt="P(X|y=k)"> &#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8D1D;&#x53F6;&#x65AF;&#x5B9A;&#x7406;&#x6240;&#x83B7;&#x5F97;&#xFF1A;</p>
+<p><img src="img/accc37ed7ec2ed38ec70c71f5d6aeebe.jpg" alt="P(y=k | X) = \frac{P(X | y=k) P(y=k)}{P(X)} = \frac{P(X | y=k) P(y = k)}{ \sum_{l} P(X | y=l) \cdot P(y=l)}"></p>
+<p>&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x6700;&#x5927;&#x5316;&#x6761;&#x4EF6;&#x6982;&#x7387;&#x7684;&#x7C7B;&#x522B; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k">&#x3002;</p>
+<p>&#x66F4;&#x5177;&#x4F53;&#x5730;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x7EBF;&#x6027;&#x4EE5;&#x53CA;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;&#xFF0C;<img src="img/85f7fc9836edfbdcd2a7533674940b46.jpg" alt="P(X|y)"> &#x88AB;&#x5EFA;&#x6A21;&#x6210;&#x5BC6;&#x5EA6;&#x591A;&#x53D8;&#x91CF;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#xFF1A;</p>
+<p><img src="img/6f25bd1d6d3abb565ca3007f8ac1d855.jpg" alt="p(X | y=k) = \frac{1}{(2\pi)^n |\Sigma_k|^{1/2}}\exp\left(-\frac{1}{2} (X-\mu_k)^t \Sigma_k^{-1} (X-\mu_k)\right)"></p>
+<p>&#x5176;&#x4E2D;&#x7684; <img src="img/4a22ca544916918b2358e5fc7c71b8e7.png" alt="d"> &#x662F;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x628A;&#x8BE5;&#x6A21;&#x578B;&#x4F5C;&#x4E3A;&#x5206;&#x7C7B;&#x5668;&#x4F7F;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4ECE;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#x4F30;&#x8BA1;&#x51FA;&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387; <img src="img/a25320a2e009abd4269f291f85062a5d.jpg" alt="P(y=k)"> &#xFF08;&#x901A;&#x8FC7;&#x6BCF;&#x4E2A;&#x7C7B; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x6BD4;&#x4F8B;&#x5F97;&#x5230;&#xFF09;&#xFF0C;&#x7C7B;&#x522B;&#x5747;&#x503C; <img src="img/fdff527ccbac4fd87c2ca9c4bed5fce2.jpg" alt="\mu_k"> &#xFF08;&#x901A;&#x8FC7;&#x7ECF;&#x9A8C;&#x6837;&#x672C;&#x7684;&#x7C7B;&#x522B;&#x5747;&#x503C;&#x5F97;&#x5230;&#xFF09;&#xFF0C;&#x4EE5;&#x53CA;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#xFF08;&#x901A;&#x8FC7;&#x7ECF;&#x9A8C;&#x6837;&#x672C;&#x7684;&#x7C7B;&#x522B;&#x534F;&#x65B9;&#x5DEE;&#x6216;&#x8005;&#x6B63;&#x5219;&#x5316;&#x7684;&#x4F30;&#x8BA1;&#x5668; estimator &#x5F97;&#x5230;&#xFF1A;&#x89C1;&#x4E0B;&#x9762;&#x7684; shrinkage &#x7AE0;&#x8282;&#xFF09;&#x3002;</p>
+<p>&#x5728; LDA &#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x7C7B;&#x522B;&#x7684;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;:<img src="img/ffecfca02992b6a85e966c9440cb40dd.jpg" alt="\Sigma_k">for all <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k">&#x3002;&#x8FD9;&#x5BFC;&#x81F4;&#x4E86;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x7EBF;&#x6027;&#x51B3;&#x7B56;&#x9762;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6BD4;&#x8F83;&#x5BF9;&#x6570;&#x6982;&#x7387;&#x6BD4;<img src="img/fd132d0faf19fdc76254a6317ed1acfd.png" alt="\log[P(y=k | X) / P(y=l | X)]"> &#x770B;&#x51FA;&#x6765;&#xFF1A;</p>
+<p><img src="img/2a0c137e7b86ad939e131293a273579b.png" alt="\log\left(\frac{P(y=k|X)}{P(y=l | X)}\right) = \log\big(\frac{P(X|y=k)P(y=k)}{P(X|y=l)P(y=l)}\big) = 0 \Leftrightarrow\\ {(\mu_k-\mu_l)}^t\Sigma^{-1} X = \frac{1}{2} (\mu_k^t \Sigma^{-1} \mu_k - \mu_l^t \Sigma^{-1} \mu_l) -\log\frac{P(y=k)}{p(y=l)}"></p>
+<p>&#x5728; QDA &#x60C5;&#x51B5;&#x4E2D;&#xFF0C;&#x6CA1;&#x6709;&#x5173;&#x4E8E;&#x9AD8;&#x65AF;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635; <img src="img/ffecfca02992b6a85e966c9440cb40dd2.jpg" alt="\Sigma_k"> &#x7684;&#x5047;&#x8BBE;&#xFF0C;&#x56E0;&#x6B64;&#x6709;&#x4E86;&#x4E8C;&#x6B21;&#x51B3;&#x7B56;&#x5E73;&#x9762;&#x3002;&#x66F4;&#x591A;&#x7EC6;&#x8282;&#x89C1;&#x53C2;&#x8003;&#x6587;&#x732E; <a href="https://scikit-learn.org/stable/modules/lda_qda.html#id4" target="_blank">[3]</a>&#x3002;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x4E0E;&#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x5173;&#x7CFB;</strong></p>
+<p>&#x5982;&#x679C;&#x5728;QDA&#x6A21;&#x578B;&#x4E2D;&#x5047;&#x8BBE;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x662F;&#x5BF9;&#x89D2;&#x7684;&#xFF0C;&#x5219;&#x8F93;&#x5165;&#x88AB;&#x5047;&#x8BBE;&#x4E3A;&#x5728;&#x6BCF;&#x4E2A;&#x7C7B;&#x4E2D;&#x662F;&#x6761;&#x4EF6;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x6240;&#x5F97;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x7B49;&#x540C;&#x4E8E;&#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB" target="_blank"><code>naive_bayes.GaussianNB</code></a> &#x3002;</p>
+</blockquote>
+<h2 id="123-lda-&#x7684;&#x964D;&#x7EF4;&#x6570;&#x5B66;&#x516C;&#x5F0F;">1.2.3. LDA &#x7684;&#x964D;&#x7EF4;&#x6570;&#x5B66;&#x516C;&#x5F0F;</h2>
+<p>&#x4E3A;&#x4E86;&#x7406;&#x89E3; LDA &#x5728;&#x964D;&#x7EF4;&#x4E0A;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x4ECE;&#x4E0A;&#x9762;&#x89E3;&#x91CA;&#x7684; LDA &#x5206;&#x7C7B;&#x89C4;&#x5219;&#x7684;&#x51E0;&#x4F55;&#x91CD;&#x6784;&#x5F00;&#x59CB;&#x662F;&#x5341;&#x5206;&#x6709;&#x7528;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x7528; <img src="img/e279b8169ddd6581c5606c868ba52fae.jpg" alt="K"> &#x8868;&#x793A;&#x76EE;&#x6807;&#x7C7B;&#x522B;&#x7684;&#x603B;&#x6570;&#x3002; &#x7531;&#x4E8E;&#x5728; LDA &#x4E2D;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x6240;&#x6709;&#x7C7B;&#x522B;&#x90FD;&#x6709;&#x76F8;&#x540C;&#x4F30;&#x8BA1;&#x7684;&#x534F;&#x65B9;&#x5DEE; <img src="img/2ca002ed0f4e27f9040d3f3ec58fbb38.jpg" alt="\Sigma"> &#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x91CD;&#x65B0;&#x8C03;&#x8282;&#x6570;&#x636E;&#x4ECE;&#x800C;&#x8BA9;&#x534F;&#x65B9;&#x5DEE;&#x76F8;&#x540C;&#x3002;</p>
+<p><img src="img/7682696b3b598c55d49ca030059f0a18.jpg" alt="X^* = D^{-1/2}U^t X\text{ with }\Sigma = UDU^t"></p>
+<p>&#x5728;&#x7F29;&#x653E;&#x4E4B;&#x540E;&#x5BF9;&#x6570;&#x636E;&#x70B9;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x76F8;&#x5F53;&#x4E8E;&#x627E;&#x5230;&#x4E0E;&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x8DDD;&#x79BB;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x70B9;&#x6700;&#x63A5;&#x8FD1;&#x7684;&#x4F30;&#x8BA1;&#x7C7B;&#x522B;&#x5747;&#x503C; <img src="img/d6293957048ac05c3ae0dfac9949537c.jpg" alt="\mu^*_k">&#x3002;&#x4F46;&#x662F;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6295;&#x5F71;&#x5230; <img src="img/7ce09555ac9e490df7f81ef7eb0e58e8.jpg" alt="K-1"> &#x4E2A;&#x7531;&#x6240;&#x6709;&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709; <img src="img/d6293957048ac05c3ae0dfac9949537c.jpg" alt="\mu^*_k"> &#x751F;&#x6210;&#x7684;&#x4EFF;&#x5C04;&#x5B50;&#x7A7A;&#x95F4; <img src="img/499e262369261799dec950eb33da9ccf.jpg" alt="H_K"> &#x4E4B;&#x540E;&#x5B8C;&#x6210;&#x3002;&#x8FD9;&#x4E5F;&#x8868;&#x660E;&#xFF0C;LDA &#x5206;&#x7C7B;&#x5668;&#x4E2D;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5229;&#x7528;&#x7EBF;&#x6027;&#x6295;&#x5F71;&#x5230; <img src="img/7ce09555ac9e490df7f81ef7eb0e58e8.jpg" alt="K-1"> &#x4E2A;&#x7EF4;&#x5EA6;&#x7A7A;&#x95F4;&#x7684;&#x964D;&#x7EF4;&#x5DE5;&#x5177;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x6295;&#x5F71;&#x5230;&#x7EBF;&#x6027;&#x5B50;&#x7A7A;&#x95F4; <img src="img/7df17fc33fdb4c71b329c593ad30f47e.jpg" alt="H_L"> &#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x5C06;&#x7EF4;&#x6570;&#x51CF;&#x5C11;&#x5230;&#x4E00;&#x4E2A;&#x9009;&#x5B9A;&#x7684; <img src="img/639e82f3829a0ad677110cc33a028c98.jpg" alt="L"> &#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x6295;&#x5F71;&#x540E;&#x7684; <img src="img/d6293957048ac05c3ae0dfac9949537c.jpg" alt="\mu^*_k"> &#x7684;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#x5316;&#xFF08;&#x5B9E;&#x9645;&#x4E0A;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8F6C;&#x6362;&#x7C7B;&#x5747;&#x503C; <img src="img/d6293957048ac05c3ae0dfac9949537c.jpg" alt="\mu^*_k">&#xFF0C;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x505A;&#x67D0;&#x79CD;&#x5F62;&#x5F0F;&#x7684; PCA&#xFF09;&#x3002; &#x8FD9;&#x91CC;&#x7684; <img src="img/639e82f3829a0ad677110cc33a028c98.jpg" alt="L"> &#x5BF9;&#x5E94;&#x4E8E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis.transform" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis.transform</code></a> &#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;&#x7684; <code>n_components</code> &#x53C2;&#x6570;&#x3002; &#x8BE6;&#x60C5;&#x53C2;&#x8003;&#x53C2;&#x8003;&#x6587;&#x732E; <a href="https://scikit-learn.org/stable/modules/lda_qda.html#id4" target="_blank">[3]</a> &#x3002;</p>
+<h2 id="124-&#x6536;&#x7F29;">1.2.4. &#x6536;&#x7F29;</h2>
+<p>&#x6536;&#x7F29;&#x662F;&#x4E00;&#x79CD;&#x5728;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x6570;&#x91CF;&#x76F8;&#x6BD4;&#x7279;&#x5F81;&#x800C;&#x8A00;&#x5F88;&#x5C0F;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x63D0;&#x5347;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x9884;&#x6D4B;&#x51C6;&#x786E;&#x6027;&#x7684;&#x5DE5;&#x5177;&#x3002; &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x666F;&#x4E2D;&#xFF0C;&#x7ECF;&#x9A8C;&#x6837;&#x672C;&#x534F;&#x65B9;&#x5DEE;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5DEE;&#x7684;&#x9884;&#x6D4B;&#x5668;&#x3002;&#x6536;&#x7F29; LDA &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" target="_blank"><code>discriminant_analysis.LinearDiscriminantAnalysis</code></a> &#x7C7B;&#x7684; <code>shrinkage</code> &#x53C2;&#x6570;&#x4E3A; &#x2018;auto&#x2019; &#x6765;&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x5C06;&#x6839;&#x636E; Ledoit &#x548C; Wolf &#x5F15;&#x5165;&#x7684;&#x5F15;&#x7406; <a href="https://scikit-learn.org/stable/modules/lda_qda.html#id5" target="_blank">[4]</a>&#xFF0C;&#x4EE5;&#x89E3;&#x6790;&#x7684;&#x65B9;&#x5F0F;&#x81EA;&#x52A8;&#x786E;&#x5B9A;&#x6700;&#x4F73;&#x6536;&#x7F29;&#x53C2;&#x6570;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5F53;&#x524D;&#x7684;&#x6536;&#x7F29;&#x4EC5;&#x4EC5;&#x5728;<code>solver</code>&#x53C2;&#x6570;&#x4E3A; <code>lsqr</code> &#x6216; <code>eigen</code> &#x65F6;&#x624D;&#x4F1A;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
+<p><code>shrinkage</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; 0-1 &#x4E4B;&#x95F4;&#x3002;&#x7279;&#x522B;&#x5730;&#xFF0C;0 &#x503C;&#x5BF9;&#x5E94;&#x7740;&#x6CA1;&#x6709;&#x6536;&#x7F29;&#xFF08;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x7ECF;&#x9A8C;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x5C06;&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#xFF09;&#xFF0C;&#x800C; 1 &#x503C;&#x5219;&#x5BF9;&#x5E94;&#x7740;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x6536;&#x7F29;&#xFF08;&#x610F;&#x5473;&#x7740;&#x65B9;&#x5DEE;&#x7684;&#x5BF9;&#x89D2;&#x77E9;&#x9635;&#x5C06;&#x88AB;&#x5F53;&#x4F5C;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x7684;&#x4F30;&#x8BA1;&#xFF09;&#x3002;&#x5C06;&#x6B64;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A;&#x8FD9;&#x4E24;&#x4E2A;&#x6781;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x503C;&#x5C06;&#x4F30;&#x8BA1;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x7684;&#x4E00;&#x4E2A;&#x6536;&#x7F29;&#x7248;&#x672C;&#x3002;</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/classification/plot_lda.html" target="_blank"><img src="img/d5021b539c18587624a07ef6df00f585.jpg" alt="shrinkage"></a></strong></p>
+<h2 id="125-&#x9884;&#x4F30;&#x7B97;&#x6CD5;">1.2.5. &#x9884;&#x4F30;&#x7B97;&#x6CD5;</h2>
+<p>&#x9ED8;&#x8BA4;&#x7684; solver &#x662F; &#x2018;svd&#x2019;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5206;&#x7C7B;)&#x4EE5;&#x53CA;&#x8F6C;&#x6362;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x4E0D;&#x4F1A;&#x4F9D;&#x8D56;&#x4E8E;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x7684;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x5728;&#x7279;&#x5F81;&#x6570;&#x91CF;&#x7279;&#x522B;&#x5927;&#x7684;&#x65F6;&#x5019;&#x5341;&#x5206;&#x5177;&#x6709;&#x4F18;&#x52BF;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x2019;svd&#x2019; &#x89E3;&#x51B3;&#x5668;&#x65E0;&#x6CD5;&#x4E0E;&#x6536;&#x7F29;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x2018;lsqr&#x2019; &#x89E3;&#x51B3;&#x5668;&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x6548;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x5B83;&#x4EC5;&#x7528;&#x4E8E;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x3002;&#x5B83;&#x652F;&#x6301;&#x6536;&#x7F29;&#x3002;</p>
+<p>&#x2018;eigen&#x2019; &#x89E3;&#x51B3;&#x5668;&#x662F;&#x57FA;&#x4E8E;&#x7C7B;&#x6563;&#x5EA6;&#x4E0E;&#x7C7B;&#x5185;&#x79BB;&#x6563;&#x7387;&#x4E4B;&#x95F4;&#x7684;&#x4F18;&#x5316;&#x3002; &#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x4E8E;&#x5206;&#x7C7B;&#x4EE5;&#x53CA;&#x8F6C;&#x6362;&#xFF0C;&#x6B64;&#x5916;&#x5B83;&#x8FD8;&#x540C;&#x65F6;&#x652F;&#x6301;&#x6536;&#x7F29;&#x3002;&#x7136;&#x800C;&#x8BE5;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x53EF;&#x80FD;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x5177;&#x6709;&#x5927;&#x91CF;&#x7279;&#x5F81;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;&#xFF1A;</strong></p>
+<ul>
+<li>[Normal and Shrinkage Linear Discriminant Analysis for classification](<a href="https://scikit-learn.org/stable/auto_examples/classification/plot_lda.html#sphx-glr-auto-examples-classification-plot-lda-py&#xFF1A;&#x6709;&#x6536;&#x7F29;&#x548C;&#x65E0;&#x6536;&#x7F29;LDA&#x5206;&#x7C7B;&#x5668;&#x7684;&#x6BD4;&#x8F83;&#x3002;" target="_blank">https://scikit-learn.org/stable/auto_examples/classification/plot_lda.html#sphx-glr-auto-examples-classification-plot-lda-py&#xFF1A;&#x6709;&#x6536;&#x7F29;&#x548C;&#x65E0;&#x6536;&#x7F29;LDA&#x5206;&#x7C7B;&#x5668;&#x7684;&#x6BD4;&#x8F83;&#x3002;</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</strong></p>
+<ul>
+<li><strong>3(<a href="https://scikit-learn.org/stable/modules/lda_qda.html#id1" target="_blank">1</a>,<a href="https://scikit-learn.org/stable/modules/lda_qda.html#id2" target="_blank">2</a>)</strong> &#x201C;The Elements of Statistical Learning&#x201D;, Hastie T., Tibshirani R., Friedman J., Section 4.3, p.106-119, 2008.</li>
+<li><strong><a href="https://scikit-learn.org/stable/modules/lda_qda.html#id3" target="_blank">[4]</a></strong> Ledoit O, Wolf M. Honey, I Shrunk the Sample Covariance Matrix. The Journal of Portfolio Management 30(4), 110-119, 2004.</li>
+</ul>
+</blockquote>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.html" class="navigation navigation-prev " aria-label="Previous page: 1.1. 广义线性模型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.html" class="navigation navigation-next " aria-label="Next page: 1.3. 内核岭回归">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.2. 线性和二次判别分析","level":"1.3.1.2","depth":3,"next":{"title":"1.3. 内核岭回归","level":"1.3.1.3","depth":3,"path":"docs/master/4.md","ref":"docs/master/4.md","articles":[]},"previous":{"title":"1.1. 广义线性模型","level":"1.3.1.1","depth":3,"path":"docs/master/2.md","ref":"docs/master/2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/3.md","mtime":"2020-11-23T10:54:46.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

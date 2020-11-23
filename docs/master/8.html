@@ -1,0 +1,1601 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.7. 高斯过程 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="9.html" />
+    
+    
+    <link rel="prev" href="7.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >1.7. 高斯过程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="17-&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;">1.7. &#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@glassy</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@Trembleguy</a>
+        <a href="https://github.com/loopyme" target="_blank">@Loopy</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@AI&#x8FFD;&#x5BFB;&#x8005;</a></p>
+<p><strong>&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B; (GP)</strong> &#x662F;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#xFF0C;&#x65E8;&#x5728;&#x89E3;&#x51B3;<em>&#x56DE;&#x5F52;&#x95EE;&#x9898;</em>&#x548C;<em>&#x6982;&#x7387;&#x5206;&#x7C7B;&#x95EE;&#x9898;</em>&#x3002;</p>
+<p>&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x6A21;&#x578B;&#x7684;&#x4F18;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x9884;&#x6D4B;&#x5185;&#x63D2;&#x4E86;&#x89C2;&#x5BDF;&#x7ED3;&#x679C;&#xFF08;&#x81F3;&#x5C11;&#x5BF9;&#x4E8E;&#x6B63;&#x5219;&#x6838;&#xFF09;&#x3002;</li>
+<li>&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x662F;&#x6982;&#x7387;&#x5F62;&#x5F0F;&#x7684;&#xFF08;&#x9AD8;&#x65AF;&#x5F62;&#x5F0F;&#x7684;&#xFF09;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x4EBA;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7ECF;&#x9A8C;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;&#x5E76;&#x4E14;&#x636E;&#x6B64;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x4FEE;&#x6539;&#xFF08;&#x5728;&#x7EBF;&#x62DF;&#x5408;&#xFF0C;&#x81EA;&#x9002;&#x5E94;&#xFF09;&#x5728;&#x4E00;&#x4E9B;&#x533A;&#x57DF;&#x7684;&#x9884;&#x6D4B;&#x503C;&#x3002;</li>
+<li>&#x901A;&#x7528;&#x6027;: &#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E0D;&#x540C;&#x7684;:<a href="#175-&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5185;&#x6838;">&#x5185;&#x6838;(kernels)</a>&#x3002;&#x867D;&#x7136;&#x8BE5;&#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x5E38;&#x7528;&#x7684;&#x5185;&#x6838;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x81EA;&#x5B9A;&#x4E49;&#x5185;&#x6838;&#x3002;</li>
+</ul>
+<p>&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x6A21;&#x578B;&#x7684;&#x7F3A;&#x70B9;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li>&#x5B83;&#x4EEC;&#x4E0D;&#x7A00;&#x758F;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x6A21;&#x578B;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x6574;&#x4E2A;&#x6837;&#x672C;/&#x7279;&#x5F81;&#x4FE1;&#x606F;&#x6765;&#x8FDB;&#x884C;&#x9884;&#x6D4B;&#x3002;</li>
+<li>&#x9AD8;&#x7EF4;&#x7A7A;&#x95F4;&#x6A21;&#x578B;&#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x9AD8;&#x7EF4;&#x4E5F;&#x5C31;&#x662F;&#x6307;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#x8D85;&#x8FC7;&#x51E0;&#x5341;&#x4E2A;&#x3002;</li>
+</ul>
+<h2 id="171-&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x56DE;&#x5F52;&#xFF08;gpr&#xFF09;">1.7.1. &#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x56DE;&#x5F52;&#xFF08;GPR&#xFF09;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessRegressor.html#sklearn.gaussian_process.GaussianProcessRegressor" title="sklearn.gaussian_process.GaussianProcessRegressor" target="_blank"><code>GaussianProcessRegressor</code></a> &#x7C7B;&#x5B9E;&#x73B0;&#x4E86;&#x56DE;&#x5F52;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;(GP)&#x6A21;&#x578B;&#x3002; &#x4E3A;&#x6B64;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x6307;&#x5B9A;GP&#x7684;&#x5148;&#x9A8C;&#x3002;&#x5F53;&#x53C2;&#x6570; <code>normalize_y=False</code> &#x65F6;&#xFF0C;&#x5148;&#x9A8C;&#x7684;&#x5747;&#x503C; &#x901A;&#x5E38;&#x5047;&#x5B9A;&#x4E3A;&#x5E38;&#x6570;&#x6216;&#x8005;&#x96F6;; &#x5F53; <code>normalize_y=True</code> &#x65F6;&#xFF0C;&#x5148;&#x9A8C;&#x5747;&#x503C;&#x901A;&#x5E38;&#x4E3A;&#x8BAD;&#x7EC3;&#x6570; &#x636E;&#x7684;&#x5747;&#x503C;&#x3002;&#x800C;&#x5148;&#x9A8C;&#x7684;&#x65B9;&#x5DEE;&#x901A;&#x8FC7;&#x4F20;&#x9012; <a href="#gp-kernels">&#x5185;&#x6838;(kernel)</a> &#x5BF9;&#x8C61;&#x6765;&#x6307;&#x5B9A;&#x3002;&#x901A;&#x8FC7; &#x6700;&#x5927;&#x5316;&#x57FA;&#x4E8E;&#x4F20;&#x9012; <code>optimizer</code> &#x7684;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;(LML)&#xFF0C;&#x5185;&#x6838;&#x7684;&#x8D85;&#x53C2;&#x53EF;&#x4EE5;&#x5728; GaussianProcessRegressor &#x7C7B;&#x6267;&#x884C;&#x62DF;&#x5408;&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x4F18;&#x5316;&#x3002;&#x7531;&#x4E8E; LML &#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;&#x591A;&#x4E2A; &#x5C40;&#x90E8;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x56E0;&#x6B64;&#x4F18;&#x5316;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A; <code>n_restarts_optimizer</code> &#x53C2;&#x6570;&#x8FDB;&#x884C; &#x591A;&#x6B21;&#x91CD;&#x590D;&#x3002;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x5185;&#x6838;&#x7684;&#x8D85;&#x53C2;&#x521D;&#x59CB;&#x503C;&#x6765;&#x8FDB;&#x884C;&#x7B2C;&#x4E00;&#x6B21;&#x4F18;&#x5316;&#x7684;&#x8FD0;&#x884C;&#x3002;&#x540E;&#x7EED;&#x7684;&#x8FD0;&#x884C; &#x8FC7;&#x7A0B;&#x4E2D;&#x8D85;&#x53C2;&#x503C;&#x90FD;&#x662F;&#x4ECE;&#x5408;&#x7406;&#x8303;&#x56F4;&#x503C;&#x4E2D;&#x968F;&#x673A;&#x9009;&#x53D6;&#x7684;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x4FDD;&#x6301;&#x521D;&#x59CB;&#x5316;&#x8D85;&#x53C2;&#x503C;&#xFF0C; &#x90A3;&#x4E48;&#x9700;&#x8981;&#x628A;&#x4F18;&#x5316;&#x5668;&#x8BBE;&#x7F6E;&#x4E3A; <em>None</em> &#x3002;</p>
+<p>&#x76EE;&#x6807;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x566A;&#x58F0;&#x7EA7;&#x522B;&#x901A;&#x8FC7;&#x53C2;&#x6570; <code>alpha</code> &#x6765;&#x4F20;&#x9012;&#x5E76;&#x6307;&#x5B9A;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x5C40;&#x662F;&#x5E38;&#x6570;&#x8981;&#x4E48;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x70B9;&#x3002; &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x9002;&#x5EA6;&#x7684;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x4E5F;&#x53EF;&#x4EE5;&#x6709;&#x52A9;&#x4E8E;&#x5904;&#x7406;&#x62DF;&#x5408;&#x671F;&#x95F4;&#x7684;&#x6570;&#x5B57;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x88AB;&#x6709;&#x6548;&#x5730;&#x5B9E;&#x73B0;&#x4E3A;&#x5409;&#x6D2A;&#x8BFA;&#x592B;&#x6B63;&#x5219;&#x5316;(Tikhonov regularization)&#xFF0C; &#x5373;&#x901A;&#x8FC7;&#x5C06;&#x5176;&#x6DFB;&#x52A0;&#x5230;&#x6838;&#x5FC3;&#x77E9;&#x9635;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x3002;&#x660E;&#x786E;&#x6307;&#x5B9A;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x662F;&#x5C06; WhiteKernel &#x7EC4;&#x4EF6;&#x5305;&#x542B;&#x5728;&#x5185;&#x6838;&#x4E2D;&#xFF0C; &#x8FD9;&#x53EF;&#x4EE5;&#x4ECE;&#x6570;&#x636E;&#x4E2D;&#x4F30;&#x8BA1;&#x5168;&#x5C40;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#xFF08;&#x89C1;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF09;&#x3002;</p>
+<p>&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x662F;&#x57FA;&#x4E8E;<a href="#rw2006">[RW2006]</a>&#x4E2D;&#x7684;&#x7B97;&#x6CD5; 2.1 &#x3002;&#x9664;&#x4E86;&#x6807;&#x51C6; scikit learn &#x4F30;&#x8BA1;&#x5668;&#x7684; API &#x4E4B;&#x5916;&#xFF0C; GaussianProcessRegressor &#x7684;&#x4F5C;&#x7528;&#x8FD8;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li>&#x5141;&#x8BB8;&#x9884;&#x6D4B;&#xFF0C;&#x65E0;&#x9700;&#x4E8B;&#x5148;&#x62DF;&#x5408;&#xFF08;&#x57FA;&#x4E8E;GP&#x5148;&#x9A8C;&#xFF09;</li>
+<li>&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x989D;&#x5916;&#x7684;&#x65B9;&#x6CD5; <code>sample_y(X)</code> , &#x5176;&#x8BC4;&#x4F30; &#x5728;&#x7ED9;&#x5B9A;&#x8F93;&#x5165;&#x5904;&#x4ECE; GPR &#xFF08;&#x5148;&#x9A8C;&#x6216;&#x540E;&#x9A8C;&#xFF09;&#x7ED8;&#x5236;&#x7684;&#x6837;&#x672C;</li>
+<li>&#x516C;&#x5F00;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x6CD5; <code>log_marginal_likelihood(theta)</code> , &#x53EF;&#x4EE5;&#x5728;&#x5916;&#x90E8;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x9009;&#x62E9;&#x8D85;&#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#x901A;&#x8FC7;&#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x94FE;&#x8499;&#x7279;&#x5361;&#x7F57;&#x94FE;(Markov chain Monte Carlo)&#x3002;</li>
+</ul>
+<h2 id="172-gpr-&#x793A;&#x4F8B;">1.7.2. GPR &#x793A;&#x4F8B;</h2>
+<h3 id="1721-&#x5177;&#x6709;&#x566A;&#x58F0;&#x7EA7;&#x7684;-gpr-&#x4F30;&#x8BA1;">1.7.2.1. &#x5177;&#x6709;&#x566A;&#x58F0;&#x7EA7;&#x7684; GPR &#x4F30;&#x8BA1;</h3>
+<p>&#x8BE5;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x5177;&#x6709;&#x5305;&#x542B; WhiteKernel &#x7684;&#x548C;&#x6838;(sum-kernel)&#x7684; GPR &#x53EF;&#x4EE5;&#x4F30;&#x8BA1;&#x6570;&#x636E;&#x7684;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x3002; &#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF08;LML&#xFF09;&#x666F;&#x89C2;&#x7684;&#x56FE;&#x793A;&#x8868;&#x660E;&#x5B58;&#x5728; LML &#x7684;&#x4E24;&#x4E2A;&#x5C40;&#x90E8;&#x6700;&#x5927;&#x503C;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_noisy.html" target="_blank"><img src="img/1091409a4db7e77230536d6b05b4fae6.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_noisy_0001.png"></a></p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x4E8E;&#x5177;&#x6709;&#x9AD8;&#x566A;&#x58F0;&#x7535;&#x5E73;&#x548C;&#x5927;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5176;&#x89E3;&#x91CA;&#x6570;&#x636E;&#x4E2D;&#x566A;&#x58F0;&#x7684;&#x6240;&#x6709;&#x53D8;&#x5316;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_noisy.html" target="_blank"><img src="img/0f30c5ace43eda2a8d25c6e9365264d7.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_noisy_0011.png"></a></p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x5177;&#x6709;&#x8F83;&#x5C0F;&#x7684;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x548C;&#x8F83;&#x77ED;&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#xFF0C;&#x8FD9;&#x89E3;&#x91CA;&#x4E86;&#x65E0;&#x566A;&#x58F0;&#x529F;&#x80FD;&#x5173;&#x7CFB;&#x7684;&#x5927;&#x90E8;&#x5206;&#x53D8;&#x5316;&#x3002; &#x7B2C;&#x4E8C;&#x79CD;&#x6A21;&#x5F0F;&#x6709;&#x8F83;&#x9AD8;&#x7684;&#x53EF;&#x80FD;&#x6027;; &#x7136;&#x800C;&#xFF0C;&#x6839;&#x636E;&#x8D85;&#x53C2;&#x6570;&#x7684;&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x57FA;&#x4E8E;&#x68AF;&#x5EA6;&#x7684;&#x4F18;&#x5316;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x6536;&#x655B;&#x5230;&#x9AD8;&#x566A;&#x58F0;&#x89E3;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x91CD;&#x590D;&#x4F18;&#x5316;&#x591A;&#x6B21;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_noisy.html" target="_blank"><img src="img/6526868397aa8da766b3dc60bbcc30ef.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_noisy_0021.png"></a></p>
+<h3 id="1722-gpr-&#x548C;&#x5185;&#x6838;&#x5CAD;&#x56DE;&#x5F52;&#xFF08;kernel-ridge-regression&#xFF09;&#x7684;&#x6BD4;&#x8F83;">1.7.2.2. GPR &#x548C;&#x5185;&#x6838;&#x5CAD;&#x56DE;&#x5F52;&#xFF08;Kernel Ridge Regression&#xFF09;&#x7684;&#x6BD4;&#x8F83;</h3>
+<p>&#x5185;&#x6838;&#x810A;&#x56DE;&#x5F52;&#xFF08;KRR&#xFF09;&#x548C; GPR &#x901A;&#x8FC7;&#x5185;&#x90E8;&#x4F7F;&#x7528; &#x201C;kernel trick(&#x5185;&#x6838;&#x6280;&#x5DE7;)&#x201D; &#x6765;&#x5B66;&#x4E60;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x3002; KRR&#x5B66;&#x4E60;&#x7531;&#x76F8;&#x5E94;&#x5185;&#x6838;&#x5F15;&#x8D77;&#x7684;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x7A7A;&#x95F4;&#x5BF9;&#x5E94;&#x4E8E;&#x539F;&#x59CB;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#x3002; &#x57FA;&#x4E8E;&#x5E73;&#x5747;&#x8BEF;&#x5DEE;&#x635F;&#x5931;&#x4E0E;&#x810A;&#x6B63;&#x5F26;&#x5316;&#xFF0C;&#x9009;&#x62E9;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#x3002; GPR&#x4F7F;&#x7528;&#x5185;&#x6838;&#x6765;&#x5B9A;&#x4E49;&#x5148;&#x9A8C;&#x5206;&#x5E03;&#x5728;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x4E0A;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x6765;&#x5B9A;&#x4E49;&#x4F3C;&#x7136;&#x51FD;&#x6570;&#x3002; &#x57FA;&#x4E8E;&#x8D1D;&#x53F6;&#x65AF;&#x5B9A;&#x7406;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x4E0A;&#x7684;&#xFF08;&#x9AD8;&#x65AF;&#xFF09;&#x540E;&#x9A8C;&#x5206;&#x5E03;&#xFF0C;&#x5176;&#x5E73;&#x5747;&#x503C;&#x7528;&#x4E8E;&#x9884;&#x6D4B;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x662F;&#xFF0C;GPR &#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x8FB9;&#x9645;&#x4F3C;&#x7136;&#x51FD;&#x6570;&#x4E0A;&#x7684;&#x68AF;&#x5EA6;&#x4E0A;&#x5347;&#x9009;&#x62E9;&#x5185;&#x6838;&#x7684;&#x8D85;&#x53C2;&#x6570;&#xFF0C; &#x800C;KRR&#x9700;&#x8981;&#x5728;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF08;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x635F;&#x5931;&#xFF09;&#x4E0A;&#x6267;&#x884C;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x3002; &#x53E6;&#x4E00;&#x4E2A;&#x533A;&#x522B;&#x662F;&#xFF0C;GPR &#x5B66;&#x4E60;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x751F;&#x6210;&#x6982;&#x7387;&#x6A21;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x6709;&#x610F;&#x4E49;&#x7684;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;&#x548C;&#x540E;&#x9A8C;&#x6837;&#x672C;&#x4EE5;&#x53CA;&#x9884;&#x6D4B;&#x503C;&#xFF0C; &#x800C;KRR&#x4EC5;&#x63D0;&#x4F9B;&#x9884;&#x6D4B;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x8BF4;&#x660E;&#x4E86;&#x4EBA;&#x9020;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x6B63;&#x5F26;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x548C;&#x5F3A;&#x566A;&#x58F0;&#x3002; &#x8BE5;&#x56FE;&#x6BD4;&#x8F83;&#x4E86;&#x57FA;&#x4E8E; ExpSineSquared &#x5185;&#x6838;&#x7684; KRR &#x548C; GPR &#x7684;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x5B66;&#x4E60;&#x5468;&#x671F;&#x51FD;&#x6570;&#x3002; &#x5185;&#x6838;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x63A7;&#x5236;&#x5185;&#x6838;&#x7684;&#x5E73;&#x6ED1;&#x5EA6;&#xFF08;length_scale&#xFF09;&#x548C;&#x5468;&#x671F;&#x6027;&#xFF08;&#x5468;&#x671F;&#x6027;&#xFF09;&#x3002; &#x6B64;&#x5916;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x7531; GPR &#x901A;&#x8FC7;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x53E6;&#x5916;&#x7684; WhiteKernel &#x7EC4;&#x4EF6;&#x548C; KRR &#x7684;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570; &#x3B1; &#x660E;&#x786E;&#x5730;&#x5B66;&#x4E60;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_compare_gpr_krr.html" target="_blank"><img src="img/610475f160f25407a547e5430c792460.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_compare_gpr_krr_0011.png"></a></p>
+<p>&#x8BE5;&#x56FE;&#x663E;&#x793A;&#xFF0C;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#x5B66;&#x4E60;&#x5408;&#x7406;&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x6A21;&#x578B;&#x3002; GPR&#x5C06;&#x51FD;&#x6570;&#x7684;&#x5468;&#x671F;&#x6B63;&#x786E;&#x5730;&#x8BC6;&#x522B;&#x4E3A; <img src="img/cdaca3963c7797054326117c0bc0b368.jpg" alt="2*\pi"> &#xFF08;6.28&#xFF09;&#xFF0C;&#x800C; KRR &#x9009;&#x62E9;&#x500D;&#x589E;&#x7684;&#x5468;&#x671F;&#x4E3A; <img src="img/5d0d4b3cde172f7fd71da81c2e1b21a9.jpg" alt="4*\pi"> &#x3002; &#x6B64;&#x5916;&#xFF0C;GPR &#x4E3A; KRR &#x4E0D;&#x53EF;&#x7528;&#x7684;&#x9884;&#x6D4B;&#x63D0;&#x4F9B;&#x4E86;&#x5408;&#x7406;&#x7684;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;&#x3002; &#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x4E4B;&#x95F4;&#x7684;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x662F;&#x62DF;&#x5408;&#x548C;&#x9884;&#x6D4B;&#x6240;&#x9700;&#x7684;&#x65F6;&#x95F4;&#xFF1A; &#x539F;&#x5219;&#x4E0A;KRR&#x7684;&#x62DF;&#x5408;&#x901F;&#x5EA6;&#x8F83;&#x5FEB;&#xFF0C;&#x8D85;&#x53C2;&#x6570;&#x4F18;&#x5316;&#x7684;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x4E0E;&#x8D85;&#x53C2;&#x6570;&#xFF08; &#x201C;curse of dimensionality(&#x7EF4;&#x5EA6;&#x8BC5;&#x5492;)&#x201D; &#xFF09;&#x5448;&#x6307;&#x6570;&#x7EA7;&#x5173;&#x7CFB;&#x3002; GPR&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x7684;&#x57FA;&#x4E8E;&#x68AF;&#x5EA6;&#x7684;&#x4F18;&#x5316;&#x4E0D;&#x53D7;&#x6B64;&#x6307;&#x6570;&#x7F29;&#x653E;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5177;&#x6709;&#x4E09;&#x7EF4;&#x8D85;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#x7684;&#x8BE5;&#x793A;&#x4F8B;&#x4E0A;&#x76F8;&#x5F53;&#x5FEB;&#x3002; &#x9884;&#x6D4B;&#x7684;&#x65F6;&#x95F4;&#x662F;&#x76F8;&#x4F3C;&#x7684;; &#x7136;&#x800C;&#xFF0C;&#x751F;&#x6210; GPR &#x9884;&#x6D4B;&#x5206;&#x5E03;&#x7684;&#x65B9;&#x5DEE;&#x9700;&#x8981;&#x7684;&#x65F6;&#x95F4;&#x6BD4;&#x751F;&#x6210;&#x5E73;&#x5747;&#x503C;&#x8981;&#x957F;&#x3002;</p>
+<h3 id="1723-mauna-loa-co2-&#x6570;&#x636E;&#x4E2D;&#x7684;-grr">1.7.2.3. Mauna Loa CO2 &#x6570;&#x636E;&#x4E2D;&#x7684; GRR</h3>
+<p>&#x8BE5;&#x793A;&#x4F8B;&#x57FA;&#x4E8E;<a href="#rw2006">[RW2006]</a>&#x7684;&#x7B2C; 5.4.3 &#x8282;&#x3002; &#x5B83;&#x6F14;&#x793A;&#x4E86;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0A;&#x5347;&#x7684;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#x6027;&#x7684;&#x590D;&#x6742;&#x5185;&#x6838;&#x5DE5;&#x7A0B;&#x548C;&#x8D85;&#x53C2;&#x6570;&#x4F18;&#x5316;&#x7684;&#x793A;&#x4F8B;&#x3002; &#x6570;&#x636E;&#x5305;&#x62EC;&#x5728; 1958 &#x5E74;&#x81F3; 1997 &#x5E74;&#x95F4;&#x590F;&#x5A01;&#x5937; Mauna Loa &#x5929;&#x6587;&#x53F0;&#x6536;&#x96C6;&#x7684;&#x6BCF;&#x6708;&#x5E73;&#x5747;&#x5927;&#x6C14;&#x4E8C;&#x6C27; &#x5316;&#x78B3;&#x6D53;&#x5EA6;&#xFF08;&#x4EE5;&#x767E;&#x4E07;&#x5206;&#x4E4B;&#x51E0;&#xFF08;ppmv&#xFF09;&#x8BA1;&#xFF09;&#x3002;&#x76EE;&#x7684;&#x662F;&#x5C06;&#x4E8C;&#x6C27;&#x5316;&#x78B3;&#x6D53;&#x5EA6;&#x5EFA;&#x6A21;&#x4E3A;&#x65F6;&#x95F4;t&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5185;&#x6838;&#x7531;&#x51E0;&#x4E2A;&#x672F;&#x8BED;&#x7EC4;&#x6210;&#xFF0C;&#x8D1F;&#x8D23;&#x8BF4;&#x660E;&#x4FE1;&#x53F7;&#x7684;&#x4E0D;&#x540C;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x957F;&#x671F;&#x7684;&#xFF0C;&#x987A;&#x5229;&#x7684;&#x4E0A;&#x5347;&#x8D8B;&#x52BF;&#x662F;&#x7531;&#x4E00;&#x4E2A; RBF &#x5185;&#x6838;&#x6765;&#x89E3;&#x91CA;&#x7684;&#x3002; &#x5177;&#x6709;&#x8F83;&#x5927;&#x957F;&#x5EA6;&#x5C3A;&#x5BF8;&#x7684;RBF&#x5185;&#x6838;&#x5C06;&#x4F7F;&#x8BE5;&#x5206;&#x91CF;&#x5E73;&#x6ED1;; &#x6CA1;&#x6709;&#x5F3A;&#x5236;&#x8FD9;&#x79CD;&#x8D8B;&#x52BF;&#x6B63;&#x5728;&#x4E0A;&#x5347;&#xFF0C;&#x8FD9;&#x7ED9; GP &#x5E26;&#x6765;&#x4E86;&#x8FD9;&#x4E2A;&#x9009;&#x62E9;&#x3002; &#x5177;&#x4F53;&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x548C;&#x632F;&#x5E45;&#x662F;&#x81EA;&#x7531;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x5B63;&#x8282;&#x6027;&#x56E0;&#x7D20;&#xFF0C;&#x7531;&#x5B9A;&#x671F;&#x7684; ExpSineSquared &#x5185;&#x6838;&#x89E3;&#x91CA;&#xFF0C;&#x56FA;&#x5B9A;&#x5468;&#x671F;&#x4E3A;1&#x5E74;&#x3002; &#x8BE5;&#x5468;&#x671F;&#x5206;&#x91CF;&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x63A7;&#x5236;&#x5176;&#x5E73;&#x6ED1;&#x5EA6;&#x662F;&#x4E00;&#x4E2A;&#x81EA;&#x7531;&#x53C2;&#x6570;&#x3002; &#x4E3A;&#x4E86;&#x4F7F;&#x51C6;&#x786E;&#x5468;&#x671F;&#x6027;&#x7684;&#x8870;&#x51CF;&#xFF0C;&#x91C7;&#x7528;&#x5E26;&#x6709;RBF&#x5185;&#x6838;&#x7684;&#x4EA7;&#x54C1;&#x3002; &#x8BE5;RBF&#x7EC4;&#x4EF6;&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5BF8;&#x63A7;&#x5236;&#x8870;&#x51CF;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x81EA;&#x7531;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8F83;&#x5C0F;&#x7684;&#x4E2D;&#x671F;&#x4E0D;&#x89C4;&#x5219;&#x6027;&#x5C06;&#x7531; RationalQuadratic &#x5185;&#x6838;&#x7EC4;&#x4EF6;&#x6765;&#x89E3;&#x91CA;&#xFF0C; RationalQuadratic &#x5185;&#x6838;&#x7EC4;&#x4EF6;&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x548C; alpha &#x53C2;&#x6570;&#x51B3;&#x5B9A;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x7684;&#x6269;&#x6563;&#x6027;&#x3002; &#x6839;&#x636E;<a href="#rw2006">[RW2006]</a>&#xFF0C;&#x8FD9;&#x4E9B;&#x4E0D;&#x89C4;&#x5219;&#x6027;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x5730;&#x7531; RationalQuadratic &#x6765;&#x89E3;&#x91CA;&#xFF0C; &#x800C;&#x4E0D;&#x662F; RBF &#x5185;&#x6838;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x5BB9;&#x7EB3;&#x51E0;&#x4E2A;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x3002;</li>
+<li>&#x201C;noise(&#x566A;&#x58F0;)&#x201D; &#x4E00;&#x8BCD;&#xFF0C;&#x7531;&#x4E00;&#x4E2A; RBF &#x5185;&#x6838;&#x8D21;&#x732E;&#x7EC4;&#x6210;&#xFF0C;&#x5B83;&#x5C06;&#x89E3;&#x91CA;&#x76F8;&#x5173;&#x7684;&#x566A;&#x58F0;&#x5206;&#x91CF;&#xFF0C;&#x5982;&#x5C40;&#x90E8;&#x5929;&#x6C14;&#x73B0;&#x8C61;&#x4EE5;&#x53CA; WhiteKernel &#x5BF9;&#x767D;&#x566A;&#x58F0;&#x7684;&#x8D21;&#x732E;&#x3002; &#x76F8;&#x5BF9;&#x5E45;&#x5EA6;&#x548C;RBF&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x662F;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x81EA;&#x7531;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x5728;&#x51CF;&#x53BB;&#x76EE;&#x6807;&#x5E73;&#x5747;&#x503C;&#x540E;&#x6700;&#x5927;&#x5316;&#x5BF9;&#x6570;&#x8FB9;&#x9645;&#x4F3C;&#x7136;&#x7387;&#x4EA7;&#x751F;&#x4E0B;&#x5217;&#x5185;&#x6838;&#xFF0C;&#x5176;&#x4E2D;LML&#x4E3A;-83.214:</p>
+<pre><code class="lang-py"><span class="hljs-number">34.4</span>**<span class="hljs-number">2</span> * RBF(length_scale=<span class="hljs-number">41.8</span>)
++ <span class="hljs-number">3.27</span>**<span class="hljs-number">2</span> * RBF(length_scale=<span class="hljs-number">180</span>) * ExpSineSquared(length_scale=<span class="hljs-number">1.44</span>,
+                                                   periodicity=<span class="hljs-number">1</span>)
++ <span class="hljs-number">0.446</span>**<span class="hljs-number">2</span> * RationalQuadratic(alpha=<span class="hljs-number">17.7</span>, length_scale=<span class="hljs-number">0.957</span>)
++ <span class="hljs-number">0.197</span>**<span class="hljs-number">2</span> * RBF(length_scale=<span class="hljs-number">0.138</span>) + WhiteKernel(noise_level=<span class="hljs-number">0.0336</span>)
+</code></pre>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x76EE;&#x6807;&#x4FE1;&#x53F7;&#xFF08;34.4ppm&#xFF09;&#x7531;&#x957F;&#x671F;&#x4E0A;&#x5347;&#x8D8B;&#x52BF;&#xFF08;&#x957F;&#x5EA6;&#x4E3A;41.8&#x5E74;&#xFF09;&#x89E3;&#x91CA;&#x3002; &#x5468;&#x671F;&#x5206;&#x91CF;&#x7684;&#x632F;&#x5E45;&#x4E3A;3.27ppm&#xFF0C;&#x8870;&#x51CF;&#x65F6;&#x95F4;&#x4E3A;180&#x5E74;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;1.44&#x3002; &#x957F;&#x65F6;&#x95F4;&#x7684;&#x8870;&#x53D8;&#x65F6;&#x95F4;&#x8868;&#x660E;&#x6211;&#x4EEC;&#x5728;&#x5F53;&#x5730;&#x975E;&#x5E38;&#x63A5;&#x8FD1;&#x5468;&#x671F;&#x6027;&#x7684;&#x5B63;&#x8282;&#x6027;&#x6210;&#x5206;&#x3002; &#x76F8;&#x5173;&#x566A;&#x58F0;&#x7684;&#x5E45;&#x5EA6;&#x4E3A;0.197ppm&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;0.138&#x5E74;&#xFF0C;&#x767D;&#x566A;&#x58F0;&#x8D21;&#x732E;&#x4E3A;0.197ppm&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x6574;&#x4F53;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x975E;&#x5E38;&#x5C0F;&#xFF0C;&#x8868;&#x660E;&#x8BE5;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5730;&#x89E3;&#x91CA;&#x6570;&#x636E;&#x3002; &#x8BE5;&#x56FE;&#x8FD8;&#x663E;&#x793A;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x76F4;&#x5230;2015&#x5E74;&#x5DE6;&#x53F3;&#x624D;&#x80FD;&#x505A;&#x51FA;&#x7F6E;&#x4FE1;&#x5EA6;&#x6BD4;&#x8F83;&#x9AD8;&#x7684;&#x9884;&#x6D4B;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html" target="_blank"><img src="img/6da3d48746433a02996c5821013ac4e7.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_co2_0011.png"></a></p>
+<h2 id="173-&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;gpc&#xFF09;">1.7.3. &#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;GPC&#xFF09;</h2>
+<p>&#x6240;&#x8FF0; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessClassifier.html#sklearn.gaussian_process.GaussianProcessClassifier" title="sklearn.gaussian_process.GaussianProcessClassifier" target="_blank"><code>GaussianProcessClassifier</code></a> &#x5668;&#x5B9E;&#x73B0;&#x4E86;&#x7528;&#x4E8E;&#x5206;&#x7C7B;&#x76EE;&#x7684;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#xFF08;GP&#xFF09;&#xFF0C;&#x5F53;&#x6D4B;&#x8BD5;&#x7684;&#x9884;&#x6D4B;&#x91C7;&#x7528;&#x7C7B;&#x6982;&#x7387;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x66F4;&#x80FD;&#x591F;&#x7528;&#x4E8E;&#x6982;&#x7387;&#x5206;&#x7C7B;&#x3002; GaussianProcessClassifier &#x5728;&#x9690;&#x51FD;&#x6570; <img src="img/a8f0b97723e99a7ddae947c83f43ff45.jpg" alt="f"> &#x4E4B;&#x524D;&#x8BBE;&#x7F6E;GP&#x5148;&#x9A8C;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x94FE;&#x63A5;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x4EE5;&#x83B7;&#x5F97;&#x6982;&#x7387;&#x5206;&#x7C7B;&#x3002; &#x9690;&#x51FD;&#x6570; <img src="img/a8f0b97723e99a7ddae947c83f43ff45.jpg" alt="f"> &#x56E0;&#x6B64;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x5E72;&#x6270;&#x51FD;&#x6570;(nuisance function)&#xFF0C;&#x5176;&#x503C;&#x4E0D;&#x80FD;&#x88AB;&#x89C2;&#x6D4B;&#x5230;&#xFF0C;&#x5E76;&#x4E14;&#x81EA;&#x8EAB;&#x4E0D;&#x5177;&#x6709;&#x76F8;&#x5173;&#x6027;&#x3002; &#x5176;&#x76EE;&#x7684;&#x662F;&#x5141;&#x8BB8;&#x6A21;&#x578B;&#x7684;&#x8868;&#x8FBE;&#x5F62;&#x5F0F;&#x66F4;&#x52A0;&#x7B80;&#x4FBF;&#xFF0C;&#x5E76;&#x4E14; <img src="img/a8f0b97723e99a7ddae947c83f43ff45.jpg" alt="f"> &#x5728;&#x9884;&#x6D4B;&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x53BB;&#x9664;&#xFF08;&#x6574;&#x5408;&#xFF09;&#x3002; GaussianProcessClassifier &#x5B9E;&#x73B0;&#x4E86;&#x903B;&#x8F91;&#x94FE;&#x63A5;&#x51FD;&#x6570;&#xFF0C; &#x5BF9;&#x4E8E;&#x8BE5;&#x903B;&#x8F91;&#xFF0C;&#x79EF;&#x5206;&#x4E0D;&#x80FD;&#x5728;&#x5206;&#x6790;&#x4E0A;&#x8BA1;&#x7B97;&#xFF0C;&#x4F46;&#x5728;&#x4E8C;&#x8FDB;&#x5236;&#x60C5;&#x51B5;&#x4E0B;&#x5F88;&#x5BB9;&#x6613;&#x8FD1;&#x4F3C;&#x3002;</p>
+<p>&#x4E0E;&#x56DE;&#x5F52;&#x8BBE;&#x7F6E;&#x76F8;&#x53CD;&#xFF0C;&#x5373;&#x4F7F;&#x8BBE;&#x7F6E;&#x4E86;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5148;&#x9A8C;&#xFF0C;&#x9690;&#x51FD;&#x6570; <img src="img/a8f0b97723e99a7ddae947c83f43ff45.jpg" alt="f"> &#x7684;&#x540E;&#x9A8C;&#x4E5F;&#x4E0D;&#x7B26;&#x5408;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#xFF0C; &#x56E0;&#x4E3A;&#x9AD8;&#x65AF;&#x4F3C;&#x7136;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x79BB;&#x6563;&#x7C7B;&#x6807;&#x7B7E;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4E0E;&#x903B;&#x8F91;&#x94FE;&#x63A5;&#x51FD;&#x6570;&#xFF08;logit&#xFF09;&#x5BF9;&#x5E94;&#x7684;&#x975E;&#x9AD8;&#x65AF;&#x4F3C;&#x7136;&#x3002; GaussianProcessClassifier &#x901A;&#x8FC7;&#x62C9;&#x666E;&#x62C9;&#x65AF;&#x8FD1;&#x4F3C;(Laplace approximation)&#x6765;&#x4F30;&#x8BA1;&#x975E;&#x9AD8;&#x65AF;&#x540E;&#x9A8C;&#x5206;&#x5E03;&#x3002; &#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<a href="#rw2006">[RW2006]</a>&#x7684;&#x7B2C; 3 &#x7AE0;&#x3002;</p>
+<p>GP&#x5148;&#x9A8C;&#x5E73;&#x5747;&#x503C;&#x5047;&#x5B9A;&#x4E3A;&#x96F6;&#x3002;&#x5148;&#x9A8C;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x662F;&#x901A;&#x8FC7;&#x4F20;&#x9012; <a href="#gp-kernels">&#x5185;&#x6838;(kernel)</a> &#x5BF9;&#x8C61;&#x6765;&#x6307;&#x5B9A;&#x7684;&#x3002; &#x5728;&#x901A;&#x8FC7;&#x6700;&#x5927;&#x5316;&#x57FA;&#x4E8E;&#x4F20;&#x9012;&#x7684;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF08;LML&#xFF09;&#x7684; GaussianProcessRegressor &#x62DF;&#x5408;&#x671F;&#x95F4;&#xFF0C; &#x4F18;&#x5316;&#x5185;&#x6838;&#x7684;&#x8D85;&#x53C2;&#x6570; <code>optimizer</code> &#x3002;&#x7531;&#x4E8E;LML&#x53EF;&#x80FD;&#x5177;&#x6709;&#x591A;&#x4E2A;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x503C;&#xFF0C; &#x6240;&#x4EE5;&#x4F18;&#x5316;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x91CD;&#x590D;&#x542F;&#x52A8; <code>n_restarts_optimizer</code> &#x3002; &#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x59CB;&#x7EC8;&#x4ECE;&#x5185;&#x6838;&#x7684;&#x521D;&#x59CB;&#x8D85;&#x53C2;&#x6570;&#x503C;&#x5F00;&#x59CB;&#x6267;&#x884C;; &#x4ECE;&#x5DF2;&#x7ECF;&#x4ECE;&#x5141;&#x8BB8;&#x503C;&#x7684;&#x8303;&#x56F4;&#x4E2D;&#x968F;&#x673A;&#x9009;&#x62E9;&#x8D85;&#x53C2;&#x6570;&#x503C;&#x6765;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x8FD0;&#x884C;&#x3002; &#x5982;&#x679C;&#x521D;&#x59CB;&#x8D85;&#x53C2;&#x6570;&#x9700;&#x8981;&#x4FDD;&#x6301;&#x56FA;&#x5B9A;&#xFF0C;<em>None</em> &#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4F5C;&#x4E3A;&#x4F18;&#x5316;&#x5668;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessClassifier.html#sklearn.gaussian_process.GaussianProcessClassifier" title="sklearn.gaussian_process.GaussianProcessClassifier" target="_blank"><code>GaussianProcessClassifier</code></a> &#x901A;&#x8FC7;&#x6267;&#x884C;&#x57FA;&#x4E8E;OvR(one-versus-rest)&#x6216; OvO(one-versus-one )&#x7B56;&#x7565;&#x7684;&#x8BAD;&#x7EC3;&#x548C;&#x9884;&#x6D4B;&#x6765;&#x652F;&#x6301;&#x591A;&#x7C7B;&#x5206;&#x7C7B;&#x3002; &#x5728;OvR(one-versus-rest)&#x7B56;&#x7565;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x7C7B;&#x90FD;&#x914D;&#x6709;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x8BE5;&#x7C7B;&#x522B;&#x88AB;&#x8BAD;&#x7EC3;&#x4E3A;&#x5C06;&#x8BE5;&#x7C7B;&#x4E0E;&#x5176;&#x4F59;&#x7C7B;&#x5206;&#x5F00;&#x3002; &#x5728; &#x201C;one_vs_one&#x201D; &#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x5BF9;&#x7C7B;&#x62DF;&#x5408;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x8FD9;&#x88AB;&#x8BAD;&#x7EC3;&#x4E3A;&#x5206;&#x79BB;&#x8FD9;&#x4E24;&#x4E2A;&#x7C7B;&#x3002; &#x8FD9;&#x4E9B;&#x4E8C;&#x8FDB;&#x5236;&#x9884;&#x6D4B;&#x56E0;&#x5B50;&#x7684;&#x9884;&#x6D4B;&#x88AB;&#x7EC4;&#x5408;&#x6210;&#x591A;&#x7C7B;&#x9884;&#x6D4B;&#x3002;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="multiclass.html#multiclass">&#x591A;&#x7C7B;&#x522B;&#x5206;&#x7C7B;</a> &#x3002;</p>
+<p>&#x5728;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x201D;one_vs_one&#x201D; &#x7B56;&#x7565;&#x53EF;&#x80FD;&#x5728;&#x8BA1;&#x7B97;&#x4E0A;&#x66F4;&#x5EC9;&#x4EF7;&#xFF0C; &#x56E0;&#x4E3A;&#x5B83;&#x5FC5;&#x987B;&#x89E3;&#x51B3;&#x6D89;&#x53CA;&#x6574;&#x4E2A;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;&#x7684;&#x8BB8;&#x591A;&#x95EE;&#x9898;&#xFF0C; &#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x7684;&#x8F83;&#x5C11;&#x7684;&#x95EE;&#x9898;&#x3002;&#x7531;&#x4E8E;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#x4E0E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5927;&#x5C0F;&#x76F8;&#x4E92;&#x7ACB;&#x65B9;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x8981;&#x5FEB;&#x5F97;&#x591A;&#x3002; &#x4F46;&#x662F;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x201D;one_vs_one&#x201D; &#x4E0D;&#x652F;&#x6301;&#x9884;&#x6D4B;&#x6982;&#x7387;&#x4F30;&#x8BA1;&#xFF0C;&#x800C;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x7684;&#x9884;&#x6D4B;&#x3002; &#x6B64;&#x5916;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessClassifier.html#sklearn.gaussian_process.GaussianProcessClassifier" title="sklearn.gaussian_process.GaussianProcessClassifier" target="_blank"><code>GaussianProcessClassifier</code></a> &#x5728;&#x5185;&#x90E8;&#x8FD8;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x771F;&#x6B63;&#x7684;&#x591A;&#x7C7B; Laplace &#x8FD1;&#x4F3C;&#xFF0C; &#x4F46;&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x5728;&#x89E3;&#x51B3;&#x5185;&#x90E8;&#x4E8C;&#x8FDB;&#x5236;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5B83;&#x4EEC;&#x4F7F;&#x7528;OvR&#x6216;OvO&#x7684;&#x7EC4;&#x5408;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="174-gpc-&#x793A;&#x4F8B;">1.7.4. GPC &#x793A;&#x4F8B;</h2>
+<h3 id="1741-gpc-&#x6982;&#x7387;&#x9884;&#x6D4B;">1.7.4.1. GPC &#x6982;&#x7387;&#x9884;&#x6D4B;</h3>
+<p>&#x8BE5;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x5BF9;&#x4E8E;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x9009;&#x9879;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x7684;RBF&#x5185;&#x6838;&#x7684;GPC&#x9884;&#x6D4B;&#x6982;&#x7387;&#x3002; &#x7B2C;&#x4E00;&#x5E45;&#x56FE;&#x663E;&#x793A;GPC&#x5177;&#x6709;&#x4EFB;&#x610F;&#x9009;&#x62E9;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x7684;&#x9884;&#x6D4B;&#x6982;&#x7387;&#xFF0C;&#x4EE5;&#x53CA;&#x5BF9;&#x5E94;&#x4E8E;&#x6700;&#x5927;LML&#xFF08;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF09;&#x5BF9;&#x5E94;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x901A;&#x8FC7;&#x4F18;&#x5316;LML&#x9009;&#x62E9;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x5177;&#x6709;&#x76F8;&#x5F53;&#x5927;&#x7684;LML&#xFF0C;&#x4F46;&#x662F;&#x6839;&#x636E;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x7684;&#x5BF9;&#x6570;&#x635F;&#x5931;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x8868;&#x73B0;&#x66F4;&#x5DEE;&#x3002; &#x8BE5;&#x56FE;&#x663E;&#x793A;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5728;&#x9636;&#x7EA7;&#x8FB9;&#x754C;&#xFF08;&#x8FD9;&#x662F;&#x597D;&#x7684;&#xFF09;&#x8868;&#x73B0;&#x51FA;&#x7C7B;&#x6982;&#x7387;&#x7684;&#x6025;&#x5267;&#x53D8;&#x5316;&#xFF0C; &#x4F46;&#x9884;&#x6D4B;&#x6982;&#x7387;&#x63A5;&#x8FD1;0.5&#x8FDC;&#x79BB;&#x7C7B;&#x8FB9;&#x754C;&#xFF08;&#x8FD9;&#x662F;&#x574F;&#x7684;&#xFF09;&#x8FD9;&#x79CD;&#x4E0D;&#x826F;&#x5F71;&#x54CD;&#x662F;&#x7531;&#x4E8E;GPC&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;&#x62C9;&#x666E;&#x62C9;&#x65AF;&#x903C;&#x8FD1;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x5E45;&#x56FE;&#x663E;&#x793A;&#x4E86;&#x5185;&#x6838;&#x8D85;&#x53C2;&#x6570;&#x7684;&#x4E0D;&#x540C;&#x9009;&#x62E9;&#x7684;LML&#xFF08;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF09;&#xFF0C;&#x7A81;&#x51FA;&#x4E86;&#x5728;&#x7B2C;&#x4E00;&#x5E45;&#x56FE;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x901A;&#x8FC7;&#x9ED1;&#x70B9;&#xFF08;&#x8BAD;&#x7EC3;&#x96C6;&#xFF09;&#x9009;&#x62E9;&#x7684;&#x4E24;&#x4E2A;&#x8D85;&#x53C2;&#x6570;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc.html" target="_blank"><img src="img/c9e8d19526fed76c122a77c246f59313.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpc_0001.png"></a><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc.html" target="_blank"><img src="img/1a125d0568be1ce93a6bc7b3ee1071e1.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpc_0011.png"></a></p>
+<h3 id="1742-gpc-&#x5728;-xor-&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;">1.7.4.2. GPC &#x5728; XOR &#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</h3>
+<p>&#x6B64;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x5728;XOR&#x6570;&#x636E;&#x4E0A;&#x7684;GPC&#x3002;&#x5404;&#x5411;&#x540C;&#x6027;&#x7684;&#x6838;&#xFF08; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html#sklearn.gaussian_process.kernels.RBF" title="sklearn.gaussian_process.kernels.RBF" target="_blank"><code>RBF</code></a> &#xFF09;&#x548C;&#x975E;&#x56FA;&#x5B9A;&#x7684;&#x6838;&#xFF08; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.DotProduct.html#sklearn.gaussian_process.kernels.DotProduct" title="sklearn.gaussian_process.kernels.DotProduct" target="_blank"><code>DotProduct</code></a> &#xFF09;&#x5BF9;&#x6BD4;&#x56FA;&#x5B9A;&#x6027;&#x3002; &#x5728;&#x8FD9;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#xFF0C; <em>DotProduct</em> &#x5185;&#x6838;&#x83B7;&#x5F97;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x56E0;&#x4E3A;&#x7C7B;&#x8FB9;&#x754C;&#x662F;&#x7EBF;&#x6027;&#x7684;&#xFF0C;&#x4E0E;&#x5750;&#x6807;&#x8F74;&#x91CD;&#x5408;&#x3002; &#x7136;&#x800C;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8BF8;&#x5982; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html#sklearn.gaussian_process.kernels.RBF" title="sklearn.gaussian_process.kernels.RBF" target="_blank"><code>RBF</code></a> &#x8FD9;&#x6837;&#x7684;&#x56FA;&#x5B9A;&#x5185;&#x6838;&#x7ECF;&#x5E38;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x7ED3;&#x679C;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc_xor.html" target="_blank"><img src="img/d1d5abd40c8364a2da2f181ede69fa56.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpc_xor_0011.png"></a></p>
+<h3 id="1743-iris-&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;gpc&#xFF09;">1.7.4.3. iris &#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;GPC&#xFF09;</h3>
+<p>&#x8BE5;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x7528;&#x4E8E;&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x7684;&#x4E8C;&#x7EF4;&#x7248;&#x672C;&#x4E0A;&#x5404;&#x5411;&#x540C;&#x6027;&#x548C;&#x5404;&#x5411;&#x5F02;&#x6027;RBF&#x6838;&#x7684;GPC&#x7684;&#x9884;&#x6D4B;&#x6982;&#x7387;&#x3002; &#x8FD9;&#x8BF4;&#x660E;&#x4E86;GPC&#x5BF9;&#x591A;&#x7C7B;&#x5206;&#x7C7B;&#x7684;&#x9002;&#x7528;&#x6027;&#x3002; &#x5404;&#x5411;&#x5F02;&#x6027;RBF&#x5185;&#x6838;&#x901A;&#x8FC7;&#x4E3A;&#x4E24;&#x4E2A;&#x7279;&#x5F81;&#x7EF4;&#x5EA6;&#x5206;&#x914D;&#x4E0D;&#x540C;&#x7684;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x6765;&#x83B7;&#x5F97;&#x7A0D;&#x9AD8;&#x7684;LML&#xFF08;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF09;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc_iris.html" target="_blank"><img src="img/b8e446d22ed902423187ead2d67af58c.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpc_iris_0011.png"></a></p>
+<h2 id="175-&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5185;&#x6838;">1.7.5. &#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5185;&#x6838;</h2>
+<p>&#x5185;&#x6838;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x53EB;&#x505A;GPs&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7684;&#x201D;&#x534F;&#x65B9;&#x5DEE;&#x51FD;&#x6570;&#x201D;&#xFF09; &#x662F;&#x51B3;&#x5B9A;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#xFF08;GP&#xFF09;&#x5148;&#x9A8C;&#x548C;&#x540E;&#x9A8C;&#x5F62;&#x72B6;&#x7684;&#x5173;&#x952E;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#x3002; &#x5B83;&#x4EEC;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x70B9;&#x7684;&#x201C;&#x76F8;&#x4F3C;&#x6027;&#x201D;&#xFF0C;&#x5E76;&#x7ED3;&#x5408;&#x76F8;&#x4F3C;&#x7684; &#x6570;&#x636E;&#x70B9;&#x5E94;&#x8BE5;&#x5177;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x76EE;&#x6807;&#x503C;&#x7684;&#x5047;&#x8BBE;&#xFF0C;&#x5BF9;&#x6240;&#x5B66;&#x4E60;&#x7684;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#x3002; &#x5185;&#x6838;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;&#xFF1A;&#x56FA;&#x5B9A;&#x5185;&#x6838;&#xFF0C;&#x53EA;&#x53D6;&#x51B3;&#x4E8E;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x70B9;&#x7684;&#x8DDD;&#x79BB;&#xFF0C; &#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x4EEC;&#x7684;&#x7EDD;&#x5BF9;&#x503C; <img src="img/7085885523458d64e2f9981f39c7b038.jpg" alt="k(x_i, x_j)= k(d(x_i, x_j))"> &#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x5BF9;&#x4E8E;&#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x8F6C;&#x6362;&#x662F;&#x4E0D;&#x53D8;&#x7684;&#xFF1B;&#x975E;&#x56FA;&#x5B9A;&#x7684;&#x5185;&#x6838;&#xFF0C;&#x53D6; &#x51B3;&#x4E8E;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5177;&#x4F53;&#x503C;&#x3002;&#x56FA;&#x5B9A;&#x5185;&#x6838;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x7EC6;&#x5206;&#x4E3A;&#x5404;&#x5411;&#x540C;&#x6027;&#x548C;&#x5404;&#x5411; &#x5F02;&#x6027;&#x5185;&#x6838;&#xFF0C;&#x5176;&#x4E2D;&#x5404;&#x5411;&#x540C;&#x6027;&#x5185;&#x6838;&#x4E0D;&#x4F1A;&#x5728;&#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x4E2D;&#x65CB;&#x8F6C;&#x3002;&#x60F3;&#x8981;&#x4E86;&#x89E3; &#x66F4;&#x591A;&#x7EC6;&#x8282;&#xFF0C;&#x8BF7;&#x53C2;&#x770B; <a href="#rw2006">[RW2006]</a> &#x7684;&#x7B2C;&#x56DB;&#x7AE0;&#x3002;</p>
+<h3 id="1751-&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5185;&#x6838;-api">1.7.5.1. &#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5185;&#x6838; API</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Kernel.html#sklearn.gaussian_process.kernels.Kernel" title="sklearn.gaussian_process.kernels.Kernel" target="_blank"><code>Kernel</code></a> &#x4E3B;&#x8981;&#x662F;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x6570;&#x636E;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x534F;&#x65B9;&#x5DEE;&#x3002; &#x4E3A;&#x6B64;&#xFF0C;&#x5185;&#x6838;&#x4E2D; <code>__call__</code> &#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x8BA1;&#x7B97; 2d&#x9635;&#x5217;X&#x4E2D;&#x6240;&#x6709;&#x6570;&#x636E;&#x70B9;&#x5BF9;&#x7684;&#x201C;&#x81EA;&#x52A8;&#x534F;&#x65B9;&#x5DEE;&#x201D;&#xFF0C;&#x6216;&#x4E8C;&#x7EF4;&#x9635;&#x5217;X&#x7684;&#x6570;&#x636E;&#x70B9; &#x4E0E;&#x4E8C;&#x7EF4;&#x9635;&#x5217;Y&#x4E2D;&#x7684;&#x6570;&#x636E;&#x70B9;&#x7684;&#x6240;&#x6709;&#x7EC4;&#x5408;&#x7684;&#x201C;&#x4E92;&#x534F;&#x65B9;&#x5DEE;&#x201D;&#x3002;&#x4EE5;&#x4E0B;&#x8BBA;&#x65AD;&#x5BF9;&#x4E8E; &#x6240;&#x6709;&#x5185;&#x6838;k&#xFF08;&#x9664;&#x4E86; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.WhiteKernel.html#sklearn.gaussian_process.kernels.WhiteKernel" title="sklearn.gaussian_process.kernels.WhiteKernel" target="_blank"><code>WhiteKernel</code></a>&#xFF09;&#x90FD;&#x662F;&#x6210;&#x7ACB;&#x7684;&#xFF1A;<code>k(X) == K(X, Y=X)</code>&#x3002; &#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x662F;&#x81EA;&#x534F;&#x65B9;&#x5DEE;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x5143;&#x7D20;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x5185;&#x6838;&#x7684;&#x65B9;&#x6CD5; <code>diag()</code> &#x5C06;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C; &#x8BE5;&#x65B9;&#x6CD5;&#x6BD4;&#x7B49;&#x4EF7;&#x7684;&#x8C03;&#x7528; <code>__call__</code>: <code>np.diag(k(X, X)) == k.diag(X)</code> &#x5177;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x8BA1;&#x7B97;&#x6548;&#x7387;&#x3002;</p>
+<p>&#x5185;&#x6838;&#x901A;&#x8FC7;&#x8D85;&#x53C2;&#x6570;&#x5411;&#x91CF; <img src="img/e2632203a52191f8ba8e393e34545100.jpg" alt="\theta"> &#x8FDB;&#x884C;&#x53C2;&#x6570;&#x5316;&#x3002;&#x8FD9;&#x4E9B;&#x8D85;&#x53C2;&#x6570;&#x53EF;&#x4EE5; &#x63A7;&#x5236;&#x4F8B;&#x5982;&#x5185;&#x6838;&#x7684;&#x957F;&#x5EA6;&#x6216;&#x5468;&#x671F;&#x6027;&#xFF08;&#x89C1;&#x4E0B;&#x6587;&#xFF09;&#x3002;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>__call__</code> &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570; <code>eval_gradient=True</code> &#xFF0C;&#x6240;&#x6709;&#x7684;&#x5185;&#x6838;&#x652F;&#x6301;&#x8BA1;&#x7B97;&#x89E3;&#x6790; &#x5185;&#x6838;&#x81EA;&#x534F;&#x65B9;&#x5DEE;&#x5BF9;&#x4E8E; <img src="img/e2632203a52191f8ba8e393e34545100.jpg" alt="\theta"> &#x7684;&#x89E3;&#x6790;&#x68AF;&#x5EA6;&#x3002;&#x8BE5;&#x68AF;&#x5EA6;&#x88AB;&#x7528;&#x6765;&#x5728; &#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF08;&#x4E0D;&#x8BBA;&#x662F;&#x56DE;&#x5F52;&#x578B;&#x8FD8;&#x662F;&#x5206;&#x7C7B;&#x578B;&#x7684;&#xFF09;&#x8BA1;&#x7B97;LML&#xFF08;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF09;&#x51FD;&#x6570; &#x7684;&#x68AF;&#x5EA6;&#xFF0C;&#x8FDB;&#x800C;&#x88AB;&#x7528;&#x6765;&#x901A;&#x8FC7;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;&#x65B9;&#x6CD5;&#x6781;&#x5927;&#x5316;LML&#xFF08;&#x5BF9;&#x6570;&#x8FB9;&#x7F18;&#x4F3C;&#x7136;&#xFF09;&#x51FD;&#x6570; &#x4ECE;&#x800C;&#x786E;&#x5B9A; <img src="img/e2632203a52191f8ba8e393e34545100.jpg" alt="\theta"> &#x7684;&#x503C;&#x3002;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x8D85;&#x53C2;&#x6570;&#xFF0C;&#x5F53;&#x5BF9;&#x5185;&#x6838;&#x7684;&#x5B9E;&#x4F8B; &#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x521D;&#x59CB;&#x503C;&#x548C;&#x8FB9;&#x754C;&#x503C;&#x9700;&#x8981;&#x88AB;&#x6307;&#x5B9A;&#x3002;&#x901A;&#x8FC7;&#x5185;&#x6838;&#x5BF9;&#x8C61;&#x5C5E;&#x6027; <code>theta</code> &#xFF0C; <img src="img/e2632203a52191f8ba8e393e34545100.jpg" alt="\theta"> &#x7684;&#x5F53;&#x524D;&#x503C;&#x53EF;&#x4EE5;&#x88AB;&#x83B7;&#x53D6;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x3002;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C; &#x8D85;&#x53C2;&#x7684;&#x8FB9;&#x754C;&#x503C;&#x53EF;&#x4EE5;&#x88AB;&#x5185;&#x6838;&#x5C5E;&#x6027; <code>bounds</code> &#x83B7;&#x53D6;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C; &#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x5C5E;&#x6027;&#x503C;(theta&#x548C;bounds)&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x503C;&#x7684;&#x65E5;&#x5FD7;&#x8F6C;&#x6362;&#x503C;&#xFF0C; &#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E24;&#x79CD;&#x5C5E;&#x6027;&#x503C;&#x901A;&#x5E38;&#x66F4;&#x9002;&#x5408;&#x57FA;&#x4E8E;&#x68AF;&#x5EA6;&#x7684;&#x4F18;&#x5316;&#x3002;&#x6BCF;&#x4E2A;&#x8D85;&#x53C2;&#x6570;&#x7684; &#x89C4;&#x8303; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Hyperparameter.html#sklearn.gaussian_process.kernels.Hyperparameter" title="sklearn.gaussian_process.kernels.Hyperparameter" target="_blank"><code>Hyperparameter</code></a> &#x4EE5;&#x5B9E;&#x4F8B;&#x5F62;&#x5F0F;&#x88AB;&#x5B58;&#x50A8;&#x5728;&#x76F8;&#x5E94;&#x5185;&#x6838;&#x4E2D;&#x3002; &#x8BF7;&#x6CE8;&#x610F;&#x4F7F;&#x7528;&#x4E86;&#x4EE5;&#x201D;x&#x201D;&#x547D;&#x540D;&#x7684;&#x8D85;&#x53C2;&#x7684;&#x5185;&#x6838;&#x5FC5;&#x7136;&#x5177;&#x6709;self.x&#x548C;self.x_bounds&#x8FD9;&#x4E24;&#x79CD;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x5185;&#x6838;&#x7684;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;&#x4E3A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Kernel.html#sklearn.gaussian_process.kernels.Kernel" title="sklearn.gaussian_process.kernels.Kernel" target="_blank"><code>Kernel</code></a> &#x3002;Kernel &#x57FA;&#x7C7B;&#x5B9E;&#x73B0;&#x4E86; &#x4E00;&#x4E2A;&#x76F8;&#x4F3C;&#x7684;&#x63A5;&#x53E3; <code>Estimator</code> &#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x65B9;&#x6CD5; <code>get_params()</code> , <code>set_params()</code> &#x4EE5;&#x53CA; <code>clone()</code> &#x3002;&#x8FD9;&#x4E5F;&#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x8BF8;&#x5982; <code>Pipeline</code> &#x6216;&#x8005; <code>GridSearch</code> &#x4E4B;&#x7C7B;&#x7684;&#x5143;&#x4F30;&#x8BA1;&#x6765;&#x8BBE;&#x7F6E;&#x5185;&#x6838;&#x503C;&#x3002; &#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x7531;&#x4E8E;&#x5185;&#x6838;&#x7684;&#x5D4C;&#x5957;&#x7ED3;&#x6784;&#xFF08;&#x901A;&#x8FC7;&#x5185;&#x6838;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x89C1;&#xFF09;&#xFF0C; &#x5185;&#x6838;&#x53C2;&#x6570;&#x7684;&#x540D;&#x79F0;&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x5F97;&#x76F8;&#x5BF9;&#x590D;&#x6742;&#x4E9B;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E8C;&#x5143;&#x5185;&#x6838;&#x64CD;&#x4F5C;&#xFF0C; &#x53C2;&#x6570;&#x7684;&#x5DE6;&#x8FD0;&#x7B97;&#x5143;&#x4EE5; <code>k1__</code> &#x4E3A;&#x524D;&#x7F00;&#xFF0C;&#x800C;&#x53F3;&#x8FD0;&#x7B97;&#x5143;&#x4EE5; <code>k2__</code> &#x4E3A;&#x524D;&#x7F00;&#x3002; &#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x4FBF;&#x5229;&#x65B9;&#x6CD5;&#x662F; <code>clone_with_theta(theta)</code>&#xFF0C; &#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x514B;&#x9686;&#x7248;&#x672C;&#x7684;&#x5185;&#x6838;&#xFF0C;&#x4F46;&#x662F;&#x8BBE;&#x7F6E;&#x8D85;&#x53C2;&#x6570;&#x4E3A; <code>theta</code>&#x3002; &#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.gaussian_process.kernels <span class="hljs-keyword">import</span> ConstantKernel, RBF
+<span class="hljs-meta">&gt;&gt;&gt; </span>kernel = ConstantKernel(constant_value=<span class="hljs-number">1.0</span>, constant_value_bounds=(<span class="hljs-number">0.0</span>, <span class="hljs-number">10.0</span>)) * RBF(length_scale=<span class="hljs-number">0.5</span>, length_scale_bounds=(<span class="hljs-number">0.0</span>, <span class="hljs-number">10.0</span>)) + RBF(length_scale=<span class="hljs-number">2.0</span>, length_scale_bounds=(<span class="hljs-number">0.0</span>, <span class="hljs-number">10.0</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> hyperparameter <span class="hljs-keyword">in</span> kernel.hyperparameters: print(hyperparameter)
+Hyperparameter(name=<span class="hljs-string">&apos;k1__k1__constant_value&apos;</span>, value_type=<span class="hljs-string">&apos;numeric&apos;</span>, bounds=array([[ <span class="hljs-number">0.</span>, <span class="hljs-number">10.</span>]]), n_elements=<span class="hljs-number">1</span>, fixed=<span class="hljs-keyword">False</span>)
+Hyperparameter(name=<span class="hljs-string">&apos;k1__k2__length_scale&apos;</span>, value_type=<span class="hljs-string">&apos;numeric&apos;</span>, bounds=array([[ <span class="hljs-number">0.</span>, <span class="hljs-number">10.</span>]]), n_elements=<span class="hljs-number">1</span>, fixed=<span class="hljs-keyword">False</span>)
+Hyperparameter(name=<span class="hljs-string">&apos;k2__length_scale&apos;</span>, value_type=<span class="hljs-string">&apos;numeric&apos;</span>, bounds=array([[ <span class="hljs-number">0.</span>, <span class="hljs-number">10.</span>]]), n_elements=<span class="hljs-number">1</span>, fixed=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>params = kernel.get_params()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> sorted(params): print(<span class="hljs-string">&quot;%s : %s&quot;</span> % (key, params[key]))
+k1 : <span class="hljs-number">1</span>**<span class="hljs-number">2</span> * RBF(length_scale=<span class="hljs-number">0.5</span>)
+k1__k1 : <span class="hljs-number">1</span>**<span class="hljs-number">2</span>
+k1__k1__constant_value : <span class="hljs-number">1.0</span>
+k1__k1__constant_value_bounds : (<span class="hljs-number">0.0</span>, <span class="hljs-number">10.0</span>)
+k1__k2 : RBF(length_scale=<span class="hljs-number">0.5</span>)
+k1__k2__length_scale : <span class="hljs-number">0.5</span>
+k1__k2__length_scale_bounds : (<span class="hljs-number">0.0</span>, <span class="hljs-number">10.0</span>)
+k2 : RBF(length_scale=<span class="hljs-number">2</span>)
+k2__length_scale : <span class="hljs-number">2.0</span>
+k2__length_scale_bounds : (<span class="hljs-number">0.0</span>, <span class="hljs-number">10.0</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(kernel.theta)  <span class="hljs-comment"># Note: log-transformed</span>
+[ <span class="hljs-number">0.</span>         <span class="hljs-number">-0.69314718</span>  <span class="hljs-number">0.69314718</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(kernel.bounds)  <span class="hljs-comment"># Note: log-transformed</span>
+[[      -inf <span class="hljs-number">2.30258509</span>]
+ [      -inf <span class="hljs-number">2.30258509</span>]
+ [      -inf <span class="hljs-number">2.30258509</span>]]
+</code></pre>
+<p>&#x6240;&#x6709;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5185;&#x6838;&#x64CD;&#x4F5C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="classes.html#module-sklearn.metrics.pairwise" title="sklearn.metrics.pairwise"><code>sklearn.metrics.pairwise</code></a> &#x6765;&#x8FDB;&#x884C;&#x4E92;&#x64CD;&#x4F5C;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Kernel.html#sklearn.gaussian_process.kernels.Kernel" title="sklearn.gaussian_process.kernels.Kernel" target="_blank"><code>Kernel</code></a> &#x7684;&#x5B50;&#x7C7B;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>metric</code> &#x53C2;&#x6570;&#x4F20;&#x7ED9; <a href="classes.html#module-sklearn.metrics.pairwise" title="sklearn.metrics.pairwise"><code>sklearn.metrics.pairwise</code></a> &#x4E2D;&#x7684;<code>pairwise_kernels</code> &#x3002;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x8D85;&#x53C2;&#x6570;&#x7684;&#x68AF;&#x5EA6;&#x4E0D;&#x662F;&#x5206;&#x6790;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x6570;&#x5B57;&#xFF0C;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x5185;&#x6838;&#x53EA;&#x652F;&#x6301;&#x5404;&#x5411;&#x540C;&#x6027;&#x8DDD;&#x79BB;&#x3002;&#x8BE5;&#x53C2;&#x6570; <code>gamma</code> &#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x8D85;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x3002;&#x5176;&#x4ED6;&#x5185;&#x6838;&#x53C2;&#x6570;&#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#xFF0C; &#x5E76;&#x4FDD;&#x6301;&#x56FA;&#x5B9A;&#x3002;</p>
+<h3 id="1752-&#x57FA;&#x7840;&#x5185;&#x6838;">1.7.5.2. &#x57FA;&#x7840;&#x5185;&#x6838;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.ConstantKernel.html#sklearn.gaussian_process.kernels.ConstantKernel" title="sklearn.gaussian_process.kernels.ConstantKernel" target="_blank"><code>ConstantKernel</code></a> &#x5185;&#x6838;&#x7C7B;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x4F5C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Product.html#sklearn.gaussian_process.kernels.Product" title="sklearn.gaussian_process.kernels.Product" target="_blank"><code>Product</code></a> &#x5185;&#x6838;&#x7C7B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C; &#x5728;&#x5B83;&#x53EF;&#x4EE5;&#x5BF9;&#x5176;&#x4ED6;&#x56E0;&#x5B50;&#xFF08;&#x5185;&#x6838;&#xFF09;&#x8FDB;&#x884C;&#x5EA6;&#x91CF;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x6216;&#x8005;&#x4F5C;&#x4E3A;&#x66F4;&#x6539;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5747;&#x503C;&#x7684;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Sum.html#sklearn.gaussian_process.kernels.Sum" title="sklearn.gaussian_process.kernels.Sum" target="_blank"><code>Sum</code></a> &#x7C7B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x53C2;&#x6570; <img src="img/e83376afb9facc5992c857d659c7d812.jpg" alt="constant\_value"> &#x7684;&#x8BBE;&#x7F6E;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<p><img src="img/b10afb1bc4c68539a74de379254c7655.jpg" alt="k(x_i, x_j) = constant\_value \;\forall\; x_1, x_2"></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.WhiteKernel.html#sklearn.gaussian_process.kernels.WhiteKernel" title="sklearn.gaussian_process.kernels.WhiteKernel" target="_blank"><code>WhiteKernel</code></a> &#x5185;&#x6838;&#x7C7B;&#x7684;&#x4E3B;&#x8981;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#x5728;&#x4E8E;&#x5F53;&#x89E3;&#x91CA;&#x4FE1;&#x53F7;&#x7684;&#x566A;&#x58F0;&#x90E8;&#x5206;&#x65F6; &#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5185;&#x6838;&#x96C6;&#x5408;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x901A;&#x8FC7;&#x8C03;&#x8282;&#x53C2;&#x6570; <img src="img/f3432e537038cc7e319db4ea1ff6a8e3.jpg" alt="noise\_level">&#xFF0C; &#x8BE5;&#x7C7B;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4F30;&#x8BA1;&#x566A;&#x58F0;&#x7EA7;&#x522B;&#x3002;&#x5177;&#x4F53;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="img/e4e213d17043826a96dd917dcbdf5d85.jpg" alt="k(x_i, x_j) = noise\_level \text{ if } x_i == x_j \text{ else } 0"></p>
+<h3 id="1753-&#x5185;&#x6838;&#x64CD;&#x4F5C;">1.7.5.3. &#x5185;&#x6838;&#x64CD;&#x4F5C;</h3>
+<p>&#x5185;&#x6838;&#x64CD;&#x4F5C;&#x662F;&#x628A;1~2&#x4E2A;&#x57FA;&#x5185;&#x6838;&#x4E0E;&#x65B0;&#x5185;&#x6838;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x3002;&#x5185;&#x6838;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Sum.html#sklearn.gaussian_process.kernels.Sum" title="sklearn.gaussian_process.kernels.Sum" target="_blank"><code>Sum</code></a> &#x901A;&#x8FC7; <img src="img/8dd0e1ef4fdc9bbfcc8b0ce3fa8a4321.jpg" alt="k_{sum}(X, Y) = k1(X, Y) + k2(X, Y)"> &#x76F8;&#x52A0;&#x6765;&#x5408;&#x5E76; <img src="img/36846302fd24ac609e0cfef5fe6f8678.jpg" alt="k1"> &#x548C; <img src="img/8bce1ab1dca39a6b7fcb97dcf959a1f7.jpg" alt="k2"> &#x5185;&#x6838;&#x3002;&#x5185;&#x6838;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Product.html#sklearn.gaussian_process.kernels.Product" title="sklearn.gaussian_process.kernels.Product" target="_blank"><code>Product</code></a> &#x901A;&#x8FC7; <img src="img/0679b7c6ff086b5e9ad73b1cb08d9205.jpg" alt="k_{product}(X, Y) = k1(X, Y) * k2(X, Y)"> &#x628A; <img src="img/36846302fd24ac609e0cfef5fe6f8678.jpg" alt="k1"> &#x548C; <img src="img/8bce1ab1dca39a6b7fcb97dcf959a1f7.jpg" alt="k2"> &#x5185;&#x6838;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x3002;&#x5185;&#x6838;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Exponentiation.html#sklearn.gaussian_process.kernels.Exponentiation" title="sklearn.gaussian_process.kernels.Exponentiation" target="_blank"><code>Exponentiation</code></a> &#x901A;&#x8FC7; <img src="img/5c3cdb1b3bec4126d850a52d7fe8dc18.jpg" alt="k_{exp}(X, Y) = k(X, Y)^\text{exponent}"> &#x628A;&#x57FA;&#x5185;&#x6838;&#x4E0E; &#x5E38;&#x91CF;&#x53C2;&#x6570; <img src="img/5a8d4539001fa07eb00b24f2e74adeca.jpg" alt="exponent"> &#x8FDB;&#x884C;&#x5408;&#x5E76;&#x3002;</p>
+<h3 id="1754-&#x5F84;&#x5411;&#x57FA;&#x51FD;&#x6570;&#x5185;&#x6838;">1.7.5.4. &#x5F84;&#x5411;&#x57FA;&#x51FD;&#x6570;&#x5185;&#x6838;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html#sklearn.gaussian_process.kernels.RBF" title="sklearn.gaussian_process.kernels.RBF" target="_blank"><code>RBF</code></a> &#x5185;&#x6838;&#x662F;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x5185;&#x6838;&#xFF0C;&#x5B83;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x5E73;&#x65B9;&#x6307;&#x6570;&#x201D;&#x5185;&#x6838;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x5B9A;&#x957F;&#x7684;&#x53C2;&#x6570; <img src="img/8494ed588e1c79e569f4d2add722ecf5.jpg" alt="l&gt;0"> &#x6765;&#x5BF9;&#x5185;&#x6838;&#x8FDB;&#x884C;&#x53C2;&#x6570;&#x5316;&#x3002;&#x8BE5;&#x53C2;&#x6570;&#x65E2;&#x53EF;&#x4EE5;&#x662F;&#x6807;&#x91CF;&#xFF08;&#x5185;&#x6838;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#x53D8;&#x4F53;&#xFF09;&#x6216;&#x8005;&#x4E0E;&#x8F93;&#x5165; <img src="img/5c82dbae35dc43d2f556f9f284d9d184.jpg" alt="x"> &#xFF08;&#x5185;&#x6838;&#x7684;&#x5404;&#x5411;&#x5F02;&#x6027;&#x53D8;&#x4F53;&#xFF09; &#x5177;&#x6709;&#x76F8;&#x540C;&#x6570;&#x91CF;&#x7684;&#x7EF4;&#x5EA6;&#x7684;&#x5411;&#x91CF;&#x3002;&#x8BE5;&#x5185;&#x6838;&#x53EF;&#x4EE5;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<p><img src="img/afee107e82d448558078835ad82086e5.jpg" alt="k(x_i, x_j) = \text{exp}\left(-\frac{1}{2} d(x_i / l, x_j / l)^2\right)"></p>
+<p>&#x8FD9;&#x4E2A;&#x5185;&#x6838;&#x662F;&#x65E0;&#x9650;&#x53EF;&#x5FAE;&#x7684;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8FD9;&#x4E2A;&#x5185;&#x6838;&#x4F5C;&#x4E3A;&#x534F;&#x65B9;&#x5DEE;&#x51FD;&#x6570;&#x7684; GP &#x5177;&#x6709;&#x6240;&#x6709;&#x9636;&#x6570;&#x7684;&#x5747;&#x65B9;&#x5DEE;&#x5BFC;&#x6570;&#xFF0C; &#x56E0;&#x6B64;&#x975E;&#x5E38;&#x5E73;&#x6ED1;&#x3002;&#x7531;RBF&#x5185;&#x6838;&#x4EA7;&#x751F;&#x7684;GP&#x7684;&#x5148;&#x9A8C;&#x548C;&#x540E;&#x9A8C;&#x793A;&#x610F;&#x56FE;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html" target="_blank"><img src="img/e2650a6b3222cf44bd311f7205909f06.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_prior_posterior_0001.png"></a></p>
+<h3 id="1755-mat&#xE9;rn-&#x5185;&#x6838;">1.7.5.5. Mat&#xE9;rn &#x5185;&#x6838;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html#sklearn.gaussian_process.kernels.Matern" title="sklearn.gaussian_process.kernels.Matern" target="_blank"><code>Matern</code></a> &#x5185;&#x6838;&#x662F;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x5185;&#x6838;&#xFF0C;&#x662F; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html#sklearn.gaussian_process.kernels.RBF" title="sklearn.gaussian_process.kernels.RBF" target="_blank"><code>RBF</code></a> &#x5185;&#x6838;&#x7684;&#x6CDB;&#x5316;&#x3002;&#x5B83;&#x6709;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x53C2;&#x6570; <img src="img/f996477bc9806499e6b6a1ea4d9ae8eb.jpg" alt="\nu">&#xFF0C; &#x8BE5;&#x53C2;&#x6570;&#x63A7;&#x5236;&#x7ED3;&#x679C;&#x51FD;&#x6570;&#x7684;&#x5E73;&#x6ED1;&#x7A0B;&#x5EA6;&#x3002;&#x5B83;&#x7531;&#x5B9A;&#x957F;&#x53C2;&#x6570; <img src="img/8494ed588e1c79e569f4d2add722ecf5.jpg" alt="l&gt;0"> &#x6765;&#x5B9E;&#x73B0;&#x53C2;&#x6570;&#x5316;&#x3002;&#x8BE5;&#x53C2;&#x6570;&#x65E2;&#x53EF;&#x4EE5;&#x662F;&#x6807;&#x91CF; &#xFF08;&#x5185;&#x6838;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#x53D8;&#x4F53;&#xFF09;&#x6216;&#x8005;&#x4E0E;&#x8F93;&#x5165; <img src="img/5c82dbae35dc43d2f556f9f284d9d184.jpg" alt="x"> &#xFF08;&#x5185;&#x6838;&#x7684;&#x5404;&#x5411;&#x5F02;&#x6027;&#x53D8;&#x4F53;&#xFF09;&#x5177;&#x6709;&#x76F8;&#x540C;&#x6570;&#x91CF;&#x7684;&#x7EF4;&#x5EA6;&#x7684;&#x5411;&#x91CF;&#x3002; &#x8BE5;&#x5185;&#x6838;&#x53EF;&#x4EE5;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<p><img src="img/eb89c7ce95ca7e68685f180915bf0511.jpg" alt="k(x_i, x_j) = \sigma^2\frac{1}{\Gamma(\nu)2^{\nu-1}}\Bigg(\gamma\sqrt{2\nu} d(x_i / l, x_j / l)\Bigg)^\nu K_\nu\Bigg(\gamma\sqrt{2\nu} d(x_i / l, x_j / l)\Bigg),"></p>
+<p>&#x56E0;&#x4E3A; <img src="img/3001d4b4ed72087e1a6010f43c053cc6.jpg" alt="\nu\rightarrow\infty"> &#xFF0C;Mat&#xE9;rn &#x5185;&#x6838;&#x6536;&#x655B;&#x5230; RBF &#x5185;&#x6838;&#x3002; &#x5F53; <img src="img/46cc434e4ffc05f8d38712603b34bf7f.jpg" alt="\nu = 1/2"> &#x65F6;&#xFF0C;Mat&#xE9;rn &#x5185;&#x6838;&#x53D8;&#x5F97;&#x4E0E;&#x7EDD;&#x5BF9;&#x6307;&#x6570;&#x5185;&#x6838;&#x76F8;&#x540C;&#x65F6;&#xFF0C;&#x5373;</p>
+<p><img src="img/0bb5a8e1b524523dcfb5104d9f20ba2b.jpg" alt="k(x_i, x_j) = \sigma^2 \exp \Bigg(-\gamma d(x_i / l, x_j / l) \Bigg) \quad \quad \nu= \tfrac{1}{2}"></p>
+<p>&#x7279;&#x522B;&#x7684;&#xFF0C;&#x5F53; <img src="img/c001247a5528df69cdcc243c70f61d01.jpg" alt="\nu = 3/2"> &#x65F6;&#xFF1A;</p>
+<p><img src="img/7cda18e6ccd378c8ef9714e3035506c9.jpg" alt="k(x_i, x_j) = \sigma^2 \Bigg(1 + \gamma \sqrt{3} d(x_i / l, x_j / l)\Bigg) \exp \Bigg(-\gamma \sqrt{3}d(x_i / l, x_j / l) \Bigg) \quad \quad \nu= \tfrac{3}{2}"></p>
+<p>&#x548C; <img src="img/f4ad81b759af5604d12ae25c4c541224.jpg" alt="\nu = 5/2"> :</p>
+<p><img src="img/ebdfa216db7c73e9067f547e1e65ca02.jpg" alt="k(x_i, x_j) = \sigma^2 \Bigg(1 + \gamma \sqrt{5}d(x_i / l, x_j / l) +\frac{5}{3} \gamma^2d(x_i / l, x_j / l)^2 \Bigg) \exp \Bigg(-\gamma \sqrt{5}d(x_i / l, x_j / l) \Bigg) \quad \quad \nu= \tfrac{5}{2}"></p>
+<p>&#x662F;&#x5B66;&#x4E60;&#x51FD;&#x6570;&#x7684;&#x5E38;&#x7528;&#x9009;&#x62E9;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x662F;&#x65E0;&#x9650;&#x53EF;&#x5FAE;&#x7684;&#xFF08;&#x7531; RBF &#x5185;&#x6838;&#x5047;&#x5B9A;&#xFF09; &#x4F46;&#x662F;&#x81F3;&#x5C11;&#x5177;&#x6709;&#x4E00;&#x9636;( <img src="img/c001247a5528df69cdcc243c70f61d01.jpg" alt="\nu = 3/2"> )&#x6216;&#x8005;&#x4E8C;&#x9636;( <img src="img/f4ad81b759af5604d12ae25c4c541224.jpg" alt="\nu = 5/2"> )&#x53EF;&#x5FAE;&#x6027;&#x3002;</p>
+<p>&#x901A;&#x8FC7; <img src="img/f996477bc9806499e6b6a1ea4d9ae8eb.jpg" alt="\nu"> &#x7075;&#x6D3B;&#x63A7;&#x5236;&#x5B66;&#x4E60;&#x51FD;&#x6570;&#x7684;&#x5E73;&#x6ED1;&#x6027;&#x53EF;&#x4EE5;&#x66F4;&#x52A0;&#x9002;&#x5E94;&#x771F;&#x6B63;&#x7684;&#x5E95;&#x5C42;&#x51FD;&#x6570;&#x5173;&#x8054;&#x5C5E;&#x6027;&#x3002; &#x901A;&#x8FC7; Mat&#xE9;rn &#x5185;&#x6838;&#x4EA7;&#x751F;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x7684;&#x5148;&#x9A8C;&#x548C;&#x540E;&#x9A8C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html" target="_blank"><img src="img/88c766439d728ffb597e180a42f41d00.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_prior_posterior_0041.png"></a></p>
+<p>&#x60F3;&#x8981;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x5730;&#x4E86;&#x89E3;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;Mat&#xE9;rn&#x5185;&#x6838;&#x8BF7;&#x53C2;&#x9605; <a href="#rw2006">[RW2006]</a> , pp84&#x3002;</p>
+<h3 id="1756-&#x6709;&#x7406;&#x4E8C;&#x6B21;&#x5185;&#x6838;">1.7.5.6. &#x6709;&#x7406;&#x4E8C;&#x6B21;&#x5185;&#x6838;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RationalQuadratic.html#sklearn.gaussian_process.kernels.RationalQuadratic" title="sklearn.gaussian_process.kernels.RationalQuadratic" target="_blank"><code>RationalQuadratic</code></a> &#x5185;&#x6838;&#x53EF;&#x4EE5;&#x88AB;&#x770B;&#x505A;&#x4E0D;&#x540C;&#x7279;&#x5F81;&#x5C3A;&#x5EA6;&#x4E0B;&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html#sklearn.gaussian_process.kernels.RBF" title="sklearn.gaussian_process.kernels.RBF" target="_blank"><code>RBF</code></a> &#x5185;&#x6838;&#x7684;&#x89C4;&#x6A21;&#x6DF7;&#x5408;&#xFF08;&#x4E00;&#x4E2A;&#x65E0;&#x7A77;&#x548C;&#xFF09; &#x5B83;&#x901A;&#x8FC7;&#x957F;&#x5EA6;&#x5C3A;&#x5EA6;&#x53C2;&#x6570; <img src="img/8494ed588e1c79e569f4d2add722ecf5.jpg" alt="l&gt;0"> &#x548C;&#x6BD4;&#x4F8B;&#x6DF7;&#x5408;&#x53C2;&#x6570; <img src="img/03269860556d3525e4ae266f30c6982d.jpg" alt="\alpha&gt;0"> &#x8FDB;&#x884C;&#x53C2;&#x6570;&#x5316;&#x3002; &#x6B64;&#x65F6;&#x4EC5;&#x652F;&#x6301; <img src="img/eb604628a01ce7d6db62d61eba6e2e2f.jpg" alt="l"> &#x6807;&#x91CF;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#x53D8;&#x91CF;&#x3002;&#x5185;&#x6838;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="img/edbf7affc28abad1a964eeeeac3e711c.jpg" alt="k(x_i, x_j) = \left(1 + \frac{d(x_i, x_j)^2}{2\alpha l^2}\right)^{-\alpha}"></p>
+<p>&#x4ECE; RBF &#x5185;&#x6838;&#x4E2D;&#x4EA7;&#x751F;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x7684;&#x5148;&#x9A8C;&#x548C;&#x540E;&#x9A8C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html" target="_blank"><img src="img/0345993f9c673bd3a928dc6cb07bcae1.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_prior_posterior_0011.png"></a></p>
+<h3 id="1757-&#x6B63;&#x5F26;&#x5E73;&#x65B9;&#x5185;&#x6838;">1.7.5.7. &#x6B63;&#x5F26;&#x5E73;&#x65B9;&#x5185;&#x6838;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.ExpSineSquared.html#sklearn.gaussian_process.kernels.ExpSineSquared" title="sklearn.gaussian_process.kernels.ExpSineSquared" target="_blank"><code>ExpSineSquared</code></a> &#x5185;&#x6838;&#x53EF;&#x4EE5;&#x5BF9;&#x5468;&#x671F;&#x6027;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;&#x3002;&#x5B83;&#x7531;&#x5B9A;&#x957F;&#x53C2;&#x6570; <img src="img/8494ed588e1c79e569f4d2add722ecf5.jpg" alt="l&gt;0"> &#x4EE5;&#x53CA;&#x5468;&#x671F;&#x53C2;&#x6570; <img src="img/6f98755e60bfb560a671770b8e51cb28.jpg" alt="p&gt;0"> &#x6765;&#x5B9E;&#x73B0;&#x53C2;&#x6570;&#x5316;&#x3002;&#x6B64;&#x65F6;&#x4EC5;&#x652F;&#x6301; <img src="img/eb604628a01ce7d6db62d61eba6e2e2f.jpg" alt="l"> &#x6807;&#x91CF;&#x7684;&#x5404;&#x5411;&#x540C;&#x6027;&#x53D8;&#x91CF;&#x3002;&#x5185;&#x6838;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="img/b8d08f24f6c909a25190cb38127ec809.jpg" alt="k(x_i, x_j) = \text{exp}\left(-2 \left(\text{sin}(\pi / p * d(x_i, x_j)) / l\right)^2\right)"></p>
+<p>&#x4ECE;ExpSineSquared&#x5185;&#x6838;&#x4E2D;&#x4EA7;&#x751F;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x7684;&#x5148;&#x9A8C;&#x548C;&#x540E;&#x9A8C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html" target="_blank"><img src="img/5679f1fec5dfb7ab05db5e5aa9fa11a2.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_prior_posterior_0021.png"></a></p>
+<h3 id="1758-&#x70B9;&#x4E58;&#x5185;&#x6838;">1.7.5.8. &#x70B9;&#x4E58;&#x5185;&#x6838;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.DotProduct.html#sklearn.gaussian_process.kernels.DotProduct" title="sklearn.gaussian_process.kernels.DotProduct" target="_blank"><code>DotProduct</code></a> &#x5185;&#x6838;&#x662F;&#x975E;&#x56FA;&#x5B9A;&#x5185;&#x6838;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684; <img src="img/3d43f503466701e58ca2d516de2db505.jpg" alt="x_d (d = 1, . . . , D)"> &#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x4E0A;&#x52A0;&#x4E0A; &#x670D;&#x4ECE;&#x4E8E; <img src="img/5cf078f7cdbb5755436e396cad3c37a0.jpg" alt="N(0, 1)"> &#x7684;&#x5148;&#x9A8C;&#x4EE5;&#x53CA;&#x5728;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x504F;&#x7F6E;&#x4E0A;&#x52A0;&#x4E0A;&#x670D;&#x4ECE;&#x4E8E; <img src="img/df49142f65f7afa86c2e18f598f00729.jpg" alt="N(0, \sigma_0^2)"> &#x7684;&#x5148;&#x9A8C;&#x6765;&#x83B7;&#x5F97;&#x3002; &#x8BE5; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.DotProduct.html#sklearn.gaussian_process.kernels.DotProduct" title="sklearn.gaussian_process.kernels.DotProduct" target="_blank"><code>DotProduct</code></a> &#x5185;&#x6838;&#x5BF9;&#x4E8E;&#x539F;&#x70B9;&#x5750;&#x6807;&#x7684;&#x65CB;&#x8F6C;&#x662F;&#x4E0D;&#x53D8;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x662F;&#x8F6C;&#x6362;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x53C2;&#x6570; <img src="img/d6e5649338670ffec641327eeaa0521a.jpg" alt="\sigma_0^2"> &#x6765;&#x8FDB;&#x884C;&#x53C2;&#x6570;&#x5316;&#x3002; &#x5F53; <img src="img/45e0e70e4566592b549e6835d6cba2a8.jpg" alt="\sigma_0^2 = 0"> &#x65F6;&#xFF0C;&#x8BE5;&#x5185;&#x6838;&#x53EB;&#x505A;&#x540C;&#x8D28;&#x7EBF;&#x6027;&#x5185;&#x6838;&#xFF1B;&#x5426;&#x5219;&#x8BE5;&#x5185;&#x6838;&#x662F;&#x975E;&#x540C;&#x8D28;&#x7684;&#x3002;&#x5185;&#x6838;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="img/88d9981d54cd398165b20856ed5043e1.jpg" alt="k(x_i, x_j) = \sigma_0 ^ 2 + x_i \cdot x_j"></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.DotProduct.html#sklearn.gaussian_process.kernels.DotProduct" title="sklearn.gaussian_process.kernels.DotProduct" target="_blank"><code>DotProduct</code></a> &#x5185;&#x6838;&#x901A;&#x5E38;&#x548C;&#x6307;&#x6570;&#x5206;&#x5E03;&#x76F8;&#x7ED3;&#x5408;&#x3002;&#x5B9E;&#x4F8B;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html" target="_blank"><img src="img/ac9afe17947eb296e1701877b220779d.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_gpr_prior_posterior_0031.png"></a></p>
+<h3 id="1759-&#x53C2;&#x8003;&#x6587;&#x732E;">1.7.5.9. &#x53C2;&#x8003;&#x6587;&#x732E;</h3>
+<p><span id="rw2006">[RW2006]</span> Carl Eduard Rasmussen and Christopher K.I. Williams, &#x201C;Gaussian Processes for Machine Learning&#x201D;, MIT Press 2006, Link to an official complete PDF version of the book <a href="http://www.gaussianprocess.org/gpml/chapters/RW.pdf" target="_blank">here</a> .</p>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="7.html" class="navigation navigation-prev " aria-label="Previous page: 1.6. 最近邻">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="9.html" class="navigation navigation-next " aria-label="Next page: 1.8. 交叉分解">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.7. 高斯过程","level":"1.3.1.7","depth":3,"next":{"title":"1.8. 交叉分解","level":"1.3.1.8","depth":3,"path":"docs/master/9.md","ref":"docs/master/9.md","articles":[]},"previous":{"title":"1.6. 最近邻","level":"1.3.1.6","depth":3,"path":"docs/master/7.md","ref":"docs/master/7.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/8.md","mtime":"2020-11-23T10:54:46.652Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

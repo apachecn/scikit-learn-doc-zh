@@ -1,0 +1,2126 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.1. 广义线性模型 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.html" />
+    
+    
+    <link rel="prev" href="1.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >1.1. 广义线性模型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="11-&#x5E7F;&#x4E49;&#x7EBF;&#x6027;&#x6A21;&#x578B;">1.1. &#x5E7F;&#x4E49;&#x7EBF;&#x6027;&#x6A21;&#x578B;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x4E13;&#x4E1A;&#x5439;&#x725B;&#x903C;&#x7684;&#x5C0F;&#x660E;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@Gladiator</a>
+        <a href="https://github.com/loopyme" target="_blank">@Loopy</a>
+        <a href="https://github.com/qinhanmin2014" target="_blank">@qinhanmin2014</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x74DC;&#x725B;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x5E74;&#x7EAA;&#x5927;&#x4E86;&#x53CD;&#x5E94;&#x6162;&#x4E86;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@Hazekiah</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@BWM-&#x871C;&#x8702;</a></p>
+<p>&#x672C;&#x7AE0;&#x4E3B;&#x8981;&#x8BB2;&#x8FF0;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x56DE;&#x5F52;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x76EE;&#x6807;&#x503C; y &#x662F;&#x8F93;&#x5165;&#x53D8;&#x91CF; x &#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x3002; &#x6570;&#x5B66;&#x6982;&#x5FF5;&#x8868;&#x793A;&#x4E3A;&#xFF1A;&#x5982;&#x679C; <img src="img/047826f1c2e6f2687b304cb5217be8d8.jpg" alt="\hat{y}"> &#x662F;&#x9884;&#x6D4B;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x6709;&#xFF1A;</p>
+<p><img src="img/4ee9f6c666393981b6458e54c3ec89d0.jpg" alt="\hat{y}(w, x) = w_0 + w_1 x_1 + ... + w_p x_p"></p>
+<p>&#x5728;&#x6574;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x5411;&#x91CF; <img src="img/b003858334d1ad594207911e84219151.jpg" alt="w = (w_1,..., w_p)"> &#x4F5C;&#x4E3A; <code>coef_</code> &#xFF0C;&#x5B9A;&#x4E49; <img src="img/57e15e43b846791e47a202e1a9a5d8ce.jpg" alt="w_0"> &#x4F5C;&#x4E3A; <code>intercept_</code> &#x3002;</p>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5E7F;&#x4E49;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="#1111-logistic-&#x56DE;&#x5F52;">logistic &#x56DE;&#x5F52;</a> &#x3002;</p>
+<h2 id="111-&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;">1.1.1. &#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression" target="_blank"><code>LinearRegression</code></a> &#x62DF;&#x5408;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x7CFB;&#x6570; <img src="img/3f5adc0c9b0e51a0759ed6ac49f94431.jpg" alt="w = (w_1, ..., w_p)"> &#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF0C;&#x4F7F;&#x5F97;&#x6570;&#x636E;&#x96C6;&#x5B9E;&#x9645;&#x89C2;&#x6D4B;&#x6570;&#x636E;&#x548C;&#x9884;&#x6D4B;&#x6570;&#x636E;&#xFF08;&#x4F30;&#x8BA1;&#x503C;&#xFF09;&#x4E4B;&#x95F4;&#x7684;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#x6700;&#x5C0F;&#x3002;&#x5176;&#x6570;&#x5B66;&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;:</p>
+<p><img src="img/1b6228a71a038f66ac7b8a2743adf4e7.jpg" alt="\underset{w}{min\,} {|| X w - y||_2}^2"></p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html" target="_blank"><img src="img/af7b81123e6cdf0b42acec802041beef.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_ols_0011.png"></a></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression" target="_blank"><code>LinearRegression</code></a> &#x4F1A;&#x8C03;&#x7528; <code>fit</code> &#x65B9;&#x6CD5;&#x6765;&#x62DF;&#x5408;&#x6570;&#x7EC4; X&#xFF0C; y&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x7684;&#x7CFB;&#x6570; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x5B58;&#x50A8;&#x5728;&#x5176;&#x6210;&#x5458;&#x53D8;&#x91CF; <code>coef_</code> &#x4E2D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg = linear_model.LinearRegression()
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.fit ([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+LinearRegression(copy_X=<span class="hljs-keyword">True</span>, fit_intercept=<span class="hljs-keyword">True</span>, n_jobs=<span class="hljs-number">1</span>, normalize=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.coef_
+array([ <span class="hljs-number">0.5</span>,  <span class="hljs-number">0.5</span>])
+</code></pre>
+<p>&#x7136;&#x800C;&#xFF0C;&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x7684;&#x7CFB;&#x6570;&#x4F30;&#x8BA1;&#x95EE;&#x9898;&#xFF0C;&#x5176;&#x4F9D;&#x8D56;&#x4E8E;&#x6A21;&#x578B;&#x5404;&#x9879;&#x7684;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x6027;&#x3002;&#x5F53;&#x5404;&#x9879;&#x662F;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x4E14;&#x8BBE;&#x8BA1;&#x77E9;&#x9635; <img src="img/43c1fea57579e54f80c0535bc582626f.jpg" alt="X"> &#x7684;&#x5404;&#x5217;&#x8FD1;&#x4F3C;&#x7EBF;&#x6027;&#x76F8;&#x5173;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x8BBE;&#x8BA1;&#x77E9;&#x9635;&#x4F1A;&#x8D8B;&#x5411;&#x4E8E;&#x5947;&#x5F02;&#x77E9;&#x9635;&#xFF0C;&#x8FD9;&#x79CD;&#x7279;&#x6027;&#x5BFC;&#x81F4;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F30;&#x8BA1;&#x5BF9;&#x4E8E;&#x968F;&#x673A;&#x8BEF;&#x5DEE;&#x975E;&#x5E38;&#x654F;&#x611F;&#xFF0C;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x5F88;&#x5927;&#x7684;&#x65B9;&#x5DEE;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x5B9E;&#x9A8C;&#x8BBE;&#x8BA1;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6536;&#x96C6;&#x5230;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x79CD;&#x591A;&#x91CD;&#x5171;&#x7EBF;&#x6027;&#xFF08;multicollinearity&#xFF09;&#x7684;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x771F;&#x7684;&#x4F1A;&#x51FA;&#x73B0;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html" target="_blank">&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x793A;&#x4F8B;</a></li>
+</ul>
+</blockquote>
+<h3 id="1111-&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x7684;&#x590D;&#x6742;&#x5EA6;">1.1.1.1. &#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x7684;&#x590D;&#x6742;&#x5EA6;</h3>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x4F7F;&#x7528; X &#x7684;&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;&#x6765;&#x8BA1;&#x7B97;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x89E3;&#x3002;&#x5982;&#x679C; X &#x662F;&#x4E00;&#x4E2A;&#x5F62;&#x72B6;&#x4E3A; <code>(n_samples, n_features)</code>&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x8BBE; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mrow><mi>s</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>s</mi></mrow></msub><mo>&#x2265;</mo><msub><mi>n</mi><mrow><mi>f</mi><mi>e</mi><mi>a</mi><mi>t</mi><mi>u</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex"> n_{samples} \geq n_{features} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.63597em;"></span><span class="strut bottom" style="height:0.922078em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">s</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">m</span><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight">s</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&#x2265;</span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">t</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight">s</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> , &#x5219;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x4E3A; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msub><mi>n</mi><mrow><mi>s</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>s</mi></mrow></msub><msubsup><mi>n</mi><mrow><mi>f</mi><mi>e</mi><mi>a</mi><mi>r</mi><mi>u</mi><mi>r</mi><mi>e</mi><mi>s</mi></mrow><mn>2</mn></msubsup><mo>)</mo></mrow><annotation encoding="application/x-tex"> O(n_{samples} n_{fearures}^2) </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.2333239999999999em;vertical-align:-0.4192159999999999em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">s</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight">m</span><span class="mord mathit mtight">p</span><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight">s</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:0.2831079999999999em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight">a</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">u</span><span class="mord mathit mtight" style="margin-right:0.02778em;">r</span><span class="mord mathit mtight">e</span><span class="mord mathit mtight">s</span></span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<h2 id="112-&#x5CAD;&#x56DE;&#x5F52;">1.1.2. &#x5CAD;&#x56DE;&#x5F52;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge" target="_blank"><code>Ridge</code></a> &#x56DE;&#x5F52;&#x901A;&#x8FC7;&#x5BF9;&#x7CFB;&#x6570;&#x7684;&#x5927;&#x5C0F;&#x65BD;&#x52A0;&#x60E9;&#x7F5A;&#x6765;&#x89E3;&#x51B3; <a href="#1111-&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x590D;&#x6742;&#x5EA6;">&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;</a> &#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x3002; &#x5CAD;&#x7CFB;&#x6570;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x662F;&#x5E26;&#x7F5A;&#x9879;&#x7684;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#xFF0C;</p>
+<p><img src="img/c7e49892dca2f0df35d1261a276693f2.jpg" alt="\underset{w}{min\,} {{|| X w - y||_2}^2 + \alpha {||w||_2}^2}"></p>
+<p>&#x5176;&#x4E2D;&#xFF0C; <img src="img/a4775baaa990a4fbffcfc2688e3b5578.jpg" alt="\alpha \geq 0"> &#x662F;&#x63A7;&#x5236;&#x7CFB;&#x6570;&#x6536;&#x7F29;&#x91CF;&#x7684;&#x590D;&#x6742;&#x6027;&#x53C2;&#x6570;&#xFF1A; <img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha"> &#x7684;&#x503C;&#x8D8A;&#x5927;&#xFF0C;&#x6536;&#x7F29;&#x91CF;&#x8D8A;&#x5927;&#xFF0C;&#x6A21;&#x578B;&#x5BF9;&#x5171;&#x7EBF;&#x6027;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x4E5F;&#x66F4;&#x5F3A;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html" target="_blank"><img src="img/a4a20739f22e7059a927ba615ec373da.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_ridge_path_0011.png"></a></p>
+<p>&#x4E0E;&#x5176;&#x4ED6;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x4E00;&#x6837;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge" target="_blank"><code>Ridge</code></a> &#x7528; <code>fit</code> &#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x62DF;&#x5408;&#xFF0C;&#x5E76;&#x5C06;&#x6A21;&#x578B;&#x7CFB;&#x6570; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x5B58;&#x50A8;&#x5728;&#x5176; <code>coef_</code> &#x6210;&#x5458;&#x4E2D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg = linear_model.Ridge (alpha = <span class="hljs-number">.5</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.fit ([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], [<span class="hljs-number">0</span>, <span class="hljs-number">.1</span>, <span class="hljs-number">1</span>])
+Ridge(alpha=<span class="hljs-number">0.5</span>, copy_X=<span class="hljs-keyword">True</span>, fit_intercept=<span class="hljs-keyword">True</span>, max_iter=<span class="hljs-keyword">None</span>,
+ normalize=<span class="hljs-keyword">False</span>, random_state=<span class="hljs-keyword">None</span>, solver=<span class="hljs-string">&apos;auto&apos;</span>, tol=<span class="hljs-number">0.001</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.coef_
+array([ <span class="hljs-number">0.34545455</span>,  <span class="hljs-number">0.34545455</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.intercept_
+<span class="hljs-number">0.13636</span>...
+</code></pre>
+<blockquote>
+<p>&#x793A;&#x4F8B;:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html" target="_blank">&#x5CAD;&#x7CFB;&#x6570;&#x5BF9;&#x56DE;&#x5F52;&#x7CFB;&#x6570;&#x7684;&#x5F71;&#x54CD;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html" target="_blank">&#x5206;&#x7C7B;&#x7279;&#x5F81;&#x7A00;&#x758F;&#x7684;&#x6587;&#x672C;</a></li>
+</ul>
+</blockquote>
+<h3 id="1121-&#x5CAD;&#x56DE;&#x5F52;&#x7684;&#x590D;&#x6742;&#x5EA6;">1.1.2.1. &#x5CAD;&#x56DE;&#x5F52;&#x7684;&#x590D;&#x6742;&#x5EA6;</h3>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4E0E; <a href="#111-&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;">&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;</a> &#x7684;&#x590D;&#x6742;&#x5EA6;&#x662F;&#x76F8;&#x540C;&#x7684;.</p>
+<h3 id="1122-&#x8BBE;&#x7F6E;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;&#xFF1A;&#x5E7F;&#x4E49;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;">1.1.2.2. &#x8BBE;&#x7F6E;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;&#xFF1A;&#x5E7F;&#x4E49;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV" target="_blank"><code>RidgeCV</code></a> &#x901A;&#x8FC7;&#x5185;&#x7F6E;&#x7684;&#x5173;&#x4E8E;&#x7684; alpha &#x53C2;&#x6570;&#x7684;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6765;&#x5B9E;&#x73B0;&#x5CAD;&#x56DE;&#x5F52;&#x3002; &#x8BE5;&#x5BF9;&#x8C61;&#x4E0E; GridSearchCV &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x662F;&#x5B83;&#x9ED8;&#x8BA4;&#x4E3A; Generalized Cross-Validation(&#x5E7F;&#x4E49;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1; GCV)&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x7684;&#x7559;&#x4E00;&#x9A8C;&#x8BC1;&#x65B9;&#x6CD5;&#xFF08;LOO-CV&#xFF09;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg = linear_model.RidgeCV(alphas=[<span class="hljs-number">0.1</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">10.0</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.fit([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], [<span class="hljs-number">0</span>, <span class="hljs-number">.1</span>, <span class="hljs-number">1</span>])       
+RidgeCV(alphas=[<span class="hljs-number">0.1</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">10.0</span>], cv=<span class="hljs-keyword">None</span>, fit_intercept=<span class="hljs-keyword">True</span>, scoring=<span class="hljs-keyword">None</span>,
+ normalize=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.alpha_                                      
+<span class="hljs-number">0.1</span>
+</code></pre>
+<p>&#x6307;&#x5B9A;cv&#x5C5E;&#x6027;&#x7684;&#x503C;&#x5C06;&#x89E6;&#x53D1;(&#x901A;&#x8FC7;GridSearchCV&#x7684;)&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x3002;&#x4F8B;&#x5982;&#xFF0C;cv=10&#x5C06;&#x89E6;&#x53D1;10&#x6298;&#x7684;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5E7F;&#x4E49;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;(GCV)&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li>&#x201C;Notes on Regularized Least Squares&#x201D;, Rifkin &amp; Lippert (<a href="http://cbcl.mit.edu/publications/ps/MIT-CSAIL-TR-2007-025.pdf" target="_blank">technical report</a>, <a href="https://www.mit.edu/~9.520/spring07/Classes/rlsslides.pdf" target="_blank">course slides</a>).</li>
+</ul>
+</blockquote>
+<h2 id="113-lasso">1.1.3. Lasso</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso" target="_blank"><code>Lasso</code></a> &#x662F;&#x62DF;&#x5408;&#x7A00;&#x758F;&#x7CFB;&#x6570;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x3002; &#x5B83;&#x5728;&#x4E00;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x503E;&#x5411;&#x4E8E;&#x4F7F;&#x7528;&#x5177;&#x6709;&#x8F83;&#x5C11;&#x53C2;&#x6570;&#x503C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6709;&#x6548;&#x5730;&#x51CF;&#x5C11;&#x7ED9;&#x5B9A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6240;&#x4F9D;&#x8D56;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x91CF;&#x3002; &#x56E0;&#x6B64;&#xFF0C;Lasso &#x53CA;&#x5176;&#x53D8;&#x4F53;&#x662F;&#x538B;&#x7F29;&#x611F;&#x77E5;&#x9886;&#x57DF;&#x7684;&#x57FA;&#x7840;&#x3002; &#x5728;&#x4E00;&#x5B9A;&#x6761;&#x4EF6;&#x4E0B;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x6062;&#x590D;&#x4E00;&#x7EC4;&#x975E;&#x96F6;&#x6743;&#x91CD;&#x7684;&#x7CBE;&#x786E;&#x96C6;&#xFF08;&#x89C1;<a href="https://scikit-learn.org/stable/auto_examples/applications/plot_tomography_l1_reconstruction.html" target="_blank">&#x538B;&#x7F29;&#x611F;&#x77E5;_&#x65AD;&#x5C42;&#x91CD;&#x5EFA;</a>&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x8868;&#x8FBE;&#x4E0A;&#xFF0C;&#x5B83;&#x7531;&#x4E00;&#x4E2A;&#x5E26;&#x6709; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1"> &#x5148;&#x9A8C;&#x7684;&#x6B63;&#x5219;&#x9879;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x7EC4;&#x6210;&#x3002; &#x5176;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x662F;:</p>
+<p><img src="img/187eddee2de4e12860dc001c5f74b2b4.jpg" alt="\underset{w}{min\,} { \frac{1}{2n_{samples}} ||X w - y||_2 ^ 2 + \alpha ||w||_1}"></p>
+<p>lasso estimate &#x89E3;&#x51B3;&#x4E86;&#x52A0;&#x4E0A;&#x7F5A;&#x9879; <img src="img/b2ea359213f8f5b01eead0821e29e856.jpg" alt="\alpha ||w||_1"> &#x7684;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x7684;&#x6700;&#x5C0F;&#x5316;&#xFF0C;&#x5176;&#x4E2D;&#xFF0C; <img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha"> &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x6570;&#xFF0C; <img src="img/62eb544f1f6e234c61099fea1517300b.jpg" alt="||w||_1"> &#x662F;&#x53C2;&#x6570;&#x5411;&#x91CF;&#x7684; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1">-norm &#x8303;&#x6570;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso" target="_blank"><code>Lasso</code></a> &#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;&#x4E86; coordinate descent &#xFF08;&#x5750;&#x6807;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#xFF09;&#x6765;&#x62DF;&#x5408;&#x7CFB;&#x6570;&#x3002; &#x67E5;&#x770B; <a href="#117-&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;">&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;</a> &#xFF0C;&#x8FD9;&#x662F;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg = linear_model.Lasso(alpha = <span class="hljs-number">0.1</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.fit([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])
+Lasso(alpha=<span class="hljs-number">0.1</span>, copy_X=<span class="hljs-keyword">True</span>, fit_intercept=<span class="hljs-keyword">True</span>, max_iter=<span class="hljs-number">1000</span>,
+ normalize=<span class="hljs-keyword">False</span>, positive=<span class="hljs-keyword">False</span>, precompute=<span class="hljs-keyword">False</span>, random_state=<span class="hljs-keyword">None</span>,
+ selection=<span class="hljs-string">&apos;cyclic&apos;</span>, tol=<span class="hljs-number">0.0001</span>, warm_start=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.predict([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+array([ <span class="hljs-number">0.8</span>])
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x8F83;&#x7B80;&#x5355;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x540C;&#x6837;&#x6709;&#x7528;&#x7684;&#x662F;&#x51FD;&#x6570; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lasso_path.html#sklearn.linear_model.lasso_path" target="_blank"><code>lasso_path</code></a> &#x3002;&#x5B83;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x641C;&#x7D22;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;&#x4E0A;&#x7684;&#x503C;&#x6765;&#x8BA1;&#x7B97;&#x7CFB;&#x6570;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;:</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_and_elasticnet.html#sphx-glr-auto-examples-linear-model-plot-lasso-and-elasticnet-py" target="_blank">Lasso&#x548C;Elastic Net(&#x5F39;&#x6027;&#x7F51;&#x7EDC;)&#x5728;&#x7A00;&#x758F;&#x4FE1;&#x53F7;&#x4E0A;&#x7684;&#x8868;&#x73B0;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/applications/plot_tomography_l1_reconstruction.html" target="_blank">&#x538B;&#x7F29;&#x611F;&#x77E5;_&#x65AD;&#x5C42;&#x91CD;&#x5EFA;</a></li>
+</ul>
+<p><strong>&#x6CE8;&#x610F;: &#x4F7F;&#x7528; Lasso &#x8FDB;&#x884C;&#x7279;&#x5F81;&#x9009;&#x62E9;</strong></p>
+<p>&#x7531;&#x4E8E; Lasso &#x56DE;&#x5F52;&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x6A21;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x7279;&#x5F81;&#x9009;&#x62E9;&#xFF0C;&#x8BE6;&#x89C1; <a href="14#11341-&#x57FA;&#x4E8E;-l1-&#x7684;&#x7279;&#x5F81;&#x9009;&#x53D6;">&#x57FA;&#x4E8E; L1 &#x7684;&#x7279;&#x5F81;&#x9009;&#x53D6;</a> &#x3002;</p>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x4E24;&#x7BC7;&#x53C2;&#x8003;&#x89E3;&#x91CA;&#x4E86;scikit-learn&#x5750;&#x6807;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x8FED;&#x4EE3;&#xFF0C;&#x4EE5;&#x53CA;&#x7528;&#x4E8E;&#x6536;&#x655B;&#x63A7;&#x5236;&#x7684;&#x5BF9;&#x5076;&#x95F4;&#x9699;&#x8BA1;&#x7B97;&#x7684;&#x7406;&#x8BBA;&#x57FA;&#x7840;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li>&#x201C;Regularization Path For Generalized linear Models by Coordinate Descent&#x201D;, Friedman, Hastie &amp; Tibshirani, J Stat Softw, 2010 (<a href="https://www.jstatsoft.org/article/view/v033i01/v33i01.pdf" target="_blank">Paper</a>).</li>
+<li>&#x201C;An Interior-Point Method for Large-Scale L1-Regularized Least Squares,&#x201D; S. J. Kim, K. Koh, M. Lustig, S. Boyd and D. Gorinevsky, in IEEE Journal of Selected Topics in Signal Processing, 2007 (<a href="https://web.stanford.edu/~boyd/papers/pdf/l1_ls.pdf" target="_blank">Paper</a>)</li>
+</ul>
+</blockquote>
+<h3 id="1131-&#x8BBE;&#x7F6E;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;">1.1.3.1. &#x8BBE;&#x7F6E;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;</h3>
+<p><code>alpha</code> &#x53C2;&#x6570;&#x63A7;&#x5236;&#x4F30;&#x8BA1;&#x7CFB;&#x6570;&#x7684;&#x7A00;&#x758F;&#x5EA6;&#x3002;</p>
+<h4 id="11311-&#x4F7F;&#x7528;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;">1.1.3.1.1. &#x4F7F;&#x7528;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;</h4>
+<p>scikit-learn &#x901A;&#x8FC7;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6765;&#x516C;&#x5F00;&#x8BBE;&#x7F6E; Lasso <code>alpha</code> &#x53C2;&#x6570;&#x7684;&#x5BF9;&#x8C61;: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html#sklearn.linear_model.LassoCV" target="_blank"><code>LassoCV</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" target="_blank"><code>LassoLarsCV</code></a>&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" target="_blank"><code>LassoLarsCV</code></a> &#x662F;&#x57FA;&#x4E8E;&#x4E0B;&#x9762;&#x5C06;&#x8981;&#x63D0;&#x5230;&#x7684; <a href="#117-&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;">&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;</a> &#x7B97;&#x6CD5;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5177;&#x6709;&#x8BB8;&#x591A;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x96C6;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html#sklearn.linear_model.LassoCV" target="_blank"><code>LassoCV</code></a> &#x6700;&#x5E38;&#x89C1;&#x3002; &#x7136;&#x800C;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" target="_blank"><code>LassoLarsCV</code></a> &#x5728;&#x5BFB;&#x627E; <code>alpha</code>&#x53C2;&#x6570;&#x503C;&#x4E0A;&#x66F4;&#x5177;&#x6709;&#x4F18;&#x52BF;&#xFF0C;&#x800C;&#x4E14;&#x5982;&#x679C;&#x6837;&#x672C;&#x6570;&#x91CF;&#x6BD4;&#x7279;&#x5F81;&#x6570;&#x91CF;&#x5C11;&#x5F97;&#x591A;&#x65F6;&#xFF0C;&#x901A;&#x5E38; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" target="_blank"><code>LassoLarsCV</code></a> &#x6BD4; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html#sklearn.linear_model.LassoCV" target="_blank"><code>LassoCV</code></a> &#x8981;&#x5FEB;&#x3002;</p>
+<p><strong><a href="../../auto_examples/Linear-Models/plot_lasso_model_selection"><img src="img/035f009eecfdebf82b493f797843a919.jpg" alt="lasso_cv_1"></a> <a href="../../auto_examples/Linear-Models/plot_lasso_model_selection"><img src="img/ab2096ee4087e644cca732d92d241edf.jpg" alt="lasso_cv_2"></a></strong></p>
+<h4 id="11312-&#x57FA;&#x4E8E;&#x4FE1;&#x606F;&#x6807;&#x51C6;&#x7684;&#x6A21;&#x578B;&#x9009;&#x62E9;">1.1.3.1.2. &#x57FA;&#x4E8E;&#x4FE1;&#x606F;&#x6807;&#x51C6;&#x7684;&#x6A21;&#x578B;&#x9009;&#x62E9;</h4>
+<p>&#x6709;&#x591A;&#x79CD;&#x9009;&#x62E9;&#x65F6;&#xFF0C;&#x4F30;&#x8BA1;&#x5668; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsIC.html#sklearn.linear_model.LassoLarsIC" target="_blank"><code>LassoLarsIC</code></a> &#x5EFA;&#x8BAE;&#x4F7F;&#x7528; Akaike information criterion &#xFF08;Akaike &#x4FE1;&#x606F;&#x5224;&#x636E;&#xFF09;&#xFF08;AIC&#xFF09;&#x6216; Bayes Information criterion &#xFF08;&#x8D1D;&#x53F6;&#x65AF;&#x4FE1;&#x606F;&#x5224;&#x636E;&#xFF09;&#xFF08;BIC&#xFF09;&#x3002; &#x5F53;&#x4F7F;&#x7528; k-fold &#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x65F6;&#xFF0C;&#x6B63;&#x5219;&#x5316;&#x8DEF;&#x5F84;&#x53EA;&#x8BA1;&#x7B97;&#x4E00;&#x6B21;&#x800C;&#x4E0D;&#x662F; k + 1 &#x6B21;&#xFF0C;&#x6240;&#x4EE5;&#x627E;&#x5230; &#x3B1; &#x7684;&#x6700;&#x4F18;&#x503C;&#x662F;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x4E0A;&#x66F4;&#x7ECF;&#x6D4E;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x3002; &#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5224;&#x636E;&#x9700;&#x8981;&#x5BF9;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x7684;&#x81EA;&#x7531;&#x5EA6;&#x8FDB;&#x884C;&#x9002;&#x5F53;&#x7684;&#x4F30;&#x8BA1;&#xFF0C;&#x5B83;&#x4F1A;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x5BF9;&#x5927;&#x6837;&#x672C;&#xFF08;&#x6E10;&#x8FD1;&#x7ED3;&#x679C;&#xFF09;&#x8FDB;&#x884C;&#x5BFC;&#x51FA;&#xFF0C;&#x5373;&#x6570;&#x636E;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x7531;&#x8BE5;&#x6A21;&#x578B;&#x751F;&#x6210;&#x7684;&#x3002; &#x5F53;&#x95EE;&#x9898;&#x4E25;&#x91CD;&#x53D7;&#x9650;&#xFF08;&#x6BD4;&#x6837;&#x672C;&#x66F4;&#x591A;&#x7684;&#x7279;&#x5F81;&#xFF09;&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x4E5F;&#x5BB9;&#x6613;&#x5D29;&#x6E83;&#x3002;</p>
+<p><a href="../../auto_examples/Linear-Models/plot_lasso_model_selection"><img src="img/e7a07569c8c6af174aa061b9f8921065.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_lasso_model_selection_0011.png"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_model_selection.html" target="_blank">Lasso&#x6A21;&#x578B;&#x9009;&#x62E9;-&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;/AIC/BIC</a></li>
+</ul>
+</blockquote>
+<h4 id="11313-&#x4E0E;-svm-&#x7684;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;&#x7684;&#x6BD4;&#x8F83;">1.1.3.1.3. &#x4E0E; SVM &#x7684;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;&#x7684;&#x6BD4;&#x8F83;</h4>
+<p><code>alpha</code> &#x548C; SVM &#x7684;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;<code>C</code> &#x4E4B;&#x95F4;&#x7684;&#x7B49;&#x5F0F;&#x5173;&#x7CFB;&#x662F; <code>alpha = 1 / C</code> &#x6216;&#x8005; <code>alpha = 1 / (n_samples * C)</code> &#xFF0C;&#x5E76;&#x4F9D;&#x8D56;&#x4E8E;&#x4F30;&#x8BA1;&#x5668;&#x548C;&#x6A21;&#x578B;&#x4F18;&#x5316;&#x7684;&#x786E;&#x5207;&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="114-&#x591A;&#x4EFB;&#x52A1;-lasso">1.1.4. &#x591A;&#x4EFB;&#x52A1; Lasso</h2>
+<p> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLasso.html#sklearn.linear_model.MultiTaskLasso" target="_blank"><code>MultiTaskLasso</code></a> &#x662F;&#x4E00;&#x4E2A;&#x4F30;&#x8BA1;&#x591A;&#x5143;&#x56DE;&#x5F52;&#x7A00;&#x758F;&#x7CFB;&#x6570;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF1A; <code>y</code> &#x662F;&#x4E00;&#x4E2A;&#x5F62;&#x72B6;&#x4E3A;<code>(n_samples, n_tasks)</code> &#x7684;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x7EA6;&#x675F;&#x6761;&#x4EF6;&#x548C;&#x5176;&#x4ED6;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF08;&#x4E5F;&#x79F0;&#x4E3A;&#x4EFB;&#x52A1;&#xFF09;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90FD;&#x662F;&#x6240;&#x9009;&#x7684;&#x7279;&#x5F81;&#x503C;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x6BD4;&#x8F83;&#x4E86;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x7684; Lasso &#x6216; MultiTaskLasso &#x5F97;&#x5230;&#x7684; W &#x4E2D;&#x975E;&#x96F6;&#x7684;&#x4F4D;&#x7F6E;&#x3002; Lasso &#x4F30;&#x8BA1;&#x4EA7;&#x751F;&#x5206;&#x6563;&#x7684;&#x975E;&#x96F6;&#x503C;&#xFF0C;&#x800C; MultiTaskLasso &#x7684;&#x4E00;&#x6574;&#x5217;&#x90FD;&#x662F;&#x975E;&#x96F6;&#x7684;&#x3002;</p>
+<p><strong><a href="https://scikit-learn.org/stable/auto_examples/Linear-Models/plot_multi_task_lasso_support.html" target="_blank"><img src="img/0449a2a9bce6d759e7253da7d17fa938.jpg" alt="multi_task_lasso_1"></a> <a href="https://scikit-learn.org/stable/auto_examples/Linear-Models/plot_multi_task_lasso_support.html" target="_blank"><img src="img/3b1e10150e98ef95e977c12ad0607620.jpg" alt="multi_task_lasso_2"></a></strong></p>
+<p><strong>&#x62DF;&#x5408; time-series model &#xFF08;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6A21;&#x578B;&#xFF09;&#xFF0C;&#x5F3A;&#x5236;&#x4EFB;&#x4F55;&#x6D3B;&#x52A8;&#x7684;&#x529F;&#x80FD;&#x59CB;&#x7EC8;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;</strong></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_multi_task_lasso_support.html#sphx-glr-auto-examples-linear-model-plot-multi-task-lasso-support-py" target="_blank">&#x591A;&#x4EFB;&#x52A1;Lasso&#x5B9E;&#x73B0;&#x8054;&#x5408;&#x7279;&#x5F81;&#x9009;&#x62E9;</a></li>
+</ul>
+</blockquote>
+<p>&#x5728;&#x6570;&#x5B66;&#x4E0A;&#xFF0C;&#x5B83;&#x7531;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x7EC4;&#x6210;&#xFF0C;&#x4EE5;&#x6DF7;&#x5408;&#x7684; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1"> <img src="img/8851bd0fe9749b4841b30cee41fb040d.jpg" alt="\ell_2"> &#x4F5C;&#x4E3A;&#x6B63;&#x5219;&#x5316;&#x5668;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x3002;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x6700;&#x5C0F;&#x5316;&#x662F;&#xFF1A;</p>
+<p><img src="img/aba64ff85b1f99c5d1c4f8e1ace15f89.jpg" alt="\underset{w}{min\,} { \frac{1}{2n_{samples}} ||X W - Y||_{Fro} ^ 2 + \alpha ||W||_{21}}"></p>
+<p>&#x5176;&#x4E2D; <img src="img/987fc6b717a40e57a95fb79a8e809309.jpg" alt="Fro"> &#x8868;&#x793A; Frobenius &#x6807;&#x51C6;&#xFF1A;</p>
+<p><img src="img/9259b19a18f30f67db9e45b8c0b361c7.jpg" alt="||A||_{Fro} = \sqrt{\sum_{ij} a_{ij}^2}"></p>
+<p>&#x5E76;&#x4E14; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1"> <img src="img/8851bd0fe9749b4841b30cee41fb040d.jpg" alt="\ell_2"> &#x8BFB;&#x53D6;&#x4E3A;:</p>
+<p><img src="img/2f373d871220ee042a8c2ee44e6fff3a.jpg" alt="||A||_{2 1} = \sum_i \sqrt{\sum_j a_{ij}^2}"></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLasso.html#sklearn.linear_model.MultiTaskLasso" target="_blank"><code>MultiTaskLasso</code></a> &#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;&#x4E86;&#x5750;&#x6807;&#x4E0B;&#x964D;&#x4F5C;&#x4E3A;&#x62DF;&#x5408;&#x7CFB;&#x6570;&#x7684;&#x7B97;&#x6CD5;&#x3002;</p>
+<h2 id="115-&#x5F39;&#x6027;&#x7F51;&#x7EDC;">1.1.5. &#x5F39;&#x6027;&#x7F51;&#x7EDC;</h2>
+<p><code>&#x5F39;&#x6027;&#x7F51;&#x7EDC;</code> &#x662F;&#x4E00;&#x79CD;&#x4F7F;&#x7528; L1&#xFF0C; L2 &#x8303;&#x6570;&#x4F5C;&#x4E3A;&#x5148;&#x9A8C;&#x6B63;&#x5219;&#x9879;&#x8BAD;&#x7EC3;&#x7684;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x3002; &#x8FD9;&#x79CD;&#x7EC4;&#x5408;&#x5141;&#x8BB8;&#x62DF;&#x5408;&#x5230;&#x4E00;&#x4E2A;&#x53EA;&#x6709;&#x5C11;&#x91CF;&#x53C2;&#x6570;&#x662F;&#x975E;&#x96F6;&#x7A00;&#x758F;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5C31;&#x50CF; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso" target="_blank"><code>Lasso</code></a> &#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4ECD;&#x7136;&#x4FDD;&#x6301;&#x4E86;&#x4E00;&#x4E9B;&#x7C7B;&#x4F3C;&#x4E8E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge" target="_blank"><code>Ridge</code></a> &#x7684;&#x6B63;&#x5219;&#x6027;&#x8D28;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x5229;&#x7528; <code>l1_ratio</code> &#x53C2;&#x6570;&#x63A7;&#x5236; L1 &#x548C; L2 &#x7684;&#x51F8;&#x7EC4;&#x5408;&#x3002;</p>
+<p>&#x5F39;&#x6027;&#x7F51;&#x7EDC;&#x5728;&#x5F88;&#x591A;&#x7279;&#x5F81;&#x4E92;&#x76F8;&#x8054;&#x7CFB;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x3002;Lasso &#x5F88;&#x53EF;&#x80FD;&#x53EA;&#x968F;&#x673A;&#x8003;&#x8651;&#x8FD9;&#x4E9B;&#x7279;&#x5F81;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x800C;&#x5F39;&#x6027;&#x7F51;&#x7EDC;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x9009;&#x62E9;&#x4E24;&#x4E2A;&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;Lasso &#x548C; Ridge &#x4E4B;&#x95F4;&#x6743;&#x8861;&#x7684;&#x4E00;&#x4E2A;&#x4F18;&#x52BF;&#x662F;&#x5B83;&#x5141;&#x8BB8;&#x5728;&#x5FAA;&#x73AF;&#x8FC7;&#x7A0B;&#xFF08;Under rotate&#xFF09;&#x4E2D;&#x7EE7;&#x627F; Ridge &#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x662F;</p>
+<p><img src="img/9b9ee41d276ad49322856b95cb6c7e43.jpg" alt="\underset{w}{min\,} { \frac{1}{2n_{samples}} ||X w - y||_2 ^ 2 + \alpha \rho ||w||_1 +\frac{\alpha(1-\rho)}{2} ||w||_2 ^ 2}"></p>
+<p><img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_lasso_coordinate_descent_path_0011.png" alt="https://scikit-learn.org/stable/_images/sphx_glr_plot_lasso_coordinate_descent_path_0011.png"></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNetCV.html#sklearn.linear_model.ElasticNetCV" target="_blank"><code>ElasticNetCV</code></a> &#x7C7B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6765;&#x8BBE;&#x7F6E;&#x53C2;&#x6570; <code>alpha</code> &#xFF08; <img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha"> &#xFF09; &#x548C; <code>l1_ratio</code> &#xFF08; <img src="img/b91e4507d9fd7068b02f689d697f8714.jpg" alt="\rho"> &#xFF09; &#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_and_elasticnet.html#sphx-glr-auto-examples-linear-model-plot-lasso-and-elasticnet-py" target="_blank">Lasso&#x548C;Elastic Net(&#x5F39;&#x6027;&#x7F51;&#x7EDC;)&#x5728;&#x7A00;&#x758F;&#x4FE1;&#x53F7;&#x4E0A;&#x7684;&#x8868;&#x73B0;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_coordinate_descent_path.html#sphx-glr-auto-examples-linear-model-plot-lasso-coordinate-descent-path-py" target="_blank">Lasso&#x548C;Elastic Net</a></li>
+</ul>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x4E24;&#x7BC7;&#x53C2;&#x8003;&#x89E3;&#x91CA;&#x4E86;scikit-learn&#x5750;&#x6807;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x8FED;&#x4EE3;&#xFF0C;&#x4EE5;&#x53CA;&#x7528;&#x4E8E;&#x6536;&#x655B;&#x63A7;&#x5236;&#x7684;&#x5BF9;&#x5076;&#x95F4;&#x9699;&#x8BA1;&#x7B97;&#x7684;&#x7406;&#x8BBA;&#x57FA;&#x7840;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li>&#x201C;Regularization Path For Generalized linear Models by Coordinate Descent&#x201D;, Friedman, Hastie &amp; Tibshirani, J Stat Softw, 2010 (<a href="https://www.jstatsoft.org/article/view/v033i01/v33i01.pdf" target="_blank">Paper</a>).</li>
+<li>&#x201C;An Interior-Point Method for Large-Scale L1-Regularized Least Squares,&#x201D; S. J. Kim, K. Koh, M. Lustig, S. Boyd and D. Gorinevsky, in IEEE Journal of Selected Topics in Signal Processing, 2007 (<a href="https://web.stanford.edu/~boyd/papers/pdf/l1_ls.pdf" target="_blank">Paper</a>)</li>
+</ul>
+</blockquote>
+<h2 id="116-&#x591A;&#x4EFB;&#x52A1;&#x5F39;&#x6027;&#x7F51;&#x7EDC;">1.1.6. &#x591A;&#x4EFB;&#x52A1;&#x5F39;&#x6027;&#x7F51;&#x7EDC;</h2>
+<p> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNet.html#sklearn.linear_model.MultiTaskElasticNet" target="_blank"><code>MultiTaskElasticNet</code></a> &#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x591A;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x4F30;&#x7B97;&#x7A00;&#x758F;&#x53C2;&#x6570;&#x7684;&#x5F39;&#x6027;&#x7F51;&#x7EDC;: <code>Y</code> &#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x5F62;&#x72B6;&#x662F; <code>(n_samples,n_tasks)</code>&#x3002; &#x5176;&#x9650;&#x5236;&#x6761;&#x4EF6;&#x662F;&#x548C;&#x5176;&#x4ED6;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x4E00;&#x6837;&#xFF0C;&#x662F;&#x9009;&#x62E9;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x4E5F;&#x79F0;&#x4E3A; tasks &#x3002;</p>
+<p>&#x4ECE;&#x6570;&#x5B66;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C; &#x5B83;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6DF7;&#x5408;&#x7684; <img src="img/3bf32d926cdf24f440b6b831f0d9cc37.jpg" alt="\ell_1"> <img src="img/8851bd0fe9749b4841b30cee41fb040d.jpg" alt="\ell_2"> &#x5148;&#x9A8C;&#x548C; <img src="img/8851bd0fe9749b4841b30cee41fb040d.jpg" alt="\ell_2"> &#x5148;&#x9A8C;&#x4E3A;&#x6B63;&#x5219;&#x9879;&#x8BAD;&#x7EC3;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B; &#x76EE;&#x6807;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x6700;&#x5C0F;&#x5316;:</p>
+<p><img src="img/a1670c1fcb5b7ad10830f43812ed50da.jpg" alt="\underset{W}{min\,} { \frac{1}{2n_{samples}} ||X W - Y||_{Fro}^2 + \alpha \rho ||W||_{2 1} +\frac{\alpha(1-\rho)}{2} ||W||_{Fro}^2}"></p>
+<p>&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNet.html#sklearn.linear_model.MultiTaskElasticNet" target="_blank"><code>MultiTaskElasticNet</code></a> &#x7C7B;&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x91C7;&#x7528;&#x4E86;&#x5750;&#x6807;&#x4E0B;&#x964D;&#x6CD5;&#x6C42;&#x89E3;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNet.html#sklearn.linear_model.MultiTaskElasticNet" target="_blank"><code>MultiTaskElasticNetCV</code></a> &#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6765;&#x8BBE;&#x7F6E;&#x53C2;&#x6570; <code>alpha</code> &#xFF08; <img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha"> &#xFF09; &#x548C; <code>l1_ratio</code> &#xFF08; <img src="img/b91e4507d9fd7068b02f689d697f8714.jpg" alt="\rho"> &#xFF09; &#x3002;</p>
+<h2 id="117-&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;">1.1.7. &#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;</h2>
+<p>&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52; &#xFF08;LARS&#xFF09; &#x662F;&#x5BF9;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x7684;&#x56DE;&#x5F52;&#x7B97;&#x6CD5;&#xFF0C; &#x7531; Bradley Efron, Trevor Hastie, Iain Johnstone &#x548C; Robert Tibshirani &#x5F00;&#x53D1;&#x5B8C;&#x6210;&#x3002; LARS &#x548C;&#x9010;&#x6B65;&#x56DE;&#x5F52;&#x5F88;&#x50CF;&#x3002;&#x5728;&#x6BCF;&#x4E00;&#x6B65;&#xFF0C;&#x5B83;&#x90FD;&#x5BFB;&#x627E;&#x4E0E;&#x54CD;&#x5E94;&#x6700;&#x6709;&#x5173;&#x8054;&#x7684;&#x9884;&#x6D4B;&#x3002;&#x5F53;&#x6709;&#x5F88;&#x591A;&#x9884;&#x6D4B;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5173;&#x8054;&#x65F6;&#xFF0C;&#x5B83;&#x5E76;&#x4E0D;&#x4F1A;&#x7EE7;&#x7EED;&#x5229;&#x7528;&#x76F8;&#x540C;&#x7684;&#x9884;&#x6D4B;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x8FD9;&#x4E9B;&#x9884;&#x6D4B;&#x4E2D;&#x627E;&#x51FA;&#x5E94;&#x8BE5;&#x7B49;&#x89D2;&#x7684;&#x65B9;&#x5411;&#x3002;</p>
+<p>LARS&#x7684;&#x4F18;&#x70B9;:</p>
+<ul>
+<li>&#x5F53; p &gt;&gt; n&#xFF0C;&#x8BE5;&#x7B97;&#x6CD5;&#x6570;&#x503C;&#x8FD0;&#x7B97;&#x4E0A;&#x975E;&#x5E38;&#x6709;&#x6548;&#x3002;(&#x4F8B;&#x5982;&#x5F53;&#x7EF4;&#x5EA6;&#x7684;&#x6570;&#x76EE;&#x8FDC;&#x8D85;&#x70B9;&#x7684;&#x4E2A;&#x6570;)</li>
+<li>&#x5B83;&#x5728;&#x8BA1;&#x7B97;&#x4E0A;&#x548C;&#x524D;&#x5411;&#x9009;&#x62E9;&#x4E00;&#x6837;&#x5FEB;&#xFF0C;&#x548C;&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x6709;&#x76F8;&#x540C;&#x7684;&#x8FD0;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#x3002;</li>
+<li>&#x5B83;&#x4EA7;&#x751F;&#x4E86;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5206;&#x6BB5;&#x7EBF;&#x6027;&#x7684;&#x89E3;&#x51B3;&#x8DEF;&#x5F84;&#xFF0C;&#x5728;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x76F8;&#x4F3C;&#x7684;&#x5FAE;&#x8C03;&#x6A21;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x4E0A;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x5BF9;&#x54CD;&#x5E94;&#x51E0;&#x4E4E;&#x6709;&#x76F8;&#x7B49;&#x7684;&#x8054;&#x7CFB;&#xFF0C;&#x5219;&#x5B83;&#x4EEC;&#x7684;&#x7CFB;&#x6570;&#x5E94;&#x8BE5;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x589E;&#x957F;&#x7387;&#x3002;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x548C;&#x6211;&#x4EEC;&#x76F4;&#x89C9; &#x4E0A;&#x7684;&#x5224;&#x65AD;&#x4E00;&#x6837;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x66F4;&#x52A0;&#x7A33;&#x5B9A;&#x3002;</li>
+<li>&#x5B83;&#x5F88;&#x5BB9;&#x6613;&#x4FEE;&#x6539;&#x5E76;&#x4E3A;&#x5176;&#x4ED6;&#x4F30;&#x7B97;&#x5668;&#x751F;&#x6210;&#x89E3;&#xFF0C;&#x6BD4;&#x5982;Lasso&#x3002;</li>
+</ul>
+<p>LARS &#x7684;&#x7F3A;&#x70B9;:</p>
+<ul>
+<li>&#x56E0;&#x4E3A; LARS &#x662F;&#x5EFA;&#x7ACB;&#x5728;&#x5FAA;&#x73AF;&#x62DF;&#x5408;&#x5269;&#x4F59;&#x53D8;&#x91CF;&#x4E0A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x5BF9;&#x566A;&#x58F0;&#x975E;&#x5E38;&#x654F;&#x611F;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5728; 2004 &#x5E74;&#x7EDF;&#x8BA1;&#x5E74;&#x9274;&#x7684;&#x6587;&#x7AE0;&#x7531; Weisberg &#x8BE6;&#x7EC6;&#x8BA8;&#x8BBA;&#x3002;</li>
+</ul>
+<p>LARS &#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lars.html#sklearn.linear_model.Lars" target="_blank"><code>Lars</code></a> &#xFF0C;&#x6216;&#x8005;&#x5B83;&#x7684;&#x5E95;&#x5C42;&#x5B9E;&#x73B0; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path.html#sklearn.linear_model.lars_path" target="_blank"><code>lars_path</code></a>&#x6216; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path_gram.html#sklearn.linear_model.lars_path_gram" target="_blank"><code>lars_path_gram</code></a>&#x4E2D;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="118-lars-lasso">1.1.8. LARS Lasso</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLars.html#sklearn.linear_model.LassoLars" target="_blank"><code>LassoLars</code></a> &#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; LARS &#x7B97;&#x6CD5;&#x7684; lasso &#x6A21;&#x578B;&#xFF0C;&#x4E0D;&#x540C;&#x4E8E;&#x57FA;&#x4E8E;&#x5750;&#x6807;&#x4E0B;&#x964D;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x7CBE;&#x786E;&#x89E3;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5173;&#x4E8E;&#x81EA;&#x8EAB;&#x53C2;&#x6570;&#x6807;&#x51C6;&#x5316;&#x540E;&#x7684;&#x4E00;&#x4E2A;&#x5206;&#x6BB5;&#x7EBF;&#x6027;&#x89E3;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/Linear-Models/plot_lasso_lars.html" target="_blank"><img src="img/05459a925be9207abbb2f72203e48cf2.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_lasso_lars_0011.png"></a></p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg = linear_model.LassoLars(alpha=<span class="hljs-number">.1</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.fit([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])  
+LassoLars(alpha=<span class="hljs-number">0.1</span>, copy_X=<span class="hljs-keyword">True</span>, eps=..., fit_intercept=<span class="hljs-keyword">True</span>,
+     fit_path=<span class="hljs-keyword">True</span>, max_iter=<span class="hljs-number">500</span>, normalize=<span class="hljs-keyword">True</span>, positive=<span class="hljs-keyword">False</span>,
+     precompute=<span class="hljs-string">&apos;auto&apos;</span>, verbose=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.coef_    
+array([<span class="hljs-number">0.717157</span>..., <span class="hljs-number">0.</span>        ])
+</code></pre>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/Linear-Models/plot_lasso_lars.html#sphx-glr-auto-examples-linear-model-plot-lasso-lars-py" target="_blank">&#x4F7F;&#x7528;LARS&#x8BA1;&#x7B97;Lasso&#x8DEF;&#x5F84;</a></li>
+</ul>
+</blockquote>
+<p>Lars &#x7B97;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x51E0;&#x4E4E;&#x65E0;&#x4EE3;&#x4EF7;&#x7684;&#x6CBF;&#x7740;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;&#x7684;&#x7CFB;&#x6570;&#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#xFF0C;&#x56E0;&#x6B64;&#x5E38;&#x5229;&#x7528;&#x51FD;&#x6570; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path.html#sklearn.linear_model.lars_path" target="_blank"><code>lars_path</code></a>&#x6216; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path_gram.html#sklearn.linear_model.lars_path_gram" target="_blank"><code>lars_path_gram</code></a>&#x6765;&#x53D6;&#x56DE;&#x8DEF;&#x5F84;&#x3002;</p>
+<h3 id="1181-&#x6570;&#x5B66;&#x8868;&#x8FBE;&#x5F0F;">1.1.8.1. &#x6570;&#x5B66;&#x8868;&#x8FBE;&#x5F0F;</h3>
+<p>&#x8BE5;&#x7B97;&#x6CD5;&#x548C;&#x9010;&#x6B65;&#x56DE;&#x5F52;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x6CA1;&#x6709;&#x5728;&#x6BCF;&#x4E00;&#x6B65;&#x5305;&#x542B;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x4F30;&#x8BA1;&#x7684;&#x53C2;&#x6570;&#x662F;&#x6839;&#x636E;&#x4E0E; &#x5176;&#x4ED6;&#x5269;&#x4F59;&#x53D8;&#x91CF;&#x7684;&#x8054;&#x7CFB;&#x6765;&#x589E;&#x52A0;&#x7684;&#x3002;</p>
+<p>&#x5728; LARS &#x7684;&#x89E3;&#x4E2D;&#xFF0C;&#x6CA1;&#x6709;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x662F;&#x7ED9;&#x51FA;&#x4E00;&#x6761;&#x66F2;&#x7EBF;&#xFF0C;&#x663E;&#x793A;&#x53C2;&#x6570;&#x5411;&#x91CF;&#x7684; L1 &#x8303;&#x5F0F;&#x7684;&#x6BCF;&#x4E2A;&#x503C;&#x7684;&#x89E3;&#x3002; &#x5B8C;&#x5168;&#x7684;&#x53C2;&#x6570;&#x8DEF;&#x5F84;&#x5B58;&#x5728; <code>coef_path_</code> &#x4E0B;&#x3002;&#x5B83;&#x7684; size &#x662F; (n_features, max_features+1)&#x3002; &#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x5217;&#x901A;&#x5E38;&#x662F;&#x5168; 0 &#x5217;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>Original Algorithm is detailed in the paper <a href="http://www-stat.stanford.edu/~hastie/Papers/LARS/LeastAngle_2002.pdf" target="_blank">Least Angle Regression</a> by Hastie et al.</li>
+</ul>
+</blockquote>
+<h2 id="119-&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#x6CD5;&#xFF08;omp&#xFF09;">1.1.9. &#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#x6CD5;&#xFF08;OMP&#xFF09;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuit.html#sklearn.linear_model.OrthogonalMatchingPursuit" target="_blank"><code>OrthogonalMatchingPursuit</code></a> (&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#x6CD5;)&#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp.html#sklearn.linear_model.orthogonal_mp" target="_blank"><code>orthogonal_mp</code></a>&#x4F7F;&#x7528;&#x4E86; OMP &#x7B97;&#x6CD5;&#x8FD1;&#x4F3C;&#x62DF;&#x5408;&#x4E86;&#x4E00;&#x4E2A;&#x5E26;&#x9650;&#x5236;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF0C;&#x8BE5;&#x9650;&#x5236;&#x5F71;&#x54CD;&#x4E8E;&#x6A21;&#x578B;&#x7684;&#x975E; 0 &#x7CFB;&#x6570;(&#x4F8B;&#xFF1A;L0 &#x8303;&#x6570;)&#x3002;</p>
+<p>&#x5C31;&#x50CF;&#x6700;&#x5C0F;&#x89D2;&#x56DE;&#x5F52;&#x4E00;&#x6837;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x524D;&#x5411;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x65B9;&#x6CD5;&#xFF0C;&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#x6CD5;&#x53EF;&#x4EE5;&#x8FD1;&#x4F3C;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x975E; 0 &#x5143;&#x7D20;&#x7684;&#x6700;&#x4F18;&#x5411;&#x91CF;&#x89E3;:</p>
+<p><img src="img/ed70b000f50fb169ffe20ca2979e4a75.jpg" alt="\text{arg\,min\,} ||y - X\gamma||_2^2 \text{ subject to } \||\gamma||_0 \leq n_{nonzero\_coefs}"></p>
+<p>&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x8BEF;&#x5DEE;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x975E;&#x96F6;&#x7CFB;&#x6570;&#x7684;&#x4E2A;&#x6570;&#x3002;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;:</p>
+<p><img src="img/6b7248d635f4161b925734dbc60de37a.jpg" alt="\text{arg\,min\,} ||\gamma||_0 \text{ subject to } ||y-X\gamma||_2^2 \\leq \text{tol}"></p>
+<p>OMP &#x662F;&#x57FA;&#x4E8E;&#x6BCF;&#x4E00;&#x6B65;&#x7684;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#xFF0C;&#x5176;&#x6BCF;&#x4E00;&#x6B65;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x4E0E;&#x5F53;&#x524D;&#x6B8B;&#x5DEE;&#x9AD8;&#x5EA6;&#x76F8;&#x5173;&#x7684;&#x3002;&#x5B83;&#x8DDF;&#x8F83;&#x4E3A;&#x7B80;&#x5355;&#x7684;&#x5339;&#x914D;&#x8FFD;&#x8E2A;&#xFF08;MP&#xFF09;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x76F8;&#x6BD4; MP &#x66F4;&#x597D;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x6B63;&#x4EA4;&#x6295;&#x5F71;&#x5230;&#x4E4B;&#x524D;&#x9009;&#x62E9;&#x7684;&#x5B57;&#x5178;&#x5143;&#x7D20;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x6B8B;&#x5DEE;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_omp.html" target="_blank">&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="http://www.cs.technion.ac.il/~ronrubin/Publications/KSVD-OMP-v2.pdf" target="_blank">http://www.cs.technion.ac.il/~ronrubin/Publications/KSVD-OMP-v2.pdf</a></li>
+<li><a href="http://blanche.polytechnique.fr/~mallat/papiers/MallatPursuit93.pdf" target="_blank">Matching pursuits with time-frequency dictionaries</a>, S. G. Mallat, Z. Zhang,</li>
+</ul>
+</blockquote>
+<h2 id="1110-&#x8D1D;&#x53F6;&#x65AF;&#x56DE;&#x5F52;">1.1.10. &#x8D1D;&#x53F6;&#x65AF;&#x56DE;&#x5F52;</h2>
+<p>&#x8D1D;&#x53F6;&#x65AF;&#x56DE;&#x5F52;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5728;&#x9884;&#x4F30;&#x9636;&#x6BB5;&#x7684;&#x53C2;&#x6570;&#x6B63;&#x5219;&#x5316;: &#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;&#x7684;&#x9009;&#x62E9;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x4EBA;&#x4E3A;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x624B;&#x52A8;&#x8C03;&#x8282;&#x6570;&#x636E;&#x503C;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5F15;&#x5165; <a href="https://en.wikipedia.org/wiki/Non-informative_prior#Uninformative_priors" target="_blank">&#x65E0;&#x4FE1;&#x606F;&#x5148;&#x9A8C;</a> &#x5230;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x6765;&#x5B8C;&#x6210;&#x3002; &#x5728; <code>&#x5CAD;&#x56DE;&#x5F52;</code>&#x4E2D;&#x4F7F;&#x7528;&#x7684; <img src="img/e473a2606f078eaa7b86800b11f4d62b.jpg" alt="\ell_{2}"> &#x6B63;&#x5219;&#x9879;&#x76F8;&#x5F53;&#x4E8E;&#x5728; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x4E3A;&#x9AD8;&#x65AF;&#x5148;&#x9A8C;&#x6761;&#x4EF6;&#xFF0C;&#x4E14;&#x6B64;&#x5148;&#x9A8C;&#x7684;&#x7CBE;&#x786E;&#x5EA6;&#x4E3A; <img src="img/7f35ead97a9f7be07b87ff7b860bcab9.jpg" alt="\lambda^{-1}"> &#x65F6;&#xFF0C;&#x6C42;&#x6700;&#x5927;&#x540E;&#x9A8C;&#x4F30;&#x8BA1;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x624B;&#x5DE5;&#x8C03;&#x53C2;&#x6570; lambda &#xFF0C;&#x800C;&#x662F;&#x8BA9;&#x4ED6;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x901A;&#x8FC7;&#x6570;&#x636E;&#x4E2D;&#x4F30;&#x8BA1;&#x5F97;&#x5230;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5168;&#x6982;&#x7387;&#x6A21;&#x578B;&#xFF0C;&#x8F93;&#x51FA; <img src="img/0775c03fc710a24df297dedcec515aaf.jpg" alt="y"> &#x4E5F;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x5173;&#x4E8E; <img src="img/827de4e90947894fc96dd0432ff0d7dd.jpg" alt="X w"> &#x7684;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x3002;</p>
+<p><img src="img/eaf558e2c8d1fbd5426664c1698d80bd.jpg" alt="p(y|X,w,\alpha) = \mathcal{N}(y|X w,\alpha)"></p>
+<p>Alpha &#x5728;&#x8FD9;&#x91CC;&#x4E5F;&#x662F;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x901A;&#x8FC7;&#x6570;&#x636E;&#x4E2D;&#x4F30;&#x8BA1;&#x5F97;&#x5230;&#x3002;</p>
+<p>&#x8D1D;&#x53F6;&#x65AF;&#x56DE;&#x5F52;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x4F18;&#x70B9;:</p>
+<ul>
+<li>&#x5B83;&#x80FD;&#x6839;&#x636E;&#x5DF2;&#x6709;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6539;&#x53D8;&#x3002;</li>
+<li>&#x5B83;&#x80FD;&#x5728;&#x4F30;&#x8BA1;&#x8FC7;&#x7A0B;&#x4E2D;&#x5F15;&#x5165;&#x6B63;&#x5219;&#x9879;&#x3002;</li>
+</ul>
+<p>&#x8D1D;&#x53F6;&#x65AF;&#x56DE;&#x5F52;&#x6709;&#x5982;&#x4E0B;&#x7F3A;&#x70B9;:</p>
+<ul>
+<li>&#x5B83;&#x7684;&#x63A8;&#x65AD;&#x8FC7;&#x7A0B;&#x662F;&#x975E;&#x5E38;&#x8017;&#x65F6;&#x7684;&#x3002;</li>
+</ul>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x5BF9;&#x4E8E;&#x8D1D;&#x53F6;&#x65AF;&#x65B9;&#x6CD5;&#x7684;&#x5F88;&#x597D;&#x7684;&#x4ECB;&#x7ECD; C. Bishop: Pattern Recognition and Machine learning</li>
+<li>&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x539F;&#x521B;&#x7B97;&#x6CD5;&#x7684;&#x4E00;&#x672C;&#x4E66; Bayesian learning for neural networks by Radford M. Neal</li>
+</ul>
+</blockquote>
+<h3 id="11101-&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;">1.1.10.1. &#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.BayesianRidge.html#sklearn.linear_model.BayesianRidge" target="_blank"><code>BayesianRidge</code></a> &#x5229;&#x7528;&#x6982;&#x7387;&#x6A21;&#x578B;&#x4F30;&#x7B97;&#x4E86;&#x4E0A;&#x8FF0;&#x7684;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF0C;&#x5176;&#x5148;&#x9A8C;&#x53C2;&#x6570; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x662F;&#x7531;&#x4EE5;&#x4E0B;&#x7403;&#x9762;&#x9AD8;&#x65AF;&#x516C;&#x5F0F;&#x5F97;&#x51FA;&#x7684;&#xFF1A;</p>
+<p><img src="img/971b86cde9801a3bb1a80af70bd05466.jpg" alt="p(w|\lambda) =\mathcal{N}(w|0,\lambda^{-1}\bold{I_{p}})"></p>
+<p>&#x5148;&#x9A8C;&#x53C2;&#x6570; <img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha"> &#x548C; <img src="img/0f92bc682b050115d03c625ce770c77d.jpg" alt="\lambda"> &#x4E00;&#x822C;&#x662F;&#x670D;&#x4ECE; <a href="https://en.wikipedia.org/wiki/Gamma_distribution" target="_blank">gamma &#x5206;&#x5E03;</a> &#xFF0C;&#x8FD9;&#x4E2A;&#x5206;&#x5E03;&#x4E0E;&#x9AD8;&#x65AF;&#x6210;&#x5171;&#x8F6D;&#x5148;&#x9A8C;&#x5173;&#x7CFB;&#x3002; &#x5F97;&#x5230;&#x7684;&#x6A21;&#x578B;&#x4E00;&#x822C;&#x79F0;&#x4E3A; <strong>&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;</strong>&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x4E0E;&#x4F20;&#x7EDF;&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge" target="_blank"><code>Ridge</code></a> &#x975E;&#x5E38;&#x76F8;&#x4F3C;&#x3002;</p>
+<p>&#x53C2;&#x6570; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#xFF0C;<img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha"> &#x548C; <img src="img/0f92bc682b050115d03c625ce770c77d.jpg" alt="\lambda"> &#x662F;&#x5728;&#x6A21;&#x578B;&#x62DF;&#x5408;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x8D77;&#x88AB;&#x4F30;&#x7B97;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x5176;&#x4E2D;&#x53C2;&#x6570;<img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha">&#x548C;<img src="img/0f92bc682b050115d03c625ce770c77d.jpg" alt="\lambda">&#x901A;&#x8FC7;&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#x5F97;&#x5230;&#x3002;scikit-learn&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x57FA;&#x4E8E;&#x6587;&#x732E;&#xFF08;Tipping&#xFF0C;2001&#xFF09;&#x7684;&#x9644;&#x5F55;A&#xFF0C;&#x53C2;&#x6570;<img src="img/d8b3d5242d513369a44f8bf0c6112744.jpg" alt="\alpha">&#x548C;<img src="img/0f92bc682b050115d03c625ce770c77d.jpg" alt="\lambda">&#x7684;&#x66F4;&#x65B0;&#x662F;&#x57FA;&#x4E8E;&#x6587;&#x732E;&#xFF08;MacKay&#xFF0C;1992&#xFF09;&#x3002;</p>
+<p>&#x5269;&#x4E0B;&#x7684;&#x8D85;&#x53C2;&#x6570;<img src="img/1_1_3.gif" alt="\alpha_1">&#xFF0C;<img src="img/1_1_4.gif" alt="\alpha_2">&#xFF0C;<img src="img/1_1_5.gif" alt="\gamma_1">&#x4EE5;&#x53CA;<img src="img/1_1_6.gif" alt="\gamma_2">&#x662F;&#x5173;&#x4E8E;<img src="img/1_1_7.gif" alt="\alpha">&#x548C; <img src="img/0f92bc682b050115d03c625ce770c77d.jpg" alt="\lambda"> &#x7684; gamma &#x5206;&#x5E03;&#x7684;&#x5148;&#x9A8C;&#x3002; &#x5B83;&#x4EEC;&#x901A;&#x5E38;&#x88AB;&#x9009;&#x62E9;&#x4E3A; <strong>&#x65E0;&#x4FE1;&#x606F;&#x5148;&#x9A8C;</strong> &#x3002;&#x9ED8;&#x8BA4; <img src="img/76530e85b09bd8385fad05337b968caf.jpg" alt="\alpha_1 = \alpha_2 =  \lambda_1 = \lambda_2 = 10^{-6}">&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_bayesian_ridge.html" target="_blank"><img src="img/947ae691edda29c53c3b962665b052c6.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_bayesian_ridge_0011.png"></a></p>
+<p>&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;&#x7528;&#x6765;&#x89E3;&#x51B3;&#x56DE;&#x5F52;&#x95EE;&#x9898;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> linear_model
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = [[<span class="hljs-number">0.</span>, <span class="hljs-number">0.</span>], [<span class="hljs-number">1.</span>, <span class="hljs-number">1.</span>], [<span class="hljs-number">2.</span>, <span class="hljs-number">2.</span>], [<span class="hljs-number">3.</span>, <span class="hljs-number">3.</span>]]
+<span class="hljs-meta">&gt;&gt;&gt; </span>Y = [<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3.</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg = linear_model.BayesianRidge()
+<span class="hljs-meta">&gt;&gt;&gt; </span>reg.fit(X, Y)
+BayesianRidge(alpha_1=<span class="hljs-number">1e-06</span>, alpha_2=<span class="hljs-number">1e-06</span>, compute_score=<span class="hljs-keyword">False</span>, copy_X=<span class="hljs-keyword">True</span>,
+ fit_intercept=<span class="hljs-keyword">True</span>, lambda_1=<span class="hljs-number">1e-06</span>, lambda_2=<span class="hljs-number">1e-06</span>, n_iter=<span class="hljs-number">300</span>,
+ normalize=<span class="hljs-keyword">False</span>, tol=<span class="hljs-number">0.001</span>, verbose=<span class="hljs-keyword">False</span>)
+</code></pre>
+<p>&#x5728;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x9884;&#x6D4B;&#x65B0;&#x503C;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>reg.predict ([[<span class="hljs-number">1</span>, <span class="hljs-number">0.</span>]])
+array([ <span class="hljs-number">0.50000013</span>])
+</code></pre>
+<p>&#x6743;&#x503C; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x53EF;&#x4EE5;&#x88AB;&#x8FD9;&#x6837;&#x8BBF;&#x95EE;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>reg.coef_
+array([ <span class="hljs-number">0.49999993</span>,  <span class="hljs-number">0.49999993</span>])
+</code></pre>
+<p>&#x7531;&#x4E8E;&#x8D1D;&#x53F6;&#x65AF;&#x6846;&#x67B6;&#x7684;&#x7F18;&#x6545;&#xFF0C;&#x6743;&#x503C;&#x4E0E; <a href="#111-&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;">&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;</a> &#x4EA7;&#x751F;&#x7684;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x3002; &#x4F46;&#x662F;&#xFF0C;&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;&#x5BF9;&#x75C5;&#x6001;&#x95EE;&#x9898;&#xFF08;ill-posed&#xFF09;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x8981;&#x66F4;&#x597D;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_bayesian_ridge.html" target="_blank">&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li>Section 3.3 in Christopher M. Bishop: Pattern Recognition and Machine Learning, 2006</li>
+<li>David J. C. MacKay, <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.27.9072&amp;rep=rep1&amp;type=pdf" target="_blank">Bayesian Interpolation</a>, 1992.</li>
+<li>Michael E. Tipping, <a href="http://www.jmlr.org/papers/volume1/tipping01a/tipping01a.pdf" target="_blank">Sparse Bayesian Learning and the Relevance Vector Machine</a>, 2001.</li>
+</ul>
+</blockquote>
+<h3 id="11102-&#x4E3B;&#x52A8;&#x76F8;&#x5173;&#x51B3;&#x7B56;&#x7406;&#x8BBA;---ard">1.1.10.2. &#x4E3B;&#x52A8;&#x76F8;&#x5173;&#x51B3;&#x7B56;&#x7406;&#x8BBA; - ARD</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ARDRegression.html#sklearn.linear_model.ARDRegression" target="_blank"><code>ARDRegression</code></a> &#xFF08;&#x4E3B;&#x52A8;&#x76F8;&#x5173;&#x51B3;&#x7B56;&#x7406;&#x8BBA;&#xFF09;&#x548C; <a href="https://scikit-learn.org/stable/modules/linear_model.html#id13" target="_blank"><code>Bayesian Ridge Regression</code></a> &#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x4E2A;&#x66F4;&#x52A0;&#x7A00;&#x758F;&#x7684;&#x6743;&#x91CD;w<a href="https://scikit-learn.org/stable/modules/linear_model.html#id18" target="_blank">[1]</a><a href="https://scikit-learn.org/stable/modules/linear_model.html#id19" target="_blank">[2]</a> &#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ARDRegression.html#sklearn.linear_model.ARDRegression" target="_blank"><code>ARDRegression</code></a> &#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x7684;&#x5148;&#x9A8C;&#x5047;&#x8BBE;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x5F31;&#x5316;&#x4E86;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x4E3A;&#x7403;&#x5F62;&#x7684;&#x5047;&#x8BBE;&#x3002;</p>
+<p>&#x5B83;&#x91C7;&#x7528; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x5206;&#x5E03;&#x662F;&#x4E0E;&#x8F74;&#x5E73;&#x884C;&#x7684;&#x692D;&#x5706;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6BCF;&#x4E2A;&#x6743;&#x503C; <img src="img/848835d5b40c5bd74a6e592a65eed5d6.jpg" alt="w_{i}"> &#x4ECE;&#x4E00;&#x4E2A;&#x4E2D;&#x5FC3;&#x5728; 0 &#x70B9;&#xFF0C;&#x7CBE;&#x5EA6;&#x4E3A; <img src="img/fcf31635bf1c46833111df71ab92b68e.jpg" alt="\lambda_{i}"> &#x7684;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x4E2D;&#x91C7;&#x6837;&#x5F97;&#x5230;&#x7684;&#x3002;</p>
+<p><img src="img/7afe3c56e3473a3a7f18cf983ed5e79c.jpg" alt="p(w|\lambda) = \mathcal{N}(w|0,A^{-1})"></p>
+<p>&#x5E76;&#x4E14; <img src="img/5db611c8f58fbd9a9776c013656a16ff.jpg" alt="diag \; (A) = \lambda = \{\lambda_{1},...,\lambda_{p}\}">.</p>
+<p>&#x4E0E; <a href="#id53"><code>Bayesian Ridge Regression</code>_</a> &#x4E0D;&#x540C;&#xFF0C; &#x6BCF;&#x4E2A; <img src="img/848835d5b40c5bd74a6e592a65eed5d6.jpg" alt="w_{i}"> &#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x5DEE; <img src="img/fc333385a9012524b39bc23303de30d4.jpg" alt="\lambda_i"> &#x3002;&#x6240;&#x6709; <img src="img/fc333385a9012524b39bc23303de30d4.jpg" alt="\lambda_i"> &#x7684;&#x5148;&#x9A8C;&#x5206;&#x5E03; &#x7531;&#x8D85;&#x53C2;&#x6570; <img src="img/a6334506478d6feb4025038294ccfa00.jpg" alt="\lambda_1"> &#x3001; <img src="img/535f86af715e90b9c394e3cbf53d99eb.jpg" alt="\lambda_2"> &#x786E;&#x5B9A;&#x7684;&#x76F8;&#x540C;&#x7684; gamma &#x5206;&#x5E03;&#x786E;&#x5B9A;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ard.html" target="_blank"><img src="img/8aca5aa85ff13bf8e8687220b137f9d3.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_ard_0011.png"></a></p>
+<p>ARD &#x4E5F;&#x88AB;&#x79F0;&#x4E3A; <strong>&#x7A00;&#x758F;&#x8D1D;&#x53F6;&#x65AF;&#x5B66;&#x4E60;</strong> &#x6216; <strong>&#x76F8;&#x5173;&#x5411;&#x91CF;&#x673A;</strong> [3][4]&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ard.html#sphx-glr-auto-examples-linear-model-plot-ard-py" target="_blank">Automatic Relevance Determination Regression (ARD)</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>[1] Christopher M. Bishop: Pattern Recognition and Machine Learning, Chapter 7.2.1</li>
+<li>[2] David Wipf and Srikantan Nagarajan: <a href="http://papers.nips.cc/paper/3372-a-new-view-of-automatic-relevance-determination.pdf" target="_blank">A new view of automatic relevance determination</a></li>
+<li>[3] Michael E. Tipping: <a href="http://www.jmlr.org/papers/volume1/tipping01a/tipping01a.pdf" target="_blank">Sparse Bayesian Learning and the Relevance Vector Machine</a></li>
+<li>[4] Tristan Fletcher: <a href="http://www.tristanfletcher.co.uk/RVM%20Explained.pdf" target="_blank">Relevance Vector Machines explained</a></li>
+</ul>
+</blockquote>
+<h2 id="1111-logistic-&#x56DE;&#x5F52;">1.1.11. logistic &#x56DE;&#x5F52;</h2>
+<p>logistic &#x56DE;&#x5F52;&#xFF0C;&#x867D;&#x7136;&#x540D;&#x5B57;&#x91CC;&#x6709; &#x201C;&#x56DE;&#x5F52;&#x201D; &#x4E8C;&#x5B57;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x89E3;&#x51B3;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x7684;&#x4E00;&#x7C7B;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x3002;&#x5728;&#x67D0;&#x4E9B;&#x6587;&#x732E;&#x4E2D;&#xFF0C;logistic &#x56DE;&#x5F52;&#x53C8;&#x88AB;&#x79F0;&#x4F5C; logit &#x56DE;&#x5F52;&#xFF0C;maximum-entropy classification&#xFF08;MaxEnt&#xFF0C;&#x6700;&#x5927;&#x71B5;&#x5206;&#x7C7B;&#xFF09;&#xFF0C;&#x6216; log-linear classifier&#xFF08;&#x5BF9;&#x6570;&#x7EBF;&#x6027;&#x5206;&#x7C7B;&#x5668;&#xFF09;&#x3002;&#x8BE5;&#x6A21;&#x578B;&#x5229;&#x7528;&#x51FD;&#x6570; <a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank">logistic function</a> &#x5C06;&#x5355;&#x6B21;&#x8BD5;&#x9A8C;&#xFF08;single trial&#xFF09;&#x7684;&#x53EF;&#x80FD;&#x7ED3;&#x679C;&#x8F93;&#x51FA;&#x4E3A;&#x6982;&#x7387;&#x3002;</p>
+<p>scikit-learn &#x4E2D; logistic &#x56DE;&#x5F52;&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank"><code>LogisticRegression</code></a> &#x7C7B;&#x4E2D;&#x5B9E;&#x73B0;&#x4E86;&#x4E8C;&#x5206;&#x7C7B;&#xFF08;binary&#xFF09;&#x3001;&#x4E00;&#x5BF9;&#x591A;&#x5206;&#x7C7B;&#xFF08;one-vs-rest&#xFF09;&#x53CA;&#x591A;&#x9879;&#x5F0F; logistic &#x56DE;&#x5F52;&#xFF0C;&#x5E76;&#x5E26;&#x6709;&#x53EF;&#x9009;&#x7684; L1 &#x548C; L2 &#x6B63;&#x5219;&#x5316;&#x3002;</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF0C;scikit-learn&#x7684;&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;L2&#x6B63;&#x5219;&#x5316;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x5728;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x9886;&#x57DF;&#x662F;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x5728;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&#x9886;&#x57DF;&#x662F;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x3002;&#x6B63;&#x5219;&#x5316;&#x7684;&#x53E6;&#x4E00;&#x4F18;&#x52BF;&#x662F;&#x63D0;&#x5347;&#x6570;&#x503C;&#x7A33;&#x5B9A;&#x6027;&#x3002;scikit-learn&#x901A;&#x8FC7;&#x5C06;C&#x8BBE;&#x7F6E;&#x4E3A;&#x5F88;&#x5927;&#x7684;&#x503C;&#x5B9E;&#x73B0;&#x65E0;&#x6B63;&#x5219;&#x5316;&#x3002;</p>
+</blockquote>
+<p>&#x4F5C;&#x4E3A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#xFF0C;&#x5E26; L2&#x7F5A;&#x9879;&#x7684;&#x4E8C;&#x5206;&#x7C7B; logistic &#x56DE;&#x5F52;&#x8981;&#x6700;&#x5C0F;&#x5316;&#x4EE5;&#x4E0B;&#x4EE3;&#x4EF7;&#x51FD;&#x6570;&#xFF08;cost function&#xFF09;&#xFF1A;</p>
+<p><img src="img/203c5a2c58d6567a86dbc86faa92209e.jpg" alt="\underset{w, c}{min\,} \frac{1}{2}w^T w + C \sum_{i=1}^n \log(\exp(- y_i (X_i^T w + c)) + 1) ."></p>
+<p>&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;&#x5E26; L1 &#x6B63;&#x5219;&#x7684; logistic &#x56DE;&#x5F52;&#x89E3;&#x51B3;&#x7684;&#x662F;&#x5982;&#x4E0B;&#x4F18;&#x5316;&#x95EE;&#x9898;&#xFF1A;</p>
+<p><img src="img/d7ff3091308658ce388554d420581459.jpg" alt="\underset{w, c}{min\,} \|w\|_1 + C \sum_{i=1}^n \log(\exp(- y_i (X_i^T w + c)) + 1) ."></p>
+<p>Elastic-Net&#x6B63;&#x5219;&#x5316;&#x662F;L1 &#x548C; L2&#x7684;&#x7EC4;&#x5408;&#xFF0C;&#x6765;&#x4F7F;&#x5982;&#x4E0B;&#x4EE3;&#x4EF7;&#x51FD;&#x6570;&#x6700;&#x5C0F;:</p>
+<p><img src="img/021new1.jpg" alt="\min_{w, c} \frac{1 - \rho}{2}w^T w + \rho \|w\|_1 + C \sum_{i=1}^n \log(\exp(- y_i (X_i^T w + c)) + 1) ."></p>
+<p>&#x5176;&#x4E2D;&#x3C1;&#x63A7;&#x5236;&#x6B63;&#x5219;&#x5316;L1&#x4E0E;&#x6B63;&#x5219;&#x5316;L2&#x7684;&#x5F3A;&#x5EA6;(&#x5BF9;&#x5E94;&#x4E8E;<code>l1_ratio</code>&#x53C2;&#x6570;)&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x8868;&#x793A;&#x6CD5;&#x4E2D;&#xFF0C;&#x5047;&#x5B9A;&#x76EE;&#x6807;y_i&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#x5E94;&#x5C5E;&#x4E8E;&#x96C6;&#x5408;[-1,1]&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;Elastic-Net&#x5728;&#x3C1;=1&#x65F6;&#x4E0E;L1&#x7F5A;&#x9879;&#x7B49;&#x4EF7;,&#x5728;&#x3C1;=0&#x65F6;&#x4E0E;L2&#x7F5A;&#x9879;&#x7B49;&#x4EF7;</p>
+<p>&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank"><code>LogisticRegression</code></a> &#x7C7B;&#x4E2D;&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E9B;&#x4F18;&#x5316;&#x7B97;&#x6CD5;: <code>liblinear</code>&#xFF0C; <code>newton-cg</code>&#xFF0C; <code>lbfgs</code>&#xFF0C; <code>sag</code> &#x548C; <code>saga</code>&#x3002;</p>
+<p><code>liblinear</code>&#x5E94;&#x7528;&#x4E86;&#x5750;&#x6807;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#xFF08;Coordinate Descent, CD&#xFF09;&#xFF0C;&#x5E76;&#x57FA;&#x4E8E; scikit-learn &#x5185;&#x9644;&#x7684;&#x9AD8;&#x6027;&#x80FD; C++ &#x5E93; <a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank">LIBLINEAR library</a> &#x5B9E;&#x73B0;&#x3002;&#x4E0D;&#x8FC7; CD &#x7B97;&#x6CD5;&#x8BAD;&#x7EC3;&#x7684;&#x6A21;&#x578B;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x591A;&#x5206;&#x7C7B;&#x6A21;&#x578B;&#xFF0C;&#x800C;&#x662F;&#x57FA;&#x4E8E; &#x201C;one-vs-rest&#x201D; &#x601D;&#x60F3;&#x5206;&#x89E3;&#x4E86;&#x8FD9;&#x4E2A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#xFF0C;&#x4E3A;&#x6BCF;&#x4E2A;&#x7C7B;&#x522B;&#x90FD;&#x8BAD;&#x7EC3;&#x4E86;&#x4E00;&#x4E2A;&#x4E8C;&#x5143;&#x5206;&#x7C7B;&#x5668;&#x3002;&#x56E0;&#x4E3A;&#x5B9E;&#x73B0;&#x5728;&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x8BE5;&#x6C42;&#x89E3;&#x5668;&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank"><code>LogisticRegression</code></a> &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x8868;&#x9762;&#x4E0A;&#x770B;&#x662F;&#x4E00;&#x4E2A;&#x591A;&#x5143;&#x5206;&#x7C7B;&#x5668;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.l1_min_c.html#sklearn.svm.l1_min_c" target="_blank"><code>sklearn.svm.l1_min_c</code></a> &#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x4F7F;&#x7528; L1&#x65F6; C &#x7684;&#x4E0B;&#x754C;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x6A21;&#x578B;&#x4E3A;&#x7A7A;&#xFF08;&#x5373;&#x5168;&#x90E8;&#x7279;&#x5F81;&#x5206;&#x91CF;&#x7684;&#x6743;&#x91CD;&#x4E3A;&#x96F6;&#xFF09;&#x3002;</p>
+<p><code>lbfgs</code>, <code>sag</code> &#x548C; <code>newton-cg</code> &#x6C42;&#x89E3;&#x5668;&#x53EA;&#x652F;&#x6301; L2&#x7F5A;&#x9879;&#x4EE5;&#x53CA;&#x65E0;&#x7F5A;&#x9879;&#xFF0C;&#x5BF9;&#x67D0;&#x4E9B;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x6536;&#x655B;&#x66F4;&#x5FEB;&#x3002;&#x8FD9;&#x4E9B;&#x6C42;&#x89E3;&#x5668;&#x7684;&#x53C2;&#x6570; <code>multi_class</code>&#x8BBE;&#x4E3A; <code>multinomial</code> &#x5373;&#x53EF;&#x8BAD;&#x7EC3;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x591A;&#x9879;&#x5F0F; logistic &#x56DE;&#x5F52; [5] &#xFF0C;&#x5176;&#x9884;&#x6D4B;&#x7684;&#x6982;&#x7387;&#x6BD4;&#x9ED8;&#x8BA4;&#x7684; &#x201C;<code>one-vs-rest</code>&#x201D; &#x8BBE;&#x5B9A;&#x66F4;&#x4E3A;&#x51C6;&#x786E;&#x3002;</p>
+<p> <code>sag</code> &#x6C42;&#x89E3;&#x5668;&#x57FA;&#x4E8E;&#x5E73;&#x5747;&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#xFF08;Stochastic Average Gradient descent&#xFF09; [6]&#x3002;&#x5728;&#x5927;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x66F4;&#x5FEB;&#xFF0C;&#x5927;&#x6570;&#x636E;&#x96C6;&#x6307;&#x6837;&#x672C;&#x91CF;&#x5927;&#x4E14;&#x7279;&#x5F81;&#x6570;&#x591A;&#x3002;</p>
+<p> <code>saga</code> &#x6C42;&#x89E3;&#x5668; [7] &#x662F; <code>sag</code> &#x7684;&#x4E00;&#x7C7B;&#x53D8;&#x4F53;&#xFF0C;&#x5B83;&#x652F;&#x6301;&#x975E;&#x5E73;&#x6ED1;&#xFF08;non-smooth&#xFF09;&#x7684; L1 &#x6B63;&#x5219;&#x9009;&#x9879; <code>penalty=&quot;l1&quot;</code> &#x3002;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;&#x7A00;&#x758F;&#x591A;&#x9879;&#x5F0F; logistic &#x56DE;&#x5F52; &#xFF0C;&#x5F80;&#x5F80;&#x9009;&#x7528;&#x8BE5;&#x6C42;&#x89E3;&#x5668;&#x3002;<code>saga</code>&#x6C42;&#x89E3;&#x5668;&#x662F;&#x552F;&#x4E00;&#x652F;&#x6301;&#x5F39;&#x6027;&#x7F51;&#x7EDC;&#x6B63;&#x5219;&#x9009;&#x9879;&#x7684;&#x6C42;&#x89E3;&#x5668;&#x3002;</p>
+<p><code>lbfgs</code>&#x662F;&#x4E00;&#x79CD;&#x8FD1;&#x4F3C;&#x4E8E;Broyden&#x2013;Fletcher&#x2013;Goldfarb&#x2013;Shanno&#x7B97;&#x6CD5;[8]&#x7684;&#x4F18;&#x5316;&#x7B97;&#x6CD5;&#xFF0C;&#x5C5E;&#x4E8E;&#x51C6;&#x725B;&#x987F;&#x6CD5;&#x3002;<code>lbfgs</code>&#x6C42;&#x89E3;&#x5668;&#x63A8;&#x8350;&#x7528;&#x4E8E;&#x8F83;&#x5C0F;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5BF9;&#x4E8E;&#x8F83;&#x5927;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5B83;&#x7684;&#x6027;&#x80FD;&#x4F1A;&#x53D7;&#x5230;&#x5F71;&#x54CD;&#x3002;[9]</p>
+<p>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x5404;&#x6C42;&#x89E3;&#x5668;&#x7279;&#x70B9;&#x5982;&#x4E0B;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x7F5A;&#x9879;</th>
+<th><code>liblinear</code></th>
+<th><code>lbfgs</code></th>
+<th><code>newton-cg</code></th>
+<th><code>sag</code></th>
+<th><code>saga</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x591A;&#x9879;&#x5F0F;&#x635F;&#x5931;+L2&#x7F5A;&#x9879;</td>
+<td>&#xD7;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>&#x4E00;&#x5BF9;&#x5269;&#x4F59;&#xFF08;One vs Rest&#xFF09; + L2&#x7F5A;&#x9879;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>&#x591A;&#x9879;&#x5F0F;&#x635F;&#x5931; + L1&#x7F5A;&#x9879;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>&#x4E00;&#x5BF9;&#x5269;&#x4F59;&#xFF08;One vs Rest&#xFF09; + L1&#x7F5A;&#x9879;</td>
+<td>&#x221A;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>&#x5F39;&#x6027;&#x7F51;&#x7EDC;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>&#x65E0;&#x7F5A;&#x9879;</td>
+<td>&#xD7;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td><strong>&#x8868;&#x73B0;</strong></td>
+</tr>
+<tr>
+<td>&#x60E9;&#x7F5A;&#x504F;&#x7F6E;&#x503C;(&#x5DEE;)</td>
+<td>&#x221A;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+</tr>
+<tr>
+<td>&#x5927;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x901F;&#x5EA6;&#x5FEB;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>&#x672A;&#x7F29;&#x653E;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x9C81;&#x68D2;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#xD7;</td>
+<td>&#xD7;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>lbfgs</code>&#x6C42;&#x89E3;&#x5668;&#x9C81;&#x68D2;&#x6027;&#x5360;&#x4F18;&#x3002;&#x5BF9;&#x4E8E;&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;&#xFF0C;<code>saga</code>&#x6C42;&#x89E3;&#x5668;&#x901A;&#x5E38;&#x66F4;&#x5FEB;&#x3002;&#x5BF9;&#x4E8E;&#x5927;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier" target="_blank"><code>SGDClassifier</code></a> &#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5BF9;&#x6570;&#x635F;&#x5931;&#xFF08;<code>log</code> loss&#xFF09;&#x8FD9;&#x53EF;&#x80FD;&#x66F4;&#x5FEB;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x8C03;&#x4F18;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>&#xFF1A;</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity.html" target="_blank">Logistic&#x56DE;&#x5F52;&#x4E2D;&#x7684;L1&#x7F5A;&#x9879;&#x548C;&#x7A00;&#x758F;&#x7CFB;&#x6570;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_path.html" target="_blank">L1&#x7F5A;&#x9879;-logistic&#x56DE;&#x5F52;&#x7684;&#x8DEF;&#x5F84;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_multinomial.html" target="_blank">&#x591A;&#x9879;&#x5F0F;&#x548C;OVR&#x7684;Logistic&#x56DE;&#x5F52;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sparse_logistic_regression_20newsgroups.html" target="_blank">newgroups20&#x4E0A;&#x7684;&#x591A;&#x7C7B;&#x7A00;&#x758F;Logistic&#x56DE;&#x5F52;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sparse_logistic_regression_mnist.html" target="_blank">&#x4F7F;&#x7528;&#x591A;&#x9879;&#x5F0F;Logistic&#x56DE;&#x5F52;&#x548C;L1&#x8FDB;&#x884C;MNIST&#x6570;&#x636E;&#x96C6;&#x7684;&#x5206;&#x7C7B;</a></li>
+</ul>
+<p><strong>&#x4E0E; <code>liblinear</code> &#x7684;&#x533A;&#x522B;:</strong></p>
+<p>&#x5F53; <code>fit_intercept=False</code> &#x62DF;&#x5408;&#x5F97;&#x5230;&#x7684; <code>coef_</code> &#x6216;&#x8005;&#x5F85;&#x9884;&#x6D4B;&#x7684;&#x6570;&#x636E;&#x4E3A;&#x96F6;&#x65F6;&#xFF0C;&#x7528; <code>solver=liblinear</code> &#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank"><code>LogisticRegression</code></a> &#x6216; <code>LinearSVC</code> &#x4E0E;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5916;&#x90E8; liblinear &#x5E93;&#x9884;&#x6D4B;&#x5F97;&#x5206;&#x4F1A;&#x6709;&#x5DEE;&#x5F02;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#xFF0C; &#x5BF9;&#x4E8E; <code>decision_function</code> &#x4E3A;&#x96F6;&#x7684;&#x6837;&#x672C;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank"><code>LogisticRegression</code></a> &#x548C; <code>LinearSVC</code> &#x5C06;&#x9884;&#x6D4B;&#x4E3A;&#x8D1F;&#x7C7B;&#xFF0C;&#x800C; liblinear &#x9884;&#x6D4B;&#x4E3A;&#x6B63;&#x7C7B;&#x3002; &#x6CE8;&#x610F;&#xFF0C;&#x8BBE;&#x5B9A;&#x4E86; <code>fit_intercept=False</code> &#xFF0C;&#x53C8;&#x6709;&#x5F88;&#x591A;&#x6837;&#x672C;&#x4F7F;&#x5F97; <code>decision_function</code> &#x4E3A;&#x96F6;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x6B20;&#x62DF;&#x5408;&#xFF0C;&#x5176;&#x8868;&#x73B0;&#x5F80;&#x5F80;&#x6BD4;&#x8F83;&#x5DEE;&#x3002;&#x5EFA;&#x8BAE;&#x60A8;&#x8BBE;&#x7F6E; <code>fit_intercept=True</code> &#x5E76;&#x589E;&#x5927; <code>intercept_scaling</code> &#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;:&#x5229;&#x7528;&#x7A00;&#x758F; logistic &#x56DE;&#x5F52;&#x8FDB;&#x884C;&#x7279;&#x5F81;&#x9009;&#x62E9;</strong></p>
+<p>&#x5E26; L1&#x7F5A;&#x9879;&#x7684; logistic &#x56DE;&#x5F52; &#x5C06;&#x5F97;&#x5230;&#x7A00;&#x758F;&#x6A21;&#x578B;&#xFF08;sparse model&#xFF09;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x8FDB;&#x884C;&#x4E86;&#x7279;&#x5F81;&#x9009;&#x62E9;&#xFF08;feature selection&#xFF09;&#xFF0C;&#x8BE6;&#x60C5;&#x53C2;&#x89C1; <a href="14#11341-&#x57FA;&#x4E8E;-l1-&#x7684;&#x7279;&#x5F81;&#x9009;&#x53D6;">&#x57FA;&#x4E8E; L1 &#x7684;&#x7279;&#x5F81;&#x9009;&#x53D6;</a>&#x3002;</p>
+</blockquote>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV" target="_blank"><code>LogisticRegressionCV</code></a> &#x5BF9; logistic &#x56DE;&#x5F52; &#x7684;&#x5B9E;&#x73B0;&#x5185;&#x7F6E;&#x4E86;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#xFF08;cross-validation&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x627E;&#x51FA;&#x6700;&#x4F18;&#x7684; <code>C</code>&#x548C;<code>l1_ratio</code>&#x53C2;&#x6570; &#x3002;<code>newton-cg</code>&#xFF0C; <code>sag</code>&#xFF0C; <code>saga</code> &#x548C; <code>lbfgs</code> &#x5728;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x4E0A;&#x66F4;&#x5FEB;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x4E86;&#x70ED;&#x542F;&#x52A8;&#xFF08;warm-starting&#xFF09;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>&#xFF1A;</p>
+<ul>
+<li>[5] Christopher M. Bishop: Pattern Recognition and Machine Learning, Chapter 4.3.4</li>
+<li>[6] Mark Schmidt, Nicolas Le Roux, and Francis Bach: <a href="https://hal.inria.fr/hal-00860051/document" target="_blank">Minimizing Finite Sums with the Stochastic Average Gradient.</a></li>
+<li>[7] Aaron Defazio, Francis Bach, Simon Lacoste-Julien: <a href="https://arxiv.org/abs/1407.0202" target="_blank">SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives.</a></li>
+<li>[8]     <a href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm" target="_blank">https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm</a></li>
+<li>[9]    <a href="http://www.fuzihao.org/blog/2016/01/16/Comparison-of-Gradient-Descent-Stochastic-Gradient-Descent-and-L-BFGS/" target="_blank">&#x201C;Performance Evaluation of Lbfgs vs other solvers&#x201D;</a></li>
+</ul>
+</blockquote>
+<h2 id="1112-&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF0C;-sgd">1.1.12. &#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF0C; SGD</h2>
+<p>&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x662F;&#x62DF;&#x5408;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x800C;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5728;&#x6837;&#x672C;&#x91CF;&#xFF08;&#x548C;&#x7279;&#x5F81;&#x6570;&#xFF09;&#x5F88;&#x5927;&#x65F6;&#x5C24;&#x4E3A;&#x6709;&#x7528;&#x3002; &#x65B9;&#x6CD5; <code>partial_fit</code> &#x53EF;&#x7528;&#x4E8E; online learning &#xFF08;&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#xFF09;&#x6216;&#x57FA;&#x4E8E; out-of-core learning &#xFF08;&#x5916;&#x5B58;&#x7684;&#x5B66;&#x4E60;&#xFF09;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier" target="_blank"><code>SGDClassifier</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor" target="_blank"><code>SGDRegressor</code></a> &#x5206;&#x522B;&#x7528;&#x4E8E;&#x62DF;&#x5408;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x548C;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF0C;&#x53EF;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#xFF08;&#x51F8;&#xFF09;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x652F;&#x6301;&#x4E0D;&#x540C;&#x7684;&#x7F5A;&#x9879;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x8BBE;&#x5B9A; <code>loss=&quot;log&quot;</code> &#xFF0C;&#x5219; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier" target="_blank"><code>SGDClassifier</code></a> &#x62DF;&#x5408;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x65AF;&#x8482;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#xFF0C;&#x800C; <code>loss=&quot;hinge&quot;</code> &#x62DF;&#x5408;&#x7EBF;&#x6027;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#xFF08;SVM&#xFF09;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/sgd.html#sgd" target="_blank">&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;</a></li>
+</ul>
+</blockquote>
+<h2 id="1113-perceptron&#xFF08;&#x611F;&#x77E5;&#x5668;&#xFF09;">1.1.13. Perceptron&#xFF08;&#x611F;&#x77E5;&#x5668;&#xFF09;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html#sklearn.linear_model.Perceptron" title="sklearn.linear_model.Perceptron" target="_blank"><code>Perceptron</code></a> &#x662F;&#x9002;&#x7528;&#x4E8E;&#x5927;&#x89C4;&#x6A21;&#x5B66;&#x4E60;&#x7684;&#x4E00;&#x79CD;&#x7B80;&#x5355;&#x7B97;&#x6CD5;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x4E0D;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5B66;&#x4E60;&#x7387;&#xFF08;learning rate&#xFF09;&#x3002;</li>
+<li>&#x4E0D;&#x9700;&#x8981;&#x6B63;&#x5219;&#x5316;&#x5904;&#x7406;&#x3002;</li>
+<li>&#x4EC5;&#x4F7F;&#x7528;&#x9519;&#x8BEF;&#x6837;&#x672C;&#x66F4;&#x65B0;&#x6A21;&#x578B;&#x3002;</li>
+</ul>
+<p>&#x6700;&#x540E;&#x4E00;&#x70B9;&#x8868;&#x660E;&#x4F7F;&#x7528;&#x5408;&#x9875;&#x635F;&#x5931;&#xFF08;hinge loss&#xFF09;&#x7684;&#x611F;&#x77E5;&#x673A;&#x6BD4; SGD &#x7565;&#x5FEB;&#xFF0C;&#x6240;&#x5F97;&#x6A21;&#x578B;&#x66F4;&#x7A00;&#x758F;&#x3002;</p>
+<h2 id="1114-passive-aggressive-algorithms&#xFF08;&#x88AB;&#x52A8;&#x653B;&#x51FB;&#x7B97;&#x6CD5;&#xFF09;">1.1.14. Passive Aggressive Algorithms&#xFF08;&#x88AB;&#x52A8;&#x653B;&#x51FB;&#x7B97;&#x6CD5;&#xFF09;</h2>
+<p>&#x88AB;&#x52A8;&#x653B;&#x51FB;&#x7B97;&#x6CD5;&#x662F;&#x5927;&#x89C4;&#x6A21;&#x5B66;&#x4E60;&#x7684;&#x4E00;&#x7C7B;&#x7B97;&#x6CD5;&#x3002;&#x548C;&#x611F;&#x77E5;&#x673A;&#x7C7B;&#x4F3C;&#xFF0C;&#x5B83;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x5B66;&#x4E60;&#x7387;&#xFF0C;&#x4E0D;&#x8FC7;&#x6BD4;&#x611F;&#x77E5;&#x673A;&#x591A;&#x51FA;&#x4E00;&#x4E2A;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570; <code>C</code> &#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PassiveAggressiveClassifier.html#sklearn.linear_model.PassiveAggressiveClassifier" target="_blank"><code>PassiveAggressiveClassifier</code></a> &#x53EF;&#x8BBE;&#x5B9A; <code>loss=&apos;hinge&apos;</code> &#xFF08;PA-I&#xFF09;&#x6216; <code>loss=&apos;squared_hinge&apos;</code> &#xFF08;PA-II&#xFF09;&#x3002;&#x5BF9;&#x4E8E;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PassiveAggressiveRegressor.html#sklearn.linear_model.PassiveAggressiveRegressor" target="_blank"><code>PassiveAggressiveRegressor</code></a> &#x53EF;&#x8BBE;&#x7F6E; <code>loss=&apos;epsilon_insensitive&apos;</code> &#xFF08;PA-I&#xFF09;&#x6216; <code>loss=&apos;squared_epsilon_insensitive&apos;</code> &#xFF08;PA-II&#xFF09;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>&#xFF1A;</p>
+<ul>
+<li><a href="http://jmlr.csail.mit.edu/papers/volume7/crammer06a/crammer06a.pdf" target="_blank">&#x201C;Online Passive-Aggressive Algorithms&#x201D;</a> K. Crammer, O. Dekel, J. Keshat, S. Shalev-Shwartz, Y. Singer - JMLR 7 (2006)</li>
+</ul>
+</blockquote>
+<h2 id="1115-&#x7A33;&#x5065;&#x56DE;&#x5F52;&#xFF08;robustness-regression&#xFF09;-&#x5904;&#x7406;&#x79BB;&#x7FA4;&#x70B9;&#xFF08;outliers&#xFF09;&#x548C;&#x6A21;&#x578B;&#x9519;&#x8BEF;">1.1.15. &#x7A33;&#x5065;&#x56DE;&#x5F52;&#xFF08;Robustness regression&#xFF09;: &#x5904;&#x7406;&#x79BB;&#x7FA4;&#x70B9;&#xFF08;outliers&#xFF09;&#x548C;&#x6A21;&#x578B;&#x9519;&#x8BEF;</h2>
+<p>&#x7A33;&#x5065;&#x56DE;&#x5F52;&#xFF08;robust regression&#xFF09;&#x7279;&#x522B;&#x9002;&#x7528;&#x4E8E;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x5305;&#x542B;&#x635F;&#x574F;&#x6570;&#x636E;&#xFF08;corrupt data&#xFF09;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x79BB;&#x7FA4;&#x70B9;&#x6216;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_theilsen.html" target="_blank"><img src="img/9d2e3befcfa08a4b6a7cfed8dadbd5c0.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_theilsen_0011.png"></a></p>
+<h3 id="11151-&#x5404;&#x79CD;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x4E0E;&#x76F8;&#x5173;&#x6982;&#x5FF5;">1.1.15.1. &#x5404;&#x79CD;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x4E0E;&#x76F8;&#x5173;&#x6982;&#x5FF5;</h3>
+<p>&#x5904;&#x7406;&#x5305;&#x542B;&#x79BB;&#x7FA4;&#x70B9;&#x7684;&#x6570;&#x636E;&#x65F6;&#x7262;&#x8BB0;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;:</p>
+<ul>
+<li><p><strong>&#x79BB;&#x7FA4;&#x503C;&#x5728; X &#x4E0A;&#x8FD8;&#x662F;&#x5728; y &#x65B9;&#x5411;&#x4E0A;</strong>?</p>
+<ul>
+<li>&#x79BB;&#x7FA4;&#x503C;&#x5728; y &#x65B9;&#x5411;&#x4E0A;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html" target="_blank"><img src="img/51d70ae60903891457d75099cc46e450.jpg" alt="y_outliers"></a></p>
+<ul>
+<li>&#x79BB;&#x7FA4;&#x503C;&#x5728; X &#x65B9;&#x5411;&#x4E0A;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html" target="_blank"><img src="img/bee2cb707f91d8e36ae11638b6698fe4.jpg" alt="X_outliers"></a></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>&#x79BB;&#x7FA4;&#x70B9;&#x7684;&#x6BD4;&#x4F8B; vs. &#x9519;&#x8BEF;&#x7684;&#x91CF;&#x7EA7;&#xFF08;amplitude&#xFF09;</strong></p>
+<p>&#x79BB;&#x7FA4;&#x70B9;&#x7684;&#x6570;&#x91CF;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x79BB;&#x7FA4;&#x7A0B;&#x5EA6;&#x4E5F;&#x540C;&#x6837;&#x91CD;&#x8981;&#x3002;</p>
+<ul>
+<li>&#x4F4E;&#x79BB;&#x7FA4;&#x70B9;&#x7684;&#x6570;&#x91CF;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html" target="_blank"><img src="img/51d70ae60903891457d75099cc46e450.jpg" alt="small_outliers"></a></p>
+<ul>
+<li>&#x9AD8;&#x79BB;&#x7FA4;&#x70B9;&#x7684;&#x6570;&#x91CF;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html" target="_blank"><img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_robust_fit_0051.png" alt="large_outliers"></a></p>
+</li>
+</ul>
+<p>&#x7A33;&#x5065;&#x62DF;&#x5408;&#xFF08;robust fitting&#xFF09;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;&#x662F;&#x5D29;&#x6E83;&#x70B9;&#xFF08;breakdown point&#xFF09;&#xFF0C;&#x5373;&#x62DF;&#x5408;&#x6A21;&#x578B;&#xFF08;&#x4ECD;&#x51C6;&#x786E;&#x9884;&#x6D4B;&#xFF09;&#x6240;&#x80FD;&#x627F;&#x53D7;&#x7684;&#x79BB;&#x7FA4;&#x503C;&#x6700;&#x5927;&#x6BD4;&#x4F8B;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x6761;&#x4EF6;&#x4E0B;&#xFF08; <code>n_features</code>&#x5927;&#xFF09;&#xFF0C;&#x4E00;&#x822C;&#x800C;&#x8A00;&#x5F88;&#x96BE;&#x5B8C;&#x6210;&#x7A33;&#x5065;&#x62DF;&#x5408;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x5B8C;&#x5168;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
+<blockquote>
+<p><strong>&#x5BFB;&#x627E;&#x5E73;&#x8861;&#xFF1A; &#x9884;&#x6D4B;&#x5668;&#x7684;&#x9009;&#x62E9;</strong></p>
+<ul>
+<li><p>Scikit-learn&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x7A33;&#x5065;&#x56DE;&#x5F52;&#x7684;&#x9884;&#x6D4B;&#x5668;&#xFF08;estimator&#xFF09;: <a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a> &#xFF0C; <a href="_11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">Theil Sen</a> &#x548C; <a href="_11154-huber-&#x56DE;&#x5F52;">HuberRegressor</a></p>
+</li>
+<li><p><a href="_11154-huber-&#x56DE;&#x5F52;">HuberRegressor</a> &#x4E00;&#x822C;&#x5FEB;&#x4E8E; <a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a> &#x548C; <a href="_11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">Theil Sen</a> &#xFF0C;&#x9664;&#x975E;&#x6837;&#x672C;&#x6570;&#x5F88;&#x5927;&#xFF0C;&#x5373; <code>n_samples</code> &gt;&gt; <code>n_features</code> &#x3002; &#x8FD9;&#x662F;&#x56E0;&#x4E3A; <a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a> &#x548C; <a href="_11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">Theil Sen</a> &#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x8F83;&#x5C0F;&#x5B50;&#x96C6;&#x8FDB;&#x884C;&#x62DF;&#x5408;&#x3002;&#x4F46;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x65F6;&#xFF0C; <a href="_11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">Theil Sen</a> &#x548C; <a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a> &#x53EF;&#x80FD;&#x4E0D;&#x5982; <a href="_11154-huber-&#x56DE;&#x5F52;">HuberRegressor</a> &#x9C81;&#x68D2;&#x3002;</p>
+</li>
+<li><a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a> &#x6BD4; <a href="_11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">Theil Sen</a> &#x66F4;&#x5FEB;&#xFF0C;&#x5728;&#x6837;&#x672C;&#x6570;&#x91CF;&#x4E0A;&#x7684;&#x4F38;&#x7F29;&#x6027;&#xFF08;&#x9002;&#x5E94;&#x6027;&#xFF09;&#x66F4;&#x597D;&#x3002;</li>
+<li><a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a> &#x80FD;&#x66F4;&#x597D;&#x5730;&#x5904;&#x7406;y&#x65B9;&#x5411;&#x7684;&#x5927;&#x503C;&#x79BB;&#x7FA4;&#x70B9;&#xFF08;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;&#x3002;</li>
+<li><a href="_11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">Theil Sen</a> &#x80FD;&#x66F4;&#x597D;&#x5730;&#x5904;&#x7406;x&#x65B9;&#x5411;&#x4E2D;&#x7B49;&#x5927;&#x5C0F;&#x7684;&#x79BB;&#x7FA4;&#x70B9;&#xFF0C;&#x4F46;&#x5728;&#x9AD8;&#x7EF4;&#x60C5;&#x51B5;&#x4E0B;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x8FD9;&#x4E00;&#x7279;&#x70B9;&#x3002;
+&#x5B9E;&#x5728;&#x51B3;&#x5B9A;&#x4E0D;&#x4E86;&#x7684;&#x8BDD;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528; <a href="#11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">RANSAC</a></li>
+</ul>
+</blockquote>
+<h3 id="11152-ransac&#xFF1A;-&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;random-sample-consensus&#xFF09;">1.1.15.2. RANSAC&#xFF1A; &#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;RANdom SAmple Consensus&#xFF09;</h3>
+<p>&#x968F;&#x673A;&#x62BD;&#x6837;&#x4E00;&#x81F4;&#x6027;&#x7B97;&#x6CD5;&#xFF08;RANdom SAmple Consensus&#xFF0C; RANSAC&#xFF09;&#x5229;&#x7528;&#x5168;&#x4F53;&#x6570;&#x636E;&#x4E2D;&#x5C40;&#x5185;&#x70B9;&#xFF08;inliers&#xFF09;&#x7684;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x5B50;&#x96C6;&#x62DF;&#x5408;&#x6A21;&#x578B;&#x3002;</p>
+<p>RANSAC &#x662F;&#x4E00;&#x79CD;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x7B97;&#x6CD5;&#xFF0C;&#x4EE5;&#x4E00;&#x5B9A;&#x6982;&#x7387;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x5408;&#x7406;&#x7ED3;&#x679C;&#xFF0C;&#x4F9D;&#x8D56;&#x4E8E;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#xFF08;&#x53C2;&#x6570; <code>max_trials</code>&#xFF09;&#x3002;&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#x7EBF;&#x6027;&#x6216;&#x975E;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x6444;&#x5F71;&#x6D4B;&#x7ED8;&#x9886;&#x57DF;&#x5C24;&#x4E3A;&#x6D41;&#x884C;&#x3002;</p>
+<p>&#x7B97;&#x6CD5;&#x4ECE;&#x5168;&#x4F53;&#x6837;&#x672C;&#x8F93;&#x5165;&#x4E2D;&#x5206;&#x51FA;&#x4E00;&#x4E2A;&#x5C40;&#x5185;&#x70B9;&#x96C6;&#x5408;&#xFF0C;&#x5168;&#x4F53;&#x6837;&#x672C;&#x53EF;&#x80FD;&#x7531;&#x4E8E;&#x6D4B;&#x91CF;&#x9519;&#x8BEF;&#x6216;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x5047;&#x8BBE;&#x9519;&#x8BEF;&#x800C;&#x542B;&#x6709;&#x566A;&#x70B9;&#x3001;&#x79BB;&#x7FA4;&#x70B9;&#x3002;&#x6700;&#x7EC8;&#x7684;&#x6A21;&#x578B;&#x4EC5;&#x4ECE;&#x8FD9;&#x4E2A;&#x5C40;&#x5185;&#x70B9;&#x96C6;&#x5408;&#x4E2D;&#x5F97;&#x51FA;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ransac.html" target="_blank"><img src="img/658840c7508dc5a73ca6180323904862.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_ransac_0011.png"></a></p>
+<h4 id="111521-&#x7B97;&#x6CD5;&#x7EC6;&#x8282;">1.1.15.2.1. &#x7B97;&#x6CD5;&#x7EC6;&#x8282;</h4>
+<p>&#x6BCF;&#x8F6E;&#x8FED;&#x4EE3;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;:</p>
+<ol>
+<li>&#x4ECE;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E2D;&#x62BD;&#x6837; <code>min_samples</code> &#x6570;&#x91CF;&#x7684;&#x968F;&#x673A;&#x6837;&#x672C;&#xFF0C;&#x68C0;&#x67E5;&#x6570;&#x636E;&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF08;&#x89C1; <code>is_data_valid</code> &#xFF09;&#x3002;</li>
+<li>&#x7528;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x5B50;&#x96C6;&#x62DF;&#x5408;&#x6A21;&#x578B;&#xFF08; <code>base_estimator.fit</code> &#xFF09;&#x3002;&#x68C0;&#x67E5;&#x6A21;&#x578B;&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF08;&#x89C1; <code>is_model_valid</code> &#xFF09;&#x3002;</li>
+<li>&#x8BA1;&#x7B97;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#x7684;&#x6B8B;&#x5DEE;&#xFF08;residual&#xFF09;&#xFF0C;&#x5C06;&#x5168;&#x4F53;&#x6570;&#x636E;&#x5206;&#x6210;&#x5C40;&#x5185;&#x70B9;&#x548C;&#x79BB;&#x7FA4;&#x70B9;&#xFF08; <code>base_estimator.predict(X) - y</code> &#xFF09;&#x3002;&#x7EDD;&#x5BF9;&#x6B8B;&#x5DEE;&#x5C0F;&#x4E8E; <code>residual_threshold</code> &#x7684;&#x5168;&#x4F53;&#x6570;&#x636E;&#x8BA4;&#x4E3A;&#x662F;&#x5C40;&#x5185;&#x70B9;&#x3002;</li>
+<li>&#x82E5;&#x5C40;&#x5185;&#x70B9;&#x6837;&#x672C;&#x6570;&#x6700;&#x5927;&#xFF0C;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x6A21;&#x578B;&#x4E3A;&#x6700;&#x4F73;&#x6A21;&#x578B;&#x3002;&#x4EE5;&#x514D;&#x5F53;&#x524D;&#x6A21;&#x578B;&#x79BB;&#x7FA4;&#x70B9;&#x6570;&#x91CF;&#x6070;&#x597D;&#x76F8;&#x7B49;&#xFF08;&#x800C;&#x51FA;&#x73B0;&#x672A;&#x5B9A;&#x4E49;&#x60C5;&#x51B5;&#xFF09;&#xFF0C;&#x89C4;&#x5B9A;&#x4EC5;&#x5F53;&#x6570;&#x503C;&#x5927;&#x4E8E;&#x5F53;&#x524D;&#x6700;&#x503C;&#x65F6;&#x8BA4;&#x4E3A;&#x662F;&#x6700;&#x4F73;&#x6A21;&#x578B;&#x3002;</li>
+</ol>
+<p>&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;&#x6216;&#x8005;&#x8FED;&#x4EE3;&#x5230;&#x6700;&#x5927;&#x6B21;&#x6570;&#xFF08; <code>max_trials</code> &#xFF09;&#xFF0C;&#x6216;&#x8005;&#x67D0;&#x4E9B;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;&#x6EE1;&#x8DB3;&#x65F6;&#x505C;&#x4E0B;&#xFF08;&#x89C1; <code>stop_n_inliers</code> &#x548C; <code>stop_score</code> )&#x3002;&#x6700;&#x7EC8;&#x6A21;&#x578B;&#x7531;&#x4E4B;&#x524D;&#x786E;&#x5B9A;&#x7684;&#x6700;&#x4F73;&#x6A21;&#x578B;&#x7684;&#x5C40;&#x5185;&#x70B9;&#x6837;&#x672C;&#xFF08;&#x4E00;&#x81F4;&#x6027;&#x96C6;&#x5408;&#xFF0C;consensus set&#xFF09;&#x9884;&#x6D4B;&#x3002;</p>
+<p>&#x51FD;&#x6570; <code>is_data_valid</code> &#x548C; <code>is_model_valid</code> &#x53EF;&#x4EE5;&#x8BC6;&#x522B;&#x51FA;&#x968F;&#x673A;&#x6837;&#x672C;&#x5B50;&#x96C6;&#x4E2D;&#x7684;&#x9000;&#x5316;&#x7EC4;&#x5408;&#xFF08;degenerate combinations&#xFF09;&#x5E76;&#x4E88;&#x4EE5;&#x4E22;&#x5F03;&#xFF08;reject&#xFF09;&#x3002;&#x5373;&#x4FBF;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x9000;&#x5316;&#x60C5;&#x51B5;&#xFF0C;&#x4E5F;&#x4F1A;&#x4F7F;&#x7528; <code>is_data_valid</code> &#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x62DF;&#x5408;&#x6A21;&#x578B;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x5B83;&#x80FD;&#x5F97;&#x5230;&#x66F4;&#x9AD8;&#x7684;&#x8BA1;&#x7B97;&#x6027;&#x80FD;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>&#xFF1A;</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ransac.html" target="_blank">&#x57FA;&#x4E8E;RANSAC&#x7684;&#x7A33;&#x5065;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x4F30;&#x8BA1;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html" target="_blank">&#x7A33;&#x5065;&#x7EBF;&#x6027;&#x4F30;&#x8BA1;&#x62DF;&#x5408;</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>&#xFF1A;</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/RANSAC" target="_blank">https://en.wikipedia.org/wiki/RANSAC</a></li>
+<li><a href="http://www.cs.columbia.edu/~belhumeur/courses/compPhoto/ransac.pdf" target="_blank">&#x201C;Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography&#x201D;</a> Martin A. Fischler and Robert C. Bolles - SRI International (1981)</li>
+<li><a href="http://www.bmva.org/bmvc/2009/Papers/Paper355/Paper355.pdf" target="_blank">&#x201C;Performance Evaluation of RANSAC Family&#x201D;</a> Sunglok Choi, Taemin Kim and Wonpil Yu - BMVC (2009)</li>
+</ul>
+</blockquote>
+<h3 id="11153-theil-sen-&#x9884;&#x4F30;&#x5668;-&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based-estimator&#xFF09;">1.1.15.3. Theil-Sen &#x9884;&#x4F30;&#x5668;: &#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#xFF08;generalized-median-based estimator&#xFF09;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TheilSenRegressor.html#sklearn.linear_model.TheilSenRegressor" target="_blank"><code>TheilSenRegressor</code></a> &#x4F30;&#x8BA1;&#x5668;&#xFF1A;&#x4F7F;&#x7528;&#x4E2D;&#x4F4D;&#x6570;&#x5728;&#x591A;&#x4E2A;&#x7EF4;&#x5EA6;&#x6CDB;&#x5316;&#xFF0C;&#x5BF9;&#x591A;&#x5143;&#x5F02;&#x5E38;&#x503C;&#x66F4;&#x5177;&#x6709;&#x9C81;&#x68D2;&#x6027;&#xFF0C;&#x4F46;&#x95EE;&#x9898;&#x662F;&#xFF0C;&#x968F;&#x7740;&#x7EF4;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x4F30;&#x8BA1;&#x5668;&#x7684;&#x51C6;&#x786E;&#x6027;&#x5728;&#x8FC5;&#x901F;&#x4E0B;&#x964D;&#x3002;&#x51C6;&#x786E;&#x6027;&#x7684;&#x4E22;&#x5931;&#xFF0C;&#x5BFC;&#x81F4;&#x5728;&#x9AD8;&#x7EF4;&#x4E0A;&#x7684;&#x4F30;&#x8BA1;&#x503C;&#x6BD4;&#x4E0D;&#x4E0A;&#x666E;&#x901A;&#x7684;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_theilsen.html" target="_blank">&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#x56DE;&#x5F52;</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html" target="_blank">&#x7A33;&#x5065;&#x7EBF;&#x6027;&#x4F30;&#x8BA1;&#x62DF;&#x5408;</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator" target="_blank">https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator</a></li>
+</ul>
+</blockquote>
+<h4 id="111531-&#x7B97;&#x6CD5;&#x7406;&#x8BBA;&#x7EC6;&#x8282;">1.1.15.3.1. &#x7B97;&#x6CD5;&#x7406;&#x8BBA;&#x7EC6;&#x8282;</h4>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TheilSenRegressor.html#sklearn.linear_model.TheilSenRegressor" target="_blank"><code>TheilSenRegressor</code></a> &#x5728;&#x6E10;&#x8FD1;&#x6548;&#x7387;&#x548C;&#x65E0;&#x504F;&#x4F30;&#x8BA1;&#x65B9;&#x9762;&#x8DB3;&#x4EE5;&#x5AB2;&#x7F8E; <a href="#1111-&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x590D;&#x6742;&#x5EA6;">Ordinary Least Squares (OLS)</a> &#xFF08;&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#xFF08;OLS&#xFF09;&#xFF09;&#x3002;&#x4E0E; OLS &#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C; Theil-Sen &#x662F;&#x4E00;&#x79CD;&#x975E;&#x53C2;&#x6570;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x6CA1;&#x6709;&#x5BF9;&#x5E95;&#x5C42;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#x5047;&#x8BBE;&#x3002;&#x7531;&#x4E8E; Theil-Sen &#x662F;&#x57FA;&#x4E8E;&#x4E2D;&#x503C;&#x7684;&#x4F30;&#x8BA1;&#xFF0C;&#x5B83;&#x66F4;&#x9002;&#x5408;&#x4E8E;&#x635F;&#x574F;&#x7684;&#x6570;&#x636E;&#x5373;&#x79BB;&#x7FA4;&#x503C;&#x3002; &#x5728;&#x5355;&#x53D8;&#x91CF;&#x7684;&#x8BBE;&#x7F6E;&#x4E2D;&#xFF0C;Theil-Sen &#x5728;&#x7B80;&#x5355;&#x7684;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5176;&#x5D29;&#x6E83;&#x70B9;&#x5927;&#x7EA6; 29.3% &#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x53EF;&#x4EE5;&#x5BB9;&#x5FCD;&#x4EFB;&#x610F;&#x635F;&#x574F;&#x7684;&#x6570;&#x636E;&#x9AD8;&#x8FBE; 29.3% &#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_theilsen.html" target="_blank"><img src="img/9d2e3befcfa08a4b6a7cfed8dadbd5c0.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_theilsen_0011.png"></a></p>
+<p>scikit-learn &#x4E2D;&#x5B9E;&#x73B0;&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TheilSenRegressor.html#sklearn.linear_model.TheilSenRegressor" target="_blank"><code>TheilSenRegressor</code></a> &#x662F;&#x591A;&#x5143;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x7684;&#x63A8;&#x5E7F; <a href="#f1">[8]</a> &#xFF0C;&#x5229;&#x7528;&#x4E86;&#x7A7A;&#x95F4;&#x4E2D;&#x503C;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x662F;&#x591A;&#x7EF4;&#x4E2D;&#x503C;&#x7684;&#x63A8;&#x5E7F; <a href="#f2">[9]</a> &#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;Theil-Sen &#x7684;&#x5C3A;&#x5EA6;&#x6839;&#x636E;</p>
+<p><img src="img/00af2cbeb1deda7098a17d0491060339.jpg" alt="\binom{n_{samples}}{n_{subsamples}}"></p>
+<p>&#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x5927;&#x91CF;&#x6837;&#x672C;&#x548C;&#x7279;&#x5F81;&#x7684;&#x95EE;&#x9898;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x4E9A;&#x7FA4;&#x7684;&#x5927;&#x5C0F;&#x6765;&#x9650;&#x5236;&#x65F6;&#x95F4;&#x548C;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x53EA;&#x8003;&#x8651;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7EC4;&#x5408;&#x7684;&#x968F;&#x673A;&#x5B50;&#x96C6;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_theilsen.html" target="_blank">&#x5E7F;&#x4E49;&#x4E2D;&#x503C;&#x4F30;&#x8BA1;&#x5668;&#x56DE;&#x5F52;</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>[10] Xin Dang, Hanxiang Peng, Xueqin Wang and Heping Zhang: <a href="http://home.olemiss.edu/~xdang/papers/MTSE.pdf" target="_blank">Theil-Sen Estimators in a Multiple Linear Regression Model.</a> |</li>
+<li>[11] K&#xE4;rkk&#xE4;inen and S. &#xC4;yr&#xE4;m&#xF6;: <a href="http://users.jyu.fi/~samiayr/pdf/ayramo_eurogen05.pdf" target="_blank">On Computation of Spatial Median for Robust Data Mining.</a></li>
+</ul>
+</blockquote>
+<h3 id="11154-huber-&#x56DE;&#x5F52;">1.1.15.4. Huber &#x56DE;&#x5F52;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html#sklearn.linear_model.HuberRegressor" target="_blank"><code>HuberRegressor</code></a> &#x4E0E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge" target="_blank"><code>Ridge</code></a> &#x4E0D;&#x540C;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5BF9;&#x4E8E;&#x88AB;&#x5206;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x6837;&#x672C;&#x5E94;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x635F;&#x5931;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6837;&#x54C1;&#x7684;&#x7EDD;&#x5BF9;&#x8BEF;&#x5DEE;&#x5C0F;&#x4E8E;&#x67D0;&#x4E00;&#x9608;&#x503C;&#xFF0C;&#x6837;&#x54C1;&#x5C31;&#x88AB;&#x5206;&#x4E3A;&#x5185;&#x56F4;&#x503C;&#x3002; &#x5B83;&#x4E0D;&#x540C;&#x4E8E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TheilSenRegressor.html#sklearn.linear_model.TheilSenRegressor" target="_blank"><code>TheilSenRegressor</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RANSACRegressor.html#sklearn.linear_model.RANSACRegressor" target="_blank"><code>RANSACRegressor</code></a> &#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x6CA1;&#x6709;&#x5FFD;&#x7565;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x5E76;&#x5206;&#x914D;&#x7ED9;&#x5B83;&#x4EEC;&#x8F83;&#x5C0F;&#x7684;&#x6743;&#x91CD;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_huber_vs_ridge.html" target="_blank"><img src="img/d06a11a8d6ed2efac238ab0bdbd33326.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_huber_vs_ridge_001.png"></a></p>
+<p>&#x8FD9;&#x4E2A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html#sklearn.linear_model.HuberRegressor" target="_blank"><code>HuberRegressor</code></a> &#x6700;&#x5C0F;&#x5316;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#x662F;&#xFF1A;</p>
+<p><img src="img/dfab82d3a21680e5b6d3898a02dc6e01.jpg" alt="\underset{w, \sigma}{min\,} {\sum_{i=1}^n\left(\sigma + H_m\left(\frac{X_{i}w - y_{i}}{\sigma}\right)\sigma\right) + \alpha {||w||_2}^2}"></p>
+<p>&#x5176;&#x4E2D;</p>
+<p><img src="img/37e4251726a37bc02df4ef4390572e9a.jpg" alt="H_m(z) = \begin{cases}       z^2, &amp; \text {if } |z| &lt; \epsilon, \\       2\epsilon|z| - \epsilon^2, &amp; \text{otherwise}\end{cases}"></p>
+<p>&#x5EFA;&#x8BAE;&#x8BBE;&#x7F6E;&#x53C2;&#x6570; <code>epsilon</code> &#x4E3A; 1.35 &#x4EE5;&#x5B9E;&#x73B0; 95% &#x7EDF;&#x8BA1;&#x6548;&#x7387;&#x3002;</p>
+<h3 id="11155-&#x6CE8;&#x610F;">1.1.15.5. &#x6CE8;&#x610F;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html#sklearn.linear_model.HuberRegressor" target="_blank"><code>HuberRegressor</code></a> &#x4E0E;&#x5C06;&#x635F;&#x5931;&#x8BBE;&#x7F6E;&#x4E3A; <code>huber</code>&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor" target="_blank"><code>SGDRegressor</code></a> &#x5E76;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x4F53;&#x73B0;&#x5728;&#x4EE5;&#x4E0B;&#x65B9;&#x9762;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0A;&#x3002;</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html#sklearn.linear_model.HuberRegressor" target="_blank"><code>HuberRegressor</code></a> &#x662F;&#x6807;&#x5EA6;&#x4E0D;&#x53D8;&#x6027;&#x7684;. &#x4E00;&#x65E6;&#x8BBE;&#x7F6E;&#x4E86; <code>epsilon</code> &#xFF0C; &#x901A;&#x8FC7;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x5411;&#x4E0A;&#x6216;&#x5411;&#x4E0B;&#x7F29;&#x653E; <code>X</code> &#x548C; <code>y</code> &#xFF0C;&#x5C31;&#x4F1A;&#x8DDF;&#x4EE5;&#x524D;&#x4E00;&#x6837;&#x5BF9;&#x5F02;&#x5E38;&#x503C;&#x4EA7;&#x751F;&#x540C;&#x6837;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x3002;&#x76F8;&#x6BD4; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor" target="_blank"><code>SGDRegressor</code></a> &#x5176;&#x4E2D; <code>epsilon</code> &#x5728; <code>X</code> &#x548C; <code>y</code> &#x88AB;&#x7F29;&#x653E;&#x7684;&#x65F6;&#x5019;&#x5FC5;&#x987B;&#x518D;&#x6B21;&#x8BBE;&#x7F6E;&#x3002;</li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html#sklearn.linear_model.HuberRegressor" target="_blank"><code>HuberRegressor</code></a> &#x5E94;&#x8BE5;&#x66F4;&#x6709;&#x6548;&#x5730;&#x4F7F;&#x7528;&#x5728;&#x5C0F;&#x6837;&#x672C;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor" target="_blank"><code>SGDRegressor</code></a> &#x9700;&#x8981;&#x4E00;&#x4E9B;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684; passes &#x6765;&#x4EA7;&#x751F;&#x4E00;&#x81F4;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x3002;</li>
+</ul>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_huber_vs_ridge.html" target="_blank">&#x5F3A;&#x5F02;&#x5E38;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;huberregression&#x4E0E; Ridge</a></li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>Peter J. Huber, Elvezio M. Ronchetti: Robust Statistics, Concomitant scale estimates, pg 172</li>
+</ul>
+</blockquote>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F30;&#x8BA1;&#x662F;&#x4E0D;&#x540C;&#x4E8E; R &#x5B9E;&#x73B0;&#x7684; Robust Regression (<a href="http://www.ats.ucla.edu/stat/r/dae/rreg.htm" target="_blank">http://www.ats.ucla.edu/stat/r/dae/rreg.htm</a>) &#xFF0C;&#x56E0;&#x4E3A; R &#x5B9E;&#x73B0;&#x52A0;&#x6743;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#xFF0C;&#x6743;&#x91CD;&#x8003;&#x8651;&#x5230;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x5E76;&#x57FA;&#x4E8E;&#x6B8B;&#x5DEE;&#x5927;&#x4E8E;&#x67D0;&#x4E00;&#x9608;&#x503C;&#x7684;&#x91CF;&#x3002;</p>
+<h2 id="1116-&#x591A;&#x9879;&#x5F0F;&#x56DE;&#x5F52;&#xFF1A;&#x7528;&#x57FA;&#x51FD;&#x6570;&#x5C55;&#x5F00;&#x7EBF;&#x6027;&#x6A21;&#x578B;">1.1.16. &#x591A;&#x9879;&#x5F0F;&#x56DE;&#x5F52;&#xFF1A;&#x7528;&#x57FA;&#x51FD;&#x6570;&#x5C55;&#x5F00;&#x7EBF;&#x6027;&#x6A21;&#x578B;</h2>
+<p>&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E2D;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x662F;&#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4FDD;&#x6301;&#x4E86;&#x4E00;&#x822C;&#x5FEB;&#x901F;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x6CD5;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x540C;&#x65F6;&#x5141;&#x8BB8;&#x5B83;&#x4EEC;&#x9002;&#x5E94;&#x66F4;&#x5E7F;&#x6CDB;&#x7684;&#x6570;&#x636E;&#x8303;&#x56F4;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x7CFB;&#x6570;&#x7684; <strong>polynomial features</strong> &#x6765;&#x6269;&#x5C55;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x3002;&#x5728;&#x6807;&#x51C6;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E8C;&#x7EF4;&#x6570;&#x636E;&#x7684;&#x6A21;&#x578B;:</p>
+<p><img src="img/76814b51cd880ede8da9a2b5ad3d4143.jpg" alt="\hat{y}(w, x) = w_0 + w_1 x_1 + w_2 x_2"></p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x628A;&#x629B;&#x7269;&#x9762;&#x62DF;&#x5408;&#x6210;&#x6570;&#x636E;&#x800C;&#x4E0D;&#x662F;&#x5E73;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x4E8C;&#x9636;&#x591A;&#x9879;&#x5F0F;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x4F7F;&#x6A21;&#x578B;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x8FD9;&#x6837;:</p>
+<p><img src="img/5656d5270c0ee866d09e2b271ed04a67.jpg" alt="\hat{y}(w, x) = w_0 + w_1 x_1 + w_2 x_2 + w_3 x_1 x_2 + w_4 x_1^2 + w_5 x_2^2"></p>
+<p>&#x89C2;&#x5BDF;&#x5230;&#x8FD9; <em>&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x6A21;&#x578B;</em> &#xFF08;&#x8FD9;&#x6709;&#x65F6;&#x5019;&#x662F;&#x4EE4;&#x4EBA;&#x60CA;&#x8BB6;&#x7684;&#xFF09;: &#x770B;&#x5230;&#x8FD9;&#x4E2A;&#xFF0C;&#x60F3;&#x8C61;&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x53D8;&#x91CF;</p>
+<p><img src="img/642372b631f22b9db0dc4f30d9ab67e6.jpg" alt="z = [x_1, x_2, x_1 x_2, x_1^2, x_2^2]"></p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E9B;&#x91CD;&#x65B0;&#x6807;&#x8BB0;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x95EE;&#x9898;&#x5199;&#x6210;</p>
+<p><img src="img/b2996ad4866e8a26c7ba42c0229385af.jpg" alt="\hat{y}(w, x) = w_0 + w_1 z_1 + w_2 z_2 + w_3 z_3 + w_4 z_4 + w_5 z_5"></p>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x6240;&#x5F97;&#x7684; <em>polynomial regression</em> &#x4E0E;&#x6211;&#x4EEC;&#x4E0A;&#x6587;&#x6240;&#x8FF0;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x662F;&#x540C;&#x4E00;&#x7C7B;&#xFF08;&#x5373;&#x5173;&#x4E8E; <img src="img/8a58e8df6a985a3273e39bac7dd72b1f.jpg" alt="w"> &#x662F;&#x7EBF;&#x6027;&#x7684;&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x89E3;&#x51B3;&#x3002;&#x901A;&#x8FC7;&#x7528;&#x8FD9;&#x4E9B;&#x57FA;&#x51FD;&#x6570;&#x5EFA;&#x7ACB;&#x7684;&#x9AD8;&#x7EF4;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x62DF;&#x5408;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x5177;&#x6709;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x9002;&#x5E94;&#x66F4;&#x5E7F;&#x6CDB;&#x7684;&#x6570;&#x636E;&#x8303;&#x56F4;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#xFF0C;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7A0B;&#x5EA6;&#x7684;&#x591A;&#x9879;&#x5F0F;&#x7279;&#x5F81;&#x5C06;&#x8FD9;&#x4E2A;&#x60F3;&#x6CD5;&#x5E94;&#x7528;&#x4E8E;&#x4E00;&#x7EF4;&#x6570;&#x636E;:</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_polynomial_interpolation.html" target="_blank"><img src="img/cda529a3abe8af421f1f218b1a390091.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_polynomial_interpolation_0011.png"></a></p>
+<p>&#x8FD9;&#x4E2A;&#x56FE;&#x662F;&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures" target="_blank"><code>PolynomialFeatures</code></a>  &#x9884;&#x521B;&#x5EFA;&#x3002;&#x8BE5;&#x9884;&#x5904;&#x7406;&#x5668;&#x5C06;&#x8F93;&#x5165;&#x6570;&#x636E;&#x77E9;&#x9635;&#x8F6C;&#x6362;&#x4E3A;&#x7ED9;&#x5B9A;&#x5EA6;&#x7684;&#x65B0;&#x6570;&#x636E;&#x77E9;&#x9635;&#x3002;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> PolynomialFeatures
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = np.arange(<span class="hljs-number">6</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>X
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+ [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>poly = PolynomialFeatures(degree=<span class="hljs-number">2</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>poly.fit_transform(X)
+array([[  <span class="hljs-number">1.</span>,   <span class="hljs-number">0.</span>,   <span class="hljs-number">1.</span>,   <span class="hljs-number">0.</span>,   <span class="hljs-number">0.</span>,   <span class="hljs-number">1.</span>],
+ [  <span class="hljs-number">1.</span>,   <span class="hljs-number">2.</span>,   <span class="hljs-number">3.</span>,   <span class="hljs-number">4.</span>,   <span class="hljs-number">6.</span>,   <span class="hljs-number">9.</span>],
+ [  <span class="hljs-number">1.</span>,   <span class="hljs-number">4.</span>,   <span class="hljs-number">5.</span>,  <span class="hljs-number">16.</span>,  <span class="hljs-number">20.</span>,  <span class="hljs-number">25.</span>]])
+</code></pre>
+<p><code>X</code> &#x7684;&#x7279;&#x5F81;&#x5DF2;&#x7ECF;&#x4ECE; <img src="img/58d06eb9b8003c392af19e09ce5ab1a4.jpg" alt="[x_1, x_2]"> &#x8F6C;&#x6362;&#x5230; <img src="img/6b474f60cd7fcc77b4a950334fc6483f.jpg" alt="[1, x_1, x_2, x_1^2, x_1 x_2, x_2^2]">, &#x5E76;&#x4E14;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x4EFB;&#x4F55;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x9884;&#x5904;&#x7406;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="../57.md">Pipeline</a> &#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x7B80;&#x5316;&#x3002;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x7B80;&#x5355;&#x591A;&#x9879;&#x5F0F;&#x56DE;&#x5F52;&#x7684;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> PolynomialFeatures
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LinearRegression
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> Pipeline
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>model = Pipeline([(<span class="hljs-string">&apos;poly&apos;</span>, PolynomialFeatures(degree=<span class="hljs-number">3</span>)),
+<span class="hljs-meta">... </span>                  (<span class="hljs-string">&apos;linear&apos;</span>, LinearRegression(fit_intercept=<span class="hljs-keyword">False</span>))])
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># fit to an order-3 polynomial data</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>x = np.arange(<span class="hljs-number">5</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>y = <span class="hljs-number">3</span> - <span class="hljs-number">2</span> * x + x ** <span class="hljs-number">2</span> - x ** <span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>model = model.fit(x[:, np.newaxis], y)
+<span class="hljs-meta">&gt;&gt;&gt; </span>model.named_steps[<span class="hljs-string">&apos;linear&apos;</span>].coef_
+array([ <span class="hljs-number">3.</span>, <span class="hljs-number">-2.</span>,  <span class="hljs-number">1.</span>, <span class="hljs-number">-1.</span>])
+</code></pre>
+<p>&#x5229;&#x7528;&#x591A;&#x9879;&#x5F0F;&#x7279;&#x5F81;&#x8BAD;&#x7EC3;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x80FD;&#x591F;&#x51C6;&#x786E;&#x5730;&#x6062;&#x590D;&#x8F93;&#x5165;&#x591A;&#x9879;&#x5F0F;&#x7CFB;&#x6570;&#x3002;</p>
+<p>&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x5355;&#x4E2A;&#x7279;&#x5F81;&#x7684;&#x66F4;&#x9AD8;&#x7684;&#x5E42;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x76F8;&#x4E58;&#x6700;&#x591A; <img src="img/adf83056bc2bd05628e24c40cb728b3d.jpg" alt="d"> &#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7279;&#x5F81;&#x5373;&#x53EF;&#xFF0C;&#x6240;&#x8C13; <em>interaction features&#xFF08;&#x4EA4;&#x4E92;&#x7279;&#x5F81;&#xFF09;</em> &#x3002;&#x8FD9;&#x4E9B;&#x53EF;&#x901A;&#x8FC7;&#x8BBE;&#x5B9A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures" target="_blank"><code>PolynomialFeatures</code></a>  &#x7684; <code>interaction_only=True</code> &#x5F97;&#x5230;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x5904;&#x7406;&#x5E03;&#x5C14;&#x5C5E;&#x6027;&#xFF0C;&#x5BF9;&#x4E8E;&#x6240;&#x6709; <img src="img/c87d9110f3d32ffa5fa08671e4af11fb.jpg" alt="n"> <img src="img/4d1bc681619acee3db7da4d570bcb4cd.jpg" alt="x_i^n = x_i"> &#xFF0C;&#x56E0;&#x6B64;&#x662F;&#x65E0;&#x7528;&#x7684;&#xFF1B;&#x4F46; <img src="img/53fd9843c9af9a7ea05df92bce997456.jpg" alt="x_i x_j"> &#x4EE3;&#x8868;&#x4E24;&#x5E03;&#x5C14;&#x7ED3;&#x5408;&#x3002;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x7EBF;&#x6027;&#x5206;&#x7C7B;&#x5668;&#x89E3;&#x51B3;&#x5F02;&#x6216;&#x95EE;&#x9898;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> Perceptron
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> PolynomialFeatures
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>y = X[:, <span class="hljs-number">0</span>] ^ X[:, <span class="hljs-number">1</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>y
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = PolynomialFeatures(interaction_only=<span class="hljs-keyword">True</span>).fit_transform(X).astype(int)
+<span class="hljs-meta">&gt;&gt;&gt; </span>X
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>clf = Perceptron(fit_intercept=<span class="hljs-keyword">False</span>, max_iter=<span class="hljs-number">10</span>, tol=<span class="hljs-keyword">None</span>,
+<span class="hljs-meta">... </span>                 shuffle=<span class="hljs-keyword">False</span>).fit(X, y)
+</code></pre>
+<p>&#x5206;&#x7C7B;&#x5668;&#x7684; &#x201C;predictions&#x201D; &#x662F;&#x5B8C;&#x7F8E;&#x7684;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>clf.predict(X)
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>clf.score(X, y)
+<span class="hljs-number">1.0</span>
+</code></pre>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 1. 监督学习">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.html" class="navigation navigation-next " aria-label="Next page: 1.2. 线性和二次判别分析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.1. 广义线性模型","level":"1.3.1.1","depth":3,"next":{"title":"1.2. 线性和二次判别分析","level":"1.3.1.2","depth":3,"path":"docs/master/3.md","ref":"docs/master/3.md","articles":[]},"previous":{"title":"1. 监督学习","level":"1.3.1","depth":2,"path":"docs/master/1.md","ref":"docs/master/1.md","articles":[{"title":"1.1. 广义线性模型","level":"1.3.1.1","depth":3,"path":"docs/master/2.md","ref":"docs/master/2.md","articles":[]},{"title":"1.2. 线性和二次判别分析","level":"1.3.1.2","depth":3,"path":"docs/master/3.md","ref":"docs/master/3.md","articles":[]},{"title":"1.3. 内核岭回归","level":"1.3.1.3","depth":3,"path":"docs/master/4.md","ref":"docs/master/4.md","articles":[]},{"title":"1.4. 支持向量机","level":"1.3.1.4","depth":3,"path":"docs/master/5.md","ref":"docs/master/5.md","articles":[]},{"title":"1.5. 随机梯度下降","level":"1.3.1.5","depth":3,"path":"docs/master/6.md","ref":"docs/master/6.md","articles":[]},{"title":"1.6. 最近邻","level":"1.3.1.6","depth":3,"path":"docs/master/7.md","ref":"docs/master/7.md","articles":[]},{"title":"1.7. 高斯过程","level":"1.3.1.7","depth":3,"path":"docs/master/8.md","ref":"docs/master/8.md","articles":[]},{"title":"1.8. 交叉分解","level":"1.3.1.8","depth":3,"path":"docs/master/9.md","ref":"docs/master/9.md","articles":[]},{"title":"1.9. 朴素贝叶斯","level":"1.3.1.9","depth":3,"path":"docs/master/10.md","ref":"docs/master/10.md","articles":[]},{"title":"1.10. 决策树","level":"1.3.1.10","depth":3,"path":"docs/master/11.md","ref":"docs/master/11.md","articles":[]},{"title":"1.11. 集成方法","level":"1.3.1.11","depth":3,"path":"docs/master/12.md","ref":"docs/master/12.md","articles":[]},{"title":"1.12. 多类和多标签算法","level":"1.3.1.12","depth":3,"path":"docs/master/13.md","ref":"docs/master/13.md","articles":[]},{"title":"1.13. 特征选择","level":"1.3.1.13","depth":3,"path":"docs/master/14.md","ref":"docs/master/14.md","articles":[]},{"title":"1.14. 半监督学习","level":"1.3.1.14","depth":3,"path":"docs/master/15.md","ref":"docs/master/15.md","articles":[]},{"title":"1.15. 等式回归","level":"1.3.1.15","depth":3,"path":"docs/master/16.md","ref":"docs/master/16.md","articles":[]},{"title":"1.16. 概率校准","level":"1.3.1.16","depth":3,"path":"docs/master/17.md","ref":"docs/master/17.md","articles":[]},{"title":"1.17. 神经网络模型（有监督）","level":"1.3.1.17","depth":3,"path":"docs/master/18.md","ref":"docs/master/18.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/2.md","mtime":"2020-11-23T10:54:46.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

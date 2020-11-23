@@ -1,0 +1,1840 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6. 数据集加载工具 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="47.html" />
+    
+    
+    <link rel="prev" href="46.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >6. 数据集加载工具</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="6-&#x6570;&#x636E;&#x96C6;&#x52A0;&#x8F7D;&#x5DE5;&#x5177;">6. &#x6570;&#x636E;&#x96C6;&#x52A0;&#x8F7D;&#x5DE5;&#x5177;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x4E0D;&#x5403;&#x66F2;&#x5947;&#x7684;&#x8DA3;&#x591A;&#x591A;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@A</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x706B;&#x661F;</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@Trembleguy</a>
+        <a href="https://github.com/loopyme" target="_blank">@Loopy</a>
+        <a href="https://github.com/mahaoyang" target="_blank">@mahaoyang</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@cowboy</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@peels</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@t9UhoI</a>
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@Sun</a></p>
+<p>&#x8BE5; <code>sklearn.datasets</code> &#x5305;&#x88C5;&#x5728; <a href="50">&#x5165;&#x95E8;&#x6307;&#x5357;</a> &#x90E8;&#x5206;&#x4E2D;&#x5D4C;&#x5165;&#x4E86;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5C0F;&#x578B;&#x73A9;&#x5177;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x5728;&#x63A7;&#x5236;&#x6570;&#x636E;&#x7684;&#x7EDF;&#x8BA1;&#x7279;&#x6027;&#xFF08;&#x901A;&#x5E38;&#x662F;&#x7279;&#x5F81;&#x7684; correlation &#xFF08;&#x76F8;&#x5173;&#x6027;&#xFF09;&#x548C; informativeness &#xFF08;&#x4FE1;&#x606F;&#x6027;&#xFF09;&#xFF09;&#x7684;&#x540C;&#x65F6;&#x8BC4;&#x4F30;&#x6570;&#x636E;&#x96C6; (<code>n_samples</code> &#x548C; <code>n_features</code>) &#x7684;&#x89C4;&#x6A21;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x7EFC;&#x5408;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x8F6F;&#x4EF6;&#x5305;&#x8FD8;&#x5177;&#x6709;&#x5E2E;&#x52A9;&#x7528;&#x6237;&#x83B7;&#x53D6;&#x66F4;&#x5927;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x96C6;&#x901A;&#x5E38;&#x7531;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x793E;&#x533A;&#x4F7F;&#x7528;&#xFF0C;&#x7528;&#x4E8E;&#x5BF9;&#x6765;&#x81EA; &#x2018;real world&#x2019; &#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#x7B97;&#x6CD5;&#x3002;</p>
+<h2 id="61-&#x901A;&#x7528;&#x6570;&#x636E;&#x96C6;-api">6.1. &#x901A;&#x7528;&#x6570;&#x636E;&#x96C6; API</h2>
+<p>&#x6839;&#x636E;&#x6240;&#x9700;&#x6570;&#x636E;&#x96C6;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6709;&#x4E09;&#x79CD;&#x4E3B;&#x8981;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x96C6;API&#x63A5;&#x53E3;&#x53EF;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<ul>
+<li><strong>loaders</strong> &#x53EF;&#x7528;&#x6765;&#x52A0;&#x8F7D;&#x5C0F;&#x7684;&#x6807;&#x51C6;&#x6570;&#x636E;&#x96C6;,&#x5728;<a href="#62-&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;">&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;</a>&#x4E2D;&#x6709;&#x4ECB;&#x7ECD;&#x3002;</li>
+<li><strong>fetchers</strong> &#x53EF;&#x7528;&#x6765;&#x4E0B;&#x8F7D;&#x5E76;&#x52A0;&#x8F7D;&#x5927;&#x7684;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x96C6;,&#x5728;<a href="#63-&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;">&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;</a>&#x4E2D;&#x6709;&#x4ECB;&#x7ECD;&#x3002;</li>
+</ul>
+<p>loaders&#x548C;fetchers&#x7684;&#x6240;&#x6709;&#x51FD;&#x6570;&#x90FD;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x4E00;&#x6837;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x91CC;&#x9762;&#x81F3;&#x5C11;&#x5305;&#x542B;&#x4E24;&#x9879;:shape&#x4E3A;n_samples*n_features&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x5178;key&#x662F;data(20news groups&#x6570;&#x636E;&#x96C6;&#x9664;&#x5916;)&#x4EE5;&#x53CA;&#x957F;&#x5EA6;&#x4E3A;n_samples&#x7684;numpy&#x6570;&#x7EC4;,&#x5305;&#x542B;&#x4E86;&#x76EE;&#x6807;&#x503C;,&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x5178;key&#x662F;<code>target</code>&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5C06;<code>return_X_y</code>&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A;True&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x90FD;&#x53EF;&#x4EE5;&#x5C06;&#x8F93;&#x51FA;&#x7EA6;&#x675F;&#x4E3A;&#x53EA;&#x5305;&#x542B;&#x6570;&#x636E;&#x548C;&#x76EE;&#x6807;&#x7684;&#x5143;&#x7EC4;&#x3002;</p>
+<p>&#x6570;&#x636E;&#x96C6;&#x8FD8;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x5BF9;<code>DESCR</code>&#x63CF;&#x8FF0;&#xFF0C;&#x540C;&#x65F6;&#x4E00;&#x90E8;&#x5206;&#x4E5F;&#x5305;&#x542B;<code>feature_names</code>&#x548C;<code>target_names</code>&#x7684;&#x7279;&#x5F81;&#x3002;&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x6570;&#x636E;&#x96C6;&#x8BF4;&#x660E;</p>
+<ul>
+<li><strong>generation functions</strong> &#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x751F;&#x6210;&#x53D7;&#x63A7;&#x7684;&#x5408;&#x6210;&#x6570;&#x636E;&#x96C6;(synthetic datasets),&#x5728;&#x4EBA;&#x5DE5;&#x5408;&#x6210;&#x7684;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x6709;&#x4ECB;&#x7ECD;&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;(X,y)&#xFF0C;&#x8BE5;&#x5143;&#x7EC4;&#x7531;shape&#x4E3A;n_samples*n_features&#x7684;numpy&#x6570;&#x7EC4;X&#x548C;&#x957F;&#x5EA6;&#x4E3A;n_samples&#x7684;&#x5305;&#x542B;&#x76EE;&#x6807;y&#x7684;&#x6570;&#x7EC4;&#x7EC4;&#x6210;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x6216;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6DF7;&#x5408;&#x5DE5;&#x5177;(miscellanous tools),&#x5728;<a href="#65-&#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x96C6;">&#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x96C6;</a>&#x4E2D;&#x6709;&#x4ECB;&#x7ECD;</p>
+<h2 id="62-&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;">6.2. &#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;</h2>
+<p>scikit-learn &#x5185;&#x7F6E;&#x6709;&#x4E00;&#x4E9B;&#x5C0F;&#x578B;&#x6807;&#x51C6;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4ECE;&#x67D0;&#x4E2A;&#x5916;&#x90E8;&#x7F51;&#x7AD9;&#x4E0B;&#x8F7D;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x7528;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html#sklearn.datasets.load_boston" title="sklearn.datasets.load_boston" target="_blank"><code>load_boston</code></a>([return_X_y])</td>
+<td>Load and return the boston house-prices dataset (regression).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris" title="sklearn.datasets.load_iris" target="_blank"><code>load_iris</code></a>([return_X_y])</td>
+<td>Load and return the iris dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html#sklearn.datasets.load_diabetes" title="sklearn.datasets.load_diabetes" target="_blank"><code>load_diabetes</code></a>([return_X_y])</td>
+<td>Load and return the diabetes dataset (regression).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits" title="sklearn.datasets.load_digits" target="_blank"><code>load_digits</code></a>([n_class, return_X_y])</td>
+<td>Load and return the digits dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_linnerud.html#sklearn.datasets.load_linnerud" title="sklearn.datasets.load_linnerud" target="_blank"><code>load_linnerud</code></a>([return_X_y])</td>
+<td>Load and return the linnerud dataset (multivariate regression).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine" title="sklearn.datasets.load_wine" target="_blank"><code>load_wine</code></a>([return_X_y])</td>
+<td>Load and return the wine dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" title="sklearn.datasets.load_breast_cancer" target="_blank"><code>load_breast_cancer</code></a>([return_X_y])</td>
+<td>Load and return the breast cancer wisconsin dataset (classification).</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x96C6;&#x6709;&#x52A9;&#x4E8E;&#x5FEB;&#x901F;&#x8BF4;&#x660E;&#x5728; scikit &#x4E2D;&#x5B9E;&#x73B0;&#x7684;&#x5404;&#x79CD;&#x7B97;&#x6CD5;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5B83;&#x4EEC;&#x6570;&#x636E;&#x89C4;&#x6A21;&#x5F80;&#x5F80;&#x592A;&#x5C0F;&#xFF0C;&#x65E0;&#x6CD5;&#x4EE3;&#x8868;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4EFB;&#x52A1;&#x3002;</p>
+<blockquote>
+<p><strong>&#x8BD1;&#x8005;&#x6CE8;</strong>&#xFF1A;&#x5404;&#x4E2A;&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5177;&#x4F53;&#x63CF;&#x8FF0;&#x6B64;&#x5904;&#x4E0D;&#x7FFB;&#x8BD1;&#xFF0C;&#x82E5;&#x9700;&#x67E5;&#x8BE2;&#x8BF7;&#x70B9;&#x51FB;&#x94FE;&#x63A5;&#x67E5;&#x770B;&#x82F1;&#x6587;&#x63CF;&#x8FF0;&#x3000;<a href="&#x6B64;&#x5904;&#x7531;loopy&#x5728;commit&#xFF1A;8d10578427b31ff93df4e399fe5b100f35c11ced&#x4E2D;&#x629B;&#x5F03;&#x4E86;&#x5386;&#x53F2;&#x7FFB;&#x8BD1;&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x4E8E;rst&#x5230;md&#x7684;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x5F71;&#x54CD;&#x4E86;&#x63CF;&#x8FF0;&#x53EF;&#x8BFB;&#x6027;"></a></p>
+</blockquote>
+<ul>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#boston-house-prices-dataset" target="_blank">6.2.1 boston house prices(&#x6CE2;&#x58EB;&#x987F;&#x623F;&#x4EF7;)Dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#iris-plants-dataset" target="_blank">6.2.2 iris(&#x9E22;&#x5C3E;&#x82B1;)Dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#diabetes-dataset" target="_blank">6.2.3 DiabetesDataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#optical-recognition-of-handwritten-digits-dataset" target="_blank">6.2.4 Optical recognition of handwritten digitsDataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#linnerrud-dataset" target="_blank">6.2.5 LinnerudDataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#wine-recognition-dataset" target="_blank">6.2.6 Wine recognition Dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#breast-cancer-wisconsin-diagnostic-dataset" target="_blank">6.2.7 Breast cancer wisconsin (diagnostic)Dataset</a></li>
+</ul>
+<h2 id="63-&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;">6.3 &#x771F;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;</h2>
+<p>scikit-learn &#x63D0;&#x4F9B;&#x52A0;&#x8F7D;&#x8F83;&#x5927;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5E76;&#x5728;&#x5FC5;&#x8981;&#x65F6;&#x4E0B;&#x8F7D;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x96C6;&#x53EF;&#x4EE5;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#x52A0;&#x8F7D; :</p>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x7528;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_olivetti_faces.html#sklearn.datasets.fetch_olivetti_faces" target="_blank">fetch_olivetti_faces</a>([data_home, shuffle, &#x2026;])</td>
+<td>Load the Olivetti faces data-set from AT&amp;T (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html#sklearn.datasets.fetch_20newsgroups" target="_blank">fetch_20newsgroups</a>([data_home, subset, &#x2026;])</td>
+<td>Load the filenames and data from the 20 newsgroups dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups_vectorized.html#sklearn.datasets.fetch_20newsgroups_vectorized" target="_blank">fetch_20newsgroups_vectorized</a>([subset, &#x2026;])</td>
+<td>Load the 20 newsgroups dataset and vectorize it into token counts (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_lfw_people.html#sklearn.datasets.fetch_lfw_people" target="_blank">fetch_lfw_people</a>([data_home, funneled, &#x2026;])</td>
+<td>Load the Labeled Faces in the Wild (LFW) people dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_lfw_pairs.html#sklearn.datasets.fetch_lfw_pairs" target="_blank">fetch_lfw_pairs</a>([subset, data_home, &#x2026;])</td>
+<td>Load the Labeled Faces in the Wild (LFW) pairs dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_covtype.html#sklearn.datasets.fetch_covtype" target="_blank">fetch_covtype</a>([data_home, &#x2026;])</td>
+<td>Load the covertype dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_rcv1.html#sklearn.datasets.fetch_rcv1" target="_blank">fetch_rcv1</a>([data_home, subset, &#x2026;])</td>
+<td>Load the RCV1 multilabel dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_kddcup99.html#sklearn.datasets.fetch_kddcup99" target="_blank">fetch_kddcup99</a>([subset, data_home, shuffle, &#x2026;])</td>
+<td>Load the kddcup99 dataset (classification).</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing" target="_blank">fetch_california_housing</a>([data_home, &#x2026;])</td>
+<td>Load the California housing dataset (regression).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>&#x8BD1;&#x8005;&#x6CE8;</strong>&#xFF1A;&#x540C;&#x6837;&#x7684;&#xFF0C;&#x5404;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5177;&#x4F53;&#x63CF;&#x8FF0;&#x6B64;&#x5904;&#x4E0D;&#x7FFB;&#x8BD1;&#xFF0C;&#x82E5;&#x9700;&#x67E5;&#x8BE2;&#x8BF7;&#x70B9;&#x51FB;&#x94FE;&#x63A5;&#x67E5;&#x770B;&#x82F1;&#x6587;&#x63CF;&#x8FF0;<a href="&#x6B64;&#x5904;&#x7531;loopy&#x5728;commit&#xFF1A;8d10578427b31ff93df4e399fe5b100f35c11ced&#x4E2D;&#x629B;&#x5F03;&#x4E86;&#x5386;&#x53F2;&#x7FFB;&#x8BD1;&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x4E8E;rst&#x5230;md&#x7684;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x5F71;&#x54CD;&#x4E86;&#x63CF;&#x8FF0;&#x53EF;&#x8BFB;&#x6027;"></a></p>
+</blockquote>
+<ul>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#the-olivetti-faces-dataset" target="_blank">6.3.1 The Olivetti faces dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#the-20-newsgroups-text-dataset" target="_blank">6.3.2 The 20 newsgroups text dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#the-labeled-faces-in-the-wild-face-recognition-dataset" target="_blank">6.3.3 The Labeled Faces in the Wild face recognition dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#forest-covertypes" target="_blank">6.3.4 Forest covertypes</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#rcv1-dataset" target="_blank">6.3.5 RCV1 dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#kddcup-99-dataset" target="_blank">6.3.6 Kddcup 99 dataset</a></li>
+<li><a href="https://scikit-learn.org/stable/datasets/index.html#california-housing-dataset" target="_blank">6.3.7 California Housing dataset</a></li>
+</ul>
+<h2 id="64-&#x6837;&#x672C;&#x751F;&#x6210;&#x5668;">6.4. &#x6837;&#x672C;&#x751F;&#x6210;&#x5668;</h2>
+<p>&#x6B64;&#x5916;&#xFF0C;scikit-learn &#x5305;&#x62EC;&#x5404;&#x79CD;&#x968F;&#x673A;&#x6837;&#x672C;&#x7684;&#x751F;&#x6210;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5EFA;&#x7ACB;&#x53EF;&#x63A7;&#x5236;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x590D;&#x6742;&#x6027;&#x4EBA;&#x5DE5;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<h3 id="641-&#x5206;&#x7C7B;&#x548C;&#x805A;&#x7C7B;&#x751F;&#x6210;&#x5668;">6.4.1. &#x5206;&#x7C7B;&#x548C;&#x805A;&#x7C7B;&#x751F;&#x6210;&#x5668;</h3>
+<p>&#x8FD9;&#x4E9B;&#x751F;&#x6210;&#x5668;&#x5C06;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x76F8;&#x5E94;&#x7279;&#x5F81;&#x7684;&#x79BB;&#x6563;&#x77E9;&#x9635;&#x3002;</p>
+<h4 id="6411-&#x5355;&#x6807;&#x7B7E;">6.4.1.1. &#x5355;&#x6807;&#x7B7E;</h4>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs" title="sklearn.datasets.make_blobs" target="_blank"><code>make_blobs</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html#sklearn.datasets.make_classification" title="sklearn.datasets.make_classification" target="_blank"><code>make_classification</code></a> &#x901A;&#x8FC7;&#x5206;&#x914D;&#x6BCF;&#x4E2A;&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6B63;&#x6001;&#x5206;&#x5E03;&#x7684;&#x70B9;&#x7684;&#x7FA4;&#x96C6;&#x521B;&#x5EFA;&#x7684;&#x591A;&#x7C7B;&#x6570;&#x636E;&#x96C6;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs" title="sklearn.datasets.make_blobs" target="_blank"><code>make_blobs</code></a> &#x5BF9;&#x4E8E;&#x4E2D;&#x5FC3;&#x548C;&#x5404;&#x7C07;&#x7684;&#x6807;&#x51C6;&#x504F;&#x5DEE;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x6F14;&#x793A;&#x805A;&#x7C7B;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html#sklearn.datasets.make_classification" title="sklearn.datasets.make_classification" target="_blank"><code>make_classification</code></a> &#x4E13;&#x95E8;&#x901A;&#x8FC7;&#x5F15;&#x5165;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x5197;&#x4F59;&#x7684;&#x548C;&#x672A;&#x77E5;&#x7684;&#x566A;&#x97F3;&#x7279;&#x5F81;&#xFF1B;&#x5C06;&#x9AD8;&#x65AF;&#x96C6;&#x7FA4;&#x7684;&#x6BCF;&#x7C7B;&#x590D;&#x6742;&#x5316;&#xFF1B;&#x5728;&#x7279;&#x5F81;&#x7A7A;&#x95F4;&#x4E0A;&#x8FDB;&#x884C;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_gaussian_quantiles.html#sklearn.datasets.make_gaussian_quantiles" title="sklearn.datasets.make_gaussian_quantiles" target="_blank"><code>make_gaussian_quantiles</code></a> &#x5C06;single Gaussian cluster &#xFF08;&#x5355;&#x9AD8;&#x65AF;&#x7C07;&#xFF09;&#x5206;&#x6210;&#x8FD1;&#x4E4E;&#x76F8;&#x7B49;&#x5927;&#x5C0F;&#x7684;&#x540C;&#x5FC3;&#x8D85;&#x7403;&#x9762;&#x5206;&#x79BB;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_hastie_10_2.html#sklearn.datasets.make_hastie_10_2" title="sklearn.datasets.make_hastie_10_2" target="_blank"><code>make_hastie_10_2</code></a> &#x4EA7;&#x751F;&#x7C7B;&#x4F3C;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x3001;10&#x7EF4;&#x95EE;&#x9898;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/datasets/plot_random_dataset.html" target="_blank"><img src="img/c3e91e4b6783eb9fe281bc3e2e29aaea.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_random_dataset_0011.png"></a></p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html#sklearn.datasets.make_circles" target="_blank">make_circles</a>&#x548C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html#sklearn.datasets.make_moons" target="_blank">make_moon</a>&#x751F;&#x6210;&#x4E8C;&#x7EF4;&#x5206;&#x7C7B;&#x6570;&#x636E;&#x96C6;&#x65F6;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x786E;&#x5B9A;&#x7B97;&#x6CD5;&#xFF08;&#x5982;&#x8D28;&#x5FC3;&#x805A;&#x7C7B;&#x6216;&#x7EBF;&#x6027;&#x5206;&#x7C7B;&#xFF09;&#xFF0C;&#x5305;&#x62EC;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x6027;&#x52A0;&#x5165;&#x9AD8;&#x65AF;&#x566A;&#x58F0;&#x3002;&#x5B83;&#x4EEC;&#x6709;&#x5229;&#x4E8E;&#x53EF;&#x89C6;&#x5316;&#x3002;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html#sklearn.datasets.make_circles" target="_blank">make_circles</a>&#x751F;&#x6210;&#x9AD8;&#x65AF;&#x6570;&#x636E;&#xFF0C;&#x5E26;&#x6709;&#x7403;&#x9762;&#x51B3;&#x7B56;&#x8FB9;&#x754C;&#x4EE5;&#x7528;&#x4E8E;&#x4E8C;&#x8FDB;&#x5236;&#x5206;&#x7C7B;&#xFF0C;&#x800C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html#sklearn.datasets.make_moons" target="_blank">make_moon</a>&#x751F;&#x6210;&#x4E24;&#x4E2A;&#x4EA4;&#x53C9;&#x7684;&#x534A;&#x5706;&#x3002;</p>
+<h4 id="6412-&#x591A;&#x6807;&#x7B7E;">6.4.1.2. &#x591A;&#x6807;&#x7B7E;</h4>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_multilabel_classification.html#sklearn.datasets.make_multilabel_classification" title="sklearn.datasets.make_multilabel_classification" target="_blank"><code>make_multilabel_classification</code></a> &#x751F;&#x6210;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x968F;&#x673A;&#x6837;&#x672C;&#xFF0C;&#x53CD;&#x6620;&#x4ECE;a mixture of topics&#xFF08;&#x4E00;&#x4E2A;&#x6DF7;&#x5408;&#x7684;&#x4E3B;&#x9898;&#xFF09;&#x4E2D;&#x5F15;&#x7528;a bag of words &#xFF08;&#x4E00;&#x4E2A;&#x8BCD;&#x888B;&#xFF09;&#x3002;&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x4E3B;&#x9898;&#x6570;&#x662F;&#x57FA;&#x4E8E;&#x6CCA;&#x677E;&#x5206;&#x5E03;&#x968F;&#x673A;&#x63D0;&#x53D6;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#x4E3B;&#x9898;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4ECE;&#x56FA;&#x5B9A;&#x7684;&#x968F;&#x673A;&#x5206;&#x5E03;&#x4E2D;&#x63D0;&#x53D6;&#x7684;&#x3002;&#x540C;&#x6837;&#x5730;&#xFF0C;&#x5355;&#x8BCD;&#x7684;&#x6570;&#x76EE;&#x662F;&#x57FA;&#x4E8E;&#x6CCA;&#x677E;&#x5206;&#x5E03;&#x63D0;&#x53D6;&#x7684;&#xFF0C;&#x5355;&#x8BCD;&#x901A;&#x8FC7;&#x591A;&#x9879;&#x5F0F;&#x88AB;&#x62BD;&#x53D6;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x4E3B;&#x9898;&#x5B9A;&#x4E49;&#x4E86;&#x5355;&#x8BCD;&#x7684;&#x6982;&#x7387;&#x5206;&#x5E03;&#x3002;&#x5728;&#x4EE5;&#x4E0B;&#x65B9;&#x9762;&#x771F;&#x6B63;&#x7B80;&#x5316;&#x4E86; bag-of-words mixtures &#xFF08;&#x5355;&#x8BCD;&#x6DF7;&#x5408;&#x5305;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>&#x72EC;&#x7ACB;&#x7ED8;&#x5236;&#x7684;&#x6BCF;&#x4E2A;&#x4E3B;&#x9898;&#x8BCD;&#x5206;&#x5E03;&#xFF0C;&#x5728;&#x73B0;&#x5B9E;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x90FD;&#x4F1A;&#x53D7;&#x5230;&#x7A00;&#x758F;&#x57FA;&#x5206;&#x5E03;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x5E76;&#x5C06;&#x76F8;&#x4E92;&#x5173;&#x8054;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x4ECE;&#x6587;&#x6863;&#x4E2D;&#x751F;&#x6210;&#x591A;&#x4E2A;&#x4E3B;&#x9898;&#xFF0C;&#x6240;&#x6709;&#x4E3B;&#x9898;&#x5728;&#x751F;&#x6210;&#x5355;&#x8BCD;&#x5305;&#x65F6;&#x90FD;&#x662F;&#x540C;&#x7B49;&#x6743;&#x91CD;&#x7684;&#x3002;</li>
+<li>&#x968F;&#x673A;&#x4EA7;&#x751F;&#x6CA1;&#x6709;&#x6807;&#x7B7E;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x57FA;&#x4E8E;&#x5206;&#x5E03;&#xFF08;base distribution&#xFF09;&#x6765;&#x4EA7;&#x751F;&#x6587;&#x6863;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/auto_examples/datasets/plot_random_multilabel_dataset.html" target="_blank"><img src="img/69be855df457ccfee81f59ace2595a23.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_random_multilabel_dataset_0011.png"></a></p>
+<h4 id="6413-&#x4E8C;&#x5206;&#x805A;&#x7C7B;">6.4.1.3. &#x4E8C;&#x5206;&#x805A;&#x7C7B;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x7528;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_biclusters.html#sklearn.datasets.make_biclusters" title="sklearn.datasets.make_biclusters" target="_blank"><code>make_biclusters</code></a>(shape, n_clusters[, noise, &#x2026;])</td>
+<td>Generate an array with constant block diagonal structure for biclustering.</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_checkerboard.html#sklearn.datasets.make_checkerboard" title="sklearn.datasets.make_checkerboard" target="_blank"><code>make_checkerboard</code></a>(shape, n_clusters[, &#x2026;])</td>
+<td>Generate an array with block checkerboard structure for biclustering.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="642-&#x56DE;&#x5F52;&#x751F;&#x6210;&#x5668;">6.4.2. &#x56DE;&#x5F52;&#x751F;&#x6210;&#x5668;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html#sklearn.datasets.make_regression" title="sklearn.datasets.make_regression" target="_blank"><code>make_regression</code></a> &#x4EA7;&#x751F;&#x7684;&#x56DE;&#x5F52;&#x76EE;&#x6807;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x62E9;&#x7684;&#x7A00;&#x758F;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x7684;&#x5177;&#x6709;&#x566A;&#x58F0;&#x7684;&#x968F;&#x673A;&#x7684;&#x7279;&#x5F81;&#x3002;&#x5B83;&#x7684;&#x4FE1;&#x606F;&#x7279;&#x5F81;&#x53EF;&#x80FD;&#x662F;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x6216;&#x4F4E;&#x79E9;&#xFF08;&#x5C11;&#x6570;&#x7279;&#x5F81;&#x5360;&#x5927;&#x591A;&#x6570;&#x7684;&#x65B9;&#x5DEE;&#xFF09;&#x3002;</p>
+<p>&#x5176;&#x4ED6;&#x56DE;&#x5F52;&#x751F;&#x6210;&#x5668;&#x4EA7;&#x751F;&#x786E;&#x5B9A;&#x6027;&#x7684;&#x968F;&#x673A;&#x7279;&#x5F81;&#x51FD;&#x6570;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_sparse_uncorrelated.html#sklearn.datasets.make_sparse_uncorrelated" title="sklearn.datasets.make_sparse_uncorrelated" target="_blank"><code>make_sparse_uncorrelated</code></a> &#x4EA7;&#x751F;&#x76EE;&#x6807;&#x4E3A;&#x4E00;&#x4E2A;&#x6709;&#x56DB;&#x4E2A;&#x56FA;&#x5B9A;&#x7CFB;&#x6570;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x3002;&#x5176;&#x4ED6;&#x7F16;&#x7801;&#x660E;&#x786E;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x5173;&#x7CFB;&#xFF1A;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman1.html#sklearn.datasets.make_friedman1" title="sklearn.datasets.make_friedman1" target="_blank"><code>make_friedman1</code></a> &#x4E0E;&#x591A;&#x9879;&#x5F0F;&#x548C;&#x6B63;&#x5F26;&#x76F8;&#x5173;&#x53D8;&#x6362;&#x76F8;&#x8054;&#x7CFB;&#xFF1B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman2.html#sklearn.datasets.make_friedman2" title="sklearn.datasets.make_friedman2" target="_blank"><code>make_friedman2</code></a> &#x5305;&#x62EC;&#x7279;&#x5F81;&#x76F8;&#x4E58;&#x4E0E;&#x4EA4;&#x4E92;&#xFF1B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman3.html#sklearn.datasets.make_friedman3" title="sklearn.datasets.make_friedman3" target="_blank"><code>make_friedman3</code></a> &#x7C7B;&#x4F3C;&#x4E0E;&#x5BF9;&#x76EE;&#x6807;&#x7684;&#x53CD;&#x6B63;&#x5207;&#x53D8;&#x6362;&#x3002;</p>
+<h3 id="643-&#x6D41;&#x5F62;&#x5B66;&#x4E60;&#x751F;&#x6210;&#x5668;">6.4.3. &#x6D41;&#x5F62;&#x5B66;&#x4E60;&#x751F;&#x6210;&#x5668;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x7528;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html#sklearn.datasets.make_s_curve" title="sklearn.datasets.make_s_curve" target="_blank"><code>make_s_curve</code></a>([n_samples, noise, random_state])</td>
+<td>Generate an S curve dataset.</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_swiss_roll.html#sklearn.datasets.make_swiss_roll" title="sklearn.datasets.make_swiss_roll" target="_blank"><code>make_swiss_roll</code></a>([n_samples, noise, random_state])</td>
+<td>Generate a swiss roll dataset.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="644-&#x751F;&#x6210;&#x5668;&#x5206;&#x89E3;">6.4.4. &#x751F;&#x6210;&#x5668;&#x5206;&#x89E3;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x7528;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_low_rank_matrix.html#sklearn.datasets.make_low_rank_matrix" title="sklearn.datasets.make_low_rank_matrix" target="_blank"><code>make_low_rank_matrix</code></a>([n_samples, &#x2026;])</td>
+<td>Generate a mostly low rank matrix with bell-shaped singular values</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_sparse_coded_signal.html#sklearn.datasets.make_sparse_coded_signal" title="sklearn.datasets.make_sparse_coded_signal" target="_blank"><code>make_sparse_coded_signal</code></a>(n_samples, &#x2026;[, &#x2026;])</td>
+<td>Generate a signal as a sparse combination of dictionary elements.</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_spd_matrix.html#sklearn.datasets.make_spd_matrix" title="sklearn.datasets.make_spd_matrix" target="_blank"><code>make_spd_matrix</code></a>(n_dim[, random_state])</td>
+<td>Generate a random symmetric, positive-definite matrix.</td>
+</tr>
+<tr>
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_sparse_spd_matrix.html#sklearn.datasets.make_sparse_spd_matrix" title="sklearn.datasets.make_sparse_spd_matrix" target="_blank"><code>make_sparse_spd_matrix</code></a>([dim, alpha, &#x2026;])</td>
+<td>Generate a sparse symmetric definite positive matrix.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="65-&#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x96C6;">6.5. &#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x96C6;</h1>
+<h3 id="651-&#x6837;&#x672C;&#x56FE;&#x7247;">6.5.1. &#x6837;&#x672C;&#x56FE;&#x7247;</h3>
+<p>scikit &#x5728;&#x901A;&#x8FC7;&#x56FE;&#x7247;&#x7684;&#x4F5C;&#x8005;&#x5171;&#x540C;&#x6388;&#x6743;&#x4E0B;&#x5D4C;&#x5165;&#x4E86;&#x51E0;&#x4E2A;&#x6837;&#x672C; JPEG &#x56FE;&#x7247;&#x3002;&#x8FD9;&#x4E9B;&#x56FE;&#x50CF;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x5BF9; test algorithms &#xFF08;&#x6D4B;&#x8BD5;&#x7B97;&#x6CD5;&#xFF09;&#x548C; pipeline on 2D data &#xFF08;&#x4E8C;&#x7EF4;&#x6570;&#x636E;&#x7BA1;&#x9053;&#xFF09;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x7528;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../modules/generated/sklearn.datasets.load_sample_images.html#sklearn.datasets.load_sample_images" title="sklearn.datasets.load_sample_images"><code>load_sample_images</code></a>()</td>
+<td>Load sample images for image manipulation.</td>
+</tr>
+<tr>
+<td><a href="../modules/generated/sklearn.datasets.load_sample_image.html#sklearn.datasets.load_sample_image" title="sklearn.datasets.load_sample_image"><code>load_sample_image</code></a>(image_name)</td>
+<td>Load the numpy array of a single sample image</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../auto_examples/cluster/plot_color_quantization.html"><img src="img/f94e86205401e8da73308b60aa64b05b.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_color_quantization_0011.png"></a></p>
+<blockquote>
+<p><strong>&#x8B66;&#x544A;</strong> &#x9ED8;&#x8BA4;&#x7F16;&#x7801;&#x7684;&#x56FE;&#x50CF;&#x662F;&#x57FA;&#x4E8E; <code>uint8</code> dtype &#x5230;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x628A;&#x8F93;&#x5165;&#x8F6C;&#x6362;&#x4E3A;&#x6D6E;&#x70B9;&#x6570;&#x8868;&#x793A;&#xFF0C;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x7684;&#x6548;&#x679C;&#x6700;&#x597D;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x8BA1;&#x5212;&#x4F7F;&#x7528; <code>matplotlib.pyplpt.imshow</code> &#x522B;&#x5FD8;&#x4E86;&#x5C3A;&#x5EA6;&#x8303;&#x56F4; 0 - 1&#xFF0C;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x6240;&#x505A;&#x7684;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="../auto_examples/cluster/plot_color_quantization.html#sphx-glr-auto-examples-cluster-plot-color-quantization-py">Color Quantization using K-Means</a></li>
+</ul>
+</blockquote>
+<h3 id="652-svmlight&#x6216;libsvm&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x96C6;">6.5.2. svmlight&#x6216;libsvm&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x96C6;</h3>
+<p>scikit-learn &#x4E2D;&#x6709;&#x52A0;&#x8F7D;svmlight / libsvm&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x529F;&#x80FD;&#x51FD;&#x6570;&#x3002;&#x6B64;&#x79CD;&#x683C;&#x5F0F;&#x4E2D;&#xFF0C;&#x6BCF;&#x884C; &#x91C7;&#x7528;&#x5982; <code>&amp;lt;label&amp;gt; &amp;lt;feature-id&amp;gt;:&amp;lt;feature-value&amp;gt;&amp;lt;feature-id&amp;gt;:&amp;lt;feature-value&amp;gt; ...</code> &#x7684;&#x5F62;&#x5F0F;&#x3002;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x5C24;&#x5176;&#x9002;&#x5408;&#x7A00;&#x758F;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5728;&#x8BE5;&#x6A21;&#x5757;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x96C6; <code>X</code> &#x4F7F;&#x7528;&#x7684;&#x662F;scipy&#x7A00;&#x758F;CSR&#x77E9;&#x9635;&#xFF0C; &#x7279;&#x5F81;&#x96C6; <code>y</code> &#x4F7F;&#x7528;&#x7684;&#x662F;numpy&#x6570;&#x7EC4;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x6B65;&#x9AA4;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x96C6;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> load_svmlight_file
+<span class="hljs-meta">&gt;&gt;&gt; </span>X_train, y_train = load_svmlight_file(<span class="hljs-string">&quot;/path/to/train_dataset.txt&quot;</span>)
+...
+</code></pre>
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x4E24;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7684;&#x6570;&#x636E;&#x96C6;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>X_train, y_train, X_test, y_test = load_svmlight_files(
+<span class="hljs-meta">... </span>    (<span class="hljs-string">&quot;/path/to/train_dataset.txt&quot;</span>, <span class="hljs-string">&quot;/path/to/test_dataset.txt&quot;</span>))
+...
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86; <code>X_train</code> &#x548C; <code>X_test</code> &#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x7279;&#x5F81;&#x6570;&#x91CF;&#x3002; &#x56FA;&#x5B9A;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#x4E5F;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x540C;&#x6837;&#x7684;&#x7ED3;&#x679C;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>X_test, y_test = load_svmlight_file(
+<span class="hljs-meta">... </span>    <span class="hljs-string">&quot;/path/to/test_dataset.txt&quot;</span>, n_features=X_train.shape[<span class="hljs-number">1</span>])
+...
+</code></pre>
+<blockquote>
+<p><strong>&#x76F8;&#x5173;&#x94FE;&#x63A5;</strong>:</p>
+<p>svmlight / libsvm &#x683C;&#x5F0F;&#x7684;&#x516C;&#x5171;&#x6570;&#x636E;&#x96C6;: <a href="https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets" target="_blank">https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets</a></p>
+<p>&#x66F4;&#x5FEB;&#x7684;API&#x517C;&#x5BB9;&#x7684;&#x5B9E;&#x73B0;: <a href="https://github.com/mblondel/svmlight-loader" target="_blank">https://github.com/mblondel/svmlight-loader</a></p>
+</blockquote>
+<h2 id="653-&#x4ECE;openmlorg&#x4E0B;&#x8F7D;&#x6570;&#x636E;&#x96C6;">6.5.3. &#x4ECE;openml.org&#x4E0B;&#x8F7D;&#x6570;&#x636E;&#x96C6;</h2>
+<p><a href="https://openml.org/" target="_blank">openml.org</a>&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6570;&#x636E;&#x548C;&#x5B9E;&#x9A8C;&#x7684;&#x516C;&#x5171;&#x5B58;&#x50A8;&#x5E93;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x6BCF;&#x4E2A;&#x4EBA;&#x4E0A;&#x4F20;&#x5F00;&#x653E;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<p>&#x5728;<code>sklearn.datasets</code>&#x5305;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_openml.html#sklearn.datasets.fetch_openml" target="_blank">sklearn.datasets.fetch_openml</a>&#x51FD;&#x6570;&#x6765;&#x4ECE;openml.org&#x4E0B;&#x8F7D;&#x6570;&#x636E;&#x96C6;&#xFF0E;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x8F7D;gene expressions in mice brains&#xFF08;&#x8001;&#x9F20;&#x5927;&#x8111;&#x4E2D;&#x7684;&#x57FA;&#x56E0;&#x8868;&#x8FBE;&#xFF09;&#x6570;&#x636E;&#x96C6;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> fetch_openml
+<span class="hljs-meta">&gt;&gt;&gt; </span>mice = fetch_openml(name=<span class="hljs-string">&apos;miceprotein&apos;</span>, version=<span class="hljs-number">4</span>)
+</code></pre>
+<p>&#x8981;&#x5B8C;&#x5168;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x540D;&#x79F0;&#x548C;&#x7248;&#x672C;&#xFF0C;&#x5C3D;&#x7BA1;&#x7248;&#x672C;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F46;&#x8BF7;&#x53C2;&#x89C1;&#x4E0B;&#x9762;&#x7684;dataset Versions&#x3002;&#x6570;&#x636E;&#x96C6;&#x5171;&#x5305;&#x542B;8&#x4E2A;&#x4E0D;&#x540C;&#x7C7B;&#x522B;&#x7684;1080&#x4E2A;&#x6837;&#x672C;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>mice.data.shape
+(<span class="hljs-number">1080</span>, <span class="hljs-number">77</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>mice.target.shape
+(<span class="hljs-number">1080</span>,)
+<span class="hljs-meta">&gt;&gt;&gt; </span>np.unique(mice.target)
+array([<span class="hljs-string">&apos;c-CS-m&apos;</span>, <span class="hljs-string">&apos;c-CS-s&apos;</span>, <span class="hljs-string">&apos;c-SC-m&apos;</span>, <span class="hljs-string">&apos;c-SC-s&apos;</span>, <span class="hljs-string">&apos;t-CS-m&apos;</span>, <span class="hljs-string">&apos;t-CS-s&apos;</span>, <span class="hljs-string">&apos;t-SC-m&apos;</span>, <span class="hljs-string">&apos;t-SC-s&apos;</span>], dtype=object)
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x67E5;&#x770B;<code>DESCR</code>&#x548C;<code>details</code>&#x5C5E;&#x6027;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x5173;&#x4E8E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>print(mice.DESCR)
+**Author**: Clara Higuera, Katheleen J. Gardiner, Krzysztof J. Cios
+**Source**: [UCI](https://archive.ics.uci.edu/ml/datasets/Mice+Protein+Expression) - <span class="hljs-number">2015</span>
+**Please cite**: Higuera C, Gardiner KJ, Cios KJ (<span class="hljs-number">2015</span>) Self-Organizing
+Feature Maps Identify Proteins Critical to Learning <span class="hljs-keyword">in</span> a Mouse Model of Down
+Syndrome. PLoS ONE <span class="hljs-number">10</span>(<span class="hljs-number">6</span>): e0129126...
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>mice.details
+{<span class="hljs-string">&apos;id&apos;</span>: <span class="hljs-string">&apos;40966&apos;</span>, <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;MiceProtein&apos;</span>, <span class="hljs-string">&apos;version&apos;</span>: <span class="hljs-string">&apos;4&apos;</span>, <span class="hljs-string">&apos;format&apos;</span>: <span class="hljs-string">&apos;ARFF&apos;</span>,
+<span class="hljs-string">&apos;upload_date&apos;</span>: <span class="hljs-string">&apos;2017-11-08T16:00:15&apos;</span>, <span class="hljs-string">&apos;licence&apos;</span>: <span class="hljs-string">&apos;Public&apos;</span>,
+<span class="hljs-string">&apos;url&apos;</span>: <span class="hljs-string">&apos;https://www.openml.org/data/v1/download/17928620/MiceProtein.arff&apos;</span>,
+<span class="hljs-string">&apos;file_id&apos;</span>: <span class="hljs-string">&apos;17928620&apos;</span>, <span class="hljs-string">&apos;default_target_attribute&apos;</span>: <span class="hljs-string">&apos;class&apos;</span>,
+<span class="hljs-string">&apos;row_id_attribute&apos;</span>: <span class="hljs-string">&apos;MouseID&apos;</span>,
+<span class="hljs-string">&apos;ignore_attribute&apos;</span>: [<span class="hljs-string">&apos;Genotype&apos;</span>, <span class="hljs-string">&apos;Treatment&apos;</span>, <span class="hljs-string">&apos;Behavior&apos;</span>],
+<span class="hljs-string">&apos;tag&apos;</span>: [<span class="hljs-string">&apos;OpenML-CC18&apos;</span>, <span class="hljs-string">&apos;study_135&apos;</span>, <span class="hljs-string">&apos;study_98&apos;</span>, <span class="hljs-string">&apos;study_99&apos;</span>],
+<span class="hljs-string">&apos;visibility&apos;</span>: <span class="hljs-string">&apos;public&apos;</span>, <span class="hljs-string">&apos;status&apos;</span>: <span class="hljs-string">&apos;active&apos;</span>,
+<span class="hljs-string">&apos;md5_checksum&apos;</span>: <span class="hljs-string">&apos;3c479a6885bfa0438971388283a1ce32&apos;</span>}
+</code></pre>
+<p><code>DESCR</code>&#x5305;&#x542B;&#x7684;&#x81EA;&#x7531;&#x6587;&#x672C;&#x63CF;&#x8FF0;&#x6570;&#x636E;,&#x800C;<code>details</code>&#x5305;&#x542B;openml&#x5B58;&#x50A8;&#x7684;&#x5B57;&#x5178;&#x683C;&#x5F0F;&#x7684;&#x5143;&#x6570;&#x636E;,&#x5982;&#x6570;&#x636E;&#x96C6;id&#x3002;&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;,&#x8BF7;&#x53C2;&#x9605;<a href="https://docs.openml.org/#data" target="_blank">openml&#x6587;&#x6863;</a>.&#x5C0F;&#x9F20;&#x86CB;&#x767D;&#x8D28;&#x6570;&#x636E;&#x96C6;&#x7684;<code>data_id</code>&#x662F;40966,&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;id(&#x6216;&#x540D;&#x79F0;),&#x4EE5;&#x4ECE;openml&#x7F51;&#x7AD9;&#x83B7;&#x5F97;&#x66F4;&#x591A;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x7684;&#x4FE1;&#x606F;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>mice.url
+<span class="hljs-string">&apos;https://www.openml.org/d/40966&apos;</span>
+</code></pre>
+<p><code>data_id</code>&#x662F;OpenML&#x4E2D;&#x6570;&#x636E;&#x96C6;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;:</p>
+<pre><code class="lang-py">&gt;&gt;&gt; mice = fetch_openml(data_id=40966)
+&gt;&gt;&gt; mice.details
+{&apos;id&apos;: &apos;4550&apos;, &apos;name&apos;: &apos;MiceProtein&apos;, &apos;version&apos;: &apos;1&apos;, &apos;format&apos;: &apos;ARFF&apos;,
+&apos;creator&apos;: ...,
+&apos;upload_date&apos;: &apos;2016-02-17T14:32:49&apos;, &apos;licence&apos;: &apos;Public&apos;, &apos;url&apos;:
+&apos;https://www.openml.org/data/v1/download/1804243/MiceProtein.ARFF&apos;, &apos;file_id&apos;:
+&apos;1804243&apos;, &apos;default_target_attribute&apos;: &apos;class&apos;, &apos;citation&apos;: &apos;Higuera C,
+Gardiner KJ, Cios KJ (2015) Self-Organizing Feature Maps Identify Proteins
+Critical to Learning in a Mouse Model of Down Syndrome. PLoS ONE 10(6):
+e0129126. [Web Link] journal.pone.0129126&apos;, &apos;tag&apos;: [&apos;OpenML100&apos;, &apos;study_14&apos;,
+&apos;study_34&apos;], &apos;visibility&apos;: &apos;public&apos;, &apos;status&apos;: &apos;active&apos;, &apos;md5_checksum&apos;:
+&apos;3c479a6885bfa0438971388283a1ce32&apos;}
+</code></pre>
+<h3 id="6531-&#x6570;&#x636E;&#x96C6;&#x7248;&#x672C;">6.5.3.1. &#x6570;&#x636E;&#x96C6;&#x7248;&#x672C;</h3>
+<p>&#x6570;&#x636E;&#x96C6;&#x7531;&#x5176;<code>data_id</code>&#x60DF;&#x4E00;&#x6307;&#x5B9A;&#xFF0C;&#x4F46;&#x4E0D;&#x4E00;&#x5B9A;&#x7531;&#x5176;&#x540D;&#x79F0;&#x6307;&#x5B9A;&#x3002;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x5177;&#x6709;&#x76F8;&#x540C;&#x540D;&#x79F0;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x4E0D;&#x540C;&#x201C;&#x7248;&#x672C;&#x201D;&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x6570;&#x636E;&#x96C6;&#x7684;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7248;&#x672C;&#x5305;&#x542B;&#x91CD;&#x8981;&#x95EE;&#x9898;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x5C06;&#x5176;&#x505C;&#x7528;&#x3002;&#x4F7F;&#x7528;&#x540D;&#x79F0;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x96C6;&#x5C06;&#x751F;&#x6210;&#x4ECD;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6700;&#x65E9;&#x7248;&#x672C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5982;&#x679C;&#x65E9;&#x671F;&#x7248;&#x672C;&#x65E0;&#x6548;&#xFF0C;<code>fetch_openml(name=&quot;miceprotein&quot;)</code>&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x65F6;&#x95F4;&#x4EA7;&#x751F;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4E0A;&#x9762;&#x83B7;&#x53D6;&#x7684;<code>data_id=40966</code>&#x7684;&#x6570;&#x636E;&#x96C6;&#x662F;&#x201C;miceprotein&#x201D;&#x6570;&#x636E;&#x96C6;&#x7684;&#x7248;&#x672C;1:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>mice.details[<span class="hljs-string">&apos;version&apos;</span>]  
+<span class="hljs-string">&apos;1&apos;</span>
+</code></pre>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;&#x800C;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;iris&#x6570;&#x636E;&#x96C6;&#x6709;&#x591A;&#x4E2A;&#x7248;&#x672C;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>iris = fetch_openml(name=<span class="hljs-string">&quot;iris&quot;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris.details[<span class="hljs-string">&apos;version&apos;</span>]  
+<span class="hljs-string">&apos;1&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris.details[<span class="hljs-string">&apos;id&apos;</span>]  
+<span class="hljs-string">&apos;61&apos;</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_61 = fetch_openml(data_id=<span class="hljs-number">61</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_61.details[<span class="hljs-string">&apos;version&apos;</span>]
+<span class="hljs-string">&apos;1&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_61.details[<span class="hljs-string">&apos;id&apos;</span>]
+<span class="hljs-string">&apos;61&apos;</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_969 = fetch_openml(data_id=<span class="hljs-number">969</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_969.details[<span class="hljs-string">&apos;version&apos;</span>]
+<span class="hljs-string">&apos;3&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_969.details[<span class="hljs-string">&apos;id&apos;</span>]
+<span class="hljs-string">&apos;969&apos;</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x540D;&#x79F0;&#x201C;iris&#x201D;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x96C6;&#x5C06;&#x751F;&#x6210;&#x6700;&#x4F4E;&#x7248;&#x672C;&#xFF0C;&#x7248;&#x672C;1&#xFF0C;&#x5373;data_id&#xFF1D;61&#x3002;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x603B;&#x662F;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x51C6;&#x786E;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x6700;&#x5B89;&#x5168;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x901A;&#x8FC7;<code>data_id</code>&#x6307;&#x5B9A;&#x5B83;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x96C6;<code>data_id 969</code>&#x662F;&#x7248;&#x672C;3(&#x7248;&#x672C;2&#x5DF2;&#x5931;&#x6548;)&#xFF0C;&#x5305;&#x542B;&#x6570;&#x636E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7248;&#x672C;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>np.unique(iris_969.target)
+array([<span class="hljs-string">&apos;N&apos;</span>, <span class="hljs-string">&apos;P&apos;</span>], dtype=object)
+</code></pre>
+<p>&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x540D;&#x79F0;&#x548C;&#x7248;&#x672C;&#xFF0C;&#x8FD9;&#x4E5F;&#x552F;&#x4E00;&#x5730;&#x6807;&#x8BC6;&#x6570;&#x636E;&#x96C6;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>iris_version_3 = fetch_openml(name=<span class="hljs-string">&quot;iris&quot;</span>, version=<span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_version_3.details[<span class="hljs-string">&apos;version&apos;</span>]
+<span class="hljs-string">&apos;3&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>iris_version_3.details[<span class="hljs-string">&apos;id&apos;</span>]
+<span class="hljs-string">&apos;969&apos;</span>
+</code></pre>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;</strong></p>
+<ul>
+<li>Vanschoren, van Rijn, Bischl and Torgo &#x201C;<a href="https://arxiv.org/pdf/1407.7722.pdf" target="_blank">OpenML: networked science in machine learning</a>&#x201D;, ACM SIGKDD Explorations Newsletter, 15(2), 49-60, 2014.</li>
+</ul>
+</blockquote>
+<h2 id="654-&#x4ECE;&#x5916;&#x90E8;&#x6570;&#x636E;&#x96C6;&#x52A0;&#x8F7D;">6.5.4. &#x4ECE;&#x5916;&#x90E8;&#x6570;&#x636E;&#x96C6;&#x52A0;&#x8F7D;</h2>
+<p>scikit-learn&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x5B58;&#x50A8;&#x4E3A;numpy&#x6570;&#x7EC4;&#x6216;&#x8005;scipy&#x7A00;&#x758F;&#x6570;&#x7EC4;&#x7684;&#x6570;&#x503C;&#x6570;&#x636E;&#x3002; &#x5176;&#x4ED6;&#x53EF;&#x4EE5;&#x8F6C;&#x5316;&#x6210;&#x6570;&#x503C;&#x6570;&#x7EC4;&#x7684;&#x7C7B;&#x578B;&#x4E5F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#xFF0C;&#x5982;pandas&#x4E2D;&#x7684;DataFrame&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x63A8;&#x8350;&#x4E00;&#x4E9B;&#x5C06;&#x6807;&#x51C6;&#x7EB5;&#x5217;&#x5F62;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x4E3A;scikit-learn&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x683C;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;:</p>
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/io.html" target="_blank">pandas.io</a> &#x63D0;&#x4F9B;&#x4E86;&#x4ECE;&#x5E38;&#x89C1;&#x683C;&#x5F0F;(&#x5305;&#x62EC;CSV,Excel,JSON,SQL&#x7B49;)&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x5DE5;&#x5177;.DateFrame &#x4E5F;&#x53EF;&#x4EE5;&#x4ECE;&#x7531; &#x5143;&#x7EC4;&#x6216;&#x8005;&#x5B57;&#x5178;&#x7EC4;&#x6210;&#x7684;&#x5217;&#x8868;&#x6784;&#x5EFA;&#x800C;&#x6210;.Pandas&#x80FD;&#x987A;&#x5229;&#x7684;&#x5904;&#x7406;&#x5F02;&#x6784;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;&#x5904;&#x7406;&#x548C;&#x8F6C;&#x6362; &#x6210;&#x65B9;&#x4FBF;scikit-learn&#x4F7F;&#x7528;&#x7684;&#x6570;&#x503C;&#x6570;&#x636E;&#x7684;&#x5DE5;&#x5177;&#x3002;</li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/io.html" target="_blank">scipy.io</a> &#x4E13;&#x95E8;&#x5904;&#x7406;&#x79D1;&#x5B66;&#x8BA1;&#x7B97;&#x9886;&#x57DF;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;.mat&#x548C;.arff&#x683C;&#x5F0F;&#x7684;&#x5185;&#x5BB9;&#x3002;</li>
+<li><a href="https://docs.scipy.org/doc/numpy/reference/routines.io.html" target="_blank">numpy/routines.io</a> &#x5C06;&#x7EB5;&#x5217;&#x5F62;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x6807;&#x51C6;&#x7684;&#x52A0;&#x8F7D;&#x4E3A;numpy&#x6570;&#x7EC4;</li>
+<li>scikit-learn&#x7684;<code>datasets.load_svmlight_file</code>&#x5904;&#x7406;svmlight&#x6216;&#x8005;libSVM&#x7A00;&#x758F;&#x77E9;&#x9635;</li>
+<li>scikit-learn&#x7684; <code>datasets.load_files</code> &#x5904;&#x7406;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x7EC4;&#x6210;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x6BCF;&#x4E2A;&#x76EE;&#x5F55;&#x540D;&#x662F;&#x6BCF;&#x4E2A; &#x7C7B;&#x522B;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x6BCF;&#x4E2A;&#x76EE;&#x5F55;&#x5185;&#x7684;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5BF9;&#x5E94;&#x8BE5;&#x7C7B;&#x522B;&#x7684;&#x4E00;&#x4E2A;&#x6837;&#x672C;</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x6742;&#x9879;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#x56FE;&#x50CF;&#xFF0C;&#x89C6;&#x5C4F;&#xFF0C;&#x97F3;&#x9891;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x53C2;&#x8003;:</p>
+<ul>
+<li><a href="http://scikit-image.org/docs/dev/api/skimage.io.html" target="_blank">skimage.io</a> &#x6216; <a href="https://imageio.readthedocs.io/en/latest/userapi.html" target="_blank">Imageio</a> &#x5C06;&#x56FE;&#x50CF;&#x6216;&#x8005;&#x89C6;&#x5C4F;&#x52A0;&#x8F7D;&#x4E3A;numpy&#x6570;&#x7EC4;</li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.imread.html#scipy.misc.imread" target="_blank">scipy.misc.imread</a> (requires the <a href="https://pypi.python.org/pypi/Pillow" target="_blank">Pillow</a> package)&#x5C06;&#x5404;&#x79CD;&#x56FE;&#x50CF;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x52A0;&#x8F7D;&#x4E3A; &#x50CF;&#x7D20;&#x7070;&#x5EA6;&#x6570;&#x636E;</li>
+<li><a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.wavfile.read.html" target="_blank">scipy.io.wavfile.read</a> &#x5C06;WAV&#x6587;&#x4EF6;&#x8BFB;&#x5165;&#x4E00;&#x4E2A;numpy&#x6570;&#x7EC4;</li>
+</ul>
+<p>&#x5B58;&#x50A8;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65E0;&#x5E8F;(&#x6216;&#x8005;&#x540D;&#x5B57;)&#x7279;&#x5F81;(&#x5728;pandas&#x7684;DataFrame&#x4E2D;&#x5F88;&#x5E38;&#x89C1;)&#x9700;&#x8981;&#x8F6C;&#x6362;&#x4E3A;&#x6574;&#x6570;&#xFF0C;&#x5F53;&#x6574;&#x6570;&#x7C7B;&#x522B;&#x53D8;&#x91CF; &#x88AB;&#x7F16;&#x7801;&#x6210;&#x72EC;&#x70ED;&#x53D8;&#x91CF;(<a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder" title="sklearn.preprocessing.OneHotEncoder" target="_blank"><code>sklearn.preprocessing.OneHotEncoder</code></a>)&#x6216;&#x7C7B;&#x4F3C;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5B83;&#x6216;&#x8BB8;&#x53EF;&#x4EE5;&#x88AB;&#x6700;&#x597D;&#x7684;&#x5229;&#x7528;&#x3002; &#x53C2;&#x89C1;<a href="40#53-&#x9884;&#x5904;&#x7406;&#x6570;&#x636E;">&#x9884;&#x5904;&#x7406;&#x6570;&#x636E;</a>.</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x8981;&#x7BA1;&#x7406;&#x4F60;&#x7684;&#x6570;&#x503C;&#x6570;&#x636E;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x4F18;&#x5316;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x6765;&#x51CF;&#x5C11;&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;,&#x4F8B;&#x5982;HDF5&#x3002;&#x50CF; H5Py, PyTables&#x548C;pandas&#x7B49;&#x7684;&#x5404;&#x79CD;&#x5E93;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;Python&#x63A5;&#x53E3;&#xFF0C;&#x6765;&#x8BFB;&#x5199;&#x8BE5;&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="46.html" class="navigation navigation-prev " aria-label="Previous page: 5.9. 预测目标 (y) 的转换">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="47.html" class="navigation navigation-next " aria-label="Next page: 6.1. 通用数据集 API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6. 数据集加载工具","level":"1.3.6","depth":2,"next":{"title":"6.1. 通用数据集 API","level":"1.3.6.1","depth":3,"path":"docs/master/47.md","ref":"docs/master/47.md","articles":[]},"previous":{"title":"5.9. 预测目标 (y) 的转换","level":"1.3.5.9","depth":3,"path":"docs/master/46.md","ref":"docs/master/46.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/47.md","mtime":"2020-11-23T10:54:46.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

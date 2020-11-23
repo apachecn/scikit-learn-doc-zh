@@ -1,0 +1,1511 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>分类特征稀疏的文本 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    其他示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    双聚类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">
+            
+                <a href="../Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">
+            
+                    
+                    频谱共聚算法演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">
+            
+                <a href="../Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">
+            
+                    
+                    频谱双聚类算法演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">
+            
+                <a href="../Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">
+            
+                    
+                    使用频谱共聚算法对文档进行聚合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    校准
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    分类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    多聚类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    协方差估计
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    交叉分解
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    数据集示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    决策树
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    分解
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    集成方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    基于真实数据集的示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    特征选择
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" >
+            
+                <span>
+            
+                    
+                    高斯混合模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    高斯机器学习过程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    广义线性模型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="plot_lasso_and_elasticnet.html">
+            
+                <a href="plot_lasso_and_elasticnet.html">
+            
+                    
+                    Lasso 和弹性网络在稀疏信号上的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="plot_lasso_coordinate_descent_path.html">
+            
+                <a href="plot_lasso_coordinate_descent_path.html">
+            
+                    
+                    Lasso 和弹性网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.3" data-path="plot_lasso_model_selection.html">
+            
+                <a href="plot_lasso_model_selection.html">
+            
+                    
+                    Lasso 模型选择：交叉验证 / AIC / BIC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.4" data-path="plot_multi_task_lasso_support.html">
+            
+                <a href="plot_multi_task_lasso_support.html">
+            
+                    
+                    多任务 Lasso 实现联合特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.5" data-path="plot_ols.html">
+            
+                <a href="plot_ols.html">
+            
+                    
+                    线性回归示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.6" data-path="plot_ridge_path.html">
+            
+                <a href="plot_ridge_path.html">
+            
+                    
+                    岭系数对回归系数的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.7" data-path="plot_tomography_l1_reconstruction.html">
+            
+                <a href="plot_tomography_l1_reconstruction.html">
+            
+                    
+                    压缩感知：用L1先验概率进行断层重建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" >
+            
+                <span>
+            
+                    
+                    检查
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" >
+            
+                <span>
+            
+                    
+                    流行学习
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" >
+            
+                <span>
+            
+                    
+                    缺失值插补
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" >
+            
+                <span>
+            
+                    
+                    选型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" >
+            
+                <span>
+            
+                    
+                    多输出方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" >
+            
+                <span>
+            
+                    
+                    最近邻
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" >
+            
+                <span>
+            
+                    
+                    神经网络
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" >
+            
+                <span>
+            
+                    
+                    管道和复合估计器
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" >
+            
+                <span>
+            
+                    
+                    预处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" >
+            
+                <span>
+            
+                    
+                    发布要点
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" >
+            
+                <span>
+            
+                    
+                    半监督分类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" >
+            
+                <span>
+            
+                    
+                    支持向量机
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" >
+            
+                <span>
+            
+                    
+                    建成练习
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" >
+            
+                <span>
+            
+                    
+                    文本文档工作
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.31.1" data-path="plot_document_classification_20newsgroups.html">
+            
+                <a href="plot_document_classification_20newsgroups.html">
+            
+                    
+                    分类特征稀疏的文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >分类特征稀疏的文本</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5206;&#x7C7B;&#x7279;&#x5F81;&#x7A00;&#x758F;&#x7684;&#x6587;&#x672C;">&#x5206;&#x7C7B;&#x7279;&#x5F81;&#x7A00;&#x758F;&#x7684;&#x6587;&#x672C;</h1>
+<blockquote>
+<p>&#x7FFB;&#x8BD1;&#x8005;:<a href="https://github.com/loopyme" target="_blank">@Loopy</a><br>&#x6821;&#x9A8C;&#x8005;:<a href="https://github.com/barrycg" target="_blank">@barrycg</a></p>
+</blockquote>
+<p>&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;scikit-learn&#x4E2D;&#x7684;&#x5355;&#x8BCD;&#x5305;&#x65B9;&#x6CD5;&#xFF0C;&#x6839;&#x636E;&#x4E3B;&#x9898;&#x5BF9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x3002;&#x672C;&#x4F8B;&#x4F7F;&#x7528;scipy.sparse&#x4E2D;&#x7684;&#x77E9;&#x9635;&#x6765;&#x5B58;&#x50A8;&#x7279;&#x5F81;&#xFF0C;&#x5E76;&#x6F14;&#x793A;&#x5404;&#x79CD;&#x80FD;&#x591F;&#x6709;&#x6548;&#x5904;&#x7406;&#x7A00;&#x758F;&#x77E9;&#x9635;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x3002;</p>
+<p>&#x672C;&#x4F8B;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x662F;20&#x6761;&#x65B0;&#x95FB;&#x7EC4;&#x6570;&#x636E;&#x96C6;&#x3002;&#x901A;&#x8FC7;scikit-learn&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x4E0B;&#x8F7D;&#x8BE5;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x3002;</p>
+<p>&#x4E0B;&#x8FF0;&#x6761;&#x5F62;&#x56FE;&#x5C55;&#x793A;&#x4E86;&#x5404;&#x4E2A;&#x4E0D;&#x540C;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x5176;&#x4FE1;&#x606F;&#x5305;&#x62EC;&#x7CBE;&#x5EA6;&#x3001;&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;(&#x5DF2;&#x5F52;&#x4E00;&#x5316;)&#x548C;&#x6D4B;&#x8BD5;&#x65F6;&#x95F4;(&#x5DF2;&#x5F52;&#x4E00;&#x5316;)&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> optparse <span class="hljs-keyword">import</span> OptionParser
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> fetch_20newsgroups
+<span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> TfidfVectorizer
+<span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> HashingVectorizer
+<span class="hljs-keyword">from</span> sklearn.feature_selection <span class="hljs-keyword">import</span> SelectFromModel
+<span class="hljs-keyword">from</span> sklearn.feature_selection <span class="hljs-keyword">import</span> SelectKBest, chi2
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> RidgeClassifier
+<span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> Pipeline
+<span class="hljs-keyword">from</span> sklearn.svm <span class="hljs-keyword">import</span> LinearSVC
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> SGDClassifier
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> Perceptron
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> PassiveAggressiveClassifier
+<span class="hljs-keyword">from</span> sklearn.naive_bayes <span class="hljs-keyword">import</span> BernoulliNB, ComplementNB, MultinomialNB
+<span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> KNeighborsClassifier
+<span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> NearestCentroid
+<span class="hljs-keyword">from</span> sklearn.ensemble <span class="hljs-keyword">import</span> RandomForestClassifier
+<span class="hljs-keyword">from</span> sklearn.utils.extmath <span class="hljs-keyword">import</span> density
+<span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> metrics
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5728;stdout&#x4E0A;&#x663E;&#x793A;&#x8FDB;&#x5EA6;&#x65E5;&#x5FD7;</span>
+logging.basicConfig(level=logging.INFO,format=<span class="hljs-string">&apos;%(asctime)s %(levelname)s %(message)s&apos;</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x89E3;&#x6790;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</span>
+op = OptionParser()
+op.add_option(<span class="hljs-string">&quot;--report&quot;</span>,
+              action=<span class="hljs-string">&quot;store_true&quot;</span>, dest=<span class="hljs-string">&quot;print_report&quot;</span>,
+              help=<span class="hljs-string">&quot;Print a detailed classification report.&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--chi2_select&quot;</span>,
+              action=<span class="hljs-string">&quot;store&quot;</span>, type=<span class="hljs-string">&quot;int&quot;</span>, dest=<span class="hljs-string">&quot;select_chi2&quot;</span>,
+              help=<span class="hljs-string">&quot;Select some number of features using a chi-squared test&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--confusion_matrix&quot;</span>,
+              action=<span class="hljs-string">&quot;store_true&quot;</span>, dest=<span class="hljs-string">&quot;print_cm&quot;</span>,
+              help=<span class="hljs-string">&quot;Print the confusion matrix.&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--top10&quot;</span>,
+              action=<span class="hljs-string">&quot;store_true&quot;</span>, dest=<span class="hljs-string">&quot;print_top10&quot;</span>,
+              help=<span class="hljs-string">&quot;Print ten most discriminative terms per class&quot;</span>
+                   <span class="hljs-string">&quot; for every classifier.&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--all_categories&quot;</span>,
+              action=<span class="hljs-string">&quot;store_true&quot;</span>, dest=<span class="hljs-string">&quot;all_categories&quot;</span>,
+              help=<span class="hljs-string">&quot;Whether to use all categories or not.&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--use_hashing&quot;</span>,
+              action=<span class="hljs-string">&quot;store_true&quot;</span>,
+              help=<span class="hljs-string">&quot;Use a hashing vectorizer.&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--n_features&quot;</span>,
+              action=<span class="hljs-string">&quot;store&quot;</span>, type=int, default=<span class="hljs-number">2</span> ** <span class="hljs-number">16</span>,
+              help=<span class="hljs-string">&quot;n_features when using the hashing vectorizer.&quot;</span>)
+op.add_option(<span class="hljs-string">&quot;--filtered&quot;</span>,
+              action=<span class="hljs-string">&quot;store_true&quot;</span>,
+              help=<span class="hljs-string">&quot;Remove newsgroup information that is easily overfit: &quot;</span>
+                   <span class="hljs-string">&quot;headers, signatures, and quoting.&quot;</span>)
+</code></pre>
+<pre><code>&lt;Option at 0x7febca4f9320: --filtered&gt;
+</code></pre><pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_interactive</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">not</span> hasattr(sys.modules[<span class="hljs-string">&apos;__main__&apos;</span>], <span class="hljs-string">&apos;__file__&apos;</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># Jupyter notebook&#x4E0A;&#x7684;&#x8FD0;&#x884C;&#x65B9;&#x6CD5;</span>
+argv = [] <span class="hljs-keyword">if</span> is_interactive() <span class="hljs-keyword">else</span> sys.argv[<span class="hljs-number">1</span>:]
+(opts, args) = op.parse_args(argv)
+<span class="hljs-keyword">if</span> len(args) &gt; <span class="hljs-number">0</span>:
+    op.error(<span class="hljs-string">&quot;this script takes no arguments.&quot;</span>)
+    sys.exit(<span class="hljs-number">1</span>)
+
+print(__doc__)
+op.print_help()
+print()
+</code></pre>
+<pre><code>Automatically created module for IPython interactive environment
+Usage: ipykernel_launcher.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  --report              Print a detailed classification report.
+  --chi2_select=SELECT_CHI2
+                        Select some number of features using a chi-squared
+                        test
+  --confusion_matrix    Print the confusion matrix.
+  --top10               Print ten most discriminative terms per class for
+                        every classifier.
+  --all_categories      Whether to use all categories or not.
+  --use_hashing         Use a hashing vectorizer.
+  --n_features=N_FEATURES
+                        n_features when using the hashing vectorizer.
+  --filtered            Remove newsgroup information that is easily overfit:
+                        headers, signatures, and quoting.
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x4ECE;&#x8BAD;&#x7EC3;&#x96C6;&#x4E2D;&#x52A0;&#x8F7D;&#x4E00;&#x4E9B;&#x7C7B;&#x522B;</span>
+<span class="hljs-keyword">if</span> opts.all_categories:
+    categories = <span class="hljs-keyword">None</span>
+<span class="hljs-keyword">else</span>:
+    categories = [
+        <span class="hljs-string">&apos;alt.atheism&apos;</span>,
+        <span class="hljs-string">&apos;talk.religion.misc&apos;</span>,
+        <span class="hljs-string">&apos;comp.graphics&apos;</span>,
+        <span class="hljs-string">&apos;sci.space&apos;</span>,
+    ]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> opts.filtered:
+    remove = (<span class="hljs-string">&apos;headers&apos;</span>, <span class="hljs-string">&apos;footers&apos;</span>, <span class="hljs-string">&apos;quotes&apos;</span>)
+<span class="hljs-keyword">else</span>:
+    remove = ()
+
+print(<span class="hljs-string">&quot;Loading 20 newsgroups dataset for categories:&quot;</span>)
+print(categories <span class="hljs-keyword">if</span> categories <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;all&quot;</span>)
+</code></pre>
+<pre><code>Loading 20 newsgroups dataset for categories:
+[&apos;alt.atheism&apos;, &apos;talk.religion.misc&apos;, &apos;comp.graphics&apos;, &apos;sci.space&apos;]
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x4E0B;&#x8F7D;&#x6570;&#x636E;&#x96C6;</span>
+data_train = fetch_20newsgroups(subset=<span class="hljs-string">&apos;train&apos;</span>, categories=categories,shuffle=<span class="hljs-keyword">True</span>, random_state=<span class="hljs-number">42</span>,remove=remove)
+data_test = fetch_20newsgroups(subset=<span class="hljs-string">&apos;test&apos;</span>, categories=categories,shuffle=<span class="hljs-keyword">True</span>, random_state=<span class="hljs-number">42</span>,remove=remove)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># target_names&#x4E2D;&#x7684;&#x6807;&#x7B7E;&#x987A;&#x5E8F;&#x53EF;&#x4EE5;&#x4E0E;categories&#x4E2D;&#x7684;&#x4E0D;&#x540C;</span>
+target_names = data_train.target_names
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">size_mb</span><span class="hljs-params">(docs)</span>:</span>
+    <span class="hljs-keyword">return</span> sum(len(s.encode(<span class="hljs-string">&apos;utf-8&apos;</span>)) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> docs) / <span class="hljs-number">1e6</span>
+
+data_train_size_mb = size_mb(data_train.data)
+data_test_size_mb = size_mb(data_test.data)
+
+print(<span class="hljs-string">&quot;%d documents - %0.3fMB (training set)&quot;</span> % (
+    len(data_train.data), data_train_size_mb))
+print(<span class="hljs-string">&quot;%d documents - %0.3fMB (test set)&quot;</span> % (
+    len(data_test.data), data_test_size_mb))
+print(<span class="hljs-string">&quot;%d categories&quot;</span> % len(target_names))
+</code></pre>
+<pre><code>2034 documents - 3.980MB (training set)
+1353 documents - 2.867MB (test set)
+4 categories
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x5212;&#x5206;&#x6D4B;&#x8BD5;,&#x8BAD;&#x7EC3;&#x96C6;</span>
+y_train, y_test = data_train.target, data_test.target
+</code></pre>
+<pre><code class="lang-python">print(<span class="hljs-string">&quot;&#x4F7F;&#x7528;&#x7A00;&#x758F;&#x5411;&#x91CF;&#x673A;&#x4ECE;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x7279;&#x5F81;&quot;</span>)
+t0 = time()
+<span class="hljs-keyword">if</span> opts.use_hashing:
+    vectorizer = HashingVectorizer(stop_words=<span class="hljs-string">&apos;english&apos;</span>, alternate_sign=<span class="hljs-keyword">False</span>,
+                                   n_features=opts.n_features)
+    X_train = vectorizer.transform(data_train.data)
+<span class="hljs-keyword">else</span>:
+    vectorizer = TfidfVectorizer(sublinear_tf=<span class="hljs-keyword">True</span>, max_df=<span class="hljs-number">0.5</span>,
+                                 stop_words=<span class="hljs-string">&apos;english&apos;</span>)
+    X_train = vectorizer.fit_transform(data_train.data)
+duration = time() - t0
+print(<span class="hljs-string">&quot;done in %fs at %0.3fMB/s&quot;</span> % (duration, data_train_size_mb / duration))
+print(<span class="hljs-string">&quot;n_samples: %d, n_features: %d&quot;</span> % X_train.shape)
+</code></pre>
+<pre><code>&#x4F7F;&#x7528;&#x7A00;&#x758F;&#x5411;&#x91CF;&#x673A;&#x4ECE;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x7279;&#x5F81;
+done in 0.476004s at 8.360MB/s
+n_samples: 2034, n_features: 33809
+</code></pre><pre><code class="lang-python">print(<span class="hljs-string">&quot;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x77E2;&#x91CF;&#x5316;&#x5668;&#x4ECE;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x7279;&#x5F81;&quot;</span>)
+t0 = time()
+X_test = vectorizer.transform(data_test.data)
+duration = time() - t0
+print(<span class="hljs-string">&quot;done in %fs at %0.3fMB/s&quot;</span> % (duration, data_test_size_mb / duration))
+print(<span class="hljs-string">&quot;n_samples: %d, n_features: %d&quot;</span> % X_test.shape)
+</code></pre>
+<pre><code>&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x77E2;&#x91CF;&#x5316;&#x5668;&#x4ECE;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x7279;&#x5F81;
+done in 0.311447s at 9.207MB/s
+n_samples: 1353, n_features: 33809
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x4ECE;&#x6574;&#x6570;&#x7684;&#x7279;&#x5F81;&#x540D;&#x79F0;&#x6620;&#x5C04;&#x5230;&#x539F;&#x59CB;&#x7684;token&#x5B57;&#x7B26;&#x4E32;</span>
+<span class="hljs-keyword">if</span> opts.use_hashing:
+    feature_names = <span class="hljs-keyword">None</span>
+<span class="hljs-keyword">else</span>:
+    feature_names = vectorizer.get_feature_names()
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> opts.select_chi2:
+    print(<span class="hljs-string">&quot;&#x4F7F;&#x7528;&#x5361;&#x65B9;&#x68C0;&#x9A8C;&#x63D0;&#x53D6; %d &#x4E2A;&#x7279;&#x5F81;&quot;</span> %
+          opts.select_chi2)
+    t0 = time()
+    ch2 = SelectKBest(chi2, k=opts.select_chi2)
+    X_train = ch2.fit_transform(X_train, y_train)
+    X_test = ch2.transform(X_test)
+    <span class="hljs-keyword">if</span> feature_names:
+        <span class="hljs-comment"># keep selected feature names</span>
+        feature_names = [feature_names[i] <span class="hljs-keyword">for</span> i
+                         <span class="hljs-keyword">in</span> ch2.get_support(indices=<span class="hljs-keyword">True</span>)]
+    print(<span class="hljs-string">&quot;done in %fs&quot;</span> % (time() - t0))
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> feature_names:
+    feature_names = np.asarray(feature_names)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4FEE;&#x526A;&#x5B57;&#x7B26;&#x4E32;&#x4EE5;&#x9002;&#x5E94;&#x7EC8;&#x7AEF;(&#x5047;&#x8BBE;&#x663E;&#x793A;80&#x5217;)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">trim</span><span class="hljs-params">(s)</span>:</span>
+    <span class="hljs-keyword">return</span> s <span class="hljs-keyword">if</span> len(s) &lt;= <span class="hljs-number">80</span> <span class="hljs-keyword">else</span> s[:<span class="hljs-number">77</span>] + <span class="hljs-string">&quot;...&quot;</span>
+</code></pre>
+<h2 id="&#x57FA;&#x51C6;&#x5206;&#x7C7B;&#x5668;">&#x57FA;&#x51C6;&#x5206;&#x7C7B;&#x5668;</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">benchmark</span><span class="hljs-params">(clf)</span>:</span>
+    print(<span class="hljs-string">&apos;_&apos;</span> * <span class="hljs-number">80</span>)
+    print(<span class="hljs-string">&quot;&#x8BAD;&#x7EC3;: &quot;</span>)
+    print(clf)
+    t0 = time()
+    clf.fit(X_train, y_train)
+    train_time = time() - t0
+    print(<span class="hljs-string">&quot;&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: %0.3fs&quot;</span> % train_time)
+
+    t0 = time()
+    pred = clf.predict(X_test)
+    test_time = time() - t0
+    print(<span class="hljs-string">&quot;&#x6700;&#x4F73;&#x65F6;&#x95F4;:  %0.3fs&quot;</span> % test_time)
+
+    score = metrics.accuracy_score(y_test, pred)
+    print(<span class="hljs-string">&quot;&#x51C6;&#x786E;&#x7387;:   %0.3f&quot;</span> % score)
+
+    <span class="hljs-keyword">if</span> hasattr(clf, <span class="hljs-string">&apos;coef_&apos;</span>):
+        print(<span class="hljs-string">&quot;&#x7EF4;&#x6570;: %d&quot;</span> % clf.coef_.shape[<span class="hljs-number">1</span>])
+        print(<span class="hljs-string">&quot;&#x5BC6;&#x5EA6;: %f&quot;</span> % density(clf.coef_))
+
+        <span class="hljs-keyword">if</span> opts.print_top10 <span class="hljs-keyword">and</span> feature_names <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            print(<span class="hljs-string">&quot;&#x6BCF;&#x4E2A;&#x7C7B;&#x7684;&#x524D;&#x5341;&#x4E2A;&#x8BCD;:&quot;</span>)
+            <span class="hljs-keyword">for</span> i, label <span class="hljs-keyword">in</span> enumerate(target_names):
+                top10 = np.argsort(clf.coef_[i])[<span class="hljs-number">-10</span>:]
+                print(trim(<span class="hljs-string">&quot;%s: %s&quot;</span> % (label, <span class="hljs-string">&quot; &quot;</span>.join(feature_names[top10]))))
+        print()
+
+    <span class="hljs-keyword">if</span> opts.print_report:
+        print(<span class="hljs-string">&quot;&#x5206;&#x7C7B;&#x62A5;&#x544A;:&quot;</span>)
+        print(metrics.classification_report(y_test, pred,
+                                            target_names=target_names))
+
+    <span class="hljs-keyword">if</span> opts.print_cm:
+        print(<span class="hljs-string">&quot;&#x6DF7;&#x6DC6;&#x77E9;&#x9635;:&quot;</span>)
+        print(metrics.confusion_matrix(y_test, pred))
+
+    clf_descr = str(clf).split(<span class="hljs-string">&apos;(&apos;</span>)[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">return</span> clf_descr, score, train_time, test_time
+</code></pre>
+<pre><code class="lang-python">results = []
+<span class="hljs-keyword">for</span> clf, name <span class="hljs-keyword">in</span> (
+        (RidgeClassifier(tol=<span class="hljs-number">1e-2</span>, solver=<span class="hljs-string">&quot;sag&quot;</span>), <span class="hljs-string">&quot;&#x5CAD;&#x5206;&#x7C7B;&#x5668;&quot;</span>),
+        (Perceptron(max_iter=<span class="hljs-number">50</span>, tol=<span class="hljs-number">1e-3</span>), <span class="hljs-string">&quot;&#x611F;&#x77E5;&#x5668;&quot;</span>),
+        (PassiveAggressiveClassifier(max_iter=<span class="hljs-number">50</span>, tol=<span class="hljs-number">1e-3</span>),
+         <span class="hljs-string">&quot;PAC&#x5206;&#x7C7B;&#x5668;&quot;</span>),
+        (KNeighborsClassifier(n_neighbors=<span class="hljs-number">10</span>), <span class="hljs-string">&quot;K&#x8FD1;&#x90BB;&quot;</span>),
+        (RandomForestClassifier(n_estimators=<span class="hljs-number">100</span>), <span class="hljs-string">&quot;&#x968F;&#x673A;&#x68EE;&#x6797;&quot;</span>)):
+    print(<span class="hljs-string">&apos;=&apos;</span> * <span class="hljs-number">80</span>)
+    print(name)
+    results.append(benchmark(clf))
+</code></pre>
+<pre><code>================================================================================
+&#x5CAD;&#x5206;&#x7C7B;&#x5668;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+RidgeClassifier(alpha=1.0, class_weight=None, copy_X=True, fit_intercept=True,
+                max_iter=None, normalize=False, random_state=None, solver=&apos;sag&apos;,
+                tol=0.01)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.202s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.002s
+&#x51C6;&#x786E;&#x7387;:   0.897
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 1.000000
+
+================================================================================
+&#x611F;&#x77E5;&#x5668;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+Perceptron(alpha=0.0001, class_weight=None, early_stopping=False, eta0=1.0,
+           fit_intercept=True, max_iter=50, n_iter_no_change=5, n_jobs=None,
+           penalty=None, random_state=0, shuffle=True, tol=0.001,
+           validation_fraction=0.1, verbose=0, warm_start=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.030s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.888
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 0.255302
+
+================================================================================
+PAC&#x5206;&#x7C7B;&#x5668;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+PassiveAggressiveClassifier(C=1.0, average=False, class_weight=None,
+                            early_stopping=False, fit_intercept=True,
+                            loss=&apos;hinge&apos;, max_iter=50, n_iter_no_change=5,
+                            n_jobs=None, random_state=None, shuffle=True,
+                            tol=0.001, validation_fraction=0.1, verbose=0,
+                            warm_start=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.063s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.902
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 0.700487
+
+================================================================================
+K&#x8FD1;&#x90BB;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+KNeighborsClassifier(algorithm=&apos;auto&apos;, leaf_size=30, metric=&apos;minkowski&apos;,
+                     metric_params=None, n_jobs=None, n_neighbors=10, p=2,
+                     weights=&apos;uniform&apos;)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.002s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.235s
+&#x51C6;&#x786E;&#x7387;:   0.858
+================================================================================
+&#x968F;&#x673A;&#x68EE;&#x6797;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&apos;gini&apos;,
+                       max_depth=None, max_features=&apos;auto&apos;, max_leaf_nodes=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, n_estimators=100,
+                       n_jobs=None, oob_score=False, random_state=None,
+                       verbose=0, warm_start=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 1.752s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.084s
+&#x51C6;&#x786E;&#x7387;:   0.822
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">for</span> penalty <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;l2&quot;</span>, <span class="hljs-string">&quot;l1&quot;</span>]:
+    print(<span class="hljs-string">&apos;=&apos;</span> * <span class="hljs-number">80</span>)
+    print(<span class="hljs-string">&quot;%s &#x7F5A;&#x9879;&quot;</span> % penalty.upper())
+    <span class="hljs-comment"># &#x8BAD;&#x7EC3;Liblinear&#x6A21;&#x578B;</span>
+    results.append(benchmark(LinearSVC(penalty=penalty, dual=<span class="hljs-keyword">False</span>,
+                                       tol=<span class="hljs-number">1e-3</span>)))
+
+    <span class="hljs-comment"># &#x8BAD;&#x7EC3;SGD model&#x6A21;&#x578B;</span>
+    results.append(benchmark(SGDClassifier(alpha=<span class="hljs-number">.0001</span>, max_iter=<span class="hljs-number">50</span>,
+                                           penalty=penalty)))
+</code></pre>
+<pre><code>================================================================================
+L2 &#x7F5A;&#x9879;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, loss=&apos;squared_hinge&apos;, max_iter=1000,
+          multi_class=&apos;ovr&apos;, penalty=&apos;l2&apos;, random_state=None, tol=0.001,
+          verbose=0)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.274s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.900
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 1.000000
+
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+              l1_ratio=0.15, learning_rate=&apos;optimal&apos;, loss=&apos;hinge&apos;, max_iter=50,
+              n_iter_no_change=5, n_jobs=None, penalty=&apos;l2&apos;, power_t=0.5,
+              random_state=None, shuffle=True, tol=0.001,
+              validation_fraction=0.1, verbose=0, warm_start=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.050s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.899
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 0.573353
+
+================================================================================
+L1 &#x7F5A;&#x9879;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+LinearSVC(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, loss=&apos;squared_hinge&apos;, max_iter=1000,
+          multi_class=&apos;ovr&apos;, penalty=&apos;l1&apos;, random_state=None, tol=0.001,
+          verbose=0)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.257s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.002s
+&#x51C6;&#x786E;&#x7387;:   0.873
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 0.005568
+
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+              l1_ratio=0.15, learning_rate=&apos;optimal&apos;, loss=&apos;hinge&apos;, max_iter=50,
+              n_iter_no_change=5, n_jobs=None, penalty=&apos;l1&apos;, power_t=0.5,
+              random_state=None, shuffle=True, tol=0.001,
+              validation_fraction=0.1, verbose=0, warm_start=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.187s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.882
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 0.023049
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x5E26;&#x5F39;&#x6027;&#x7F51;&#x7EDC;(Elastic Net)&#x7F5A;&#x9879;&#x7684;SGD&#x6A21;&#x578B;</span>
+print(<span class="hljs-string">&apos;=&apos;</span> * <span class="hljs-number">80</span>)
+print(<span class="hljs-string">&quot;&#x5F39;&#x6027;&#x7F51;&#x7EDC;(Elastic Net)&#x7F5A;&#x9879;&quot;</span>)
+results.append(benchmark(SGDClassifier(alpha=<span class="hljs-number">.0001</span>, max_iter=<span class="hljs-number">50</span>,
+                                       penalty=<span class="hljs-string">&quot;elasticnet&quot;</span>)))
+</code></pre>
+<pre><code>================================================================================
+&#x5F39;&#x6027;&#x7F51;&#x7EDC;(Elastic Net)&#x7F5A;&#x9879;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+              l1_ratio=0.15, learning_rate=&apos;optimal&apos;, loss=&apos;hinge&apos;, max_iter=50,
+              n_iter_no_change=5, n_jobs=None, penalty=&apos;elasticnet&apos;,
+              power_t=0.5, random_state=None, shuffle=True, tol=0.001,
+              validation_fraction=0.1, verbose=0, warm_start=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.295s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.897
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 0.185956
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x4E0D;&#x5E26;&#x9608;&#x503C;&#x7684;Rocchio&#x5206;&#x7C7B;&#x5668;</span>
+print(<span class="hljs-string">&apos;=&apos;</span> * <span class="hljs-number">80</span>)
+print(<span class="hljs-string">&quot;&#x4E0D;&#x5E26;&#x9608;&#x503C;&#x7684;Rocchio&#x5206;&#x7C7B;&#x5668;&quot;</span>)
+results.append(benchmark(NearestCentroid()))
+</code></pre>
+<pre><code>================================================================================
+&#x4E0D;&#x5E26;&#x9608;&#x503C;&#x7684;Rocchio&#x5206;&#x7C7B;&#x5668;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+NearestCentroid(metric=&apos;euclidean&apos;, shrink_threshold=None)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.007s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.002s
+&#x51C6;&#x786E;&#x7387;:   0.855
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x7A00;&#x758F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;</span>
+print(<span class="hljs-string">&apos;=&apos;</span> * <span class="hljs-number">80</span>)
+print(<span class="hljs-string">&quot;&#x7A00;&#x758F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;&quot;</span>)
+results.append(benchmark(MultinomialNB(alpha=<span class="hljs-number">.01</span>)))
+results.append(benchmark(BernoulliNB(alpha=<span class="hljs-number">.01</span>)))
+results.append(benchmark(ComplementNB(alpha=<span class="hljs-number">.1</span>)))
+</code></pre>
+<pre><code>================================================================================
+&#x7A00;&#x758F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+MultinomialNB(alpha=0.01, class_prior=None, fit_prior=True)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.007s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.003s
+&#x51C6;&#x786E;&#x7387;:   0.899
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 1.000000
+
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+BernoulliNB(alpha=0.01, binarize=0.0, class_prior=None, fit_prior=True)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.010s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.008s
+&#x51C6;&#x786E;&#x7387;:   0.884
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 1.000000
+
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+ComplementNB(alpha=0.1, class_prior=None, fit_prior=True, norm=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.007s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.002s
+&#x51C6;&#x786E;&#x7387;:   0.911
+&#x7EF4;&#x6570;: 33809
+&#x5BC6;&#x5EA6;: 1.000000
+</code></pre><pre><code class="lang-python">print(<span class="hljs-string">&apos;=&apos;</span> * <span class="hljs-number">80</span>)
+print(<span class="hljs-string">&quot;&#x57FA;&#x4E8E;l1&#x7684;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x7684;LinearSVC&quot;</span>)
+<span class="hljs-comment"># The smaller C, the stronger the regularization.</span>
+<span class="hljs-comment"># The more regularization, the more sparsity.</span>
+results.append(benchmark(Pipeline([
+  (<span class="hljs-string">&apos;feature_selection&apos;</span>, SelectFromModel(LinearSVC(penalty=<span class="hljs-string">&quot;l1&quot;</span>, dual=<span class="hljs-keyword">False</span>,
+                                                  tol=<span class="hljs-number">1e-3</span>))),
+  (<span class="hljs-string">&apos;classification&apos;</span>, LinearSVC(penalty=<span class="hljs-string">&quot;l2&quot;</span>))])))
+</code></pre>
+<pre><code>================================================================================
+&#x57FA;&#x4E8E;l1&#x7684;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x7684;LinearSVC
+________________________________________________________________________________
+&#x8BAD;&#x7EC3;:
+Pipeline(memory=None,
+         steps=[(&apos;feature_selection&apos;,
+                 SelectFromModel(estimator=LinearSVC(C=1.0, class_weight=None,
+                                                     dual=False,
+                                                     fit_intercept=True,
+                                                     intercept_scaling=1,
+                                                     loss=&apos;squared_hinge&apos;,
+                                                     max_iter=1000,
+                                                     multi_class=&apos;ovr&apos;,
+                                                     penalty=&apos;l1&apos;,
+                                                     random_state=None,
+                                                     tol=0.001, verbose=0),
+                                 max_features=None, norm_order=1, prefit=False,
+                                 threshold=None)),
+                (&apos;classification&apos;,
+                 LinearSVC(C=1.0, class_weight=None, dual=True,
+                           fit_intercept=True, intercept_scaling=1,
+                           loss=&apos;squared_hinge&apos;, max_iter=1000,
+                           multi_class=&apos;ovr&apos;, penalty=&apos;l2&apos;, random_state=None,
+                           tol=0.0001, verbose=0))],
+         verbose=False)
+&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;: 0.277s
+&#x6700;&#x4F73;&#x65F6;&#x95F4;:  0.002s
+&#x51C6;&#x786E;&#x7387;:   0.880
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x53C2;&#x8003;&#x7FFB;&#x8BD1;</span>
+classifier_dic={
+    <span class="hljs-string">&apos;RidgeClassifier&apos;</span>:<span class="hljs-string">&apos;&#x5CAD;&#x5206;&#x7C7B;&#x5668;(Ridge)&apos;</span>,
+    <span class="hljs-string">&apos;Perceptron&apos;</span>:<span class="hljs-string">&apos;&#x611F;&#x77E5;&#x5668;(Perceptron)&apos;</span>,
+    <span class="hljs-string">&apos;PassiveAggressiveClassifier&apos;</span>:<span class="hljs-string">&apos;PAC&#x5206;&#x7C7B;&#x5668;&apos;</span>,
+    <span class="hljs-string">&apos;KNeighborsClassifier&apos;</span>:<span class="hljs-string">&apos;K&#x8FD1;&#x90BB;(KNN)&apos;</span>,
+    <span class="hljs-string">&apos;RandomForestClassifier&apos;</span>:<span class="hljs-string">&apos;&#x968F;&#x673A;&#x68EE;&#x6797;&apos;</span>,
+    <span class="hljs-string">&apos;LinearSVC&apos;</span>:<span class="hljs-string">&apos;&#x7EBF;&#x6027;SVC&apos;</span>,
+    <span class="hljs-string">&apos;SGDClassifier&apos;</span>:<span class="hljs-string">&apos;SGD&#x5206;&#x7C7B;&#x5668;&apos;</span>,
+    <span class="hljs-string">&apos;NearestCentroid&apos;</span>:<span class="hljs-string">&apos;&#x7EBF;&#x6027;SVC&apos;</span>,
+    <span class="hljs-string">&apos;MultinomialNB&apos;</span>:<span class="hljs-string">&apos;(&#x591A;&#x9879;&#x5F0F;)&#x7A00;&#x758F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;&apos;</span>,
+    <span class="hljs-string">&apos;BernoulliNB&apos;</span>:<span class="hljs-string">&apos;(&#x4F2F;&#x52AA;&#x5229;)&#x7A00;&#x758F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;&apos;</span>,
+    <span class="hljs-string">&apos;ComplementNB&apos;</span>:<span class="hljs-string">&apos;(&#x8865;&#x507F;)&#x7A00;&#x758F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;&apos;</span>,
+    <span class="hljs-string">&apos;Pipeline&apos;</span>:<span class="hljs-string">&apos;&#x57FA;&#x4E8E;l1&#x7684;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x7684;LinearSVC&apos;</span>,
+}
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x7ED8;&#x56FE;</span>
+
+indices = np.arange(len(results))
+
+results = [[x[i] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> results] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>)]
+
+clf_names, score, training_time, test_time = results
+training_time = np.array(training_time) / np.max(training_time)
+test_time = np.array(test_time) / np.max(test_time)
+
+plt.figure(figsize=(<span class="hljs-number">12</span>, <span class="hljs-number">8</span>))
+plt.title(<span class="hljs-string">&quot;&#x6A21;&#x578B;&#x5BF9;&#x6BD4;&quot;</span>)
+plt.barh(indices, score, <span class="hljs-number">.2</span>, label=<span class="hljs-string">&quot;&#x5F97;&#x5206;(score)&quot;</span>, color=<span class="hljs-string">&apos;navy&apos;</span>)
+plt.barh(indices + <span class="hljs-number">.3</span>, training_time, <span class="hljs-number">.2</span>, label=<span class="hljs-string">&quot;&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;&quot;</span>,
+         color=<span class="hljs-string">&apos;c&apos;</span>)
+plt.barh(indices + <span class="hljs-number">.6</span>, test_time, <span class="hljs-number">.2</span>, label=<span class="hljs-string">&quot;&#x6700;&#x4F73;&#x65F6;&#x95F4;&quot;</span>, color=<span class="hljs-string">&apos;darkorange&apos;</span>)
+plt.yticks(())
+plt.legend(loc=<span class="hljs-string">&apos;best&apos;</span>)
+plt.subplots_adjust(left=<span class="hljs-number">.25</span>)
+plt.subplots_adjust(top=<span class="hljs-number">.95</span>)
+plt.subplots_adjust(bottom=<span class="hljs-number">.05</span>)
+
+<span class="hljs-keyword">for</span> i, c <span class="hljs-keyword">in</span> zip(indices, clf_names):
+    plt.text(<span class="hljs-number">-.3</span>, i, classifier_dic[c])
+
+plt.show()
+</code></pre>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuAAAAI3CAYAAADa5e6eAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjAsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+17YcXAAAgAElEQVR4nOzde7xWY/7/8de7g0LlUIkKGzFlHKItDaEZmvE1xshhZPoxGTlMjiNnBtPEaL5y/g4pIzFkDEbO542GpCinGoxjSidFDkn1+f1xXXu72+3ae7O7d/J+Ph73o3W41lrXtfYffdbn/qzrVkRgZmZmZmbF0aC+O2BmZmZm9n3iANzMzMzMrIgcgJuZmZmZFZEDcDMzMzOzInIAbmZmZmZWRA7AzczMzMyKyAG4mZmt8iRNkbSupAaStpA0VlIjSf0lXZiXJelDSQslzZb0kaQFkv4jaQNJLSXtL+mftbhuSGpWsH6QpOsqtRkvqUcdDtfMVnMOwM3M7LvkMuB+YDtgInAOcFRe3i8iNgTGAXsBBwCPRsQPgBOBIwpPJGlnSW8WfGZIOqCa6zcDNljezvwQ8NNvODYz+55wAG5mZqusnHF+B+gAvARMAw4HXgD2Bi4FbgR2i4i7a3PuiHgO2DMiOkREB2AW0DdnvUNS+S/VzZd0QQ362hz4JzBQUtPa9MXMvl8cgJuZ2SorIv4J9AQaAjsAM4DBwINAX2BNYH3gslxeEsCuwIvAE8DP87bOlc+dg+QnJP1MUhtgI6AX0DIiFBHKTZtHxAUFh/6yIEi/Om/rSsrCfwb0iIgFdXYTzGy14wDczMxWdf3yv/cDTYHNSCUm5Z8uef89QFtSENwW2IcUqDcnZc8h/b+3GCAHyb2BEcC5wF1AKfBvSWuvoD/3kAL/NYGT87Y/ApdExOEOvs2sOo3quwNmZmbLk8s6+pDKQ54FDgWeA24paLYNqUQlgItJdd/TJXUAPo2ITyWdBwwF9gP+Vn5gRIyTNAi4GtglIp6T9ABwOam2vCpLCoNsSQC/joi76mLMZrb6cwbczMxWZWcAdwAfARcAxwBPAe2B4cC2wDzgJqAx8DE5cI6Ip0nZ7MsiYlFEHBkRu0fEiErXaAcsAH6T188B1imc/aQG5pYvSPqLpA1rM0gz+35xBtzMzFZlTwPPAz/L6yNJNd8A6wC/JZeUAKcD1wIv5qw0pFlLGkk6uOCcvSLieQBJu5EC9q7AvZJ6R8Qo4Fd5/3I7JmkTUjlMZQcBw4APazxKM/tecQBuZmarrIh4CL4OhCOia14/CzgbGA8cEhFLCg5rX74g6VSgJCKOr3xuSVsBdwLHRsTLkg4DuktqRKo1L89if1VwWAOgg6T7gd2BP+T9JfmlznVJ0xTO+5ZDN7PVmANwMzP7zpC0LXAq0IP0wuQgoCzXca8DXFPpkDWBBpJ6V9p+PDAH+EtE3AEQEU8BT0n6OXAvKbC+MyK+LDiuFFgDeAToExFzc+B9LXBDPuaeiJhVR0M2s9WQIqL6VmZmZvVI0hRStvmvwPXA4Bz8ilSGciowPCKGrOR+tADmh//zNLNvwQG4mZl9J0hqCDSIiK+Ws79RRCwqcrfMzGrNAbiZmZmZWRF5GkIzMzMzsyJyAG5mZmZmVkSeBcVWaa1atYqSkpL67oaZmZlZrUyYMGF2RLSuap8DcFullZSUMH78+PruhpmZmVmtSHp3eftcgmJmZmZmVkQOwM3MzMzMisgBuJmZmZlZEbkG3MzMzGw199VXXzF16lQWLFhQ311Z7TRt2pT27dvTuHHjGh/jANzMzMxsNTd16lSaN29OSUkJkuq7O6uNiGDOnDlMnTqVzTbbrMbHuQTFzMzMbDW3YMECWrZs6eC7jkmiZcuWtf5mwQG4mZmZ2feAg++V45vcVwfgZmZmZmZF5ADczMzMzIritdde4+OPP6623b333su0adMYM2YMo0ePLkLPissvYZqZmZl9z0h/rNPzRZxfbZuXX36Z/v37M3LkSNq3b0+XLl0AWLJkCZ988gkTJ04EYPr06Zx11lk899xzbLrppvzud79j7733Zo011qg41+eff87//M//MHr0aNZZZ506HUtlixYtYq+99uLWW29lo402qpNzOgNuZmZmZivVc889x4knnsiVV15JixYtaN68OT169KBHjx7svvvuFe0WLlxInz59GDhwIGuttRYbb7wx+++/P6eeeupS57viiivo06fPSg++ARo1asRZZ53FeeedV2fndABuZmZmZivVNttsw7333suZZ57JW2+9xfz58ykrK6OsrIynnnoKgPnz59OrVy/23XdfevXqVXHs+eefzwcffMDRRx/NF198AcBNN91Enz59ABg0aBCbbropm266KS+99BIA119/PZ06dWLTTTdl6NChAFx11VV07NiRzTffnP79+/PVV18BUFJSwumnn86GG27Ip59+yiOPPELnzp3Zcsst+cMf/gDAT3/6U5566im+/PLLOrkfLkExMzMzs5Vq7bXX5sILL6RDhw6st9563Hrrrcu0ufXWW5HEddddx3XXXbfUvp122omWLVsyfPhwDjzwQNZbbz3WXntt5s6dy5AhQ5g+fToNGjRg4cKFPPPMMwwZMoQnn3ySDTbYgFmzZvHEE09www03MG7cONZee20OOeQQhg4dyvHHHw/Auuuuy4cffshHH33EueeeS1lZGc2aNaNHjx68+OKL7LDDDnTp0oUJEyawyy67fOv74Qy4mZmZma1Ut99+O1dddRWtW7dm5syZvPLKKxWf//u//+OWW26htLSUe++9l8mTJ7NgwQKmTJnClClTuOmmm1iwYAF//vOfOeGEE5g6dSrt27cHoEWLFmyyySacfPLJTJ8+nWbNmjF69GiOPvpoNthgAwBat27N/fffT9++fWnRogUNGzbkqKOO4vHHH6/o3wEHHADAM888w3/+8x+6devGNttswzvvvMN///tfANq1a8cHH3xQJ/fDGXAzMzMzW6nWXXddLr30Ul5//XUuvvhiZs6cWbFv2rRpNGnShPvuu48dd9yRF154oSLABpg5cyYtW7asWI+Iirm3GzZsyLhx47j++uvp3r07o0aNYsGCBTRqtHSIu2jRIho0WDrv3LBhw4rlZs2aVbTbc889ueOOO5YZQ4MGDYiIb3EXCs5VJ2cxMzMzM1uOnj170qJFCwBGjx7NdtttR/fu3Rk7dizHHHMMf/rTn/jDH/7Axx9/TP/+/RkwYEDFsW+88QZt2rSpWN9oo42YNm0aAJ999hlz5syhf//+HHzwwTz//PPsueee3HDDDRXTHU6bNo2ePXtyww038Mknn7B48WKuv/569t5772X6udNOO/Hkk0/y5ptvAlBWVlaxb9q0aXU2C4oz4GZmZmbfMzWZNnBluu6663jttdfYeeedmTp1KnfeeSdjx47lN7/5Daeccgq9evXiV7/6FZMmTWLhwoXceeedFcdusskmzJgxgwULFvD555/z4x//mCVLlrD55ptzzjnn0LJlSyZNmkTnzp1p3LgxF1xwAb/+9a+ZNGkSO+ywA40aNWL//ffniCOOWKZf7dq147LL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" alt="png"></p>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"分类特征稀疏的文本","level":"1.31.1","depth":2,"previous":{"title":"文本文档工作","level":"1.31","depth":1,"ref":"","articles":[{"title":"分类特征稀疏的文本","level":"1.31.1","depth":2,"path":"Generalized_Linear_Models/plot_document_classification_20newsgroups.md","ref":"Generalized_Linear_Models/plot_document_classification_20newsgroups.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master/docs/examples"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"Generalized_Linear_Models/plot_document_classification_20newsgroups.md","mtime":"2020-11-23T10:54:46.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:49.868Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1795 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="39.html" />
+    
+    
+    <link rel="prev" href="37.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="51-pipeline&#xFF08;&#x7BA1;&#x9053;&#xFF09;&#x548C;-featureunion&#xFF08;&#x7279;&#x5F81;&#x8054;&#x5408;&#xFF09;-&#x5408;&#x5E76;&#x7684;&#x8BC4;&#x4F30;&#x5668;">5.1. Pipeline&#xFF08;&#x7BA1;&#x9053;&#xFF09;&#x548C; FeatureUnion&#xFF08;&#x7279;&#x5F81;&#x8054;&#x5408;&#xFF09;: &#x5408;&#x5E76;&#x7684;&#x8BC4;&#x4F30;&#x5668;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x7A0B;&#x5A01;</a>
+        <a href="https://github.com/loopyme" target="_blank">@Loopy</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@Sehriff</a></p>
+<p>&#x53D8;&#x6362;&#x5668;(Transformers)&#x901A;&#x5E38;&#x4E0E;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x56DE;&#x5F52;&#x5668;&#x6216;&#x5176;&#x4ED6;&#x7684;&#x5B66;&#x4E60;&#x5668;&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x4EE5;&#x6784;&#x5EFA;&#x590D;&#x5408;&#x4F30;&#x8BA1;&#x5668;&#x3002; &#x5B8C;&#x6210;&#x8FD9;&#x4EF6;&#x4E8B;&#x7684;&#x6700;&#x5E38;&#x7528;&#x5DE5;&#x5177;&#x662F; <a href="#511-pipeline-&#x94FE;&#x5F0F;&#x8BC4;&#x4F30;&#x5668;">Pipeline</a>&#x3002; Pipeline &#x7ECF;&#x5E38;&#x4E0E; FeatureUnion &#x7ED3;&#x5408;&#x8D77;&#x6765;&#x4F7F;&#x7528;&#x3002; FeatureUnion &#x7528;&#x4E8E;&#x5C06;&#x53D8;&#x6362;&#x5668;(transformers)&#x7684;&#x8F93;&#x51FA;&#x4E32;&#x8054;&#x5230;&#x590D;&#x5408;&#x7279;&#x5F81;&#x7A7A;&#x95F4;(composite feature space)&#x4E2D;&#x3002; TransformedTargetRegressor &#x7528;&#x6765;&#x5904;&#x7406;&#x53D8;&#x6362; target (&#x5373;&#x5BF9;&#x6570;&#x53D8;&#x5316; y)&#x3002; &#x4F5C;&#x4E3A;&#x5BF9;&#x6BD4;&#xFF0C;Pipelines&#x7C7B;&#x53EA;&#x7528;&#x6765;&#x53D8;&#x6362;(transform)&#x89C2;&#x6D4B;&#x6570;&#x636E;(X)&#x3002;</p>
+<h2 id="511-pipeline-&#x94FE;&#x5F0F;&#x8BC4;&#x4F30;&#x5668;">5.1.1. Pipeline: &#x94FE;&#x5F0F;&#x8BC4;&#x4F30;&#x5668;</h2>
+<p> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x53EF;&#x4EE5;&#x628A;&#x591A;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x94FE;&#x63A5;&#x6210;&#x4E00;&#x4E2A;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x6B65;&#x9AA4;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x4F8B;&#x5982;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x3001;&#x6807;&#x51C6;&#x5316;&#x548C;&#x5206;&#x7C7B;&#x3002;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x5728;&#x8FD9;&#x91CC;&#x6709;&#x591A;&#x79CD;&#x7528;&#x9014;:</p>
+<ul>
+<li><strong>&#x4FBF;&#x6377;&#x6027;&#x548C;&#x5C01;&#x88C5;&#x6027;</strong> &#x4F60;&#x53EA;&#x8981;&#x5BF9;&#x6570;&#x636E;&#x8C03;&#x7528; <code>fit</code>&#x548C; <code>predict</code> &#x4E00;&#x6B21;&#x6765;&#x9002;&#x914D;&#x6240;&#x6709;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x8BC4;&#x4F30;&#x5668;&#x3002;</li>
+<li><strong>&#x8054;&#x5408;&#x7684;&#x53C2;&#x6570;&#x9009;&#x62E9;</strong> &#x4F60;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;<code>grid search</code>&#x7BA1;&#x9053;&#x4E2D;&#x6240;&#x6709;&#x8BC4;&#x4F30;&#x5668;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+<li><strong>&#x5B89;&#x5168;&#x6027;</strong> &#x8BAD;&#x7EC3;&#x8F6C;&#x6362;&#x5668;&#x548C;&#x9884;&#x6D4B;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x76F8;&#x540C;&#x6837;&#x672C;&#xFF0C;&#x7BA1;&#x9053;&#x6709;&#x52A9;&#x4E8E;&#x9632;&#x6B62;&#x6765;&#x81EA;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x7684;&#x7EDF;&#x8BA1;&#x6570;&#x636E;&#x6CC4;&#x9732;&#x5230;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x4E2D;&#x3002;</li>
+</ul>
+<p>&#x7BA1;&#x9053;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8BC4;&#x4F30;&#x5668;&#xFF0C;&#x9664;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#xFF0C;&#x7BA1;&#x9053;&#x7684;&#x6240;&#x6709;&#x8BC4;&#x4F30;&#x5668;&#x5FC5;&#x987B;&#x662F;&#x8F6C;&#x6362;&#x5668;&#x3002; (&#x4F8B;&#x5982;&#xFF0C;&#x5FC5;&#x987B;&#x6709; <code>transform</code> &#x65B9;&#x6CD5;). &#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x9650;&#xFF08;&#x8F6C;&#x6362;&#x5668;&#x3001;&#x5206;&#x7C7B;&#x5668;&#x7B49;&#x7B49;&#xFF09;</p>
+<h3 id="5111-&#x7528;&#x6CD5;">5.1.1.1. &#x7528;&#x6CD5;</h3>
+<h4 id="51111-&#x6784;&#x9020;">5.1.1.1.1. &#x6784;&#x9020;</h4>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x4F7F;&#x7528;&#x4E00;&#x7CFB;&#x5217; <code>(key, value)</code> &#x952E;&#x503C;&#x5BF9;&#x6765;&#x6784;&#x5EFA;,&#x5176;&#x4E2D; <code>key</code> &#x662F;&#x4F60;&#x7ED9;&#x8FD9;&#x4E2A;&#x6B65;&#x9AA4;&#x8D77;&#x7684;&#x540D;&#x5B57;&#xFF0C; <code>value</code> &#x662F;&#x4E00;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x5BF9;&#x8C61;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> Pipeline
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.svm <span class="hljs-keyword">import</span> SVC
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.decomposition <span class="hljs-keyword">import</span> PCA
+<span class="hljs-meta">&gt;&gt;&gt; </span>estimators = [(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA()), (<span class="hljs-string">&apos;clf&apos;</span>, SVC())]
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe = Pipeline(estimators)
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe
+Pipeline(memory=<span class="hljs-keyword">None</span>,
+         steps=[(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>,...)),
+                (<span class="hljs-string">&apos;clf&apos;</span>, SVC(C=<span class="hljs-number">1.0</span>,...))], verbose=<span class="hljs-keyword">False</span>)
+</code></pre>
+<p>&#x529F;&#x80FD;&#x51FD;&#x6570; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" target="_blank"><code>make_pipeline</code></a> &#x662F;&#x6784;&#x5EFA;&#x7BA1;&#x9053;&#x7684;&#x7F29;&#x5199;; &#x5B83;&#x63A5;&#x6536;&#x591A;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#xFF0C;&#x81EA;&#x52A8;&#x586B;&#x5145;&#x8BC4;&#x4F30;&#x5668;&#x540D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> make_pipeline
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.naive_bayes <span class="hljs-keyword">import</span> MultinomialNB
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> Binarizer
+<span class="hljs-meta">&gt;&gt;&gt; </span>make_pipeline(Binarizer(), MultinomialNB())
+Pipeline(memory=<span class="hljs-keyword">None</span>,
+         steps=[(<span class="hljs-string">&apos;binarizer&apos;</span>, Binarizer(copy=<span class="hljs-keyword">True</span>, threshold=<span class="hljs-number">0.0</span>)),
+                (<span class="hljs-string">&apos;multinomialnb&apos;</span>, MultinomialNB(alpha=<span class="hljs-number">1.0</span>,
+                                                class_prior=<span class="hljs-keyword">None</span>,
+                                                fit_prior=<span class="hljs-keyword">True</span>))],
+         verbose=<span class="hljs-keyword">False</span>)
+</code></pre>
+<h4 id="51112-&#x8BBF;&#x95EE;&#x6B65;&#x9AA4;">5.1.1.1.2. &#x8BBF;&#x95EE;&#x6B65;&#x9AA4;</h4>
+<p>&#x7BA1;&#x9053;&#x4E2D;&#x7684;&#x8BC4;&#x4F30;&#x5668;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x4FDD;&#x5B58;&#x5728; <code>steps</code> &#x5C5E;&#x6027;&#x5185;,&#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x6216;&#x540D;&#x79F0;([idx])&#x8BBF;&#x95EE;&#x7BA1;&#x9053;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>pipe.steps[<span class="hljs-number">0</span>]  
+(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>, iterated_power=<span class="hljs-string">&apos;auto&apos;</span>, n_components=<span class="hljs-keyword">None</span>,
+                   random_state=<span class="hljs-keyword">None</span>, svd_solver=<span class="hljs-string">&apos;auto&apos;</span>, tol=<span class="hljs-number">0.0</span>,
+                   whiten=<span class="hljs-keyword">False</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe[<span class="hljs-number">0</span>]  
+PCA(copy=<span class="hljs-keyword">True</span>, iterated_power=<span class="hljs-string">&apos;auto&apos;</span>, n_components=<span class="hljs-keyword">None</span>, random_state=<span class="hljs-keyword">None</span>,
+    svd_solver=<span class="hljs-string">&apos;auto&apos;</span>, tol=<span class="hljs-number">0.0</span>, whiten=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe[<span class="hljs-string">&apos;reduce_dim&apos;</span>]  
+PCA(copy=<span class="hljs-keyword">True</span>, ...)
+</code></pre>
+<p>&#x7BA1;&#x9053;&#x7684;<code>named_steps</code>&#x5C5E;&#x6027;&#x5141;&#x8BB8;&#x5728;&#x4EA4;&#x4E92;&#x5F0F;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;tab&#x8865;&#x5168;,&#x4EE5;&#x6309;&#x540D;&#x79F0;&#x8BBF;&#x95EE;&#x6B65;&#x9AA4;:</p>
+<pre><code class="lang-py">&gt;&gt; pipe.named_steps.reduce_dim <span class="hljs-keyword">is</span> pipe[<span class="hljs-string">&apos;reduce_dim&apos;</span>]
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x901A;&#x5E38;&#x7528;&#x4E8E;Python&#x5E8F;&#x5217;(&#x5982;&#x5217;&#x8868;&#x6216;&#x5B57;&#x7B26;&#x4E32;)&#x7684;&#x5207;&#x7247;&#x8868;&#x793A;&#x6CD5;&#x63D0;&#x53D6;&#x5B50;&#x7BA1;&#x9053;(&#x5C3D;&#x7BA1;&#x53EA;&#x5141;&#x8BB8;&#x6B65;&#x9AA4;1)&#x3002;&#x8FD9;&#x5BF9;&#x4E8E;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x8F6C;&#x6362;(&#x6216;&#x5B83;&#x4EEC;&#x7684;&#x9006;)&#x662F;&#x5F88;&#x65B9;&#x4FBF;&#x7684;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>pipe[:<span class="hljs-number">1</span>]
+Pipeline(memory=<span class="hljs-keyword">None</span>, steps=[(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>, ...))],...)
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe[<span class="hljs-number">-1</span>:]
+Pipeline(memory=<span class="hljs-keyword">None</span>, steps=[(<span class="hljs-string">&apos;clf&apos;</span>, SVC(C=<span class="hljs-number">1.0</span>, ...))],...)
+</code></pre>
+<h4 id="51113-&#x5D4C;&#x5957;&#x53C2;&#x6570;">5.1.1.1.3. &#x5D4C;&#x5957;&#x53C2;&#x6570;</h4>
+<p>&#x7BA1;&#x9053;&#x4E2D;&#x7684;&#x8BC4;&#x4F30;&#x5668;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>&lt;estimator&gt;__&lt;parameter&gt;</code> &#x8BED;&#x4E49;&#x6765;&#x8BBF;&#x95EE;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>pipe.set_params(clf__C=<span class="hljs-number">10</span>)
+Pipeline(memory=<span class="hljs-keyword">None</span>,
+         steps=[(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>, iterated_power=<span class="hljs-string">&apos;auto&apos;</span>,...)),
+                (<span class="hljs-string">&apos;clf&apos;</span>, SVC(C=<span class="hljs-number">10</span>, cache_size=<span class="hljs-number">200</span>, class_weight=<span class="hljs-keyword">None</span>,...))],
+         verbose=<span class="hljs-keyword">False</span>)
+</code></pre>
+<p>&#x8FD9;&#x5BF9;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x5C24;&#x5176;&#x91CD;&#x8981;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> GridSearchCV
+<span class="hljs-meta">&gt;&gt;&gt; </span>param_grid = dict(reduce_dim__n_components=[<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>],
+<span class="hljs-meta">... </span>                  clf__C=[<span class="hljs-number">0.1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>grid_search = GridSearchCV(pipe, param_grid=param_grid)
+</code></pre>
+<p>&#x5355;&#x72EC;&#x7684;&#x6B65;&#x9AA4;&#x53EF;&#x4EE5;&#x7528;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x66FF;&#x6362;&#xFF0C;&#x9664;&#x4E86;&#x6700;&#x540E;&#x6B65;&#x9AA4;&#xFF0C;&#x5176;&#x4ED6;&#x6B65;&#x9AA4;&#x90FD;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A; <code>passthrough</code> &#x6765;&#x8DF3;&#x8FC7;</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LogisticRegression
+<span class="hljs-meta">&gt;&gt;&gt; </span>param_grid = dict(reduce_dim=[<span class="hljs-string">&apos;passthrough&apos;</span>, PCA(<span class="hljs-number">5</span>), PCA(<span class="hljs-number">10</span>)],
+<span class="hljs-meta">... </span>                  clf=[SVC(), LogisticRegression()],
+<span class="hljs-meta">... </span>                  clf__C=[<span class="hljs-number">0.1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>grid_search = GridSearchCV(pipe, param_grid=param_grid)
+</code></pre>
+<p>&#x7BA1;&#x9053;&#x7684;&#x4F30;&#x8BA1;&#x91CF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x68C0;&#x7D22;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>pipe[<span class="hljs-number">0</span>]  
+PCA(copy=<span class="hljs-keyword">True</span>, ...)
+</code></pre>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong> :</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_feature_selection_pipeline.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-pipeline-py" target="_blank">Pipeline Anova SVM</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html#sphx-glr-auto-examples-model-selection-grid-search-text-feature-extraction-py" target="_blank">Sample pipeline for text feature extraction and evaluation</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/plot_digits_pipe.html#sphx-glr-auto-examples-plot-digits-pipe-py" target="_blank">Pipelining: chaining a PCA and a logistic regression</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/plot_kernel_approximation.html#sphx-glr-auto-examples-plot-kernel-approximation-py" target="_blank">Explicit feature map approximation for RBF kernels</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_anova.html#sphx-glr-auto-examples-svm-plot-svm-anova-py" target="_blank">SVM-Anova: SVM with univariate feature selection</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/plot_compare_reduction.html#sphx-glr-auto-examples-plot-compare-reduction-py" target="_blank">Selecting dimensionality reduction with Pipeline and GridSearchCV</a></li>
+</ul>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x53C2;&#x9605;:</p>
+<ul>
+<li><a href="../31#32-&#x8C03;&#x6574;&#x4F30;&#x8BA1;&#x5668;&#x7684;&#x8D85;&#x53C2;&#x6570;">&#x8C03;&#x6574;&#x4F30;&#x8BA1;&#x5668;&#x7684;&#x8D85;&#x53C2;&#x6570;</a></li>
+</ul>
+</blockquote>
+<h3 id="5112-&#x6CE8;&#x610F;">5.1.1.2. &#x6CE8;&#x610F;</h3>
+<p>&#x5BF9;&#x7BA1;&#x9053;&#x8C03;&#x7528; <code>fit</code> &#x65B9;&#x6CD5;&#x7684;&#x6548;&#x679C;&#x8DDF;&#x4F9D;&#x6B21;&#x5BF9;&#x6BCF;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x8C03;&#x7528; <code>fit</code> &#x65B9;&#x6CD5;&#x4E00;&#x6837;, &#x90FD;&#x662F;<code>transform</code> &#x8F93;&#x5165;&#x5E76;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x4E2A;&#x6B65;&#x9AA4;&#x3002; &#x7BA1;&#x9053;&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x7BA1;&#x9053;&#x90FD;&#x6709;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x6700;&#x540E;&#x7684;&#x8BC4;&#x4F30;&#x5668;&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x7C7B;&#x5668;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x5206;&#x7C7B;&#x5668;&#x6765;&#x7528;&#x3002;&#x5982;&#x679C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x662F;&#x8F6C;&#x6362;&#x5668;&#xFF0C;&#x7BA1;&#x9053;&#x4E5F;&#x4E00;&#x6837;&#x53EF;&#x4EE5;&#x3002;</p>
+<h3 id="5113-&#x7F13;&#x5B58;&#x8F6C;&#x6362;&#x5668;&#xFF1A;&#x907F;&#x514D;&#x91CD;&#x590D;&#x8BA1;&#x7B97;">5.1.1.3. &#x7F13;&#x5B58;&#x8F6C;&#x6362;&#x5668;&#xFF1A;&#x907F;&#x514D;&#x91CD;&#x590D;&#x8BA1;&#x7B97;</h3>
+<p>&#x9002;&#x914D;&#x8F6C;&#x6362;&#x5668;&#x662F;&#x5F88;&#x8017;&#x8D39;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x7684;&#x3002;&#x8BBE;&#x7F6E;&#x4E86;<code>memory</code> &#x53C2;&#x6570;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x5C06;&#x4F1A;&#x5728;&#x8C03;&#x7528;<code>fit</code>&#x65B9;&#x6CD5;&#x540E;&#x7F13;&#x5B58;&#x6BCF;&#x4E2A;&#x8F6C;&#x6362;&#x5668;&#x3002; &#x5982;&#x679C;&#x53C2;&#x6570;&#x548C;&#x8F93;&#x5165;&#x6570;&#x636E;&#x76F8;&#x540C;&#xFF0C;&#x8FD9;&#x4E2A;&#x7279;&#x5F81;&#x7528;&#x4E8E;&#x907F;&#x514D;&#x91CD;&#x590D;&#x8BA1;&#x7B97;&#x9002;&#x914D;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x3002;&#x5178;&#x578B;&#x7684;&#x793A;&#x4F8B;&#x662F;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x8F6C;&#x6362;&#x5668;&#xFF0C;&#x8BE5;&#x8F6C;&#x5316;&#x5668;&#x53EA;&#x8981;&#x9002;&#x914D;&#x4E00;&#x6B21;&#x5C31;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x4F7F;&#x7528;&#x3002;</p>
+<p><code>memory</code> &#x53C2;&#x6570;&#x7528;&#x4E8E;&#x7F13;&#x5B58;&#x8F6C;&#x6362;&#x5668;&#x3002;<code>memory</code> &#x53EF;&#x4EE5;&#x662F;&#x5305;&#x542B;&#x8981;&#x7F13;&#x5B58;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x7684;&#x76EE;&#x5F55;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x4E00;&#x4E2A; <a href="https://pythonhosted.org/joblib/memory.html" target="_blank">joblib.Memory</a> &#x5BF9;&#x8C61;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> tempfile <span class="hljs-keyword">import</span> mkdtemp
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> shutil <span class="hljs-keyword">import</span> rmtree
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.decomposition <span class="hljs-keyword">import</span> PCA
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.svm <span class="hljs-keyword">import</span> SVC
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> Pipeline
+<span class="hljs-meta">&gt;&gt;&gt; </span>estimators = [(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA()), (<span class="hljs-string">&apos;clf&apos;</span>, SVC())]
+<span class="hljs-meta">&gt;&gt;&gt; </span>cachedir = mkdtemp()
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe = Pipeline(estimators, memory=cachedir)
+<span class="hljs-meta">&gt;&gt;&gt; </span>pipe
+Pipeline(...,
+         steps=[(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>,...)),
+                (<span class="hljs-string">&apos;clf&apos;</span>, SVC(C=<span class="hljs-number">1.0</span>,...))], verbose=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># Clear the cache directory when you don&apos;t need it anymore</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>rmtree(cachedir)
+</code></pre>
+<blockquote>
+<p><strong>&#x8B66;&#x544A;</strong>:&#x7F13;&#x5B58;&#x8F6C;&#x6362;&#x5668;&#x7684;&#x526F;&#x4F5C;&#x7528;</p>
+<p>&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x800C;&#x4E0D;&#x5F00;&#x542F;&#x7F13;&#x5B58;&#x529F;&#x80FD;,&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x539F;&#x59CB;&#x5B9E;&#x4F8B;&#x7684;&#xFF0C;&#x4F8B;&#x5982;:</p>
+<pre><code class="lang-py">&gt;&gt; <span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> load_digits
+&gt;&gt; digits = load_digits()
+&gt;&gt; pca1 = PCA()
+&gt;&gt; svm1 = SVC(gamma=<span class="hljs-string">&apos;scale&apos;</span>)
+&gt;&gt; pipe = Pipeline([(<span class="hljs-string">&apos;reduce_dim&apos;</span>, pca1), (<span class="hljs-string">&apos;clf&apos;</span>, svm1)])
+&gt;&gt; pipe.fit(digits.data, digits.target)
+  Pipeline(memory=<span class="hljs-keyword">None</span>,
+           steps=[(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(...)), (<span class="hljs-string">&apos;clf&apos;</span>, SVC(...))],
+           verbose=<span class="hljs-keyword">False</span>)
+&gt;&gt; <span class="hljs-comment"># The pca instance can be inspected directly</span>
+&gt;&gt; print(pca1.components_)
+      [[<span class="hljs-number">-1.77484909e-19</span>  ... <span class="hljs-number">4.07058917e-18</span>]]
+</code></pre>
+<p>&#x5F00;&#x542F;&#x7F13;&#x5B58;&#x4F1A;&#x5728;&#x9002;&#x914D;&#x524D;&#x89E6;&#x53D1;&#x8F6C;&#x6362;&#x5668;&#x7684;&#x514B;&#x9686;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7BA1;&#x9053;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x88AB;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x3002; &#x5728;&#x4E0B;&#x9762;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C; &#x8BBF;&#x95EE; <code>PCA</code> &#x5B9E;&#x4F8B; <code>pca2</code> &#x5C06;&#x4F1A;&#x5F15;&#x53D1; <code>AttributeError</code> &#x56E0;&#x4E3A; <code>pca2</code> &#x662F;&#x4E00;&#x4E2A;&#x672A;&#x9002;&#x914D;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x3002; &#x8FD9;&#x65F6;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5C5E;&#x6027; <code>named_steps</code> &#x6765;&#x68C0;&#x67E5;&#x7BA1;&#x9053;&#x7684;&#x8BC4;&#x4F30;&#x5668;:</p>
+<pre><code class="lang-py">&gt;&gt; cachedir = mkdtemp()
+&gt;&gt; pca2 = PCA()
+&gt;&gt; svm2 = SVC(gamma=<span class="hljs-string">&apos;scale&apos;</span>)
+&gt;&gt; cached_pipe = Pipeline([(<span class="hljs-string">&apos;reduce_dim&apos;</span>, pca2), (<span class="hljs-string">&apos;clf&apos;</span>, svm2)],memory=cachedir)
+&gt;&gt; cached_pipe.fit(digits.data, digits.target)
+  ...
+   Pipeline(memory=...,
+            steps=[(<span class="hljs-string">&apos;reduce_dim&apos;</span>, PCA(...)), (<span class="hljs-string">&apos;clf&apos;</span>, SVC(...))],
+            verbose=<span class="hljs-keyword">False</span>)
+&gt;&gt; print(cached_pipe.named_steps[<span class="hljs-string">&apos;reduce_dim&apos;</span>].components_)
+  ...
+      [[<span class="hljs-number">-1.77484909e-19</span>  ... <span class="hljs-number">4.07058917e-18</span>]]
+&gt;&gt; <span class="hljs-comment"># Remove the cache directory</span>
+&gt;&gt; rmtree(cachedir)
+</code></pre>
+<p><strong>&#x793A;&#x4F8B;</strong> :</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/plot_compare_reduction.html#sphx-glr-auto-examples-plot-compare-reduction-py" target="_blank">Selecting dimensionality reduction with Pipeline and GridSearchCV</a></li>
+</ul>
+</blockquote>
+<h2 id="512-&#x56DE;&#x5F52;&#x4E2D;&#x7684;&#x76EE;&#x6807;&#x8F6C;&#x6362;">5.1.2. &#x56DE;&#x5F52;&#x4E2D;&#x7684;&#x76EE;&#x6807;&#x8F6C;&#x6362;</h2>
+<p><code>TransformedTargetRegressor</code>&#x5728;&#x62DF;&#x5408;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x4E4B;&#x524D;&#x5BF9;&#x76EE;&#x6807;<code>y</code>&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;&#x8FD9;&#x4E9B;&#x9884;&#x6D4B;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x9006;&#x53D8;&#x6362;&#x88AB;&#x6620;&#x5C04;&#x56DE;&#x539F;&#x59CB;&#x7A7A;&#x95F4;&#x3002;&#x5B83;&#x4EE5;&#x9884;&#x6D4B;&#x6240;&#x7528;&#x7684;&#x56DE;&#x5F52;&#x5668;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x5E94;&#x7528;&#x4E8E;&#x76EE;&#x6807;&#x53D8;&#x91CF;&#x7684;&#x53D8;&#x538B;&#x5668;&#x4E3A;&#x53C2;&#x6570;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> load_boston
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.compose <span class="hljs-keyword">import</span> TransformedTargetRegressor
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> QuantileTransformer
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LinearRegression
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+<span class="hljs-meta">&gt;&gt;&gt; </span>boston = load_boston()
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = boston.data
+<span class="hljs-meta">&gt;&gt;&gt; </span>y = boston.target
+<span class="hljs-meta">&gt;&gt;&gt; </span>transformer = QuantileTransformer(output_distribution=<span class="hljs-string">&apos;normal&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>regressor = LinearRegression()
+<span class="hljs-meta">&gt;&gt;&gt; </span>regr = TransformedTargetRegressor(regressor=regressor,
+<span class="hljs-meta">... </span>                                  transformer=transformer)
+<span class="hljs-meta">&gt;&gt;&gt; </span>X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="hljs-number">0</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>regr.fit(X_train, y_train)
+TransformedTargetRegressor(...)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(<span class="hljs-string">&apos;R2 score: {0:.2f}&apos;</span>.format(regr.score(X_test, y_test)))
+R2 score: <span class="hljs-number">0.67</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>raw_target_regr = LinearRegression().fit(X_train, y_train)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(<span class="hljs-string">&apos;R2 score: {0:.2f}&apos;</span>.format(raw_target_regr.score(X_test, y_test)))
+R2 score: <span class="hljs-number">0.64</span>
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x7684;&#x53D8;&#x6362;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4E00;&#x5BF9;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;Transformer&#x5BF9;&#x8C61;&#xFF0C;&#x5B9A;&#x4E49;&#x53D8;&#x6362;&#x53CA;&#x5176;&#x9006;&#x6620;&#x5C04;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(x)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> np.log(x)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_func</span><span class="hljs-params">(x)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> np.exp(x)
+</code></pre>
+<p>&#x968F;&#x540E;&#xFF0C;&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x4E3A;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>regr = TransformedTargetRegressor(regressor=regressor,
+<span class="hljs-meta">... </span>                                  func=func,
+<span class="hljs-meta">... </span>                                  inverse_func=inverse_func)
+<span class="hljs-meta">&gt;&gt;&gt; </span>regr.fit(X_train, y_train)
+TransformedTargetRegressor(...)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(<span class="hljs-string">&apos;R2 score: {0:.2f}&apos;</span>.format(regr.score(X_test, y_test)))
+R2 score: <span class="hljs-number">0.65</span>
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x51FD;&#x6570;&#x5728;&#x6BCF;&#x6B21;&#x5339;&#x914D;&#x65F6;&#x90FD;&#x88AB;&#x68C0;&#x67E5;&#x4E3A;&#x5F7C;&#x6B64;&#x7684;&#x5012;&#x6570;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;<code>check_reverse</code>&#x8BBE;&#x7F6E;&#x4E3A;<code>False</code>&#x6765;&#x7ED5;&#x8FC7;&#x8FD9;&#x4E2A;&#x68C0;&#x67E5;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_func</span><span class="hljs-params">(x)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> x
+<span class="hljs-meta">&gt;&gt;&gt; </span>regr = TransformedTargetRegressor(regressor=regressor,
+<span class="hljs-meta">... </span>                                  func=func,
+<span class="hljs-meta">... </span>                                  inverse_func=inverse_func,
+<span class="hljs-meta">... </span>                                  check_inverse=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>regr.fit(X_train, y_train)
+TransformedTargetRegressor(...)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(<span class="hljs-string">&apos;R2 score: {0:.2f}&apos;</span>.format(regr.score(X_test, y_test)))
+R2 score: <span class="hljs-number">-4.50</span>
+</code></pre>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;transformer&#x6216;&#x51FD;&#x6570;&#x5BF9;func&#x548C;inverse_func&#x6765;&#x89E6;&#x53D1;&#x8F6C;&#x6362;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E24;&#x4E2A;&#x9009;&#x9879;&#x4F1A;&#x4EA7;&#x751F;&#x9519;&#x8BEF;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/compose/plot_transformed_target.html#sphx-glr-auto-examples-compose-plot-transformed-target-py" target="_blank">Effect of transforming the targets in regression model</a></li>
+</ul>
+</blockquote>
+<h2 id="513-featureunion&#xFF08;&#x7279;&#x5F81;&#x8054;&#x5408;&#xFF09;-&#x590D;&#x5408;&#x7279;&#x5F81;&#x7A7A;&#x95F4;">5.1.3. FeatureUnion&#xFF08;&#x7279;&#x5F81;&#x8054;&#x5408;&#xFF09;: &#x590D;&#x5408;&#x7279;&#x5F81;&#x7A7A;&#x95F4;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html#sklearn.pipeline.FeatureUnion" title="sklearn.pipeline.FeatureUnion" target="_blank"><code>FeatureUnion</code></a> &#x5408;&#x5E76;&#x4E86;&#x591A;&#x4E2A;&#x8F6C;&#x6362;&#x5668;&#x5BF9;&#x8C61;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8F6C;&#x6362;&#x5668;&#xFF0C;&#x8BE5;&#x8F6C;&#x6362;&#x5668;&#x5408;&#x5E76;&#x4E86;&#x4ED6;&#x4EEC;&#x7684;&#x8F93;&#x51FA;&#x3002;&#x4E00;&#x4E2A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html#sklearn.pipeline.FeatureUnion" title="sklearn.pipeline.FeatureUnion" target="_blank"><code>FeatureUnion</code></a> &#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x591A;&#x4E2A;&#x8F6C;&#x6362;&#x5668;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x9002;&#x914D;&#x671F;&#x95F4;&#xFF0C;&#x6BCF;&#x4E2A;&#x8F6C;&#x6362;&#x5668;&#x90FD;&#x5355;&#x72EC;&#x7684;&#x548C;&#x6570;&#x636E;&#x9002;&#x914D;&#x3002; &#x5BF9;&#x4E8E;&#x8F6C;&#x6362;&#x6570;&#x636E;&#xFF0C;&#x8F6C;&#x6362;&#x5668;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x4F7F;&#x7528;&#xFF0C;&#x4E14;&#x8F93;&#x51FA;&#x7684;&#x6837;&#x672C;&#x5411;&#x91CF;&#x88AB;&#x8FDE;&#x63A5;&#x6210;&#x66F4;&#x5927;&#x7684;&#x5411;&#x91CF;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html#sklearn.pipeline.FeatureUnion" title="sklearn.pipeline.FeatureUnion" target="_blank"><code>FeatureUnion</code></a> &#x529F;&#x80FD;&#x4E0E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x4E00;&#x6837;- &#x4FBF;&#x6377;&#x6027;&#x548C;&#x8054;&#x5408;&#x53C2;&#x6570;&#x7684;&#x4F30;&#x8BA1;&#x548C;&#x9A8C;&#x8BC1;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x7ED3;&#x5408;:<code>FeatureUnion</code>&#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" target="_blank"><code>Pipeline</code></a> &#x6765;&#x521B;&#x9020;&#x51FA;&#x590D;&#x6742;&#x6A21;&#x578B;&#x3002;</p>
+<p>(&#x4E00;&#x4E2A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html#sklearn.pipeline.FeatureUnion" title="sklearn.pipeline.FeatureUnion" target="_blank"><code>FeatureUnion</code></a> &#x6CA1;&#x529E;&#x6CD5;&#x68C0;&#x67E5;&#x4E24;&#x4E2A;&#x8F6C;&#x6362;&#x5668;&#x662F;&#x5426;&#x4F1A;&#x4EA7;&#x51FA;&#x76F8;&#x540C;&#x7684;&#x7279;&#x5F81;&#x3002;&#x5B83;&#x4EC5;&#x4EC5;&#x5728;&#x7279;&#x5F81;&#x96C6;&#x5408;&#x4E0D;&#x76F8;&#x5173;&#x65F6;&#x4EA7;&#x751F;&#x8054;&#x5408;&#x5E76;&#x786E;&#x8BA4;&#x662F;&#x8C03;&#x7528;&#x8005;&#x7684;&#x804C;&#x8D23;&#x3002;)</p>
+<h3 id="5131-&#x7528;&#x6CD5;">5.1.3.1. &#x7528;&#x6CD5;</h3>
+<p>&#x4E00;&#x4E2A; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html#sklearn.pipeline.FeatureUnion" title="sklearn.pipeline.FeatureUnion" target="_blank"><code>FeatureUnion</code></a> &#x662F;&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217; <code>(key, value)</code> &#x952E;&#x503C;&#x5BF9;&#x6765;&#x6784;&#x5EFA;&#x7684;,&#x5176;&#x4E2D;&#x7684; <code>key</code> &#x7ED9;&#x8F6C;&#x6362;&#x5668;&#x6307;&#x5B9A;&#x7684;&#x540D;&#x5B57; (&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x7684;&#x5B57;&#x7B26;&#x4E32;; &#x4ED6;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x4EE3;&#x53F7;)&#xFF0C; <code>value</code> &#x662F;&#x4E00;&#x4E2A;&#x8BC4;&#x4F30;&#x5668;&#x5BF9;&#x8C61;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> FeatureUnion
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.decomposition <span class="hljs-keyword">import</span> PCA
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.decomposition <span class="hljs-keyword">import</span> KernelPCA
+<span class="hljs-meta">&gt;&gt;&gt; </span>estimators = [(<span class="hljs-string">&apos;linear_pca&apos;</span>, PCA()), (<span class="hljs-string">&apos;kernel_pca&apos;</span>, KernelPCA())]
+<span class="hljs-meta">&gt;&gt;&gt; </span>combined = FeatureUnion(estimators)
+<span class="hljs-meta">&gt;&gt;&gt; </span>combined
+FeatureUnion(n_jobs=<span class="hljs-keyword">None</span>,
+             transformer_list=[(<span class="hljs-string">&apos;linear_pca&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>,...)),
+                               (<span class="hljs-string">&apos;kernel_pca&apos;</span>, KernelPCA(alpha=<span class="hljs-number">1.0</span>,...))],
+             transformer_weights=<span class="hljs-keyword">None</span>, verbose=<span class="hljs-keyword">False</span>)
+</code></pre>
+<p>&#x8DDF;&#x7BA1;&#x9053;&#x4E00;&#x6837;&#xFF0C;&#x7279;&#x5F81;&#x8054;&#x5408;&#x6709;&#x4E00;&#x4E2A;&#x7CBE;&#x7B80;&#x7248;&#x7684;&#x6784;&#x9020;&#x5668;&#x53EB;&#x505A;:func:<em>make_union</em> &#xFF0C;&#x8BE5;&#x6784;&#x9020;&#x5668;&#x4E0D;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x7ED9;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF7;&#x8D77;&#x540D;&#x5B57;&#x3002;</p>
+<p>&#x6B63;&#x5982; <code>Pipeline</code>, &#x5355;&#x72EC;&#x7684;&#x6B65;&#x9AA4;&#x53EF;&#x80FD;&#x7528;<code>set_params</code>&#x66FF;&#x6362; ,&#x5E76;&#x8BBE;&#x7F6E;&#x4E3A;<code>drop</code>&#x6765;&#x8DF3;&#x8FC7;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>combined.set_params(kernel_pca=<span class="hljs-string">&apos;drop&apos;</span>)
+...
+FeatureUnion(n_jobs=<span class="hljs-keyword">None</span>,
+             transformer_list=[(<span class="hljs-string">&apos;linear_pca&apos;</span>, PCA(copy=<span class="hljs-keyword">True</span>,...)),
+                               (<span class="hljs-string">&apos;kernel_pca&apos;</span>, <span class="hljs-string">&apos;drop&apos;</span>)],
+             transformer_weights=<span class="hljs-keyword">None</span>, verbose=<span class="hljs-keyword">False</span>)
+</code></pre>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong> :</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/plot_feature_stacker.html#sphx-glr-auto-examples-plot-feature-stacker-py" target="_blank">Concatenating multiple feature extraction methods</a></li>
+</ul>
+</blockquote>
+<h2 id="514-&#x7528;&#x4E8E;&#x5F02;&#x6784;&#x6570;&#x636E;&#x7684;&#x5217;&#x8F6C;&#x6362;&#x5668;">5.1.4. &#x7528;&#x4E8E;&#x5F02;&#x6784;&#x6570;&#x636E;&#x7684;&#x5217;&#x8F6C;&#x6362;&#x5668;</h2>
+<blockquote>
+<p><strong>&#x8B66;&#x544A;</strong>&#xFF1A;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html#sklearn.compose.ColumnTransformer" target="_blank">compose.ColumnTransformer</a> &#x8FD8;&#x5728;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x5B83;&#x7684; API&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x52A8;&#x7684;&#x3002;</p>
+</blockquote>
+<p>&#x8BB8;&#x591A;&#x6570;&#x636E;&#x96C6;&#x5305;&#x542B;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x6587;&#x672C;&#x3001;&#x6D6E;&#x70B9;&#x6570;&#x548C;&#x65E5;&#x671F;&#xFF0C;&#x6BCF;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x7279;&#x5F81;&#x90FD;&#x9700;&#x8981;&#x5355;&#x72EC;&#x7684;&#x9884;&#x5904;&#x7406;&#x6216;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x6B65;&#x9AA4;&#x3002; &#x901A;&#x5E38;&#xFF0C;&#x5728;&#x5E94;&#x7528;scikit-learn&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#xFF0C;&#x6700;&#x5BB9;&#x6613;&#x7684;&#x662F;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x9884;&#x5904;&#x7406;&#xFF0C;&#x4F8B;&#x5982; <a href="http://pandas.pydata.org/" target="_blank">pandas</a>&#x3002; &#x5728;&#x5C06;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9;scikit-learn&#x4E4B;&#x524D;&#x5904;&#x7406;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x539F;&#x56E0;&#x5982;&#x4E0B;:</p>
+<ul>
+<li>&#x5C06;&#x6765;&#x81EA;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x96C6;&#x6210;&#x5230;&#x9884;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x4F7F;&#x5F97;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x5206;&#x6570;&#x4E0D;&#x53EF;&#x9760;(&#x88AB;&#x79F0;&#x4E3A;&#x6570;&#x636E;&#x6CC4;&#x9732;)&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x5C3A;&#x5EA6;&#x53D8;&#x6362;&#x6216;&#x8BA1;&#x7B97;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;</li>
+<li>&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x5728;<code>parameter search</code>&#x4E2D;&#x5305;&#x542B;&#x9884;&#x5904;&#x7406;&#x5668;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html#sklearn.compose.ColumnTransformer" target="_blank">compose.ColumnTransformer</a>&#x5BF9;&#x6570;&#x636E;&#x7684;&#x4E0D;&#x540C;&#x5217;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x53D8;&#x6362;&#xFF0C;&#x8BE5;&#x7BA1;&#x9053;&#x4E0D;&#x5B58;&#x5728;&#x6570;&#x636E;&#x6CC4;&#x6F0F;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x53C2;&#x6570;&#x5316;&#x3002;ColumnTransformer&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6570;&#x7EC4;&#x3001;&#x7A00;&#x758F;&#x77E9;&#x9635;&#x548C;<a href="https://pandas.pydata.org/pandas-docs/stable/" target="_blank">pandas DataFrames</a>&#x3002;</p>
+<p>&#x5BF9;&#x6BCF;&#x4E00;&#x5217;&#xFF0C;&#x90FD;&#x4F1A;&#x5E94;&#x7528;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x53D8;&#x6362;, &#x6BD4;&#x5982;preprocessing&#x6216;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x7279;&#x5F81;&#x62BD;&#x53D6;&#x65B9;&#x6CD5;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = pd.DataFrame(
+<span class="hljs-meta">... </span>    {<span class="hljs-string">&apos;city&apos;</span>: [<span class="hljs-string">&apos;London&apos;</span>, <span class="hljs-string">&apos;London&apos;</span>, <span class="hljs-string">&apos;Paris&apos;</span>, <span class="hljs-string">&apos;Sallisaw&apos;</span>],
+<span class="hljs-meta">... </span>     <span class="hljs-string">&apos;title&apos;</span>: [<span class="hljs-string">&quot;His Last Bow&quot;</span>, <span class="hljs-string">&quot;How Watson Learned the Trick&quot;</span>,
+<span class="hljs-meta">... </span>               <span class="hljs-string">&quot;A Moveable Feast&quot;</span>, <span class="hljs-string">&quot;The Grapes of Wrath&quot;</span>],
+<span class="hljs-meta">... </span>     <span class="hljs-string">&apos;expert_rating&apos;</span>: [<span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+<span class="hljs-meta">... </span>     <span class="hljs-string">&apos;user_rating&apos;</span>: [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>]})
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x4F7F;&#x7528;<code>preprocessing.OneHotEncoder</code>&#x5C06;<code>city</code>&#x5217;&#x7F16;&#x7801;&#x4E3A;&#x4E00;&#x4E2A;&#x5206;&#x7C7B;&#x53D8;&#x91CF;,&#x540C;&#x65F6;&#x4F7F;&#x7528;<code>feature_extraction.text.CountVectorizer</code>&#x6765;&#x5904;&#x7406;<code>title</code>&#x5217;&#x3002;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x628A;&#x591A;&#x4E2A;&#x7279;&#x5F81;&#x62BD;&#x53D6;&#x5668;&#x7528;&#x5728;&#x540C;&#x4E00;&#x5217;&#x4E0A;, &#x6211;&#x4EEC;&#x7ED9;&#x6BCF;&#x4E00;&#x4E2A;&#x53D8;&#x6362;&#x5668;&#x53D6;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6BD4;&#x5982;&#x201C;city_category&#x201D;&#x548C;&#x201C;title_bow&#x201D;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5FFD;&#x7565;&#x5176;&#x4F59;&#x7684;ranking&#x5217;(<code>remainder=&apos;drop&apos;</code>):</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.compose <span class="hljs-keyword">import</span> ColumnTransformer
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> CountVectorizer
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans = ColumnTransformer(
+<span class="hljs-meta">... </span>    [(<span class="hljs-string">&apos;city_category&apos;</span>, CountVectorizer(analyzer=<span class="hljs-keyword">lambda</span> x: [x]), <span class="hljs-string">&apos;city&apos;</span>),
+<span class="hljs-meta">... </span>     (<span class="hljs-string">&apos;title_bow&apos;</span>, CountVectorizer(), <span class="hljs-string">&apos;title&apos;</span>)],
+<span class="hljs-meta">... </span>    remainder=<span class="hljs-string">&apos;drop&apos;</span>)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans.fit(X)
+ColumnTransformer(n_jobs=<span class="hljs-keyword">None</span>, remainder=<span class="hljs-string">&apos;drop&apos;</span>, sparse_threshold=<span class="hljs-number">0.3</span>,
+    transformer_weights=<span class="hljs-keyword">None</span>,
+    transformers=...)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans.get_feature_names()
+...
+[<span class="hljs-string">&apos;city_category__London&apos;</span>, <span class="hljs-string">&apos;city_category__Paris&apos;</span>, <span class="hljs-string">&apos;city_category__Sallisaw&apos;</span>,
+<span class="hljs-string">&apos;title_bow__bow&apos;</span>, <span class="hljs-string">&apos;title_bow__feast&apos;</span>, <span class="hljs-string">&apos;title_bow__grapes&apos;</span>, <span class="hljs-string">&apos;title_bow__his&apos;</span>,
+<span class="hljs-string">&apos;title_bow__how&apos;</span>, <span class="hljs-string">&apos;title_bow__last&apos;</span>, <span class="hljs-string">&apos;title_bow__learned&apos;</span>, <span class="hljs-string">&apos;title_bow__moveable&apos;</span>,
+<span class="hljs-string">&apos;title_bow__of&apos;</span>, <span class="hljs-string">&apos;title_bow__the&apos;</span>, <span class="hljs-string">&apos;title_bow__trick&apos;</span>, <span class="hljs-string">&apos;title_bow__watson&apos;</span>,
+<span class="hljs-string">&apos;title_bow__wrath&apos;</span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans.transform(X).toarray()
+...
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+       [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]]...)
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;<code>CountVectorizer</code>&#x5E0C;&#x671B;&#x63A5;&#x53D7;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x56E0;&#x6B64;&#x5217;&#x88AB;&#x6307;&#x5B9A;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;(<code>&apos;title&apos;</code>)&#x3002;&#x7136;&#x800C;,<code>preprocessing.OneHotEncoder</code>&#x5C31;&#x50CF;&#x5927;&#x591A;&#x6570;&#x5176;&#x4ED6;&#x8F6C;&#x6362;&#x5668;&#x4E00;&#x6837;&#xFF0C;&#x671F;&#x671B;2D&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x5C06;&#x5217;&#x6307;&#x5B9A;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;(<code>[&apos;city&apos;]</code>)&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x6807;&#x91CF;&#x6216;&#x5355;&#x4E2A;&#x9879;&#x5217;&#x8868;&#x5916;&#xFF0C;&#x5217;&#x9009;&#x62E9;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E3A;&#x591A;&#x4E2A;&#x9879;&#x3001;&#x6574;&#x6570;&#x6570;&#x7EC4;&#x3001;&#x7247;&#x6216;&#x5E03;&#x5C14;&#x63A9;&#x7801;&#x7684;&#x5217;&#x8868;&#x3002;&#x5982;&#x679C;&#x8F93;&#x5165;&#x662F;DataFrame&#xFF0C;&#x5219;&#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5217;&#xFF0C;&#x6574;&#x6570;&#x603B;&#x662F;&#x89E3;&#x91CA;&#x4E3A;&#x4F4D;&#x7F6E;&#x5217;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;<code>remainder=&apos;passthrough&apos;</code>&#x6765;&#x4FDD;&#x7559;&#x5176;&#x4F59;&#x7684;ranking&#x5217;&#x3002;&#x8FD9;&#x4E9B;&#x503C;&#x88AB;&#x9644;&#x52A0;&#x5230;&#x8F6C;&#x6362;&#x7684;&#x672B;&#x5C3E;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>column_trans = ColumnTransformer(
+<span class="hljs-meta">... </span>    [(<span class="hljs-string">&apos;city_category&apos;</span>, OneHotEncoder(dtype=<span class="hljs-string">&apos;int&apos;</span>),[<span class="hljs-string">&apos;city&apos;</span>]),
+<span class="hljs-meta">... </span>     (<span class="hljs-string">&apos;title_bow&apos;</span>, CountVectorizer(), <span class="hljs-string">&apos;title&apos;</span>)],
+<span class="hljs-meta">... </span>    remainder=<span class="hljs-string">&apos;passthrough&apos;</span>)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans.fit_transform(X)
+...
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>],
+       [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>]]...)
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x5C06;<code>remainder</code>&#x8BBE;&#x7F6E;&#x4E3A;estimator&#x6765;&#x8F6C;&#x6362;&#x5269;&#x4F59;&#x7684;ranking&#x5217;&#x3002;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x503C;&#x88AB;&#x9644;&#x52A0;&#x5230;&#x8F6C;&#x6362;&#x7684;&#x672B;&#x5C3E;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> MinMaxScaler
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans = ColumnTransformer(
+<span class="hljs-meta">... </span>    [(<span class="hljs-string">&apos;city_category&apos;</span>, OneHotEncoder(), [<span class="hljs-string">&apos;city&apos;</span>]),
+<span class="hljs-meta">... </span>     (<span class="hljs-string">&apos;title_bow&apos;</span>, CountVectorizer(), <span class="hljs-string">&apos;title&apos;</span>)],
+<span class="hljs-meta">... </span>    remainder=MinMaxScaler())
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans.fit_transform(X)[:, <span class="hljs-number">-2</span>:]
+...
+array([[<span class="hljs-number">1.</span> , <span class="hljs-number">0.5</span>],
+       [<span class="hljs-number">0.</span> , <span class="hljs-number">1.</span> ],
+       [<span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>],
+       [<span class="hljs-number">1.</span> , <span class="hljs-number">0.</span> ]])
+</code></pre>
+<p>&#x51FD;&#x6570; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.make_column_transformer.html#sklearn.compose.make_column_transformer" target="_blank"><code>make_column_transformer</code></a>&#x53EF;&#x7528;&#x6765;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x521B;&#x5EFA;&#x7C7B;&#x5BF9;&#x8C61; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html#sklearn.compose.ColumnTransformer" target="_blank"><code>ColumnTransformer</code></a> &#x3002; &#x7279;&#x522B;&#x7684;&#xFF0C;&#x540D;&#x5B57;&#x5C06;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x7ED9;&#x51FA;&#x3002;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x7B49;&#x4EF7;&#x4E8E;</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.compose <span class="hljs-keyword">import</span> make_column_transformer
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans = make_column_transformer(
+<span class="hljs-meta">... </span>    (OneHotEncoder(), [<span class="hljs-string">&apos;city&apos;</span>]),
+<span class="hljs-meta">... </span>    (CountVectorizer(), <span class="hljs-string">&apos;title&apos;</span>),
+<span class="hljs-meta">... </span>    remainder=MinMaxScaler())
+<span class="hljs-meta">&gt;&gt;&gt; </span>column_trans
+ColumnTransformer(n_jobs=<span class="hljs-keyword">None</span>, remainder=MinMaxScaler(copy=<span class="hljs-keyword">True</span>, ...),
+         sparse_threshold=<span class="hljs-number">0.3</span>,
+         transformer_weights=<span class="hljs-keyword">None</span>,
+         transformers=[(<span class="hljs-string">&apos;onehotencoder&apos;</span>, ...)
+</code></pre>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer.html#sphx-glr-auto-examples-compose-plot-column-transformer-py" target="_blank">Column Transformer with Heterogeneous Data Sources</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mixed_types.html#sphx-glr-auto-examples-compose-plot-column-transformer-mixed-types-py" target="_blank">Column Transformer with Mixed Types</a></li>
+</ul>
+</blockquote>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="37.html" class="navigation navigation-prev " aria-label="Previous page: 5. 数据集转换">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="39.html" class="navigation navigation-next " aria-label="Next page: 5.2. 特征提取">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器","level":"1.3.5.1","depth":3,"next":{"title":"5.2. 特征提取","level":"1.3.5.2","depth":3,"path":"docs/master/39.md","ref":"docs/master/39.md","articles":[]},"previous":{"title":"5. 数据集转换","level":"1.3.5","depth":2,"path":"docs/master/37.md","ref":"docs/master/37.md","articles":[{"title":"5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器","level":"1.3.5.1","depth":3,"path":"docs/master/38.md","ref":"docs/master/38.md","articles":[]},{"title":"5.2. 特征提取","level":"1.3.5.2","depth":3,"path":"docs/master/39.md","ref":"docs/master/39.md","articles":[]},{"title":"5.3 预处理数据","level":"1.3.5.3","depth":3,"path":"docs/master/40.md","ref":"docs/master/40.md","articles":[]},{"title":"5.4 缺失值插补","level":"1.3.5.4","depth":3,"path":"docs/master/41.md","ref":"docs/master/41.md","articles":[]},{"title":"5.5. 无监督降维","level":"1.3.5.5","depth":3,"path":"docs/master/42.md","ref":"docs/master/42.md","articles":[]},{"title":"5.6. 随机投影","level":"1.3.5.6","depth":3,"path":"docs/master/43.md","ref":"docs/master/43.md","articles":[]},{"title":"5.7. 内核近似","level":"1.3.5.7","depth":3,"path":"docs/master/44.md","ref":"docs/master/44.md","articles":[]},{"title":"5.8. 成对的矩阵, 类别和核函数","level":"1.3.5.8","depth":3,"path":"docs/master/45.md","ref":"docs/master/45.md","articles":[]},{"title":"5.9. 预测目标 (y) 的转换","level":"1.3.5.9","depth":3,"path":"docs/master/46.md","ref":"docs/master/46.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/38.md","mtime":"2020-11-23T10:54:46.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

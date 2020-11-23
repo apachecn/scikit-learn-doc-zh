@@ -1,0 +1,1692 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.6. 最近邻 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="8.html" />
+    
+    
+    <link rel="prev" href="6.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >1.6. 最近邻</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="16-&#x6700;&#x8FD1;&#x90BB;">1.6. &#x6700;&#x8FD1;&#x90BB;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/DataMonk2017" target="_blank">@DataMonk2017</a>
+        <a href="https://github.com/caopeirui" target="_blank">@Veyron C</a>
+        <a href="https://github.com/pan8664716" target="_blank">@&#x821E;&#x7A7A;</a>
+        <a href="https://github.com/loopyme" target="_blank">@Loopy</a>
+        <a href="https://github.com/qinhanmin2014" target="_blank">@qinhanmin2014</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/wangyangting" target="_blank">@&#x90A3;&#x4F0A;&#x62B9;&#x5FAE;&#x7B11;</a></p>
+<p><a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors" target="_blank"><code>sklearn.neighbors</code></a> &#x63D0;&#x4F9B;&#x4E86; neighbors-based (&#x57FA;&#x4E8E;&#x90BB;&#x5C45;&#x7684;) &#x65E0;&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x4EE5;&#x53CA;&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x7684;&#x529F;&#x80FD;&#x3002; &#x65E0;&#x76D1;&#x7763;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x662F;&#x8BB8;&#x591A;&#x5176;&#x5B83;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x5C24;&#x5176;&#x662F; manifold learning (&#x6D41;&#x5F62;&#x5B66;&#x4E60;) &#x548C; spectral clustering (&#x8C31;&#x805A;&#x7C7B;)&#x3002; neighbors-based (&#x57FA;&#x4E8E;&#x90BB;&#x5C45;&#x7684;) &#x76D1;&#x7763;&#x5B66;&#x4E60;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#xFF1A; <a href="#162-&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;">classification</a> &#xFF08;&#x5206;&#x7C7B;&#xFF09;&#x9488;&#x5BF9;&#x7684;&#x662F;&#x5177;&#x6709;&#x79BB;&#x6563;&#x6807;&#x7B7E;&#x7684;&#x6570;&#x636E;&#xFF0C;<a href="#163-&#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;">regression</a> &#xFF08;&#x56DE;&#x5F52;&#xFF09;&#x9488;&#x5BF9;&#x7684;&#x662F;&#x5177;&#x6709;&#x8FDE;&#x7EED;&#x6807;&#x7B7E;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x6700;&#x8FD1;&#x90BB;&#x65B9;&#x6CD5;&#x80CC;&#x540E;&#x7684;&#x539F;&#x7406;&#x662F;&#x4ECE;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x4E2D;&#x627E;&#x5230;&#x4E0E;&#x65B0;&#x70B9;&#x5728;&#x8DDD;&#x79BB;&#x4E0A;&#x6700;&#x8FD1;&#x7684;&#x9884;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x51E0;&#x4E2A;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x4ECE;&#x8FD9;&#x4E9B;&#x70B9;&#x4E2D;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x3002; &#x8FD9;&#x4E9B;&#x70B9;&#x7684;&#x6570;&#x91CF;&#x53EF;&#x4EE5;&#x662F;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5E38;&#x91CF;&#xFF08;K-&#x6700;&#x8FD1;&#x90BB;&#x5B66;&#x4E60;&#xFF09;&#xFF0C; &#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x70B9;&#x7684;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#xFF08;&#x57FA;&#x4E8E;&#x534A;&#x5F84;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x5B66;&#x4E60;&#xFF09;&#x786E;&#x5B9A;&#x3002;&#x8DDD;&#x79BB;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EFB;&#x4F55;&#x5EA6;&#x91CF;&#x6765;&#x8861;&#x91CF;&#xFF1A; standard Euclidean distance&#xFF08;&#x6807;&#x51C6;&#x6B27;&#x5F0F;&#x8DDD;&#x79BB;&#xFF09;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x9009;&#x62E9;&#x3002;Neighbors-based&#xFF08;&#x57FA;&#x4E8E;&#x90BB;&#x5C45;&#x7684;&#xFF09;&#x65B9;&#x6CD5;&#x88AB;&#x79F0;&#x4E3A; <em>&#x975E;&#x6CDB;&#x5316;</em> &#x673A;&#x5668;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#xFF0C; &#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5730;&#x201D;&#x8BB0;&#x4F4F;&#x201D;&#x4E86;&#x5176;&#x6240;&#x6709;&#x7684;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#xFF08;&#x53EF;&#x80FD;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x7D22;&#x5F15;&#x7ED3;&#x6784;&#xFF0C;&#x5982; <a href="#1643-ball-&#x6811;">Ball Tree</a> &#x6216; <a href="#1642-k-d-&#x6811;">KD Tree</a>&#xFF09;&#x3002;</p>
+<p>&#x5C3D;&#x7BA1;&#x5B83;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x5730;&#x9002;&#x7528;&#x4E8E;&#x5F88;&#x591A;&#x7684;&#x5206;&#x7C7B;&#x548C;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF0C;&#x4F8B;&#x5982;&#x624B;&#x5199;&#x6570;&#x5B57;&#x6216;&#x536B;&#x661F;&#x56FE;&#x50CF;&#x7684;&#x573A;&#x666F;&#x3002; &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A; non-parametric&#xFF08;&#x975E;&#x53C2;&#x6570;&#x5316;&#xFF09;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x7ECF;&#x5E38;&#x6210;&#x529F;&#x5730;&#x5E94;&#x7528;&#x4E8E;&#x51B3;&#x7B56;&#x8FB9;&#x754C;&#x975E;&#x5E38;&#x4E0D;&#x89C4;&#x5219;&#x7684;&#x5206;&#x7C7B;&#x60C5;&#x666F;&#x4E0B;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors" target="_blank"><code>sklearn.neighbors</code></a> &#x53EF;&#x4EE5;&#x5904;&#x7406; Numpy &#x6570;&#x7EC4;&#x6216; <code>scipy.sparse</code> &#x77E9;&#x9635;&#x4F5C;&#x4E3A;&#x5176;&#x8F93;&#x5165;&#x3002; &#x5BF9;&#x4E8E;&#x5BC6;&#x96C6;&#x77E9;&#x9635;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x53EF;&#x80FD;&#x7684;&#x8DDD;&#x79BB;&#x5EA6;&#x91CF;&#x90FD;&#x662F;&#x652F;&#x6301;&#x7684;&#x3002;&#x5BF9;&#x4E8E;&#x7A00;&#x758F;&#x77E9;&#x9635;&#xFF0C;&#x652F;&#x6301;&#x641C;&#x7D22;&#x4EFB;&#x610F;&#x7684; Minkowski &#x5EA6;&#x91CF;&#x3002;</p>
+<p>&#x8BB8;&#x591A;&#x5B66;&#x4E60;&#x8DEF;&#x5F84;/&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x4F9D;&#x8D56;&#x6700;&#x8FD1;&#x90BB;&#x4F5C;&#x4E3A;&#x6838;&#x5FC3;&#x3002; &#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x662F; <a href="https://scikit-learn.org/stable/modules/density.html#kernel-density" target="_blank">&#x6838;&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a> , &#x5728; <a href="https://scikit-learn.org/stable/modules/density.html#density-estimation" target="_blank">&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a> &#x7AE0;&#x8282;&#x4E2D;&#x6709;&#x8BA8;&#x8BBA;&#x3002;</p>
+<h2 id="161-&#x65E0;&#x76D1;&#x7763;&#x6700;&#x8FD1;&#x90BB;">1.6.1. &#x65E0;&#x76D1;&#x7763;&#x6700;&#x8FD1;&#x90BB;</h2>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestNeighbors.html#sklearn.neighbors.NearestNeighbors" title="sklearn.neighbors.NearestNeighbors" target="_blank"><code>NearestNeighbors</code></a> &#xFF08;&#x6700;&#x8FD1;&#x90BB;&#xFF09;&#x5B9E;&#x73B0;&#x4E86; unsupervised nearest neighbors learning&#xFF08;&#x65E0;&#x76D1;&#x7763;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x5B66;&#x4E60;&#xFF09;&#x3002; &#x5B83;&#x4E3A;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;&#x63D0;&#x4F9B;&#x7EDF;&#x4E00;&#x7684;&#x63A5;&#x53E3;&#xFF1A;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a>, &#x8FD8;&#x6709;&#x57FA;&#x4E8E; <a href="classes.html#module-sklearn.metrics.pairwise" title="sklearn.metrics.pairwise"><code>sklearn.metrics.pairwise</code></a> &#x7684; brute-force &#x7B97;&#x6CD5;&#x3002;&#x7B97;&#x6CD5;&#x7684;&#x9009;&#x62E9;&#x53EF;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x5B57; <code>&apos;algorithm&apos;</code> &#x6765;&#x63A7;&#x5236;&#xFF0C; &#x5E76;&#x5FC5;&#x987B;&#x662F; <code>[&apos;auto&apos;, &apos;ball_tree&apos;, &apos;kd_tree&apos;, &apos;brute&apos;]</code> &#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x3002;&#x5F53;&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C; <code>&apos;auto&apos;</code> &#x65F6;&#xFF0C;&#x7B97;&#x6CD5;&#x4F1A;&#x5C1D;&#x8BD5;&#x4ECE;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#x786E;&#x5B9A;&#x6700;&#x4F73;&#x65B9;&#x6CD5;&#x3002;&#x6709;&#x5173;&#x4E0A;&#x8FF0;&#x6BCF;&#x4E2A;&#x9009;&#x9879;&#x7684;&#x4F18;&#x7F3A;&#x70B9;&#xFF0C;&#x53C2;&#x89C1; <a href="#id11"><code>Nearest Neighbor Algorithms</code>_</a> &#x3002;</p>
+<blockquote>
+<p><strong>&#x8B66;&#x544A;</strong></p>
+<p>&#x5173;&#x4E8E;&#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x90BB;&#x5C45; <img src="img/cd345cf1e9e01448cd544361983ab95a.jpg" alt="k+1"> &#x548C;&#x90BB;&#x5C45; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x4F46;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x6807;&#x7B7E;&#xFF0C; &#x7ED3;&#x679C;&#x5C06;&#x53D6;&#x51B3;&#x4E8E;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684;&#x987A;&#x5E8F;&#x3002;</p>
+</blockquote>
+<h3 id="1611-&#x627E;&#x5230;&#x6700;&#x8FD1;&#x90BB;">1.6.1.1. &#x627E;&#x5230;&#x6700;&#x8FD1;&#x90BB;</h3>
+<p>&#x4E3A;&#x4E86;&#x5B8C;&#x6210;&#x627E;&#x5230;&#x4E24;&#x7EC4;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x6700;&#x8FD1;&#x90BB;&#x70B9;&#x7684;&#x7B80;&#x5355;&#x4EFB;&#x52A1;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors" target="_blank"><code>sklearn.neighbors</code></a> &#x4E2D;&#x7684;&#x65E0;&#x76D1;&#x7763;&#x7B97;&#x6CD5;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> NearestNeighbors
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = np.array([[<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>], [<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>], [<span class="hljs-number">-3</span>, <span class="hljs-number">-2</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>nbrs = NearestNeighbors(n_neighbors=<span class="hljs-number">2</span>, algorithm=<span class="hljs-string">&apos;ball_tree&apos;</span>).fit(X)
+<span class="hljs-meta">&gt;&gt;&gt; </span>distances, indices = nbrs.kneighbors(X)
+<span class="hljs-meta">&gt;&gt;&gt; </span>indices                                           
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+ [<span class="hljs-number">4</span>, <span class="hljs-number">3</span>],
+ [<span class="hljs-number">5</span>, <span class="hljs-number">4</span>]]...)
+<span class="hljs-meta">&gt;&gt;&gt; </span>distances
+array([[<span class="hljs-number">0.</span>        , <span class="hljs-number">1.</span>        ],
+       [<span class="hljs-number">0.</span>        , <span class="hljs-number">1.</span>        ],
+       [<span class="hljs-number">0.</span>        , <span class="hljs-number">1.41421356</span>],
+       [<span class="hljs-number">0.</span>        , <span class="hljs-number">1.</span>        ],
+       [<span class="hljs-number">0.</span>        , <span class="hljs-number">1.</span>        ],
+       [<span class="hljs-number">0.</span>        , <span class="hljs-number">1.41421356</span>]])
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x67E5;&#x8BE2;&#x96C6;&#x5339;&#x914D;&#x8BAD;&#x7EC3;&#x96C6;&#xFF0C;&#x6BCF;&#x4E2A;&#x70B9;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x70B9;&#x662F;&#x5176;&#x81EA;&#x8EAB;&#xFF0C;&#x8DDD;&#x79BB;&#x4E3A;0&#x3002;</p>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x5730;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x7A00;&#x758F;&#x56FE;&#x6765;&#x6807;&#x8BC6;&#x76F8;&#x8FDE;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x60C5;&#x51B5;&#xFF1A;</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>nbrs.kneighbors_graph(X).toarray()
+array([[ <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>],
+ [ <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>],
+ [ <span class="hljs-number">0.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>],
+ [ <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">0.</span>],
+ [ <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">0.</span>],
+ [ <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">0.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>]])
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x96C6;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6309;&#x7D22;&#x5F15;&#x987A;&#x5E8F;&#x7684;&#x76F8;&#x90BB;&#x70B9;&#x5C31;&#x5728;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#x76F8;&#x90BB;&#xFF0C;&#x4ECE;&#x800C;&#x751F;&#x6210;&#x4E86;&#x8FD1;&#x4F3C; K-nearest neighbors&#xFF08;K-&#x8FD1;&#x90BB;&#xFF09;&#x7684;&#x5757;&#x5BF9;&#x89D2;&#x77E9;&#x9635;&#x3002; &#x8FD9;&#x79CD;&#x7A00;&#x758F;&#x56FE;&#x5728;&#x5404;&#x79CD;&#x7684;&#x5229;&#x7528;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x7A7A;&#x95F4;&#x5173;&#x7CFB;&#x8FDB;&#x884C;&#x65E0;&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x5F88;&#x6709;&#x7528;&#xFF1A;&#x7279;&#x522B;&#x5730;&#x53EF;&#x53C2;&#x89C1; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html#sklearn.manifold.Isomap" title="sklearn.manifold.Isomap" target="_blank"><code>sklearn.manifold.Isomap</code></a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.LocallyLinearEmbedding.html#sklearn.manifold.LocallyLinearEmbedding" title="sklearn.manifold.LocallyLinearEmbedding" target="_blank"><code>sklearn.manifold.LocallyLinearEmbedding</code></a>, &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html#sklearn.cluster.SpectralClustering" title="sklearn.cluster.SpectralClustering" target="_blank"><code>sklearn.cluster.SpectralClustering</code></a>&#x3002;</p>
+<h3 id="1612-kdtree-&#x548C;-balltree-&#x7C7B;">1.6.1.2. KDTree &#x548C; BallTree &#x7C7B;</h3>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a> &#x6216; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a> &#x6765;&#x627E;&#x6700;&#x8FD1;&#x90BB;&#x3002; &#x8FD9;&#x662F;&#x4E0A;&#x6587;&#x4F7F;&#x7528;&#x8FC7;&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestNeighbors.html#sklearn.neighbors.NearestNeighbors" title="sklearn.neighbors.NearestNeighbors" target="_blank"><code>NearestNeighbors</code></a> &#x7C7B;&#x6240;&#x5305;&#x542B;&#x7684;&#x529F;&#x80FD;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a> &#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x63A5;&#x53E3;&#xFF1B; &#x6211;&#x4EEC;&#x5C06;&#x5728;&#x8FD9;&#x91CC;&#x5C55;&#x793A;&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a> &#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> KDTree
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = np.array([[<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>], [<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>], [<span class="hljs-number">-3</span>, <span class="hljs-number">-2</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>kdt = KDTree(X, leaf_size=<span class="hljs-number">30</span>, metric=<span class="hljs-string">&apos;euclidean&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>kdt.query(X, k=<span class="hljs-number">2</span>, return_distance=<span class="hljs-keyword">False</span>)          
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+ [<span class="hljs-number">4</span>, <span class="hljs-number">3</span>],
+ [<span class="hljs-number">5</span>, <span class="hljs-number">4</span>]]...)
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x4E2D;&#x9009;&#x9879;&#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC;&#x5404;&#x79CD;&#x8DDD;&#x79BB;&#x5EA6;&#x91CF;&#x7684;&#x8BF4;&#x660E;&#x548C;&#x7B56;&#x7565;&#x7684;&#x8BF4;&#x660E;&#x7B49;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a> &#x7C7B;&#x6587;&#x6863;&#x3002; &#x5173;&#x4E8E;&#x53EF;&#x7528;&#x5EA6;&#x91CF;&#x8DDD;&#x79BB;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric" title="sklearn.neighbors.DistanceMetric" target="_blank"><code>DistanceMetric</code></a> &#x7C7B;&#x3002;</p>
+<h2 id="162-&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;">1.6.2. &#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;</h2>
+<p>&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x5C5E;&#x4E8E; <em>&#x57FA;&#x4E8E;&#x5B9E;&#x4F8B;&#x7684;&#x5B66;&#x4E60;</em> &#x6216; <em>&#x975E;&#x6CDB;&#x5316;&#x5B66;&#x4E60;</em> &#xFF1A;&#x5B83;&#x4E0D;&#x4F1A;&#x53BB;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x6CDB;&#x5316;&#x7684;&#x5185;&#x90E8;&#x6A21;&#x578B;&#xFF0C;&#x800C;&#x662F;&#x7B80;&#x5355;&#x5730;&#x5B58;&#x50A8;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684;&#x5B9E;&#x4F8B;&#x3002; &#x5206;&#x7C7B;&#x662F;&#x7531;&#x6BCF;&#x4E2A;&#x70B9;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x7684;&#x7B80;&#x5355;&#x591A;&#x6570;&#x6295;&#x7968;&#x4E2D;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#xFF1A;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x662F;&#x7531;&#x5B83;&#x6700;&#x8FD1;&#x90BB;&#x70B9;&#x4E2D;&#x6700;&#x5177;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x6765;&#x51B3;&#x5B9A;&#x7684;&#x3002;</p>
+<p>scikit-learn &#x5B9E;&#x73B0;&#x4E86;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x5668;&#xFF1A; &#x57FA;&#x4E8E;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x70B9;&#x7684; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k">  &#x4E2A;&#x6700;&#x8FD1;&#x90BB;&#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x4E2D; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x662F;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x6574;&#x6570;&#x503C;&#x3002;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsClassifier.html#sklearn.neighbors.RadiusNeighborsClassifier" title="sklearn.neighbors.RadiusNeighborsClassifier" target="_blank"><code>RadiusNeighborsClassifier</code></a> &#x57FA;&#x4E8E;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x56FA;&#x5B9A;&#x534A;&#x5F84; <img src="img/451ef7ed1a14a6cdc38324c8a5c7c683.jpg" alt="r"> &#x5185;&#x7684;&#x90BB;&#x5C45;&#x6570;&#x91CF;&#x5B9E;&#x73B0;&#xFF0C; &#x5176;&#x4E2D; <img src="img/451ef7ed1a14a6cdc38324c8a5c7c683.jpg" alt="r"> &#x662F;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x6D6E;&#x70B9;&#x6570;&#x503C;&#x3002;</p>
+<p><img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> -&#x90BB;&#x5C45;&#x5206;&#x7C7B;&#x662F;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier" target="_blank">KNeighborsClassifie</a>&#x7684;&#x6280;&#x672F;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x3002; &#x503C;&#x7684;&#x6700;&#x4F73;&#x9009;&#x62E9;&#x662F;&#x9AD8;&#x5EA6;&#x4F9D;&#x8D56;&#x6570;&#x636E;&#x7684;&#xFF1A;&#x901A;&#x5E38;&#x8F83;&#x5927;&#x7684; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x662F;&#x4F1A;&#x6291;&#x5236;&#x566A;&#x58F0;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x5F97;&#x5206;&#x7C7B;&#x754C;&#x9650;&#x4E0D;&#x660E;&#x663E;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6570;&#x636E;&#x662F;&#x4E0D;&#x5747;&#x5300;&#x91C7;&#x6837;&#x7684;&#xFF0C;&#x90A3;&#x4E48; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsClassifier.html#sklearn.neighbors.RadiusNeighborsClassifier" title="sklearn.neighbors.RadiusNeighborsClassifier" target="_blank"><code>RadiusNeighborsClassifier</code></a> &#x4E2D;&#x7684;&#x57FA;&#x4E8E;&#x534A;&#x5F84;&#x7684;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x53EF;&#x80FD;&#x662F;&#x66F4;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x534A;&#x5F84; &#xFF0C;&#x4F7F;&#x5F97;&#x7A00;&#x758F;&#x90BB;&#x5C45;&#x4E2D;&#x7684;&#x70B9;&#x4F7F;&#x7528;&#x8F83;&#x5C11;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x6765;&#x5206;&#x7C7B;&#x3002;&#x5BF9;&#x4E8E;&#x9AD8;&#x7EF4;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x7531;&#x4E8E;&#x6240;&#x8C13;&#x7684; &#x201C;&#x7EF4;&#x5EA6;&#x707E;&#x96BE;&#x201D; &#x800C;&#x53D8;&#x5F97;&#x4E0D;&#x90A3;&#x4E48;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x7684;&#x6743;&#x91CD;&#xFF1A;&#x5206;&#x914D;&#x7ED9;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x503C;&#x662F;&#x4ECE;&#x6700;&#x8FD1;&#x90BB;&#x7684;&#x7B80;&#x5355;&#x591A;&#x6570;&#x6295;&#x7968;&#x4E2D;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x3002; &#x5728;&#x67D0;&#x4E9B;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x6700;&#x597D;&#x5BF9;&#x90BB;&#x5C45;&#x8FDB;&#x884C;&#x52A0;&#x6743;&#xFF0C;&#x4F7F;&#x5F97;&#x66F4;&#x8FD1;&#x90BB;&#x66F4;&#x6709;&#x5229;&#x4E8E;&#x62DF;&#x5408;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>weights</code> &#x5173;&#x952E;&#x5B57;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x9ED8;&#x8BA4;&#x503C; <code>weights = &apos;uniform&apos;</code> &#x4E3A;&#x6BCF;&#x4E2A;&#x8FD1;&#x90BB;&#x5206;&#x914D;&#x7EDF;&#x4E00;&#x7684;&#x6743;&#x91CD;&#x3002;&#x800C; <code>weights = &apos;distance&apos;</code> &#x5206;&#x914D;&#x6743;&#x91CD;&#x4E0E;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x8DDD;&#x79BB;&#x6210;&#x53CD;&#x6BD4;&#x3002; &#x6216;&#x8005;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x6743;&#x91CD;&#x3002;</p>
+<p><strong><img src="img/1a91bab921cf39f58a522ed15f475235.jpg" alt="classification_1"> <img src="img/ae484baf10384efcf4d993631f4641e7.jpg" alt="classification_2"></strong></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples//neighbors/plot_classification.html#sphx-glr-auto-examples-neighbors-plot-classification-py" target="_blank">Nearest Neighbors Classification</a>: &#x4F7F;&#x7528;&#x6700;&#x8FD1;&#x90BB;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x7684;&#x793A;&#x4F8B;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="163-&#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;">1.6.3. &#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;</h2>
+<p>&#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;&#x662F;&#x7528;&#x5728;&#x6570;&#x636E;&#x6807;&#x7B7E;&#x4E3A;&#x8FDE;&#x7EED;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x79BB;&#x6563;&#x53D8;&#x91CF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;&#x5206;&#x914D;&#x7ED9;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x6807;&#x7B7E;&#x662F;&#x7531;&#x5B83;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x6807;&#x7B7E;&#x7684;&#x5747;&#x503C;&#x8BA1;&#x7B97;&#x800C;&#x6765;&#x7684;&#x3002;</p>
+<p>scikit-learn &#x5B9E;&#x73B0;&#x4E86;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;&#xFF1A;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.KNeighborsRegressor" title="sklearn.neighbors.KNeighborsRegressor" target="_blank"><code>KNeighborsRegressor</code></a> &#x57FA;&#x4E8E;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x70B9;&#x7684; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x4E2A;&#x6700;&#x8FD1;&#x90BB;&#x5B9E;&#x73B0;&#xFF0C; &#x5176;&#x4E2D; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x662F;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x6574;&#x6570;&#x503C;&#x3002;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.RadiusNeighborsRegressor.html#sklearn.neighbors.RadiusNeighborsRegressor" title="sklearn.neighbors.RadiusNeighborsRegressor" target="_blank"><code>RadiusNeighborsRegressor</code></a> &#x57FA;&#x4E8E;&#x6BCF;&#x4E2A;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x56FA;&#x5B9A;&#x534A;&#x5F84; <img src="img/451ef7ed1a14a6cdc38324c8a5c7c683.jpg" alt="r"> &#x5185;&#x7684;&#x90BB;&#x70B9;&#x6570;&#x91CF;&#x5B9E;&#x73B0;&#xFF0C; &#x5176;&#x4E2D; <img src="img/451ef7ed1a14a6cdc38324c8a5c7c683.jpg" alt="r"> &#x662F;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x6D6E;&#x70B9;&#x6570;&#x503C;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;&#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x7684;&#x6743;&#x91CD;&#xFF1A;&#x5373;&#xFF0C;&#x672C;&#x5730;&#x90BB;&#x57DF;&#x5185;&#x7684;&#x6BCF;&#x4E2A;&#x90BB;&#x70B9;&#x5BF9;&#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x5206;&#x7C7B;&#x8D21;&#x732E;&#x4E00;&#x81F4;&#x3002; &#x5728;&#x67D0;&#x4E9B;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x5BF9;&#x90BB;&#x70B9;&#x52A0;&#x6743;&#x53EF;&#x80FD;&#x662F;&#x6709;&#x5229;&#x7684;&#xFF0C;&#x4F7F;&#x5F97;&#x9644;&#x8FD1;&#x70B9;&#x5BF9;&#x4E8E;&#x56DE;&#x5F52;&#x6240;&#x4F5C;&#x51FA;&#x7684;&#x8D21;&#x732E;&#x591A;&#x4E8E;&#x8FDC;&#x5904;&#x70B9;&#x3002; &#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>weights</code> &#x5173;&#x952E;&#x5B57;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x9ED8;&#x8BA4;&#x503C; <code>weights = &apos;uniform&apos;</code> &#x4E3A;&#x6240;&#x6709;&#x70B9;&#x5206;&#x914D;&#x540C;&#x7B49;&#x6743;&#x91CD;&#x3002; &#x800C; <code>weights = &apos;distance&apos;</code> &#x5206;&#x914D;&#x7684;&#x6743;&#x91CD;&#x4E0E;&#x67E5;&#x8BE2;&#x70B9;&#x8DDD;&#x79BB;&#x5448;&#x53CD;&#x6BD4;&#x3002; &#x6216;&#x8005;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x7528;&#x6765;&#x8BA1;&#x7B97;&#x6743;&#x91CD;&#x3002;</p>
+<p><img src="img/207e92cfc624372bc9c72a160c02114f.jpg" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_regression_0011.png"></p>
+<p>&#x4F7F;&#x7528;&#x591A;&#x8F93;&#x51FA;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x8FDB;&#x884C;&#x56DE;&#x5F52;&#x5206;&#x6790; <a href="https://scikit-learn.org/stable/auto_examples//plot_multioutput_face_completion.html#sphx-glr-auto-examples-plot-multioutput-face-completion-py" target="_blank">Face completion with a multi-output estimators</a>&#x3002; |</p>
+<p>&#x5229;&#x7528;&#x591A;&#x8F93;&#x51FA;&#x4F30;&#x8BA1;&#x5668;&#xFF0C;&#x6F14;&#x793A;&#x4E86;&#x591A;&#x8F93;&#x51FA;&#x6700;&#x8FD1;&#x90BB;&#x56DE;&#x5F52;&#x65B9;&#x6CD5;&#x5728;&#x4EBA;&#x8138;&#x8865;&#x5168;&#x4E2D;&#x7684;&#x5E94;&#x7528;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x8F93;&#x5165; X &#x662F;&#x8138;&#x4E0A;&#x534A;&#x90E8;&#x5206;&#x50CF;&#x7D20;&#xFF0C;&#x8F93;&#x51FA; Y &#x662F;&#x8138;&#x4E0B;&#x534A;&#x90E8;&#x5206;&#x50CF;&#x7D20;&#x3002;</p>
+<p><img src="img/sphx_glr_plot_multioutput_face_completion_0011.png" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_multioutput_face_completion_0011.png"></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples//neighbors/plot_regression.html#sphx-glr-auto-examples-neighbors-plot-regression-py" target="_blank">Nearest Neighbors regression</a>: &#x4F7F;&#x7528;&#x6700;&#x8FD1;&#x90BB;&#x8FDB;&#x884C;&#x56DE;&#x5F52;&#x7684;&#x793A;&#x4F8B;&#x3002;</li>
+<li><a href="https://scikit-learn.org/stable/auto_examples//plot_multioutput_face_completion.html#sphx-glr-auto-examples-plot-multioutput-face-completion-py" target="_blank">Face completion with a multi-output estimators</a>: &#x4F7F;&#x7528;&#x6700;&#x8FD1;&#x90BB;&#x8FDB;&#x884C;&#x591A;&#x8F93;&#x51FA;&#x56DE;&#x5F52;&#x7684;&#x793A;&#x4F8B;&#x3002;</li>
+</ul>
+</blockquote>
+<h2 id="164-&#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;">1.6.4. &#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;</h2>
+<h3 id="1641-&#x66B4;&#x529B;&#x8BA1;&#x7B97;">1.6.4.1. &#x66B4;&#x529B;&#x8BA1;&#x7B97;</h3>
+<p>&#x6700;&#x8FD1;&#x90BB;&#x7684;&#x5FEB;&#x901F;&#x8BA1;&#x7B97;&#x662F;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E2D;&#x4E00;&#x4E2A;&#x6D3B;&#x8DC3;&#x7684;&#x7814;&#x7A76;&#x9886;&#x57DF;&#x3002;&#x6700;&#x7B80;&#x5355;&#x7684;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x7684;&#x5B9E;&#x73B0;&#x6D89;&#x53CA;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x6240;&#x6709;&#x6210;&#x5BF9;&#x70B9;&#x4E4B;&#x95F4;&#x8DDD;&#x79BB;&#x7684;&#x66B4;&#x529B;&#x8BA1;&#x7B97;&#xFF1A; &#x5BF9;&#x4E8E; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D"> &#x7EF4;&#x5EA6;&#x4E2D;&#x7684; <img src="img/a44a7c045f2217894a894c482861387a.jpg" alt="N"> &#x4E2A;&#x6837;&#x672C;&#x6765;&#x8BF4;, &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x662F; <img src="img/2d3029206649000f40ed9f51bbeceafb.jpg" alt="O[D N^2]">&#x3002; &#x5BF9;&#x4E8E;&#x5C0F;&#x6570;&#x636E;&#x6837;&#x672C;&#xFF0C;&#x9AD8;&#x6548;&#x7684;&#x66B4;&#x529B;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7ADE;&#x4E89;&#x529B;&#x7684;&#x3002; &#x7136;&#x800C;&#xFF0C;&#x968F;&#x7740;&#x6837;&#x672C;&#x6570; <img src="img/a44a7c045f2217894a894c482861387a.jpg" alt="N"> &#x7684;&#x589E;&#x957F;&#xFF0C;&#x66B4;&#x529B;&#x65B9;&#x6CD5;&#x5F88;&#x5FEB;&#x53D8;&#x5F97;&#x4E0D;&#x5207;&#x5B9E;&#x9645;&#x4E86;&#x3002;&#x5728; <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors" target="_blank"><code>sklearn.neighbors</code></a> &#x7C7B;&#x4E2D;&#xFF0C; &#x66B4;&#x529B;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x5B57; <code>algorithm = &apos;brute&apos;</code> &#x6765;&#x6307;&#x5B9A;&#xFF0C;&#x5E76;&#x901A;&#x8FC7; <a href="classes.html#module-sklearn.metrics.pairwise" title="sklearn.metrics.pairwise"><code>sklearn.metrics.pairwise</code></a> &#x4E2D;&#x7684;&#x4F8B;&#x7A0B;&#x6765;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x3002;</p>
+<h3 id="1642-k-d-&#x6811;">1.6.4.2. K-D &#x6811;</h3>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x6548;&#x7387;&#x4F4E;&#x4E0B;&#x7684;&#x66B4;&#x529B;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF0C;&#x5DF2;&#x7ECF;&#x53D1;&#x660E;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x57FA;&#x4E8E;&#x6811;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C; &#x8FD9;&#x4E9B;&#x7ED3;&#x6784;&#x8BD5;&#x56FE;&#x901A;&#x8FC7;&#x6709;&#x6548;&#x5730;&#x7F16;&#x7801;&#x6837;&#x672C;&#x7684; aggregate distance (&#x805A;&#x5408;&#x8DDD;&#x79BB;) &#x4FE1;&#x606F;&#x6765;&#x51CF;&#x5C11;&#x6240;&#x9700;&#x7684;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x91CF;&#x3002; &#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#xFF0C;&#x82E5; <img src="img/eeaf066f8cca5064b706ccfc4728323d.jpg" alt="A"> &#x70B9;&#x8DDD;&#x79BB; <img src="img/502926bb104c175c6f3e809b0207830c.jpg" alt="B"> &#x70B9;&#x975E;&#x5E38;&#x8FDC;&#xFF0C;<img src="img/502926bb104c175c6f3e809b0207830c.jpg" alt="B"> &#x70B9;&#x8DDD;&#x79BB; <img src="img/4b6d782a67ac392e97215c46b7590bf7.jpg" alt="C"> &#x70B9;&#x975E;&#x5E38;&#x8FD1;&#xFF0C; &#x53EF;&#x77E5; <img src="img/eeaf066f8cca5064b706ccfc4728323d.jpg" alt="A"> &#x70B9;&#x4E0E; <img src="img/4b6d782a67ac392e97215c46b7590bf7.jpg" alt="C"> &#x70B9;&#x5F88;&#x9065;&#x8FDC;&#xFF0C;<em>&#x4E0D;&#x9700;&#x8981;&#x660E;&#x786E;&#x8BA1;&#x7B97;&#x5B83;&#x4EEC;&#x7684;&#x8DDD;&#x79BB;</em>&#x3002; &#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x7684;&#x8BA1;&#x7B97;&#x6210;&#x672C;&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x4E3A; <img src="img/a98f0fb22381bfc1d14fc1e3f7e737e5.jpg" alt="O[D N \log(N)]"> &#x6216;&#x66F4;&#x4F4E;&#x3002; &#x8FD9;&#x662F;&#x5BF9;&#x4E8E;&#x66B4;&#x529B;&#x641C;&#x7D22;&#x5728;&#x5927;&#x6837;&#x672C;&#x6570; <img src="img/a44a7c045f2217894a894c482861387a.jpg" alt="N"> &#x4E2D;&#x8868;&#x73B0;&#x7684;&#x663E;&#x8457;&#x6539;&#x5584;&#x3002;</p>
+<p>&#x5229;&#x7528;&#x8FD9;&#x79CD;&#x805A;&#x5408;&#x4FE1;&#x606F;&#x7684;&#x65E9;&#x671F;&#x65B9;&#x6CD5;&#x662F; <em>KD tree</em> &#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF08;<em> K-dimensional tree</em> &#x7684;&#x7B80;&#x5199;&#xFF09;, &#x5B83;&#x5C06;&#x4E8C;&#x7EF4; <em>Quad-trees</em> &#x548C;&#x4E09;&#x7EF4; <em>Oct-trees</em> &#x63A8;&#x5E7F;&#x5230;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x7EF4;&#x5EA6;. KD &#x6811;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#x7ED3;&#x6784;&#xFF0C;&#x5B83;&#x6CBF;&#x7740;&#x6570;&#x636E;&#x8F74;&#x9012;&#x5F52;&#x5730;&#x5212;&#x5206;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#xFF0C;&#x5C06;&#x5176;&#x5212;&#x5206;&#x4E3A;&#x5D4C;&#x5165;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5D4C;&#x5957;&#x7684;&#x5404;&#x5411;&#x5F02;&#x6027;&#x533A;&#x57DF;&#x3002; KD &#x6811;&#x7684;&#x6784;&#x9020;&#x975E;&#x5E38;&#x5FEB;&#xFF1A;&#x56E0;&#x4E3A;&#x53EA;&#x9700;&#x6CBF;&#x6570;&#x636E;&#x8F74;&#x6267;&#x884C;&#x5206;&#x533A;, &#x65E0;&#x9700;&#x8BA1;&#x7B97; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D">-dimensional &#x8DDD;&#x79BB;&#x3002; &#x4E00;&#x65E6;&#x6784;&#x5EFA;&#x5B8C;&#x6210;, &#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#x4EC5;&#x4E3A; <img src="img/7b6cebf625d680ab33eba86d34885910.jpg" alt="O[\log(N)]"> &#x3002; &#x867D;&#x7136; KD &#x6811;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x4E8E;&#x4F4E;&#x7EF4;&#x5EA6; (<img src="img/7fb5b8aaa79d55e35332a1f02a5aee04.jpg" alt="D &lt; 20">) &#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x975E;&#x5E38;&#x5FEB;, &#x5F53; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D"> &#x589E;&#x957F;&#x5230;&#x5F88;&#x5927;&#x65F6;, &#x6548;&#x7387;&#x53D8;&#x4F4E;: &#x8FD9;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684; &#x201C;&#x7EF4;&#x5EA6;&#x707E;&#x96BE;&#x201D; &#x7684;&#x4E00;&#x79CD;&#x4F53;&#x73B0;&#x3002; &#x5728; scikit-learn &#x4E2D;, KD &#x6811;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57; <code>algorithm = &apos;kd_tree&apos;</code> &#x6765;&#x6307;&#x5B9A;, &#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a> &#x6765;&#x8BA1;&#x7B97;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="http://dl.acm.org/citation.cfm?doid=361002.361007" target="_blank">&#x201C;Multidimensional binary search trees used for associative searching&#x201D;</a>, Bentley, J.L., Communications of the ACM (1975)</li>
+</ul>
+</blockquote>
+<h3 id="1643-ball-&#x6811;">1.6.4.3. Ball &#x6811;</h3>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3; KD &#x6811;&#x5728;&#x9AD8;&#x7EF4;&#x4E0A;&#x6548;&#x7387;&#x4F4E;&#x4E0B;&#x7684;&#x95EE;&#x9898;, <em>ball &#x6811;</em> &#x6570;&#x636E;&#x7ED3;&#x6784;&#x5C31;&#x88AB;&#x7814;&#x53D1;&#x51FA;&#x6765;&#x4E86;. &#x5176;&#x4E2D; KD &#x6811;&#x6CBF;&#x7B1B;&#x5361;&#x5C14;&#x8F74;&#xFF08;&#x5373;&#x5750;&#x6807;&#x8F74;&#xFF09;&#x5206;&#x5272;&#x6570;&#x636E;, ball &#x6811;&#x5728;&#x6CBF;&#x7740;&#x4E00;&#x7CFB;&#x5217;&#x7684; hyper-spheres &#x6765;&#x5206;&#x5272;&#x6570;&#x636E;. &#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x6784;&#x5EFA;&#x7684;&#x6811;&#x8981;&#x6BD4; KD &#x6811;&#x6D88;&#x8017;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x95F4;, &#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5BF9;&#x4E8E;&#x9AD8;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x6570;&#x636E;&#x662F;&#x975E;&#x5E38;&#x6709;&#x6548;&#x7684;, &#x5373;&#x4F7F;&#x5728;&#x9AD8;&#x7EF4;&#x5EA6;&#x4E0A;&#x4E5F;&#x662F;&#x4E00;&#x6837;.</p>
+<p>ball &#x6811;&#x5C06;&#x6570;&#x636E;&#x9012;&#x5F52;&#x5730;&#x5212;&#x5206;&#x4E3A;&#x7531;&#x8D28;&#x5FC3; C &#x548C;&#x534A;&#x5F84; R &#x5B9A;&#x4E49;&#x7684;&#x8282;&#x70B9;,&#x4F7F;&#x5F97;&#x8282;&#x70B9;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x70B9;&#x4F4D;&#x4E8E;&#x7531; <img src="img/451ef7ed1a14a6cdc38324c8a5c7c683.jpg" alt="r"> &#x548C; <img src="img/4b6d782a67ac392e97215c46b7590bf7.jpg" alt="C"> &#x5B9A;&#x4E49;&#x7684; hyper-sphere &#x5185;. &#x901A;&#x8FC7;&#x4F7F;&#x7528; <em>triangle inequality&#xFF08;&#x4E09;&#x89D2;&#x4E0D;&#x7B49;&#x5F0F;&#xFF09;</em> &#x51CF;&#x5C11;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x7684;&#x5019;&#x9009;&#x70B9;&#x6570;:</p>
+<p><img src="img/5df8f915c528f34f0ada91db5228605f.jpg" alt="|x+y| \leq |x| + |y|"></p>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x8BBE;&#x7F6E;, &#x6D4B;&#x8BD5;&#x70B9;&#x548C;&#x8D28;&#x5FC3;&#x4E4B;&#x95F4;&#x7684;&#x5355;&#x4E00;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x8DB3;&#x4EE5;&#x786E;&#x5B9A;&#x8DDD;&#x8282;&#x70B9;&#x5185;&#x6240;&#x6709;&#x70B9;&#x7684;&#x8DDD;&#x79BB;&#x7684;&#x4E0B;&#x9650;&#x548C;&#x4E0A;&#x9650;. &#x7531;&#x4E8E; ball &#x6811;&#x8282;&#x70B9;&#x7684;&#x7403;&#x5F62;&#x51E0;&#x4F55;, &#x5B83;&#x5728;&#x9AD8;&#x7EF4;&#x5EA6;&#x4E0A;&#x7684;&#x6027;&#x80FD;&#x8D85;&#x51FA; <em>KD-tree</em>, &#x5C3D;&#x7BA1;&#x5B9E;&#x9645;&#x7684;&#x6027;&#x80FD;&#x9AD8;&#x5EA6;&#x4F9D;&#x8D56;&#x4E8E;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684;&#x7ED3;&#x6784;. &#x5728; scikit-learn &#x4E2D;, &#x57FA;&#x4E8E; ball &#x6811;&#x7684;&#x8FD1;&#x90BB;&#x641C;&#x7D22;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57; <code>algorithm = &apos;ball_tree&apos;</code> &#x6765;&#x6307;&#x5B9A;, &#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>sklearn.neighbors.BallTree</code></a> &#x6765;&#x8BA1;&#x7B97;. &#x6216;&#x8005;, &#x7528;&#x6237;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a> &#x7C7B;.</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li><a href="http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.91.8209" target="_blank">&#x201C;Five balltree construction algorithms&#x201D;</a>, Omohundro, S.M., International Computer Science Institute Technical Report (1989)</li>
+</ul>
+</blockquote>
+<h3 id="1644-&#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;&#x7684;&#x9009;&#x62E9;">1.6.4.4. &#x6700;&#x8FD1;&#x90BB;&#x7B97;&#x6CD5;&#x7684;&#x9009;&#x62E9;</h3>
+<p>&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6700;&#x4F18;&#x7B97;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9009;&#x62E9;, &#x5E76;&#x4E14;&#x53D6;&#x51B3;&#x4E8E;&#x591A;&#x4E2A;&#x56E0;&#x7D20;:</p>
+<ul>
+<li><p>&#x6837;&#x672C;&#x6570;&#x91CF; <img src="img/a44a7c045f2217894a894c482861387a.jpg" alt="N"> (i.e. <code>n_samples</code>) &#x548C;&#x7EF4;&#x5EA6; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D"> (&#x4F8B;&#x5982;. <code>nfeatures</code>).</p>
+<ul>
+<li><p><em>Brute force</em> &#x67E5;&#x8BE2;&#x65F6;&#x95F4;&#x4EE5; <img src="img/cf8cc964dfa6df1a7473fe033f9fb642.jpg" alt="O[D N]"> &#x589E;&#x957F;</p>
+</li>
+<li><p><em>Ball tree</em> &#x67E5;&#x8BE2;&#x65F6;&#x95F4;&#x5927;&#x7EA6;&#x4EE5; <img src="img/70abd4aa320170aa6dbe8204a5ed846e.jpg" alt="O[D \log(N)]"> &#x589E;&#x957F;</p>
+</li>
+<li><p>KD tree &#x7684;&#x67E5;&#x8BE2;&#x65F6;&#x95F4;  &#x7684;&#x53D8;&#x5316;&#x662F;&#x5F88;&#x96BE;&#x7CBE;&#x786E;&#x63CF;&#x8FF0;&#x7684;.&#x5BF9;&#x4E8E;&#x8F83;&#x5C0F;&#x7684; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D"> (&#x5C0F;&#x4E8E;20) &#x7684;&#x6210;&#x672C;&#x5927;&#x7EA6;&#x662F; <img src="img/f211ed45608192b0763ed51c85b60811.jpg" alt="O[D\log(N)]">, &#x5E76;&#x4E14; KD &#x6811;&#x66F4;&#x52A0;&#x6709;&#x6548;.&#x5BF9;&#x4E8E;&#x8F83;&#x5927;&#x7684; <img src="img/e03066df748abd9273db055cb79f0f01.jpg" alt="D"> &#x6210;&#x672C;&#x7684;&#x589E;&#x52A0;&#x63A5;&#x8FD1; <img src="img/c5b0e465d16add1d02594ec434515c04.jpg" alt="O[DN]">, &#x7531;&#x4E8E;&#x6811;&#x7ED3;&#x6784;&#x5F15;&#x8D77;&#x7684;&#x5F00;&#x9500;&#x4F1A;&#x5BFC;&#x81F4;&#x67E5;&#x8BE2;&#x6548;&#x7387;&#x6BD4;&#x66B4;&#x529B;&#x8FD8;&#x8981;&#x4F4E;.</p>
+</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x5C0F;&#x6570;&#x636E;&#x96C6; (n&#x5C0F;&#x4E8E;30),  log(N)&#x76F8;&#x5F53;&#x4E8E;N, &#x66B4;&#x529B;&#x7B97;&#x6CD5;&#x6BD4;&#x57FA;&#x4E8E;&#x6811;&#x7684;&#x7B97;&#x6CD5;&#x66F4;&#x52A0;&#x6709;&#x6548;. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KDTree.html#sklearn.neighbors.KDTree" title="sklearn.neighbors.KDTree" target="_blank"><code>KDTree</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a> &#x901A;&#x8FC7;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A; <em>leaf size</em> &#x53C2;&#x6570;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;: &#x8FD9;&#x63A7;&#x5236;&#x4E86;&#x67E5;&#x8BE2;&#x5207;&#x6362;&#x5230;&#x66B4;&#x529B;&#x8BA1;&#x7B97;&#x6837;&#x672C;&#x6570;&#x91CF;. &#x4F7F;&#x5F97;&#x4E24;&#x79CD;&#x7B97;&#x6CD5;&#x5BF9;&#x8F83;&#x5C0F;&#x7684; <img src="img/a44a7c045f2217894a894c482861387a.jpg" alt="N">&#x7684;&#x6548;&#x7387;&#x90FD;&#x80FD;&#x63A5;&#x8FD1;&#x4E8E;&#x66B4;&#x529B;&#x8BA1;&#x7B97;.</p>
+</li>
+<li><p>&#x6570;&#x636E;&#x7ED3;&#x6784;: &#x6570;&#x636E;&#x7684; <em>intrinsic dimensionality</em> (&#x672C;&#x5F81;&#x7EF4;&#x6570;) &#x548C;/&#x6216;&#x6570;&#x636E;&#x7684; <em>sparsity</em> (&#x7A00;&#x758F;&#x5EA6;). &#x672C;&#x5F81;&#x7EF4;&#x6570;&#x662F;&#x6307;&#x6570;&#x636E;&#x6240;&#x5728;&#x7684;&#x6D41;&#x5F62;&#x7684;&#x7EF4;&#x6570; <img src="img/20310556eb1fb84146ff2584e166fd9c.jpg" alt="d \le D">, &#x5728;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#x53EF;&#x4EE5;&#x662F;&#x7EBF;&#x6027;&#x6216;&#x975E;&#x7EBF;&#x6027;&#x7684;. &#x7A00;&#x758F;&#x5EA6;&#x6307;&#x7684;&#x662F;&#x6570;&#x636E;&#x586B;&#x5145;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#x7684;&#x7A0B;&#x5EA6;(&#x8FD9;&#x4E0E;&#x201C;&#x7A00;&#x758F;&#x201D;&#x77E9;&#x9635;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x6982;&#x5FF5;&#x4E0D;&#x540C;, &#x6570;&#x636E;&#x77E9;&#x9635;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x96F6;&#x9879;, &#x4F46;&#x662F;&#x4ECE;&#x8FD9;&#x4E2A;&#x610F;&#x4E49;&#x4E0A;&#x6765;&#x8BB2;,&#x5B83;&#x7684; <strong>structure</strong> &#x4ECD;&#x7136;&#x662F; &#x201C;&#x7A00;&#x758F;&#x201D; &#x7684;)&#x3002;</p>
+<ul>
+<li><em>Brute force</em> (&#x66B4;&#x529B;&#x67E5;&#x8BE2;)&#x65F6;&#x95F4;&#x4E0D;&#x53D7;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x5F71;&#x54CD;&#x3002;</li>
+<li><em>Ball tree</em> &#x548C; <em>KD tree</em> &#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5BF9;&#x67E5;&#x8BE2;&#x65F6;&#x95F4;&#x5F71;&#x54CD;&#x5F88;&#x5927;. &#x4E00;&#x822C;&#x5730;, &#x5C0F;&#x7EF4;&#x5EA6;&#x7684; sparser (&#x7A00;&#x758F;) &#x6570;&#x636E;&#x4F1A;&#x4F7F;&#x67E5;&#x8BE2;&#x66F4;&#x5FEB;. &#x56E0;&#x4E3A; KD &#x6811;&#x7684;&#x5185;&#x90E8;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x662F;&#x4E0E;&#x53C2;&#x6570;&#x8F74;&#x5BF9;&#x9F50;&#x7684;, &#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x5B83;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x8868;&#x73B0;&#x7684;&#x50CF; ball tree &#x90A3;&#x6837;&#x597D;.</li>
+</ul>
+<p>&#x5728;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E2D;&#x5F80;&#x5F80;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x662F;&#x975E;&#x5E38;&#x7ED3;&#x6784;&#x5316;&#x7684;, &#x800C;&#x4E14;&#x975E;&#x5E38;&#x9002;&#x5408;&#x57FA;&#x4E8E;&#x6811;&#x7ED3;&#x6784;&#x7684;&#x67E5;&#x8BE2;&#x3002;</p>
+</li>
+<li><p>query point&#xFF08;&#x67E5;&#x8BE2;&#x70B9;&#xFF09;&#x6240;&#x9700;&#x7684;&#x8FD1;&#x90BB;&#x6570; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x3002;</p>
+<p>&gt; <em>   </em>Brute force<em> &#x67E5;&#x8BE2;&#x65F6;&#x95F4;&#x51E0;&#x4E4E;&#x4E0D;&#x53D7; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x503C;&#x7684;&#x5F71;&#x54CD;.
+&gt; </em>   <em>Ball tree</em> &#x548C; <em>KD tree</em> &#x7684;&#x67E5;&#x8BE2;&#x65F6;&#x95F4;&#x4F1A;&#x968F;&#x7740; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x7684;&#x589E;&#x52A0;&#x800C;&#x53D8;&#x6162;. &#x8FD9;&#x662F;&#x7531;&#x4E8E;&#x4E24;&#x4E2A;&#x5F71;&#x54CD;: &#x9996;&#x5148;, <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x7684;&#x503C;&#x8D8A;&#x5927;&#x5728;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#x4E2D;&#x641C;&#x7D22;&#x7684;&#x90E8;&#x5206;&#x5C31;&#x8D8A;&#x5927;. &#x5176;&#x6B21;, &#x4F7F;&#x7528; <img src="img/a036c2c31320cfaea7959236c1b81d4c.jpg" alt="k &gt; 1"> &#x8FDB;&#x884C;&#x6811;&#x7684;&#x904D;&#x5386;&#x65F6;, &#x9700;&#x8981;&#x5BF9;&#x5185;&#x90E8;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;.</p>
+<p>&#x5F53; <img src="img/f93871977da52a6d11045d57c3e18728.jpg" alt="k"> &#x76F8;&#x6BD4; <img src="img/a44a7c045f2217894a894c482861387a.jpg" alt="N"> &#x53D8;&#x5927;&#x65F6;, &#x5728;&#x57FA;&#x4E8E;&#x6811;&#x7684;&#x67E5;&#x8BE2;&#x4E2D;&#x4FEE;&#x526A;&#x6811;&#x679D;&#x7684;&#x80FD;&#x529B;&#x662F;&#x51CF;&#x5F31;&#x7684;. &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;, &#x66B4;&#x529B;&#x67E5;&#x8BE2;&#x4F1A;&#x66F4;&#x52A0;&#x6709;&#x6548;.</p>
+</li>
+<li><p>query points&#xFF08;&#x67E5;&#x8BE2;&#x70B9;&#xFF09;&#x6570;. ball tree &#x548C; KD Tree &#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x9636;&#x6BB5;. &#x5728;&#x8BB8;&#x591A;&#x67E5;&#x8BE2;&#x4E2D;&#x5206;&#x644A;&#x65F6;&#xFF0C;&#x8FD9;&#x79CD;&#x7ED3;&#x6784;&#x7684;&#x6210;&#x672C;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x4E0D;&#x8BA1;&#x3002; &#x5982;&#x679C;&#x53EA;&#x6267;&#x884C;&#x5C11;&#x91CF;&#x7684;&#x67E5;&#x8BE2;, &#x53EF;&#x662F;&#x6784;&#x5EFA;&#x6210;&#x672C;&#x5374;&#x5360;&#x603B;&#x6210;&#x672C;&#x7684;&#x5F88;&#x5927;&#x4E00;&#x90E8;&#x5206;. &#x5982;&#x679C;&#x4EC5;&#x9700;&#x67E5;&#x8BE2;&#x5F88;&#x5C11;&#x7684;&#x70B9;, &#x66B4;&#x529B;&#x65B9;&#x6CD5;&#x4F1A;&#x6BD4;&#x57FA;&#x4E8E;&#x6811;&#x7684;&#x65B9;&#x6CD5;&#x66F4;&#x597D;.</p>
+</li>
+</ul>
+<p>&#x4E00;&#x822C;&#x5730;, &#x5982;&#x679C; <img src="img/bdc1e4261347e1c74950e91fa4f2230f.jpg" alt="k &gt;= N/2">&#xFF0C; &#x6216;&#x8F93;&#x5165;&#x662F;&#x7A00;&#x758F;&#x77E9;&#x9635;&#xFF0C;&#x6216;<code>&apos;effective_metric_&apos;</code> &#x4E0D;&#x5728; <code>&apos;kd_tree&apos;</code> &#x6216; <code>&apos;ball_tree&apos;</code> &#x7684; <code>&apos;VALID_METRICS&apos;</code> &#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;<code>algorithm = &apos;auto&apos;</code>&#x9009;&#x62E9; <code>&apos;brute&apos;</code>&#x3002; &#x5982;&#x679C; <img src="img/f8f807bd22e1f9f3c4271c78c8cb33fa.jpg" alt="k &lt; N/2"> &#x5E76;&#x4E14; <code>&apos;effective_metric_&apos;</code> &#x5728; <code>&apos;kd_tree&apos;</code> &#x7684; <code>&apos;VALID_METRICS&apos;</code> &#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48; <code>algorithm = &apos;auto&apos;</code>&#x9009;&#x62E9; <code>&apos;kd_tree&apos;</code>&#x3002; &#x5982;&#x679C; <img src="img/f8f807bd22e1f9f3c4271c78c8cb33fa.jpg" alt="k &lt; N/2"> &#x5E76;&#x4E14; <code>&apos;effective_metric_&apos;</code> &#x5728; <code>&apos;ball_tree&apos;</code> &#x7684; <code>&apos;VALID_METRICS&apos;</code> &#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48; <code>algorithm = &apos;auto&apos;</code>&#x9009;&#x62E9; <code>&apos;ball_tree&apos;</code>&#x3002; &#x8FD9;&#x79CD;&#x9009;&#x62E9;&#x57FA;&#x4E8E;&#x4EE5;&#x4E0B;&#x5047;&#x8BBE;: &#x67E5;&#x8BE2;&#x70B9;&#x7684;&#x6570;&#x91CF;&#x4E0E;&#x8BAD;&#x7EC3;&#x70B9;&#x7684;&#x6570;&#x91CF;&#x81F3;&#x5C11;&#x5728;&#x76F8;&#x540C;&#x7684;&#x6570;&#x91CF;&#x7EA7;, &#x5E76;&#x4E14; <code>leaf_size</code> &#x63A5;&#x8FD1;&#x5176;&#x9ED8;&#x8BA4;&#x503C; <code>30</code>.</p>
+<h3 id="1645-leafsize-&#x7684;&#x5F71;&#x54CD;">1.6.4.5. <code>leaf_size</code> &#x7684;&#x5F71;&#x54CD;</h3>
+<p>&#x5982;&#x4E0A;&#x6240;&#x8FF0;, &#x5BF9;&#x4E8E;&#x5C0F;&#x6837;&#x672C;&#x66B4;&#x529B;&#x641C;&#x7D22;&#x662F;&#x6BD4;&#x57FA;&#x4E8E;&#x6811;&#x7684;&#x641C;&#x7D22;&#x66F4;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;. &#x8FD9;&#x4E00;&#x4E8B;&#x5B9E;&#x5728; ball &#x6811;&#x548C; KD &#x6811;&#x4E2D;&#x88AB;&#x89E3;&#x91CA;&#x4E3A;&#x5728;&#x53F6;&#x8282;&#x70B9;&#x5185;&#x90E8;&#x5207;&#x6362;&#x5230;&#x66B4;&#x529B;&#x641C;&#x7D22;. &#x8BE5;&#x5F00;&#x5173;&#x7684;&#x7EA7;&#x522B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53C2;&#x6570; <code>leaf_size</code> &#x6765;&#x6307;&#x5B9A;. &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x9009;&#x62E9;&#x6709;&#x5F88;&#x591A;&#x7684;&#x6548;&#x679C;:</p>
+<p><strong>&#x6784;&#x9020;&#x65F6;&#x95F4;</strong>: &#x66F4;&#x5927;&#x7684; <code>leaf_size</code> &#x4F1A;&#x5BFC;&#x81F4;&#x66F4;&#x5FEB;&#x7684;&#x6811;&#x6784;&#x5EFA;&#x65F6;&#x95F4;, &#x56E0;&#x4E3A;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x66F4;&#x5C11;&#x7684;&#x8282;&#x70B9;.</p>
+<p><strong>&#x67E5;&#x8BE2;&#x65F6;&#x95F4;</strong>:&#x4E00;&#x4E2A;&#x5927;&#x6216;&#x5C0F;&#x7684; <code>leaf_size</code> &#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6B21;&#x4F18;&#x67E5;&#x8BE2;&#x6210;&#x672C;. &#x5F53; <code>leaf_size</code> &#x63A5;&#x8FD1; 1 &#x65F6;, &#x904D;&#x5386;&#x8282;&#x70B9;&#x6240;&#x6D89;&#x53CA;&#x7684;&#x5F00;&#x9500;&#x5927;&#x5927;&#x51CF;&#x6162;&#x4E86;&#x67E5;&#x8BE2;&#x65F6;&#x95F4;. &#x5F53; <code>leaf_size</code>, &#x63A5;&#x8FD1;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x67E5;&#x8BE2;&#x53D8;&#x5F97;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x66B4;&#x529B;&#x7684;. &#x8FD9;&#x4E9B;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x59A5;&#x534F;&#x662F; <code>leaf_size = 30</code>, &#x8FD9;&#x662F;&#x8BE5;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;.</p>
+<p><strong>&#x5185;&#x5B58;</strong>:&#x968F;&#x7740;leaf_size&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x5B58;&#x50A8;&#x6811;&#x7ED3;&#x6784;&#x6240;&#x9700;&#x7684;&#x5185;&#x5B58;&#x51CF;&#x5C11;&#x3002; &#x5BF9;&#x4E8E;&#x5B58;&#x50A8;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;D&#x7EF4;&#x8D28;&#x5FC3;&#x7684;ball tree&#xFF0C;&#x8FD9;&#x70B9;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002; &#x9488;&#x5BF9; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.BallTree.html#sklearn.neighbors.BallTree" title="sklearn.neighbors.BallTree" target="_blank"><code>BallTree</code></a> &#x6240;&#x9700;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x8FD1;&#x4F3C;&#x4E8E; <code>1 / leaf_size</code> &#x4E58;&#x4EE5;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x5927;&#x5C0F;.</p>
+<p><code>leaf_size</code> &#x4E0D;&#x88AB; brute force queries&#xFF08;&#x66B4;&#x529B;&#x67E5;&#x8BE2;&#xFF09;&#x6240;&#x5F15;&#x7528;.</p>
+<h2 id="165-&#x6700;&#x8FD1;&#x8D28;&#x5FC3;&#x5206;&#x7C7B;">1.6.5. &#x6700;&#x8FD1;&#x8D28;&#x5FC3;&#x5206;&#x7C7B;</h2>
+<p>&#x8BE5; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestCentroid.html#sklearn.neighbors.NearestCentroid" title="sklearn.neighbors.NearestCentroid" target="_blank"><code>NearestCentroid</code></a> &#x5206;&#x7C7B;&#x5668;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7B97;&#x6CD5;, &#x901A;&#x8FC7;&#x5176;&#x6210;&#x5458;&#x7684;&#x8D28;&#x5FC3;&#x6765;&#x8868;&#x793A;&#x6BCF;&#x4E2A;&#x7C7B;&#x3002; &#x5B9E;&#x9645;&#x4E0A;, &#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x7C7B;&#x4F3C;&#x4E8E; <code>sklearn.KMeans</code> &#x7B97;&#x6CD5;&#x7684;&#x6807;&#x7B7E;&#x66F4;&#x65B0;&#x9636;&#x6BB5;. &#x5B83;&#x4E5F;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x9009;&#x62E9;, &#x4F7F;&#x5176;&#x6210;&#x4E3A;&#x826F;&#x597D;&#x7684;&#x57FA;&#x51C6;&#x5206;&#x7C7B;&#x5668;. &#x7136;&#x800C;&#xFF0C;&#x5B83;&#x786E;&#x5B9E;&#x53D7;&#x5230;&#x975E;&#x51F8;&#x7C7B;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x5373;&#x5F53;&#x7C7B;&#x6709;&#x663E;&#x8457;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5DEE;&#x65F6;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x5206;&#x7C7B;&#x5668;&#x5047;&#x8BBE;&#x6240;&#x6709;&#x7EF4;&#x5EA6;&#x7684;&#x65B9;&#x5DEE;&#x90FD;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x3002; &#x5BF9;&#x4E8E;&#x6CA1;&#x6709;&#x505A;&#x51FA;&#x8FD9;&#x4E2A;&#x5047;&#x8BBE;&#x7684;&#x66F4;&#x590D;&#x6742;&#x7684;&#x65B9;&#x6CD5;, &#x8BF7;&#x53C2;&#x9605;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790; (<a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" target="_blank"><code>sklearn.discriminant_analysis.LinearDiscriminantAnalysis</code></a>) &#x548C;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790; (<a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis.html#sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis" title="sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis" target="_blank"><code>sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis</code></a>). &#x9ED8;&#x8BA4;&#x7684; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestCentroid.html#sklearn.neighbors.NearestCentroid" title="sklearn.neighbors.NearestCentroid" target="_blank"><code>NearestCentroid</code></a> &#x7528;&#x6CD5;&#x793A;&#x4F8B;&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.neighbors.nearest_centroid <span class="hljs-keyword">import</span> NearestCentroid
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = np.array([[<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>], [<span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>], [<span class="hljs-number">-3</span>, <span class="hljs-number">-2</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>y = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>clf = NearestCentroid()
+<span class="hljs-meta">&gt;&gt;&gt; </span>clf.fit(X, y)
+NearestCentroid(metric=<span class="hljs-string">&apos;euclidean&apos;</span>, shrink_threshold=<span class="hljs-keyword">None</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(clf.predict([[<span class="hljs-number">-0.8</span>, <span class="hljs-number">-1</span>]]))
+[<span class="hljs-number">1</span>]
+</code></pre>
+<h3 id="1651-&#x6700;&#x8FD1;&#x7F29;&#x5C0F;&#x8D28;&#x5FC3;">1.6.5.1. &#x6700;&#x8FD1;&#x7F29;&#x5C0F;&#x8D28;&#x5FC3;</h3>
+<p>&#x8BE5; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NearestCentroid.html#sklearn.neighbors.NearestCentroid" title="sklearn.neighbors.NearestCentroid" target="_blank"><code>NearestCentroid</code></a> &#x5206;&#x7C7B;&#x5668;&#x6709;&#x4E00;&#x4E2A; <code>shrink_threshold</code> &#x53C2;&#x6570;, &#x5B83;&#x5B9E;&#x73B0;&#x4E86; nearest shrunken centroid &#x5206;&#x7C7B;&#x5668;. &#x5B9E;&#x9645;&#x4E0A;, &#x6BCF;&#x4E2A;&#x8D28;&#x5FC3;&#x7684;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x7684;&#x503C;&#x9664;&#x4EE5;&#x8BE5;&#x7279;&#x5F81;&#x7684;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x5DEE;. &#x7136;&#x540E;&#x901A;&#x8FC7; <code>shrink_threshold</code> &#x6765;&#x51CF;&#x5C0F;&#x7279;&#x5F81;&#x503C;. &#x6700;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;, &#x5982;&#x679C;&#x7279;&#x5B9A;&#x7279;&#x5F81;&#x503C;&#x8FC7;0, &#x5219;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;0. &#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x79FB;&#x9664;&#x4E86;&#x5F71;&#x54CD;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x7279;&#x5F81;&#x3002; &#x8FD9;&#x5F88;&#x6709;&#x7528;, &#x4F8B;&#x5982;, &#x53BB;&#x9664;&#x566A;&#x58F0;&#x7279;&#x5F81;.</p>
+<p>&#x5728;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x4E2D;, &#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x8F83;&#x5C0F;&#x7684; shrink &#x9600;&#x503C;&#x5C06;&#x6A21;&#x578B;&#x7684;&#x51C6;&#x786E;&#x5EA6;&#x4ECE; 0.81 &#x63D0;&#x9AD8;&#x5230; 0.82.</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html" target="_blank"><img src="img/27eaae520bfaa9c4bdbef494c5029741.jpg" alt="nearest_centroid_1"></a> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html" target="_blank"><img src="img/a561362ff63affeb799b9d33423235a3.jpg" alt="nearest_centroid_2"></a></p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong>:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples//neighbors/plot_nearest_centroid.html#sphx-glr-auto-examples-neighbors-plot-nearest-centroid-py" target="_blank">Nearest Centroid Classification</a>: &#x4E00;&#x4E2A;&#x5206;&#x7C7B;&#x7684;&#x793A;&#x4F8B;, &#x5B83;&#x4F7F;&#x7528;&#x4E86;&#x4E0D;&#x540C; shrink &#x9600;&#x503C;&#x7684;&#x6700;&#x8FD1;&#x8D28;&#x5FC3;.</li>
+</ul>
+</blockquote>
+<h2 id="166-&#x90BB;&#x57DF;&#x6210;&#x5206;&#x5206;&#x6790;">1.6.6 &#x90BB;&#x57DF;&#x6210;&#x5206;&#x5206;&#x6790;</h2>
+<p>&#x90BB;&#x57DF;&#x6210;&#x5206;&#x5206;&#x6790;(NCA, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NeighborhoodComponentsAnalysis.html#sklearn.neighbors.NeighborhoodComponentsAnalysis" target="_blank">NeighborhoodComponentsAnalysis</a>)&#x662F;&#x4E00;&#x79CD;&#x8DDD;&#x79BB;&#x5EA6;&#x91CF;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#xFF0C;&#x5176;&#x76EE;&#x7684;&#x662F;&#x63D0;&#x9AD8;&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x76F8;&#x5BF9;&#x4E8E;&#x6807;&#x51C6;&#x6B27;&#x6C0F;&#x8DDD;&#x79BB;&#x7684;&#x51C6;&#x786E;&#x6027;&#x3002;&#x8BE5;&#x7B97;&#x6CD5;&#x76F4;&#x63A5;&#x6700;&#x5927;&#x5316;&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;k&#x8FD1;&#x90BB;(KNN)&#x5F97;&#x5206;&#x7684;&#x968F;&#x673A;&#x53D8;&#x91CF;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x62DF;&#x5408;&#x6570;&#x636E;&#x7684;&#x4F4E;&#x7EF4;&#x7EBF;&#x6027;&#x6295;&#x5F71;&#xFF0C;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x548C;&#x5FEB;&#x901F;&#x5206;&#x7C7B;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_illustration.html" target="_blank"><img src="img/1_6_1.png" alt="1_6_1"></a> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_illustration.html" target="_blank"><img src="img/1_6_2.png" alt="1_6_2"></a></p>
+<p>&#x5728;&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8003;&#x8651;&#x968F;&#x673A;&#x751F;&#x6210;&#x7684;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x70B9;&#x3002;&#x91CD;&#x70B9;&#x7814;&#x7A76;&#x4E86;&#xFF13;&#x53F7;&#x6837;&#x672C;&#x70B9;&#x7684;&#x968F;&#x673A;KNN&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF0E;&#x6837;&#x672C;3&#x548C;&#x53E6;&#x4E00;&#x4E2A;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x94FE;&#x8DEF;&#x539A;&#x5EA6;&#x4E0E;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#x6210;&#x6B63;&#x6BD4;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x968F;&#x673A;&#x6700;&#x8FD1;&#x90BB;&#x9884;&#x6D4B;&#x89C4;&#x5219;&#x5206;&#x914D;&#x7ED9;&#x8BE5;&#x70B9;&#x7684;&#x76F8;&#x5BF9;&#x6743;&#x91CD;(&#x6216;&#x6982;&#x7387;)&#x3002;&#x5728;&#x539F;&#x59CB;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x6837;&#x672C;3&#x6709;&#x8BB8;&#x591A;&#x6765;&#x81EA;&#x4E0D;&#x540C;&#x7C7B;&#x7684;&#x968F;&#x673A;&#x90BB;&#x5C45;&#xFF0C;&#x56E0;&#x6B64;&#x6B63;&#x786E;&#x7684;&#x5206;&#x7C7B;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728;NCA&#x5B66;&#x4E60;&#x7684;&#x6295;&#x5F71;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x552F;&#x4E00;&#x6743;&#x91CD;&#x4E0D;&#x53EF;&#x5FFD;&#x7565;&#x7684;&#x968F;&#x673A;&#x90BB;&#x57DF;&#x4E0E;&#x6837;&#x672C;3&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x7C7B;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x6837;&#x672C;3&#x7684;&#x5206;&#x7C7B;&#x826F;&#x597D;&#x3002;&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;<a href="">&#x6570;&#x5B66;&#x516C;&#x5F0F;</a>&#x3002;</p>
+<h4 id="1661-&#x5206;&#x7C7B;">1.6.6.1. &#x5206;&#x7C7B;</h4>
+<p>&#x4E0E;&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x5668;(<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier" target="_blank">KNeighborsClassifier</a>)&#x76F8;&#x7ED3;&#x5408;&#xFF0C;NCA&#x662F;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x7684;&#x5206;&#x7C7B;&#x7B97;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x81EA;&#x7136;&#x5730;&#x5904;&#x7406;&#x591A;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x589E;&#x52A0;&#x6A21;&#x578B;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x5F15;&#x5165;&#x9700;&#x8981;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x5FAE;&#x8C03;&#x7684;&#x989D;&#x5916;&#x53C2;&#x6570;&#x3002;</p>
+<p>NCA&#x5206;&#x7C7B;&#x5728;&#x4E0D;&#x540C;&#x89C4;&#x6A21;&#x548C;&#x96BE;&#x5EA6;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x663E;&#x793A;&#x51FA;&#x826F;&#x597D;&#x7684;&#x6548;&#x679C;&#x3002;&#x4E0E;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;&#x7B49;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#x76F8;&#x6BD4;&#xFF0C;NCA&#x6CA1;&#x6709;&#x5BF9;&#x7C7B;&#x7684;&#x5206;&#x5E03;&#x505A;&#x4EFB;&#x4F55;&#x5047;&#x8BBE;&#x3002;&#x800C;&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x81EA;&#x7136;&#x4F1A;&#x4EA7;&#x751F;&#x9AD8;&#x5EA6;&#x4E0D;&#x89C4;&#x5219;&#x7684;&#x51B3;&#x7B56;&#x8FB9;&#x754C;&#x3002;</p>
+<p>&#x8981;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x4E00;&#x4E2A;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NeighborhoodComponentsAnalysis.html#sklearn.neighbors.NeighborhoodComponentsAnalysis" target="_blank">NeighborhoodComponentsAnalysis</a>&#x5B9E;&#x4F8B;&#x4E0E;&#x4E00;&#x4E2A;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier" target="_blank">KNeighborsClassifier</a>&#x5B9E;&#x4F8B;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NeighborhoodComponentsAnalysis.html#sklearn.neighbors.NeighborhoodComponentsAnalysis" target="_blank">NeighborhoodComponentsAnalysis</a>&#x5B9E;&#x4F8B;&#x62DF;&#x5408;&#x6700;&#x4F18;&#x8F6C;&#x6362;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier" target="_blank">KNeighborsClassifier</a>&#x5B9E;&#x4F8B;&#x5728;&#x6295;&#x5F71;&#x7A7A;&#x95F4;&#x4E2D;&#x6267;&#x884C;&#x5206;&#x7C7B;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x7C7B;&#x7684;&#x793A;&#x4F8B;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> (NeighborhoodComponentsAnalysis,
+<span class="hljs-meta">... </span>KNeighborsClassifier)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> load_iris
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.pipeline <span class="hljs-keyword">import</span> Pipeline
+<span class="hljs-meta">&gt;&gt;&gt; </span>X, y = load_iris(return_X_y=<span class="hljs-keyword">True</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>X_train, X_test, y_train, y_test = train_test_split(X, y,
+<span class="hljs-meta">... </span>stratify=y, test_size=<span class="hljs-number">0.7</span>, random_state=<span class="hljs-number">42</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>nca = NeighborhoodComponentsAnalysis(random_state=<span class="hljs-number">42</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>knn = KNeighborsClassifier(n_neighbors=<span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>nca_pipe = Pipeline([(<span class="hljs-string">&apos;nca&apos;</span>, nca), (<span class="hljs-string">&apos;knn&apos;</span>, knn)])
+<span class="hljs-meta">&gt;&gt;&gt; </span>nca_pipe.fit(X_train, y_train)
+Pipeline(...)
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(nca_pipe.score(X_test, y_test))
+<span class="hljs-number">0.96190476</span>...
+</code></pre>
+<p><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html" target="_blank"><img src="img/sphx_glr_plot_nca_classification_0011.png" alt="sphx_glr_plot_nca_classification_0011.png"></a></p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html" target="_blank"><img src="img/sphx_glr_plot_nca_classification_0021.png" alt="sphx_glr_plot_nca_classification_0021.png"></a></p>
+<p>&#x56FE;&#x4E2D;&#x4EC5;&#x5BF9;&#x9E22;&#x5C3E;&#x82B1;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x4E24;&#x4E2A;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x548C;&#x8BC4;&#x5206;&#xFF0C;&#x663E;&#x793A;&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x548C;&#x90BB;&#x57DF;&#x6210;&#x5206;&#x5206;&#x6790;&#x5206;&#x7C7B;&#x7684;&#x51B3;&#x7B56;&#x8FB9;&#x754C;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x89C2;&#x7684;&#x770B;&#x5230;&#x5DEE;&#x5F02;&#x3002;</p>
+<h4 id="1662-&#x964D;&#x7EF4;">1.6.6.2. &#x964D;&#x7EF4;</h4>
+<p>NCA&#x53EF;&#x7528;&#x4E8E;&#x8FDB;&#x884C;&#x76D1;&#x7763;&#x964D;&#x7EF4;&#x3002;&#x8F93;&#x5165;&#x6570;&#x636E;&#x88AB;&#x6295;&#x5F71;&#x5230;&#x4E00;&#x4E2A;&#x7531;&#x6700;&#x5C0F;&#x5316;NCA&#x76EE;&#x6807;&#x7684;&#x65B9;&#x5411;&#x7EC4;&#x6210;&#x7684;&#x7EBF;&#x6027;&#x5B50;&#x7A7A;&#x95F4;&#x4E0A;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53C2;&#x6570;<code>n_components</code>&#x8BBE;&#x7F6E;&#x6240;&#x9700;&#x7684;&#x7EF4;&#x6570;&#x3002;&#x4F8B;&#x5982;,&#x4E0B;&#x56FE;&#x663E;&#x793A;&#x4E86;&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#x7684;&#x964D;&#x7EF4;(<a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA" target="_blank">sklearn.decomposition.PCA</a>),&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;(<a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" target="_blank">sklearn.discriminant_analysis.LinearDiscriminantAnalysis</a>)&#x548C;&#x90BB;&#x57DF;&#x6210;&#x5206;&#x5206;&#x6790;(<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NeighborhoodComponentsAnalysis.html#sklearn.neighbors.NeighborhoodComponentsAnalysis" target="_blank">NeighborhoodComponentsAnalysis</a>)&#x5728;&#x4E00;&#x4E2A;64&#x4E2A;&#x7279;&#x5F81;,1797&#x4E2A;&#x6837;&#x672C;&#x7684;&#x6570;&#x5B57;&#x6570;&#x636E;&#x96C6;&#x7684;&#x964D;&#x7EF4;&#x7ED3;&#x679C;&#x3002;&#x6570;&#x636E;&#x96C6;&#x88AB;&#x5212;&#x5206;&#x4E3A;&#x5927;&#x5C0F;&#x76F8;&#x540C;&#x7684;&#x8BAD;&#x7EC3;&#x96C6;&#x548C;&#x6D4B;&#x8BD5;&#x96C6;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x6807;&#x51C6;&#x5316;&#x3002;&#x4E3A;&#x4E86;&#x8BC4;&#x4EF7;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x5206;&#x7C7B;&#x7CBE;&#x5EA6;&#xFF0C;&#x5BF9;&#x6BCF;&#x79CD;&#x65B9;&#x6CD5;&#x627E;&#x5230;&#x7684;&#x4E8C;&#x7EF4;&#x6295;&#x5F71;&#x70B9;&#x8FDB;&#x884C;&#x4E86;3-&#x6700;&#x8FD1;&#x90BB;&#x5206;&#x7C7B;&#x7CBE;&#x5EA6;&#x7684;&#x8BA1;&#x7B97;&#x3002;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x6837;&#x672C;&#x5C5E;&#x4E8E;10&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x3002;</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_dim_reduction.html" target="_blank"><img src="img/sphx_glr_plot_nca_dim_reduction_0011.png" alt="sphx_glr_plot_nca_dim_reduction_0011.png"></a>
+<a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_dim_reduction.html" target="_blank"><img src="img/sphx_glr_plot_nca_dim_reduction_0021.png" alt="sphx_glr_plot_nca_dim_reduction_0021.png"></a>
+<a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_dim_reduction.html" target="_blank"><img src="img/sphx_glr_plot_nca_dim_reduction_0031.png" alt="sphx_glr_plot_nca_dim_reduction_0031.png"></a></p>
+<blockquote>
+<p>&#x793A;&#x4F8B;:</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html#sphx-glr-auto-examples-neighbors-plot-nca-classification-py" target="_blank">Comparing Nearest Neighbors with and without Neighborhood Components Analysis</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_dim_reduction.html#sphx-glr-auto-examples-neighbors-plot-nca-dim-reduction-py" target="_blank">Dimensionality Reduction with Neighborhood Components Analysis</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_lle_digits.html#sphx-glr-auto-examples-manifold-plot-lle-digits-py" target="_blank">Manifold learning on handwritten digits: Locally Linear Embedding, Isomap&#x2026;</a></li>
+</ul>
+</blockquote>
+<h4 id="1663-&#x6570;&#x5B66;&#x516C;&#x5F0F;">1.6.6.3 &#x6570;&#x5B66;&#x516C;&#x5F0F;</h4>
+<p>NCA&#x7684;&#x76EE;&#x6807;&#x662F;&#x62DF;&#x5408;&#x4E00;&#x4E2A;&#x5C3A;&#x5BF8;&#x4E3A;(n_components, n_features)&#x7684;&#x6700;&#x4F18;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x77E9;&#x9635;&#xFF0C;&#x4F7F;&#x6240;&#x6709;&#x88AB;&#x6B63;&#x786E;&#x5206;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x6837;&#x672C;&#x7684;&#x548C;&#x6700;&#x5927;&#xFF0C;&#x5373;:</p>
+<p><img src="img/knn01.png" alt="\underset{L}{\arg\max} \sum\limits_{i=0}^{N - 1} p_{i}"></p>
+<p>&#x5176;&#x4E2D;&#xFF2E;&#x662F;&#x6837;&#x672C;&#x6570;&#xFF0C;p<sub>i</sub>&#x662F;&#x7B2C;i&#x4E2A;&#x6837;&#x672C;&#x5728;&#x5B66;&#x4E60;&#x7684;&#x5D4C;&#x5165;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x968F;&#x673A;&#x8FD1;&#x90BB;&#x89C4;&#x5219;&#x6B63;&#x786E;&#x5206;&#x7C7B;&#x7684;&#x53EF;&#x80FD;&#x6027;:</p>
+<p><img src="img/knn02.png" alt="p_{i}=\sum\limits_{j \in C_i}{p_{i j}}"></p>
+<p>&#x5176;&#x4E2D;&#xFF23;<sub>i</sub>&#x662F;&#x7B2C;i&#x4E2A;&#x6837;&#x672C;&#x88AB;&#x5206;&#x7C7B;&#x5230;&#x7684;&#x70B9;&#x96C6;&#xFF0C;&#xFF30;<sub>ij</sub>&#x4E3A;&#x5D4C;&#x5165;&#x7A7A;&#x95F4;&#x4E2D;&#x6B27;&#x6C0F;&#x8DDD;&#x79BB;&#x4E0A;&#x7684;&#x5F52;&#x4E00;&#x5316;&#x6307;&#x6570;&#xFF08;softmax&#xFF09;&#x503C;:</p>
+<p><img src="img/knn03.png" alt="p_{i j} = \frac{\exp(-||L x_i - L x_j||^2)}{\sum\limits_{k \ne i} {\exp{-(||L x_i - L x_k||^2)}}} , \quad p_{i i} = 0"></p>
+<h5 id="16631-mahalanobis&#x8DDD;&#x79BB;">1.6.6.3.1 Mahalanobis&#x8DDD;&#x79BB;</h5>
+<p>NCA&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x62DF;&#x5408;&#x4E00;&#x4E2A;(&#x5E73;&#x65B9;)Mahalanobis&#x8DDD;&#x79BB;&#x77E9;&#x9635;:</p>
+<p>&#x5176;&#x4E2D;<img src="img/knn04.png" alt="|| L(x_i - x_j)||^2 = (x_i - x_j)^TM(x_i - x_j),"></p>
+<p><img src="img/knn05.png" alt="M = L^T L">&#x662F;&#x5927;&#x5C0F;&#x4E3A;(&#x7279;&#x5F81;&#x6570;&#xFF0C;&#x7279;&#x5F81;&#x6570;)&#x5BF9;&#x79F0;&#x6B63;&#x534A;&#x5B9A;&#x77E9;&#x9635;&#xFF0E;</p>
+<h4 id="1664-&#x5B9E;&#x73B0;">1.6.6.4 &#x5B9E;&#x73B0;</h4>
+<p>&#x8BE5;&#x5B9E;&#x73B0;&#x9075;&#x5FAA;&#x4E86;&#x539F;&#x59CB;&#x8BBA;&#x6587;[1]&#x4E2D;&#x89E3;&#x91CA;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x5BF9;&#x4E8E;&#x4F18;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x76EE;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x662F;scipy&#x7684;L-BFGS-B&#xFF0C;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x90FD;&#x8FDB;&#x884C;&#x5168;&#x68AF;&#x5EA6;&#x8BA1;&#x7B97;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x8C03;&#x6574;&#x5B66;&#x4E60;&#x901F;&#x5EA6;&#xFF0C;&#x63D0;&#x4F9B;&#x7A33;&#x5B9A;&#x7684;&#x62DF;&#x5408;&#x3002;</p>
+<p>&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x548C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.NeighborhoodComponentsAnalysis.html#sklearn.neighbors.NeighborhoodComponentsAnalysis.fit" target="_blank">NeighborhoodComponentsAnalysis</a>&#x7684;&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4EE5;&#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p>
+<h4 id="1665-&#x590D;&#x6742;&#x5EA6;">1.6.6.5 &#x590D;&#x6742;&#x5EA6;</h4>
+<h5 id="16651-&#x8BAD;&#x7EC3;">1.6.6.5.1 &#x8BAD;&#x7EC3;</h5>
+<p>NCA&#x5B58;&#x50A8;&#x4E00;&#x5BF9;&#x8DDD;&#x79BB;&#x77E9;&#x9635;&#xFF0C;&#x5360;&#x7528;&#x4E86;&#xFF08;n_samples ** 2&#xFF09;&#x7684;&#x5185;&#x5B58;&#x3002;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x4F18;&#x5316;&#x7B97;&#x6CD5;&#x7684;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53C2;&#x6570;&#xFF40;max_iter&#xFF40;&#x8BBE;&#x7F6E;&#x8FED;&#x4EE3;&#x7684;&#x6700;&#x5927;&#x6B21;&#x6570;&#x3002;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x8FED;&#x4EE3;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;<code>O(n_components x n_samples x min(n_samples, n_features))</code>&#x3002;</p>
+<h5 id="1665&#xFF12;-&#x53D8;&#x5F62;">1.6.6.5.&#xFF12; &#x53D8;&#x5F62;</h5>
+<p>&#x8FD9;&#x91CC;&#x53D8;&#x5F62;&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;LX<sup>T</sup>&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x7B49;&#x4E8E;<code>n_components x n_features x n_samples_test</code>&#x3002;&#x64CD;&#x4F5C;&#x4E2D;&#x6CA1;&#x6709;&#x589E;&#x52A0;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>&#xFF1A;</p>
+<ul>
+<li>[1]    <a href="http://www.cs.nyu.edu/~roweis/papers/ncanips.pdf" target="_blank">&#x201C;Neighbourhood Components Analysis&#x201D;. Advances in Neural Information&#x201D;</a>, J. Goldberger, G. Hinton, S. Roweis, R. Salakhutdinov, Advances in Neural Information Processing Systems, Vol. 17, May 2005, pp. 513-520.</li>
+<li>[2]    <a href="https://en.wikipedia.org/wiki/Neighbourhood_components_analysis" target="_blank">Wikipedia entry on Neighborhood Components Analysis</a></li>
+</ul>
+</blockquote>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="6.html" class="navigation navigation-prev " aria-label="Previous page: 1.5. 随机梯度下降">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="8.html" class="navigation navigation-next " aria-label="Next page: 1.7. 高斯过程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.6. 最近邻","level":"1.3.1.6","depth":3,"next":{"title":"1.7. 高斯过程","level":"1.3.1.7","depth":3,"path":"docs/master/8.md","ref":"docs/master/8.md","articles":[]},"previous":{"title":"1.5. 随机梯度下降","level":"1.3.1.5","depth":3,"path":"docs/master/6.md","ref":"docs/master/6.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/7.md","mtime":"2020-11-23T10:54:46.652Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

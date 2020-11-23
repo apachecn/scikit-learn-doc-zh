@@ -1,0 +1,1801 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    其他示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    双聚类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">
+            
+                <a href="Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">
+            
+                    
+                    频谱共聚算法演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">
+            
+                <a href="Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">
+            
+                    
+                    频谱双聚类算法演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">
+            
+                <a href="Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">
+            
+                    
+                    使用频谱共聚算法对文档进行聚合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    校准
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    分类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    多聚类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    协方差估计
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    交叉分解
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    数据集示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    决策树
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    分解
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    集成方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    基于真实数据集的示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    特征选择
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" >
+            
+                <span>
+            
+                    
+                    高斯混合模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    高斯机器学习过程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    广义线性模型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="Generalized_Linear_Models/plot_lasso_and_elasticnet.html">
+            
+                <a href="Generalized_Linear_Models/plot_lasso_and_elasticnet.html">
+            
+                    
+                    Lasso 和弹性网络在稀疏信号上的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="Generalized_Linear_Models/plot_lasso_coordinate_descent_path.html">
+            
+                <a href="Generalized_Linear_Models/plot_lasso_coordinate_descent_path.html">
+            
+                    
+                    Lasso 和弹性网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.3" data-path="Generalized_Linear_Models/plot_lasso_model_selection.html">
+            
+                <a href="Generalized_Linear_Models/plot_lasso_model_selection.html">
+            
+                    
+                    Lasso 模型选择：交叉验证 / AIC / BIC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.4" data-path="Generalized_Linear_Models/plot_multi_task_lasso_support.html">
+            
+                <a href="Generalized_Linear_Models/plot_multi_task_lasso_support.html">
+            
+                    
+                    多任务 Lasso 实现联合特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.5" data-path="Generalized_Linear_Models/plot_ols.html">
+            
+                <a href="Generalized_Linear_Models/plot_ols.html">
+            
+                    
+                    线性回归示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.6" data-path="Generalized_Linear_Models/plot_ridge_path.html">
+            
+                <a href="Generalized_Linear_Models/plot_ridge_path.html">
+            
+                    
+                    岭系数对回归系数的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.7" data-path="Generalized_Linear_Models/plot_tomography_l1_reconstruction.html">
+            
+                <a href="Generalized_Linear_Models/plot_tomography_l1_reconstruction.html">
+            
+                    
+                    压缩感知：用L1先验概率进行断层重建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" >
+            
+                <span>
+            
+                    
+                    检查
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" >
+            
+                <span>
+            
+                    
+                    流行学习
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" >
+            
+                <span>
+            
+                    
+                    缺失值插补
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" >
+            
+                <span>
+            
+                    
+                    选型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" >
+            
+                <span>
+            
+                    
+                    多输出方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" >
+            
+                <span>
+            
+                    
+                    最近邻
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" >
+            
+                <span>
+            
+                    
+                    神经网络
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" >
+            
+                <span>
+            
+                    
+                    管道和复合估计器
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" >
+            
+                <span>
+            
+                    
+                    预处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" >
+            
+                <span>
+            
+                    
+                    发布要点
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" >
+            
+                <span>
+            
+                    
+                    半监督分类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" >
+            
+                <span>
+            
+                    
+                    支持向量机
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" >
+            
+                <span>
+            
+                    
+                    建成练习
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" >
+            
+                <span>
+            
+                    
+                    文本文档工作
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.31.1" data-path="Generalized_Linear_Models/plot_document_classification_20newsgroups.html">
+            
+                <a href="Generalized_Linear_Models/plot_document_classification_20newsgroups.html">
+            
+                    
+                    分类特征稀疏的文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h1>
+<p>&#x82F1;&#x6587;&#x5730;&#x5740;: <a href="https://scikit-learn.org/stable/auto_examples/index.html" target="_blank">https://scikit-learn.org/stable/auto_examples/index.html</a></p>
+<h2 id="&#x5176;&#x4ED6;&#x793A;&#x4F8B;">&#x5176;&#x4ED6;&#x793A;&#x4F8B;</h2>
+<p>scikit-learn &#x7684; Miscellaneous &#x548C;&#x5165;&#x95E8;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_changed_only_pprint_parameter_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_changed_only_pprint_parameter.html#sphx-glr-auto-examples-plot-changed-only-pprint-parameter-py" target="_blank">&#x7D27;&#x51D1;&#x7684;&#x4F30;&#x8BA1;&#x8868;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id2" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_roc_curve_visualization_api_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_roc_curve_visualization_api.html#sphx-glr-auto-examples-plot-roc-curve-visualization-api-py" target="_blank">&#x5E26;&#x6709;&#x53EF;&#x89C6;&#x5316;API&#x7684;ROC&#x66F2;&#x7EBF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id3" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_isotonic_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_isotonic_regression.html#sphx-glr-auto-examples-plot-isotonic-regression-py" target="_blank">&#x5E8F;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id4" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_partial_dependence_visualization_api_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_partial_dependence_visualization_api.html#sphx-glr-auto-examples-plot-partial-dependence-visualization-api-py" target="_blank">&#x5148;&#x8FDB;&#x7684;&#x7ED8;&#x56FE;&#x5177;&#x6709;&#x90E8;&#x5206;&#x4F9D;&#x8D56;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id5" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_multioutput_face_completion_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_multioutput_face_completion.html#sphx-glr-auto-examples-plot-multioutput-face-completion-py" target="_blank">&#x4F7F;&#x7528;&#x591A;&#x8F93;&#x51FA;&#x4F30;&#x8BA1;&#x5668;&#x5B8C;&#x6210;&#x4EBA;&#x8138;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id6" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_multilabel_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_multilabel.html#sphx-glr-auto-examples-plot-multilabel-py" target="_blank">&#x591A;&#x6807;&#x7B7E;&#x5206;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id7" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_anomaly_comparison_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_anomaly_comparison.html#sphx-glr-auto-examples-plot-anomaly-comparison-py" target="_blank">&#x6BD4;&#x8F83;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x7B97;&#x6CD5;&#x4EE5;&#x5BF9;&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;&#x8FDB;&#x884C;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id8" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_johnson_lindenstrauss_bound_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_johnson_lindenstrauss_bound.html#sphx-glr-auto-examples-plot-johnson-lindenstrauss-bound-py" target="_blank">&#x5177;&#x6709;&#x968F;&#x673A;&#x6295;&#x5F71;&#x5D4C;&#x5165;&#x7684;Johnson-Lindenstrauss&#x8FB9;&#x754C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id9" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_kernel_ridge_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_kernel_ridge_regression.html#sphx-glr-auto-examples-plot-kernel-ridge-regression-py" target="_blank">&#x5185;&#x6838;&#x5CAD;&#x56DE;&#x5F52;&#x548C;SVR&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id10" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_kernel_approximation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/plot_kernel_approximation.html#sphx-glr-auto-examples-plot-kernel-approximation-py" target="_blank">RBF&#x5185;&#x6838;&#x7684;&#x663E;&#x5F0F;&#x7279;&#x5F81;&#x56FE;&#x903C;&#x8FD1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id11" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x53CC;&#x805A;&#x7C7B;">&#x53CC;&#x805A;&#x7C7B;</h2>
+<p>&#x6709;&#x5173;<code>sklearn.cluster.bicluster</code>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_spectral_coclustering_thumb.png" alt=""> <br> <a href="Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">&#x9891;&#x8C31;&#x5171;&#x805A;&#x7B97;&#x6CD5;&#x6F14;&#x793A;</a></td>
+<td><img src="img/sphx_glr_plot_spectral_biclustering_thumb.png" alt=""> <br> <a href="Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">&#x9891;&#x8C31;&#x53CC;&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x7684;&#x6F14;&#x793A;</a></td>
+<td><img src="img/sphx_glr_plot_bicluster_newsgroups_thumb.png" alt=""> <br> <a href="Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">&#x4F7F;&#x7528;&#x9891;&#x8C31;&#x5171;&#x805A;&#x7B97;&#x6CD5;&#x5BF9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x805A;&#x5408;</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6821;&#x51C6;">&#x6821;&#x51C6;</h2>
+<p>&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x5BF9;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x9884;&#x6D4B;&#x6982;&#x7387;&#x8FDB;&#x884C;&#x6821;&#x51C6;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_compare_calibration_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/calibration/plot_compare_calibration.html#sphx-glr-auto-examples-calibration-plot-compare-calibration-py" target="_blank">&#x5206;&#x7C7B;&#x5668;&#x6821;&#x51C6;&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id15" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_calibration_curve_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html#sphx-glr-auto-examples-calibration-plot-calibration-curve-py" target="_blank">&#x6982;&#x7387;&#x6821;&#x51C6;&#x66F2;&#x7EBF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id16" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_calibration_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration.html#sphx-glr-auto-examples-calibration-plot-calibration-py" target="_blank">&#x5206;&#x7C7B;&#x5668;&#x7684;&#x6982;&#x7387;&#x6821;&#x51C6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id17" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_calibration_multiclass_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_multiclass.html#sphx-glr-auto-examples-calibration-plot-calibration-multiclass-py" target="_blank">3&#x7EA7;&#x5206;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x6821;&#x51C6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id18" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5206;&#x7C7B;">&#x5206;&#x7C7B;</h2>
+<p>&#x6709;&#x5173;&#x5206;&#x7C7B;&#x7B97;&#x6CD5;&#x7684;&#x4E00;&#x822C;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_lda_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_lda.html#sphx-glr-auto-examples-classification-plot-lda-py" target="_blank">&#x5206;&#x7C7B;&#x6CD5;&#x7EBF;&#x548C;&#x6536;&#x7F29;&#x7EBF;&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id19" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_digits_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html#sphx-glr-auto-examples-classification-plot-digits-classification-py" target="_blank">&#x8BC6;&#x522B;&#x624B;&#x5199;&#x6570;&#x5B57;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id20" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_classification_probability_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_classification_probability.html#sphx-glr-auto-examples-classification-plot-classification-probability-py" target="_blank">&#x60C5;&#x8282;&#x5206;&#x7C7B;&#x6982;&#x7387;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id21" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_classifier_comparison_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py" target="_blank">&#x5206;&#x7C7B;&#x5668;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id22" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_lda_qda_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_lda_qda.html#sphx-glr-auto-examples-classification-plot-lda-qda-py" target="_blank">&#x7EBF;&#x6027;&#x548C;&#x4E8C;&#x6B21;&#x5224;&#x522B;&#x5206;&#x6790;&#x4E0E;&#x534F;&#x65B9;&#x5DEE;&#x692D;&#x7403;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id23" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x591A;&#x805A;&#x7C7B;">&#x591A;&#x805A;&#x7C7B;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster" title="sklearn.cluster" target="_blank"><code>sklearn.cluster</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_agglomerative_dendrogram_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_dendrogram.html#sphx-glr-auto-examples-cluster-plot-agglomerative-dendrogram-py" target="_blank">&#x7ED8;&#x5236;&#x5C42;&#x6B21;&#x805A;&#x7C7B;&#x6811;&#x72B6;&#x56FE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id24" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_digits_agglomeration_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_digits_agglomeration.html#sphx-glr-auto-examples-cluster-plot-digits-agglomeration-py" target="_blank">&#x529F;&#x80FD;&#x96C6;&#x805A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id25" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_mean_shift_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_mean_shift.html#sphx-glr-auto-examples-cluster-plot-mean-shift-py" target="_blank">&#x5747;&#x503C;&#x6F02;&#x79FB;&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x7684;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id26" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_kmeans_assumptions_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html#sphx-glr-auto-examples-cluster-plot-kmeans-assumptions-py" target="_blank">&#x7684;k&#x5747;&#x503C;&#x5047;&#x8BBE;&#x793A;&#x8303;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id27" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_dict_face_patches_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_dict_face_patches.html#sphx-glr-auto-examples-cluster-plot-dict-face-patches-py" target="_blank">&#x5728;&#x7EBF;&#x5B66;&#x4E60;&#x9762;&#x90E8;&#x8868;&#x60C5;&#x5B57;&#x5178;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id28" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_face_compress_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_face_compress.html#sphx-glr-auto-examples-cluster-plot-face-compress-py" target="_blank">&#x77E2;&#x91CF;&#x91CF;&#x5316;&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id29" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_affinity_propagation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_affinity_propagation.html#sphx-glr-auto-examples-cluster-plot-affinity-propagation-py" target="_blank">&#x76F8;&#x4F3C;&#x6027;&#x4F20;&#x64AD;&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id30" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_agglomerative_clustering_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_clustering.html#sphx-glr-auto-examples-cluster-plot-agglomerative-clustering-py" target="_blank">&#x6709;&#x548C;&#x6CA1;&#x6709;&#x7ED3;&#x6784;&#x7684;&#x805A;&#x96C6;&#x805A;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id31" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_coin_segmentation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_coin_segmentation.html#sphx-glr-auto-examples-cluster-plot-coin-segmentation-py" target="_blank">&#x5206;&#x5272;&#x533A;&#x57DF;&#x4E2D;&#x5E0C;&#x814A;&#x786C;&#x5E01;&#x7684;&#x56FE;&#x7247;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id32" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_digits_linkage_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_digits_linkage.html#sphx-glr-auto-examples-cluster-plot-digits-linkage-py" target="_blank">&#x4E8C;&#x7EF4;&#x6570;&#x5B57;&#x5D4C;&#x5165;&#x4E2D;&#x7684;&#x5404;&#x79CD;&#x805A;&#x96C6;&#x805A;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id33" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_cluster_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_iris.html#sphx-glr-auto-examples-cluster-plot-cluster-iris-py" target="_blank">K-means&#x805A;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id34" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_segmentation_toy_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_segmentation_toy.html#sphx-glr-auto-examples-cluster-plot-segmentation-toy-py" target="_blank">&#x5149;&#x8C31;&#x805A;&#x7C7B;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x5206;&#x5272;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id35" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_coin_ward_segmentation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_coin_ward_segmentation.html#sphx-glr-auto-examples-cluster-plot-coin-ward-segmentation-py" target="_blank">&#x786C;&#x5E01;&#x56FE;&#x50CF;&#x4E0A;&#x7684;&#x7ED3;&#x6784;&#x5316;Ward&#x5C42;&#x6B21;&#x805A;&#x7C7B;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id36" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_dbscan_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py" target="_blank">DBSCAN&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id37" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_color_quantization_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_color_quantization.html#sphx-glr-auto-examples-cluster-plot-color-quantization-py" target="_blank">&#x4F7F;&#x7528;K&#x5747;&#x503C;&#x7684;&#x989C;&#x8272;&#x91CF;&#x5316;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id38" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ward_structured_vs_unstructured_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_ward_structured_vs_unstructured.html#sphx-glr-auto-examples-cluster-plot-ward-structured-vs-unstructured-py" target="_blank">&#x5206;&#x5C42;&#x805A;&#x7C7B;&#xFF1A;&#x7ED3;&#x6784;&#x5316;&#x4E0E;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x75C5;&#x623F;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id39" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_agglomerative_clustering_metrics_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_clustering_metrics.html#sphx-glr-auto-examples-cluster-plot-agglomerative-clustering-metrics-py" target="_blank">&#x5177;&#x6709;&#x4E0D;&#x540C;&#x6307;&#x6807;&#x7684;&#x805A;&#x96C6;&#x96C6;&#x7FA4;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id40" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_inductive_clustering_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_inductive_clustering.html#sphx-glr-auto-examples-cluster-plot-inductive-clustering-py" target="_blank">&#x5F52;&#x7EB3;&#x805A;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id41" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_optics_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_optics.html#sphx-glr-auto-examples-cluster-plot-optics-py" target="_blank">OPTICS&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id42" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_birch_vs_minibatchkmeans_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_birch_vs_minibatchkmeans.html#sphx-glr-auto-examples-cluster-plot-birch-vs-minibatchkmeans-py" target="_blank">&#x6BD4;&#x8F83;&#x6866;&#x6728;&#x548C;MiniBatchKMeans</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id43" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_kmeans_stability_low_dim_dense_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_stability_low_dim_dense.html#sphx-glr-auto-examples-cluster-plot-kmeans-stability-low-dim-dense-py" target="_blank">k&#x5747;&#x503C;&#x521D;&#x59CB;&#x5316;&#x5F71;&#x54CD;&#x7684;&#x5B9E;&#x8BC1;&#x8BC4;&#x4F30;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id44" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_adjusted_for_chance_measures_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_adjusted_for_chance_measures.html#sphx-glr-auto-examples-cluster-plot-adjusted-for-chance-measures-py" target="_blank">&#x96C6;&#x7FA4;&#x7EE9;&#x6548;&#x8BC4;&#x4F30;&#x4E2D;&#x673A;&#x4F1A;&#x7684;&#x8C03;&#x6574;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id45" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_mini_batch_kmeans_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_mini_batch_kmeans.html#sphx-glr-auto-examples-cluster-plot-mini-batch-kmeans-py" target="_blank">K-Means&#x548C;MiniBatchKMeans&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id46" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_feature_agglomeration_vs_univariate_selection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_feature_agglomeration_vs_univariate_selection.html#sphx-glr-auto-examples-cluster-plot-feature-agglomeration-vs-univariate-selection-py" target="_blank">&#x7279;&#x5F81;&#x96C6;&#x805A;&#x4E0E;&#x5355;&#x53D8;&#x91CF;&#x9009;&#x62E9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id47" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_kmeans_digits_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_digits.html#sphx-glr-auto-examples-cluster-plot-kmeans-digits-py" target="_blank">&#x624B;&#x5199;&#x6570;&#x5B57;&#x6570;&#x636E;&#x4E0A;&#x7684;K-Means&#x805A;&#x7C7B;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id48" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_linkage_comparison_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_linkage_comparison.html#sphx-glr-auto-examples-cluster-plot-linkage-comparison-py" target="_blank">&#x6BD4;&#x8F83;&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x4E0D;&#x540C;&#x5C42;&#x6B21;&#x94FE;&#x63A5;&#x65B9;&#x6CD5;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id49" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_kmeans_silhouette_analysis_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html#sphx-glr-auto-examples-cluster-plot-kmeans-silhouette-analysis-py" target="_blank">&#x5728;KMeans&#x805A;&#x7C7B;&#x4E0A;&#x901A;&#x8FC7;&#x8F6E;&#x5ED3;&#x5206;&#x6790;&#x9009;&#x62E9;&#x805A;&#x7C7B;&#x6570;&#x91CF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id50" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_cluster_comparison_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html#sphx-glr-auto-examples-cluster-plot-cluster-comparison-py" target="_blank">&#x6BD4;&#x8F83;&#x73A9;&#x5177;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x4E0D;&#x540C;&#x805A;&#x7C7B;&#x7B97;&#x6CD5;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id51" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x534F;&#x65B9;&#x5DEE;&#x4F30;&#x8BA1;">&#x534F;&#x65B9;&#x5DEE;&#x4F30;&#x8BA1;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.covariance" target="_blank"><code>sklearn.covariance</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_lw_vs_oas_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/covariance/plot_lw_vs_oas.html#sphx-glr-auto-examples-covariance-plot-lw-vs-oas-py" target="_blank">Ledoit-Wolf&#x4E0E;OAS&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id52" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sparse_cov_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/covariance/plot_sparse_cov.html#sphx-glr-auto-examples-covariance-plot-sparse-cov-py" target="_blank">&#x7A00;&#x758F;&#x9006;&#x534F;&#x65B9;&#x5DEE;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id53" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_covariance_estimation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/covariance/plot_covariance_estimation.html#sphx-glr-auto-examples-covariance-plot-covariance-estimation-py" target="_blank">&#x6536;&#x7F29;&#x534F;&#x65B9;&#x5DEE;&#x4F30;&#x8BA1;&#xFF1A;LedoitWolf&#x4E0E;OAS&#x548C;&#x6700;&#x5927;&#x4F3C;&#x7136;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id54" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_mahalanobis_distances_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/covariance/plot_mahalanobis_distances.html#sphx-glr-auto-examples-covariance-plot-mahalanobis-distances-py" target="_blank">&#x5065;&#x58EE;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x4F30;&#x8BA1;&#x548C;&#x9A6C;&#x6C0F;&#x8DDD;&#x79BB;&#x76F8;&#x5173;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id55" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_robust_vs_empirical_covariance_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/covariance/plot_robust_vs_empirical_covariance.html#sphx-glr-auto-examples-covariance-plot-robust-vs-empirical-covariance-py" target="_blank">&#x4E50;&#x767E;&#x6C0F;VS&#x5B9E;&#x8BC1;&#x534F;&#x65B9;&#x5DEE;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id56" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x4EA4;&#x53C9;&#x5206;&#x89E3;">&#x4EA4;&#x53C9;&#x5206;&#x89E3;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cross_decomposition" title="sklearn.cross_decomposition" target="_blank"><code>sklearn.cross_decomposition</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_compare_cross_decomposition_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/cross_decomposition/plot_compare_cross_decomposition.html#sphx-glr-auto-examples-cross-decomposition-plot-compare-cross-decomposition-py" target="_blank">&#x6BD4;&#x8F83;&#x4EA4;&#x53C9;&#x5206;&#x89E3;&#x65B9;&#x6CD5;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id57" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6570;&#x636E;&#x96C6;&#x793A;&#x4F8B;">&#x6570;&#x636E;&#x96C6;&#x793A;&#x4F8B;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets" title="sklearn.datasets" target="_blank"><code>sklearn.datasets</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_digits_last_image_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/datasets/plot_digits_last_image.html#sphx-glr-auto-examples-datasets-plot-digits-last-image-py" target="_blank">Digit&#x6570;&#x636E;&#x96C6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id58" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_iris_dataset_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html#sphx-glr-auto-examples-datasets-plot-iris-dataset-py" target="_blank">&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id59" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_random_dataset_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/datasets/plot_random_dataset.html#sphx-glr-auto-examples-datasets-plot-random-dataset-py" target="_blank">&#x7ED8;&#x5236;&#x968F;&#x673A;&#x751F;&#x6210;&#x7684;&#x5206;&#x7C7B;&#x6570;&#x636E;&#x96C6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id60" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_random_multilabel_dataset_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/datasets/plot_random_multilabel_dataset.html#sphx-glr-auto-examples-datasets-plot-random-multilabel-dataset-py" target="_blank">&#x7ED8;&#x5236;&#x968F;&#x673A;&#x751F;&#x6210;&#x7684;&#x591A;&#x6807;&#x7B7E;&#x6570;&#x636E;&#x96C6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id61" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x51B3;&#x7B56;&#x6811;">&#x51B3;&#x7B56;&#x6811;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree" title="sklearn.tree" target="_blank"><code>sklearn.tree</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_tree_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html#sphx-glr-auto-examples-tree-plot-tree-regression-py" target="_blank">&#x51B3;&#x7B56;&#x6811;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id62" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_tree_regression_multioutput_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression_multioutput.html#sphx-glr-auto-examples-tree-plot-tree-regression-multioutput-py" target="_blank">&#x591A;&#x8DEF;&#x8F93;&#x51FA;&#x51B3;&#x7B56;&#x6811;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id63" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_iris_dtc_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html#sphx-glr-auto-examples-tree-plot-iris-dtc-py" target="_blank">&#x5728;&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7ED8;&#x5236;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x51B3;&#x7B56;&#x9762;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id64" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_cost_complexity_pruning_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/tree/plot_cost_complexity_pruning.html#sphx-glr-auto-examples-tree-plot-cost-complexity-pruning-py" target="_blank">&#x4F7F;&#x7528;&#x6210;&#x672C;&#x590D;&#x6742;&#x5EA6;&#x4FEE;&#x526A;&#x6765;&#x4FEE;&#x526A;&#x4FEE;&#x526A;&#x51B3;&#x7B56;&#x6811;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id65" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_unveil_tree_structure_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html#sphx-glr-auto-examples-tree-plot-unveil-tree-structure-py" target="_blank">&#x4E86;&#x89E3;&#x51B3;&#x7B56;&#x6811;&#x7ED3;&#x6784;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id66" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5206;&#x89E3;">&#x5206;&#x89E3;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition" title="sklearn&#x3002;&#x5206;&#x89E3;" target="_blank"><code>sklearn.decomposition</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_beta_divergence_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_beta_divergence.html#sphx-glr-auto-examples-decomposition-plot-beta-divergence-py" target="_blank">&#x3B2;-&#x53D1;&#x6563;&#x635F;&#x5931;&#x51FD;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id67" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_pca_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html#sphx-glr-auto-examples-decomposition-plot-pca-iris-py" target="_blank">&#x5177;&#x6709;&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x7684;PCA&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id68" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_incremental_pca_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_incremental_pca.html#sphx-glr-auto-examples-decomposition-plot-incremental-pca-py" target="_blank">&#x589E;&#x91CF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id69" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_pca_vs_lda_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html#sphx-glr-auto-examples-decomposition-plot-pca-vs-lda-py" target="_blank">Iris&#x6570;&#x636E;&#x96C6;&#x7684;LDA&#x548C;PCA&#x4E8C;&#x7EF4;&#x6295;&#x5F71;&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id70" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_ica_blind_source_separation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html#sphx-glr-auto-examples-decomposition-plot-ica-blind-source-separation-py" target="_blank">&#x4F7F;&#x7528;FastICA&#x8FDB;&#x884C;&#x76F2;&#x6E90;&#x5206;&#x79BB;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id71" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_pca_3d_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_3d.html#sphx-glr-auto-examples-decomposition-plot-pca-3d-py" target="_blank">&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF08;PCA&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id72" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ica_vs_pca_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_vs_pca.html#sphx-glr-auto-examples-decomposition-plot-ica-vs-pca-py" target="_blank">2D&#x70B9;&#x4E91;&#x4E0A;&#x7684;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id73" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_kernel_pca_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_kernel_pca.html#sphx-glr-auto-examples-decomposition-plot-kernel-pca-py" target="_blank">&#x5185;&#x6838;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id74" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_pca_vs_fa_model_selection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html#sphx-glr-auto-examples-decomposition-plot-pca-vs-fa-model-selection-py" target="_blank">&#x6982;&#x7387;PCA&#x548C;&#x56E0;&#x5B50;&#x5206;&#x6790;&#xFF08;FA&#xFF09;&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x9009;&#x62E9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id75" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sparse_coding_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_sparse_coding.html#sphx-glr-auto-examples-decomposition-plot-sparse-coding-py" target="_blank">&#x4F7F;&#x7528;&#x9884;&#x5148;&#x8BA1;&#x7B97;&#x7684;&#x5B57;&#x5178;&#x8FDB;&#x884C;&#x7A00;&#x758F;&#x7F16;&#x7801;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id76" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_image_denoising_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_image_denoising.html#sphx-glr-auto-examples-decomposition-plot-image-denoising-py" target="_blank">&#x56FE;&#x7247;&#x4F7F;&#x7528;&#x5B57;&#x5178;&#x5B66;&#x4E60;&#x53BB;&#x566A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id77" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_faces_decomposition_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/decomposition/plot_faces_decomposition.html#sphx-glr-auto-examples-decomposition-plot-faces-decomposition-py" target="_blank">Faces&#x6570;&#x636E;&#x96C6;&#x5206;&#x89E3;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id78" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x96C6;&#x6210;&#x65B9;&#x6CD5;">&#x96C6;&#x6210;&#x65B9;&#x6CD5;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble" title="sklearn.ensemble" target="_blank"><code>sklearn.ensemble</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_forest_importances_faces_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances_faces.html#sphx-glr-auto-examples-ensemble-plot-forest-importances-faces-py" target="_blank">&#x5E76;&#x884C;&#x6811;&#x6728;&#x68EE;&#x6797;&#x7684;&#x50CF;&#x7D20;&#x91CD;&#x8981;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id79" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_adaboost_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_adaboost_regression.html#sphx-glr-auto-examples-ensemble-plot-adaboost-regression-py" target="_blank">&#x4F7F;&#x7528;AdaBoost&#x8FDB;&#x884C;&#x51B3;&#x7B56;&#x6811;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id80" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_voting_regressor_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_voting_regressor.html#sphx-glr-auto-examples-ensemble-plot-voting-regressor-py" target="_blank">&#x7ED8;&#x5236;&#x4E2A;&#x4EBA;&#x548C;&#x6295;&#x7968;&#x56DE;&#x5F52;&#x9884;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id81" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_forest_importances_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html#sphx-glr-auto-examples-ensemble-plot-forest-importances-py" target="_blank">&#x6811;&#x6728;&#x68EE;&#x6797;&#x7684;&#x529F;&#x80FD;&#x91CD;&#x8981;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id82" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_isolation_forest_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_isolation_forest.html#sphx-glr-auto-examples-ensemble-plot-isolation-forest-py" target="_blank">IsolationForest&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id83" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_voting_decision_regions_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_voting_decision_regions.html#sphx-glr-auto-examples-ensemble-plot-voting-decision-regions-py" target="_blank">&#x7ED8;&#x5236;VotingClassifier&#x7684;&#x51B3;&#x7B56;&#x8FB9;&#x754C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id84" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_random_forest_regression_multioutput_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_random_forest_regression_multioutput.html#sphx-glr-auto-examples-ensemble-plot-random-forest-regression-multioutput-py" target="_blank">&#x6BD4;&#x8F83;&#x968F;&#x673A;&#x68EE;&#x6797;&#x548C;&#x591A;&#x8F93;&#x51FA;&#x5143;&#x4F30;&#x8BA1;&#x5668;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id85" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gradient_boosting_quantile_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_quantile.html#sphx-glr-auto-examples-ensemble-plot-gradient-boosting-quantile-py" target="_blank">&#x68AF;&#x5EA6;&#x63D0;&#x5347;&#x56DE;&#x5F52;&#x7684;&#x9884;&#x6D4B;&#x95F4;&#x9694;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id86" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_gradient_boosting_regularization_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regularization.html#sphx-glr-auto-examples-ensemble-plot-gradient-boosting-regularization-py" target="_blank">&#x68AF;&#x5EA6;&#x63D0;&#x5347;&#x6B63;&#x5219;&#x5316;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id87" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_voting_probas_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_voting_probas.html#sphx-glr-auto-examples-ensemble-plot-voting-probas-py" target="_blank">&#x7ED8;&#x5236;&#x7531;VotingClassifier&#x8BA1;&#x7B97;&#x7684;&#x7C7B;&#x6982;&#x7387;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id88" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gradient_boosting_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html#sphx-glr-auto-examples-ensemble-plot-gradient-boosting-regression-py" target="_blank">&#x68AF;&#x5EA6;&#x63A8;&#x8FDB;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id89" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ensemble_oob_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_ensemble_oob.html#sphx-glr-auto-examples-ensemble-plot-ensemble-oob-py" target="_blank">&#x968F;&#x673A;&#x68EE;&#x6797;&#x7684;OOB&#x9519;&#x8BEF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id90" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_adaboost_twoclass_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_adaboost_twoclass.html#sphx-glr-auto-examples-ensemble-plot-adaboost-twoclass-py" target="_blank">&#x4E24;&#x4E2A;&#x7EA7;&#x7684;AdaBoost</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id91" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_random_forest_embedding_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_random_forest_embedding.html#sphx-glr-auto-examples-ensemble-plot-random-forest-embedding-py" target="_blank">&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x968F;&#x673A;&#x6811;&#x7684;&#x54C8;&#x5E0C;&#x7279;&#x5F81;&#x8F6C;&#x6362;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id92" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_adaboost_multiclass_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_adaboost_multiclass.html#sphx-glr-auto-examples-ensemble-plot-adaboost-multiclass-py" target="_blank">&#x591A;&#x7C7B;AdaBoosted&#x51B3;&#x7B56;&#x6811;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id93" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_adaboost_hastie_10_2_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_adaboost_hastie_10_2.html#sphx-glr-auto-examples-ensemble-plot-adaboost-hastie-10-2-py" target="_blank">&#x79BB;&#x6563;&#x76F8;&#x5BF9;&#x771F;&#x6B63;&#x7684;AdaBoost</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id94" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_stack_predictors_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_stack_predictors.html#sphx-glr-auto-examples-ensemble-plot-stack-predictors-py" target="_blank">&#x4F7F;&#x7528;&#x5806;&#x53E0;&#x7EC4;&#x5408;&#x9884;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id95" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gradient_boosting_early_stopping_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_early_stopping.html#sphx-glr-auto-examples-ensemble-plot-gradient-boosting-early-stopping-py" target="_blank">&#x63D0;&#x524D;&#x7EC8;&#x6B62;&#x7684;&#x68AF;&#x5EA6;&#x63A8;&#x8FDB;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id96" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_feature_transformation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_feature_transformation.html#sphx-glr-auto-examples-ensemble-plot-feature-transformation-py" target="_blank">&#x5E26;&#x6709;&#x6811;&#x7FA4;&#x7684;&#x7279;&#x5F81;&#x53D8;&#x6362;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id97" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gradient_boosting_oob_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_oob.html#sphx-glr-auto-examples-ensemble-plot-gradient-boosting-oob-py" target="_blank">&#x68AF;&#x5EA6;&#x63D0;&#x5347;&#x888B;&#x5916;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id98" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_bias_variance_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_bias_variance.html#sphx-glr-auto-examples-ensemble-plot-bias-variance-py" target="_blank">&#x5355;&#x4E00;&#x4F30;&#x8BA1;&#x5668;&#x4E0E;&#x88C5;&#x888B;&#xFF1A;&#x504F;&#x5DEE;&#x65B9;&#x5DEE;&#x5206;&#x89E3;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id99" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_forest_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_iris.html#sphx-glr-auto-examples-ensemble-plot-forest-iris-py" target="_blank">&#x5728;&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7ED8;&#x5236;&#x6811;&#x6728;&#x5408;&#x594F;&#x7684;&#x51B3;&#x7B56;&#x9762;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id100" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x57FA;&#x4E8E;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x793A;&#x4F8B;">&#x57FA;&#x4E8E;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x793A;&#x4F8B;</h2>
+<p>&#x5177;&#x6709;&#x4E00;&#x4E9B;&#x4E2D;&#x7B49;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6216;&#x4EA4;&#x4E92;&#x5F0F;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;&#x73B0;&#x5B9E;&#x95EE;&#x9898;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_outlier_detection_housing_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_outlier_detection_housing.html#sphx-glr-auto-examples-applications-plot-outlier-detection-housing-py" target="_blank">&#x771F;&#x5B9E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5F02;&#x5E38;&#x503C;&#x68C0;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id101" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_tomography_l1_reconstruction_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_tomography_l1_reconstruction.html#sphx-glr-auto-examples-applications-plot-tomography-l1-reconstruction-py" target="_blank">&#x538B;&#x7F29;&#x611F;&#x6D4B;&#xFF1A;&#x4F7F;&#x7528;L1&#x5148;&#x9A8C;&#xFF08;Lasso&#xFF09;&#x8FDB;&#x884C;&#x5C42;&#x6790;&#x6210;&#x50CF;&#x91CD;&#x5EFA;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id102" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_topics_extraction_with_nmf_lda_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html#sphx-glr-auto-examples-applications-plot-topics-extraction-with-nmf-lda-py" target="_blank">&#x975E;&#x8D1F;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x548C;&#x9690;&#x542B;&#x72C4;&#x5229;&#x514B;&#x96F7;&#x5206;&#x5E03;&#x8BDD;&#x9898;&#x63D0;&#x53D6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id103" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_face_recognition_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html#sphx-glr-auto-examples-applications-plot-face-recognition-py" target="_blank">&#x4F7F;&#x7528;&#x7279;&#x5F81;&#x8138;&#x548C;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#x7684;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id104" title="Permalink to this image" target="_blank"></a><a href="https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html#sphx-glr-auto-examples-applications-plot-face-recognition-py" target="_blank">&#x8BC6;&#x522B;&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id104" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_model_complexity_influence_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_model_complexity_influence.html#sphx-glr-auto-examples-applications-plot-model-complexity-influence-py" target="_blank">&#x6A21;&#x578B;&#x590D;&#x6742;&#x5EA6;&#x5F71;&#x54CD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id105" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_stock_market_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_stock_market.html#sphx-glr-auto-examples-applications-plot-stock-market-py" target="_blank">&#x53EF;&#x89C6;&#x5316;&#x7684;&#x80A1;&#x5E02;&#x7ED3;&#x6784;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id106" target="_blank"></a></td>
+<td><img src="img/sphx_glr_wikipedia_principal_eigenvector_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/wikipedia_principal_eigenvector.html#sphx-glr-auto-examples-applications-wikipedia-principal-eigenvector-py" target="_blank">&#x7EF4;&#x57FA;&#x767E;&#x79D1;&#x7684;&#x4E3B;&#x8981;&#x7279;&#x5F81;&#x5411;&#x91CF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id107" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_species_distribution_modeling_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_species_distribution_modeling.html#sphx-glr-auto-examples-applications-plot-species-distribution-modeling-py" target="_blank">&#x7269;&#x79CD;&#x5206;&#x5E03;&#x5EFA;&#x6A21;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id108" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_svm_gui_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/svm_gui.html#sphx-glr-auto-examples-applications-svm-gui-py" target="_blank">Libsvm</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id109" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_prediction_latency_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_prediction_latency.html#sphx-glr-auto-examples-applications-plot-prediction-latency-py" target="_blank">&#x9884;&#x6D4B;&#x5EF6;&#x8FDF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id110" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_out_of_core_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_out_of_core_classification.html#sphx-glr-auto-examples-applications-plot-out-of-core-classification-py" target="_blank">&#x6587;&#x672C;&#x6587;&#x6863;&#x7684;&#x6838;&#x5FC3;&#x5206;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id111" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x7279;&#x5F81;&#x9009;&#x62E9;">&#x7279;&#x5F81;&#x9009;&#x62E9;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection" title="sklearn.feature_selection" target="_blank"><code>sklearn.feature_selection</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_rfe_digits_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_rfe_digits.html#sphx-glr-auto-examples-feature-selection-plot-rfe-digits-py" target="_blank">&#x9012;&#x5F52;&#x7279;&#x5F81;&#x6D88;&#x9664;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id112" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_f_test_vs_mi_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_f_test_vs_mi.html#sphx-glr-auto-examples-feature-selection-plot-f-test-vs-mi-py" target="_blank">F&#x68C0;&#x9A8C;&#x548C;&#x76F8;&#x4E92;&#x4FE1;&#x606F;&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id113" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_feature_selection_pipeline_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_feature_selection_pipeline.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-pipeline-py" target="_blank">&#x7BA1;&#x9053;Anova</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id114" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_rfe_with_cross_validation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_rfe_with_cross_validation.html#sphx-glr-auto-examples-feature-selection-plot-rfe-with-cross-validation-py" target="_blank">&#x901A;&#x8FC7;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6D88;&#x9664;&#x9012;&#x5F52;&#x7279;&#x5F81;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id115" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_select_from_model_boston_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_select_from_model_boston.html#sphx-glr-auto-examples-feature-selection-plot-select-from-model-boston-py" target="_blank">&#x4F7F;&#x7528;SelectFromModel&#x548C;LassoCV&#x7279;&#x5F81;&#x9009;&#x62E9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id116" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_permutation_test_for_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_permutation_test_for_classification.html#sphx-glr-auto-examples-feature-selection-plot-permutation-test-for-classification-py" target="_blank">&#x4E0E;&#x6392;&#x5217;&#x6D4B;&#x8BD5;&#x7684;&#x5206;&#x7C7B;&#x8BC4;&#x5206;&#x7684;&#x610F;&#x4E49;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id117" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_feature_selection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/feature_selection/plot_feature_selection.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-py" target="_blank">&#x5355;&#x53D8;&#x91CF;&#x7279;&#x5F81;&#x9009;&#x62E9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id118" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x6A21;&#x578B;">&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x6A21;&#x578B;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.mixture" title="sklearn.mixture" target="_blank"><code>sklearn.mixture</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_gmm_pdf_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_pdf.html#sphx-glr-auto-examples-mixture-plot-gmm-pdf-py" target="_blank">&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x7684;&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id119" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gmm_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm.html#sphx-glr-auto-examples-mixture-plot-gmm-py" target="_blank">&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x6A21;&#x578B;&#x692D;&#x7403;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id120" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gmm_selection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_selection.html#sphx-glr-auto-examples-mixture-plot-gmm-selection-py" target="_blank">&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x6A21;&#x578B;&#x9009;&#x62E9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id121" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gmm_covariances_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_covariances.html#sphx-glr-auto-examples-mixture-plot-gmm-covariances-py" target="_blank">GMM&#x534F;&#x65B9;&#x5DEE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id122" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_gmm_sin_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_sin.html#sphx-glr-auto-examples-mixture-plot-gmm-sin-py" target="_blank">&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x6A21;&#x578B;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id123" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_concentration_prior_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/mixture/plot_concentration_prior.html#sphx-glr-auto-examples-mixture-plot-concentration-prior-py" target="_blank">&#x8D1D;&#x53F6;&#x65AF;&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x53D8;&#x91CF;&#x7684;&#x6D53;&#x5EA6;&#x5148;&#x9A8C;&#x7C7B;&#x578B;&#x5206;&#x6790;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id124" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x9AD8;&#x65AF;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;">&#x9AD8;&#x65AF;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.gaussian_process" title="sklearn.gaussian_process" target="_blank"><code>sklearn.gaussian_process</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_gpc_xor_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc_xor.html#sphx-glr-auto-examples-gaussian-process-plot-gpc-xor-py" target="_blank">XOR&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;GPC&#xFF09;&#x7684;&#x56FE;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id125" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gpc_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc_iris.html#sphx-glr-auto-examples-gaussian-process-plot-gpc-iris-py" target="_blank">&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;GPC&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id126" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_compare_gpr_krr_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_compare_gpr_krr.html#sphx-glr-auto-examples-gaussian-process-plot-compare-gpr-krr-py" target="_blank">&#x6838;&#x5CAD;&#x548C;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x56DE;&#x5F52;&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id127" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gpr_prior_posterior_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html#sphx-glr-auto-examples-gaussian-process-plot-gpr-prior-posterior-py" target="_blank">&#x4E0D;&#x540C;&#x5185;&#x6838;&#x7684;&#x5148;&#x9A8C;&#x548C;&#x540E;&#x9A8C;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x7684;&#x56FE;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id128" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_gpc_isoprobability_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc_isoprobability.html#sphx-glr-auto-examples-gaussian-process-plot-gpc-isoprobability-py" target="_blank">&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;GPC&#xFF09;&#x7684;&#x7B49;&#x6982;&#x7387;&#x7EBF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id129" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gpc_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpc.html#sphx-glr-auto-examples-gaussian-process-plot-gpc-py" target="_blank">&#x6982;&#x7387;&#x9884;&#x6D4B;&#x7684;&#x7ED3;&#x679C;&#x4E0E;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x5206;&#x7C7B;&#xFF08;GPC&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id130" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gpr_noisy_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_noisy.html#sphx-glr-auto-examples-gaussian-process-plot-gpr-noisy-py" target="_blank">&#x5177;&#x6709;&#x566A;&#x58F0;&#x6C34;&#x5E73;&#x4F30;&#x8BA1;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x56DE;&#x5F52;&#xFF08;GPR&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id131" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gpr_noisy_targets_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_noisy_targets.html#sphx-glr-auto-examples-gaussian-process-plot-gpr-noisy-targets-py" target="_blank">&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x56DE;&#x5F52;&#xFF1A;&#x57FA;&#x672C;&#x5165;&#x95E8;&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id132" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_gpr_co2_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html#sphx-glr-auto-examples-gaussian-process-plot-gpr-co2-py" target="_blank">&#x57FA;&#x4E8E;Mauna Loa CO2&#x6570;&#x636E;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;&#x56DE;&#x5F52;&#xFF08;GPR&#xFF09;&#x3002;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id133" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_gpr_on_structured_data_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_on_structured_data.html#sphx-glr-auto-examples-gaussian-process-plot-gpr-on-structured-data-py" target="_blank">&#x79BB;&#x6563;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0A;&#x7684;&#x9AD8;&#x65AF;&#x8FC7;&#x7A0B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id134" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5E7F;&#x4E49;&#x7EBF;&#x6027;&#x6A21;&#x578B;">&#x5E7F;&#x4E49;&#x7EBF;&#x6027;&#x6A21;&#x578B;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.linear_model" title="sklearn.linear_model" target="_blank"><code>sklearn.linear_model</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_lasso_lars_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_lars.html#sphx-glr-auto-examples-linear-model-plot-lasso-lars-py" target="_blank">&#x4F7F;&#x7528;LARS&#x7684;&#x5957;&#x7D22;&#x8DEF;&#x5F84;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id135" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ridge_path_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html#sphx-glr-auto-examples-linear-model-plot-ridge-path-py" target="_blank">&#x7ED8;&#x5236;&#x5CAD;&#x7CFB;&#x6570;&#x4F5C;&#x4E3A;&#x6B63;&#x5219;&#x5316;&#x7684;&#x51FD;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id136" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sgd_separating_hyperplane_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_separating_hyperplane.html#sphx-glr-auto-examples-linear-model-plot-sgd-separating-hyperplane-py" target="_blank">SGD&#xFF1A;&#x6700;&#x5927;&#x4F59;&#x91CF;&#x5206;&#x9694;&#x8D85;&#x5E73;&#x9762;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id137" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sgd_loss_functions_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_loss_functions.html#sphx-glr-auto-examples-linear-model-plot-sgd-loss-functions-py" target="_blank">SGD&#xFF1A;&#x51F8;&#x635F;&#x5931;&#x51FD;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id138" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_ols_ridge_variance_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge_variance.html#sphx-glr-auto-examples-linear-model-plot-ols-ridge-variance-py" target="_blank">&#x666E;&#x901A;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x6CD5;&#x548C;&#x5CAD;&#x56DE;&#x5F52;&#x65B9;&#x5DEE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id139" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ridge_coeffs_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_coeffs.html#sphx-glr-auto-examples-linear-model-plot-ridge-coeffs-py" target="_blank">&#x7ED8;&#x5236;Ridge&#x7CFB;&#x6570;&#x4F5C;&#x4E3A;L2&#x6B63;&#x5219;&#x5316;&#x7684;&#x51FD;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id140" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sgd_penalties_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_penalties.html#sphx-glr-auto-examples-linear-model-plot-sgd-penalties-py" target="_blank">SGD&#xFF1A;&#x7F5A;&#x6B3E;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id141" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_polynomial_interpolation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_polynomial_interpolation.html#sphx-glr-auto-examples-linear-model-plot-polynomial-interpolation-py" target="_blank">&#x591A;&#x9879;&#x5F0F;&#x63D2;&#x503C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id142" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_logistic_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic.html#sphx-glr-auto-examples-linear-model-plot-logistic-py" target="_blank">&#x7269;&#x6D41;&#x529F;&#x80FD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id143" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_logistic_path_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_path.html#sphx-glr-auto-examples-linear-model-plot-logistic-path-py" target="_blank">L1-Logistic&#x56DE;&#x5F52;&#x7684;&#x6B63;&#x89C4;&#x5316;&#x9053;&#x8DEF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id144" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_iris_logistic_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_iris_logistic.html#sphx-glr-auto-examples-linear-model-plot-iris-logistic-py" target="_blank">Logistic&#x56DE;&#x5F52;3&#x7C7B;&#x5206;&#x7C7B;&#x5668;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id145" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sgd_weighted_samples_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_weighted_samples.html#sphx-glr-auto-examples-linear-model-plot-sgd-weighted-samples-py" target="_blank">SGD&#xFF1A;&#x52A0;&#x6743;&#x6837;&#x672C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id146" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_ols_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py" target="_blank">&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id147" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ransac_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ransac.html#sphx-glr-auto-examples-linear-model-plot-ransac-py" target="_blank">&#x4F7F;&#x7528;RANSAC&#x8FDB;&#x884C;&#x7A33;&#x5065;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id148" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_ols_3d_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_3d.html#sphx-glr-auto-examples-linear-model-plot-ols-3d-py" target="_blank">&#x7A00;&#x758F;&#x5B9E;&#x65BD;&#x4F8B;&#xFF1A;&#x88C5;&#x4FEE;&#x4EC5;&#x8BBE;&#x6709;1&#x548C;2</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id149" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_huber_vs_ridge_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_huber_vs_ridge.html#sphx-glr-auto-examples-linear-model-plot-huber-vs-ridge-py" target="_blank">HuberRegressor VS&#x5CAD;&#x96C6;&#x5177;&#x6709;&#x8F83;&#x5F3A;&#x7684;&#x5F02;&#x5E38;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id150" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_lasso_dense_vs_sparse_data_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_dense_vs_sparse_data.html#sphx-glr-auto-examples-linear-model-plot-lasso-dense-vs-sparse-data-py" target="_blank">&#x5957;&#x7D22;&#x4E0A;&#x5BC6;&#x96C6;&#x548C;&#x7A00;&#x758F;&#x6570;&#x636E;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id151" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sgd_comparison_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_comparison.html#sphx-glr-auto-examples-linear-model-plot-sgd-comparison-py" target="_blank">&#x6BD4;&#x8F83;&#x5404;&#x79CD;&#x5728;&#x7EBF;&#x6C42;&#x89E3;&#x5668;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id152" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_multi_task_lasso_support_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_multi_task_lasso_support.html#sphx-glr-auto-examples-linear-model-plot-multi-task-lasso-support-py" target="_blank">&#x591A;&#x4EFB;&#x52A1;&#x5957;&#x7D22;&#x7684;&#x8054;&#x5408;&#x7279;&#x5F81;&#x9009;&#x62E9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id153" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sparse_logistic_regression_mnist_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sparse_logistic_regression_mnist.html#sphx-glr-auto-examples-linear-model-plot-sparse-logistic-regression-mnist-py" target="_blank">&#x4F7F;&#x7528;&#x591A;&#x9879;&#x5F0F;&#x903B;&#x8F91;+ L1&#x7684;MNIST&#x5206;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id154" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sgd_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_iris.html#sphx-glr-auto-examples-linear-model-plot-sgd-iris-py" target="_blank">&#x5728;&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7ED8;&#x5236;&#x591A;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id155" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_omp_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_omp.html#sphx-glr-auto-examples-linear-model-plot-omp-py" target="_blank">&#x6B63;&#x4EA4;&#x5339;&#x914D;&#x8FFD;&#x8E2A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id156" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_lasso_and_elasticnet_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_and_elasticnet.html#sphx-glr-auto-examples-linear-model-plot-lasso-and-elasticnet-py" target="_blank">&#x5957;&#x7D22;&#x548C;&#x5F39;&#x6027;&#x7F51;&#x7528;&#x4E8E;&#x7A00;&#x758F;&#x4FE1;&#x53F7;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id157" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_bayesian_ridge_curvefit_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_bayesian_ridge_curvefit.html#sphx-glr-auto-examples-linear-model-plot-bayesian-ridge-curvefit-py" target="_blank">&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;&#x7684;&#x66F2;&#x7EBF;&#x62DF;&#x5408;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id158" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_theilsen_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_theilsen.html#sphx-glr-auto-examples-linear-model-plot-theilsen-py" target="_blank">Theil-Sen&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id159" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_logistic_multinomial_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_multinomial.html#sphx-glr-auto-examples-linear-model-plot-logistic-multinomial-py" target="_blank">&#x7ED8;&#x5236;&#x591A;&#x9879;&#x5F0F;&#x548C;&#x4E00;&#x5BF9;&#x4E00;&#x9759;&#x6001;Logistic&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id160" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_robust_fit_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_robust_fit.html#sphx-glr-auto-examples-linear-model-plot-robust-fit-py" target="_blank">&#x7A33;&#x5065;&#x7684;&#x7EBF;&#x6027;&#x4F30;&#x8BA1;&#x5668;&#x62DF;&#x5408;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id161" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_logistic_l1_l2_sparsity_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity.html#sphx-glr-auto-examples-linear-model-plot-logistic-l1-l2-sparsity-py" target="_blank">Logistic&#x56DE;&#x5F52;&#x4E2D;&#x7684;L1&#x60E9;&#x7F5A;&#x548C;&#x7A00;&#x758F;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id162" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_lasso_coordinate_descent_path_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_coordinate_descent_path.html#sphx-glr-auto-examples-linear-model-plot-lasso-coordinate-descent-path-py" target="_blank">&#x5957;&#x7D22;&#x548C;&#x5F39;&#x6027;&#x7F51;&#x7EDC;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id163" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_ard_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ard.html#sphx-glr-auto-examples-linear-model-plot-ard-py" target="_blank">&#x81EA;&#x52A8;&#x76F8;&#x5173;&#x6027;&#x786E;&#x5B9A;&#x56DE;&#x5F52;&#xFF08;ARD&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id164" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_bayesian_ridge_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_bayesian_ridge.html#sphx-glr-auto-examples-linear-model-plot-bayesian-ridge-py" target="_blank">&#x8D1D;&#x53F6;&#x65AF;&#x5CAD;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id165" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_sparse_logistic_regression_20newsgroups_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sparse_logistic_regression_20newsgroups.html#sphx-glr-auto-examples-linear-model-plot-sparse-logistic-regression-20newsgroups-py" target="_blank">20newgroups&#x4E0A;&#x7684;&#x591A;&#x7C7B;&#x7A00;&#x758F;&#x903B;&#x8F91;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id166" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_lasso_model_selection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_model_selection.html#sphx-glr-auto-examples-linear-model-plot-lasso-model-selection-py" target="_blank">&#x5957;&#x7D22;&#x6A21;&#x578B;&#x9009;&#x62E9;&#xFF1A;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;/ AIC /</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id167" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_sgd_early_stopping_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sgd_early_stopping.html#sphx-glr-auto-examples-linear-model-plot-sgd-early-stopping-py" target="_blank">&#x65E9;&#x671F;&#x505C;&#x6B62;&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id168" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x68C0;&#x67E5;">&#x68C0;&#x67E5;</h2>
+<p>&#x4E0E;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.inspection" title="&#x65AF;&#x514B;&#x83B1;&#x6069;&#x68C0;&#x67E5;" target="_blank"><code>sklearn.inspection</code></a>&#x6A21;&#x5757;&#x6709;&#x5173;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_permutation_importance_multicollinear_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance_multicollinear.html#sphx-glr-auto-examples-inspection-plot-permutation-importance-multicollinear-py" target="_blank">&#x5177;&#x6709;&#x591A;&#x91CD;&#x5171;&#x7EBF;&#x6027;&#x6216;&#x76F8;&#x5173;&#x7279;&#x5F81;&#x7684;&#x7F6E;&#x6362;&#x91CD;&#x8981;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id169" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_permutation_importance_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/inspection/plot_permutation_importance.html#sphx-glr-auto-examples-inspection-plot-permutation-importance-py" target="_blank">&#x6392;&#x5217;&#x91CD;&#x8981;&#x6027;&#x4E0E;&#x968F;&#x673A;&#x68EE;&#x6797;&#x7279;&#x5F81;&#x91CD;&#x8981;&#x6027;&#xFF08;MDI&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id170" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_partial_dependence_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/inspection/plot_partial_dependence.html#sphx-glr-auto-examples-inspection-plot-partial-dependence-py" target="_blank">&#x90E8;&#x5206;&#x4F9D;&#x8D56;&#x56FE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id171" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6D41;&#x5F62;&#x5B66;&#x4E60;">&#x6D41;&#x5F62;&#x5B66;&#x4E60;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.manifold" title="sklearn&#x3002;&#x6D41;&#x5F62;" target="_blank"><code>sklearn.manifold</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_swissroll_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_swissroll.html#sphx-glr-auto-examples-manifold-plot-swissroll-py" target="_blank">&#x4F7F;&#x7528;LLE&#x51CF;&#x5C11;&#x745E;&#x58EB;&#x5377;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id172" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_compare_methods_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html#sphx-glr-auto-examples-manifold-plot-compare-methods-py" target="_blank">&#x6D41;&#x5F62;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x7684;&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id173" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_mds_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_mds.html#sphx-glr-auto-examples-manifold-plot-mds-py" target="_blank">&#x591A;&#x7EF4;&#x7F29;&#x653E;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id174" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_t_sne_perplexity_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py" target="_blank">&#x53D4;SNE&#xFF1A;&#x5404;&#x79CD;&#x56F0;&#x60D1;&#x503C;&#x5BF9;&#x5F62;&#x72B6;&#x7684;&#x5F71;&#x54CD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id175" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_manifold_sphere_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_manifold_sphere.html#sphx-glr-auto-examples-manifold-plot-manifold-sphere-py" target="_blank">&#x622A;&#x65AD;&#x7403;&#x9762;&#x4E0A;&#x7684;&#x6D41;&#x5F62;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id176" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_lle_digits_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_lle_digits.html#sphx-glr-auto-examples-manifold-plot-lle-digits-py" target="_blank">&#x624B;&#x5199;&#x6570;&#x5B57;&#x6D41;&#x5F62;&#x5B66;&#x4E60;&#xFF1A;&#x5C40;&#x90E8;&#x7EBF;&#x6027;&#x5D4C;&#x5165;&#xFF0C;Isomap&#x2026;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id177" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x7F3A;&#x5931;&#x503C;&#x63D2;&#x8865;">&#x7F3A;&#x5931;&#x503C;&#x63D2;&#x8865;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute" title="sklearn.impute" target="_blank"><code>sklearn.impute</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_iterative_imputer_variants_comparison_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/impute/plot_iterative_imputer_variants_comparison.html#sphx-glr-auto-examples-impute-plot-iterative-imputer-variants-comparison-py" target="_blank">&#x4F7F;&#x7528;IterativeImputer&#x7684;&#x53D8;&#x4F53;&#x4F30;&#x7B97;&#x7F3A;&#x5931;&#x503C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id178" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_missing_values_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/impute/plot_missing_values.html#sphx-glr-auto-examples-impute-plot-missing-values-py" target="_blank">&#x5728;&#x6784;&#x5EFA;&#x4F30;&#x7B97;&#x5668;&#x4E4B;&#x524D;&#x4F30;&#x7B97;&#x7F3A;&#x5931;&#x503C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id179" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x9009;&#x578B;">&#x9009;&#x578B;</h2>
+<p>&#x4E0E;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection" title="sklearn.model_selection" target="_blank"><code>sklearn.model_selection</code></a>&#x6A21;&#x5757;&#x6709;&#x5173;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_cv_predict_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_predict.html#sphx-glr-auto-examples-model-selection-plot-cv-predict-py" target="_blank">&#x7ED8;&#x5236;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x9884;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id180" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_confusion_matrix_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html#sphx-glr-auto-examples-model-selection-plot-confusion-matrix-py" target="_blank">&#x6DF7;&#x6DC6;&#x77E9;&#x9635;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id181" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_validation_curve_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_validation_curve.html#sphx-glr-auto-examples-model-selection-plot-validation-curve-py" target="_blank">&#x7ED8;&#x56FE;&#x9A8C;&#x8BC1;&#x66F2;&#x7EBF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id182" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_underfitting_overfitting_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html#sphx-glr-auto-examples-model-selection-plot-underfitting-overfitting-py" target="_blank">&#x62DF;&#x5408;&#x4E0D;&#x8DB3;&#x4E0E;&#x62DF;&#x5408;&#x8FC7;&#x5EA6;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id183" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_grid_search_digits_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_digits.html#sphx-glr-auto-examples-model-selection-plot-grid-search-digits-py" target="_blank">&#x4F7F;&#x7528;&#x5E26;&#x6709;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x8FDB;&#x884C;&#x53C2;&#x6570;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id184" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_randomized_search_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_randomized_search.html#sphx-glr-auto-examples-model-selection-plot-randomized-search-py" target="_blank">&#x5BF9;&#x4E8E;&#x6BD4;&#x8F83;&#x4F30;&#x8BA1;&#x8D85;&#x53C2;&#x6570;&#x968F;&#x673A;&#x641C;&#x7D22;&#x548C;&#x7F51;&#x683C;&#x641C;&#x7D22;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id185" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_train_error_vs_test_error_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_train_error_vs_test_error.html#sphx-glr-auto-examples-model-selection-plot-train-error-vs-test-error-py" target="_blank">&#x8BAD;&#x7EC3;&#x9519;&#x8BEF;&#x4E0E;&#x6D4B;&#x8BD5;&#x9519;&#x8BEF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id186" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_roc_crossval_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html#sphx-glr-auto-examples-model-selection-plot-roc-crossval-py" target="_blank">&#x5177;&#x6709;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x63A5;&#x6536;&#x5668;&#x64CD;&#x4F5C;&#x7279;&#x6027;&#xFF08;ROC&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id187" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_nested_cross_validation_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html#sphx-glr-auto-examples-model-selection-plot-nested-cross-validation-iris-py" target="_blank">&#x5D4C;&#x5957;&#x4E0E;&#x975E;&#x5D4C;&#x5957;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id188" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_multi_metric_evaluation_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_multi_metric_evaluation.html#sphx-glr-auto-examples-model-selection-plot-multi-metric-evaluation-py" target="_blank">&#x5728;cross_val_score&#x548C;GridSearchCV&#x4E0A;&#x8FDB;&#x884C;&#x591A;&#x6307;&#x6807;&#x8BC4;&#x4F30;&#x7684;&#x6F14;&#x793A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id189" target="_blank"></a></td>
+<td><img src="img/sphx_glr_grid_search_text_feature_extraction_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html#sphx-glr-auto-examples-model-selection-grid-search-text-feature-extraction-py" target="_blank">&#x7528;&#x4E8E;&#x6587;&#x672C;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x548C;&#x8BC4;&#x4F30;&#x7684;&#x793A;&#x4F8B;&#x7BA1;&#x9053;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id190" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_grid_search_refit_callable_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_refit_callable.html#sphx-glr-auto-examples-model-selection-plot-grid-search-refit-callable-py" target="_blank">&#x5E73;&#x8861;&#x6A21;&#x578B;&#x7684;&#x590D;&#x6742;&#x6027;&#x548C;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x7684;&#x5206;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id191" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_cv_indices_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html#sphx-glr-auto-examples-model-selection-plot-cv-indices-py" target="_blank">&#x5728;scikit-learn&#x4E2D;&#x53EF;&#x89C6;&#x5316;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x884C;&#x4E3A;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id192" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_roc_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html#sphx-glr-auto-examples-model-selection-plot-roc-py" target="_blank">&#x63A5;&#x6536;&#x5668;&#x5DE5;&#x4F5C;&#x7279;&#x6027;&#xFF08;ROC&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id193" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_precision_recall_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html#sphx-glr-auto-examples-model-selection-plot-precision-recall-py" target="_blank">&#x7CBE;&#x5BC6;&#x53EC;&#x56DE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id194" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_learning_curve_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html#sphx-glr-auto-examples-model-selection-plot-learning-curve-py" target="_blank">&#x7ED8;&#x5236;&#x5B66;&#x4E60;&#x66F2;&#x7EBF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id195" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x591A;&#x8F93;&#x51FA;&#x65B9;&#x6CD5;">&#x591A;&#x8F93;&#x51FA;&#x65B9;&#x6CD5;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.multioutput" title="sklearn.multioutput" target="_blank"><code>sklearn.multioutput</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_classifier_chain_yeast_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/multioutput/plot_classifier_chain_yeast.html#sphx-glr-auto-examples-multioutput-plot-classifier-chain-yeast-py" target="_blank">&#x5206;&#x7C7B;&#x5668;&#x94FE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id196" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6700;&#x8FD1;&#x90BB;">&#x6700;&#x8FD1;&#x90BB;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors" title="sklearn.neighbors" target="_blank"><code>sklearn.neighbors</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_regression.html#sphx-glr-auto-examples-neighbors-plot-regression-py" target="_blank">&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id197" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_lof_outlier_detection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_lof_outlier_detection.html#sphx-glr-auto-examples-neighbors-plot-lof-outlier-detection-py" target="_blank">&#x4F7F;&#x7528;&#x5C40;&#x90E8;&#x79BB;&#x7FA4;&#x56E0;&#x5B50;&#xFF08;LOF&#xFF09;&#x8FDB;&#x884C;&#x79BB;&#x7FA4;&#x68C0;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id198" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_classification.html#sphx-glr-auto-examples-neighbors-plot-classification-py" target="_blank">&#x6700;&#x8FD1;&#x90BB;&#x5C45;&#x5206;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id199" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_nearest_centroid_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nearest_centroid.html#sphx-glr-auto-examples-neighbors-plot-nearest-centroid-py" target="_blank">&#x6700;&#x8FD1;&#x8D28;&#x5FC3;&#x5206;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id200" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_digits_kde_sampling_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_digits_kde_sampling.html#sphx-glr-auto-examples-neighbors-plot-digits-kde-sampling-py" target="_blank">&#x6838;&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id201" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_caching_nearest_neighbors_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_caching_nearest_neighbors.html#sphx-glr-auto-examples-neighbors-plot-caching-nearest-neighbors-py" target="_blank">&#x7F13;&#x5B58;&#x6700;&#x8FD1;&#x7684;&#x90BB;&#x5C45;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id202" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_nca_illustration_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_illustration.html#sphx-glr-auto-examples-neighbors-plot-nca-illustration-py" target="_blank">&#x90BB;&#x57DF;&#x6210;&#x5206;&#x5206;&#x6790;&#x56FE;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id203" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_lof_novelty_detection_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_lof_novelty_detection.html#sphx-glr-auto-examples-neighbors-plot-lof-novelty-detection-py" target="_blank">&#x5177;&#x6709;&#x5C40;&#x90E8;&#x5F02;&#x5E38;&#x503C;&#xFF08;LOF&#xFF09;&#x7684;&#x65B0;&#x9896;&#x6027;&#x68C0;&#x6D4B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id204" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_nca_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html#sphx-glr-auto-examples-neighbors-plot-nca-classification-py" target="_blank">&#x6BD4;&#x8F83;&#x5177;&#x6709;&#x548C;&#x4E0D;&#x5177;&#x6709;&#x90BB;&#x57DF;&#x5206;&#x91CF;&#x5206;&#x6790;&#x7684;&#x6700;&#x8FD1;&#x90BB;&#x57DF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id205" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_nca_dim_reduction_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_dim_reduction.html#sphx-glr-auto-examples-neighbors-plot-nca-dim-reduction-py" target="_blank">&#x4F7F;&#x7528;&#x90BB;&#x57DF;&#x5206;&#x91CF;&#x5206;&#x6790;&#x8FDB;&#x884C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id206" target="_blank"></a><a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_dim_reduction.html#sphx-glr-auto-examples-neighbors-plot-nca-dim-reduction-py" target="_blank">&#x7EF4;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id206" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_species_kde_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_species_kde.html#sphx-glr-auto-examples-neighbors-plot-species-kde-py" target="_blank">&#x7269;&#x79CD;&#x5206;&#x5E03;&#x7684;&#x6838;&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id207" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_kde_1d_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/plot_kde_1d.html#sphx-glr-auto-examples-neighbors-plot-kde-1d-py" target="_blank">&#x7B80;&#x5355;&#x7684;1D&#x5185;&#x6838;&#x5BC6;&#x5EA6;&#x4F30;&#x8BA1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id208" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_approximate_nearest_neighbors_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neighbors/approximate_nearest_neighbors.html#sphx-glr-auto-examples-neighbors-approximate-nearest-neighbors-py" target="_blank">TSNE&#x4E2D;&#x7684;&#x8FD1;&#x4F3C;&#x6700;&#x8FD1;&#x90BB;&#x5C45;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id209" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network" title="sklearn.neural_network" target="_blank"><code>sklearn.neural_network</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_mnist_filters_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mnist_filters.html#sphx-glr-auto-examples-neural-networks-plot-mnist-filters-py" target="_blank">&#x5728;MNIST&#x4E0A;&#x53EF;&#x89C6;&#x5316;MLP&#x6743;&#x91CD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id210" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_rbm_logistic_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neural_networks/plot_rbm_logistic_classification.html#sphx-glr-auto-examples-neural-networks-plot-rbm-logistic-classification-py" target="_blank">&#x7528;&#x4E8E;&#x6570;&#x5B57;&#x5206;&#x7C7B;&#x7684;&#x53D7;&#x9650;&#x73BB;&#x5C14;&#x5179;&#x66FC;&#x673A;&#x529F;&#x80FD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id211" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_mlp_alpha_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_alpha.html#sphx-glr-auto-examples-neural-networks-plot-mlp-alpha-py" target="_blank">&#x5728;&#x591A;&#x5C42;&#x611F;&#x77E5;&#x53D8;&#x5316;&#x6B63;&#x89C4;&#x5316;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id212" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_mlp_training_curves_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/neural_networks/plot_mlp_training_curves.html#sphx-glr-auto-examples-neural-networks-plot-mlp-training-curves-py" target="_blank">&#x6BD4;&#x8F83;&#x968F;&#x673A;&#x5B66;&#x4E60;&#x7B56;&#x7565;MLPClassifier</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id213" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x7BA1;&#x9053;&#x548C;&#x590D;&#x5408;&#x4F30;&#x8BA1;&#x5668;">&#x7BA1;&#x9053;&#x548C;&#x590D;&#x5408;&#x4F30;&#x8BA1;&#x5668;</h2>
+<p>&#x7531;&#x5176;&#x4ED6;&#x4F30;&#x7B97;&#x5668;&#x7EC4;&#x6210;&#x53D8;&#x538B;&#x5668;&#x548C;&#x7BA1;&#x9053;&#x7684;&#x793A;&#x4F8B;&#x3002;&#x8BF7;&#x53C2;&#x9605;&#x300A;<a href="https://scikit-learn.org/stable/modules/compose.html#combining-estimators" target="_blank">&#x7528;&#x6237;&#x6307;&#x5357;&#x300B;</a>&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_feature_union_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/compose/plot_feature_union.html#sphx-glr-auto-examples-compose-plot-feature-union-py" target="_blank">&#x8FDE;&#x7ED3;&#x591A;&#x4E2A;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x65B9;&#x6CD5;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id214" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_digits_pipe_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/compose/plot_digits_pipe.html#sphx-glr-auto-examples-compose-plot-digits-pipe-py" target="_blank">&#x6D41;&#x6C34;&#x7EBF;&#xFF1A;&#x94FE;&#x63A5;PCA&#x548C;&#x903B;&#x8F91;&#x56DE;&#x5F52;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id215" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_column_transformer_mixed_types_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mixed_types.html#sphx-glr-auto-examples-compose-plot-column-transformer-mixed-types-py" target="_blank">&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#x7684;&#x5217;&#x8F6C;&#x6362;&#x5668;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id216" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_compare_reduction_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/compose/plot_compare_reduction.html#sphx-glr-auto-examples-compose-plot-compare-reduction-py" target="_blank">&#x4F7F;&#x7528;Pipeline&#x548C;GridSearchCV&#x9009;&#x62E9;&#x964D;&#x7EF4;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id217" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_column_transformer_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer.html#sphx-glr-auto-examples-compose-plot-column-transformer-py" target="_blank">&#x5177;&#x6709;&#x5F02;&#x6784;&#x6570;&#x636E;&#x6E90;&#x7684;&#x5217;&#x8F6C;&#x6362;&#x5668;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id218" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_transformed_target_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/compose/plot_transformed_target.html#sphx-glr-auto-examples-compose-plot-transformed-target-py" target="_blank">&#x5728;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x4E2D;&#x8F6C;&#x6362;&#x76EE;&#x6807;&#x7684;&#x6548;&#x679C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id219" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x9884;&#x5904;&#x7406;">&#x9884;&#x5904;&#x7406;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing" title="sklearn&#x3002;&#x9884;&#x5904;&#x7406;" target="_blank"><code>sklearn.preprocessing</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_function_transformer_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_function_transformer.html#sphx-glr-auto-examples-preprocessing-plot-function-transformer-py" target="_blank">&#x4F7F;&#x7528;FunctionTransformer&#x9009;&#x62E9;&#x5217;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id220" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_discretization_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_discretization.html#sphx-glr-auto-examples-preprocessing-plot-discretization-py" target="_blank">&#x4F7F;&#x7528;KBinsDiscretizer&#x79BB;&#x6563;&#x5316;&#x8FDE;&#x7EED;&#x7279;&#x5F81;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id221" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_discretization_strategies_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_discretization_strategies.html#sphx-glr-auto-examples-preprocessing-plot-discretization-strategies-py" target="_blank">&#x6F14;&#x793A;KBinsDiscretizer&#x7684;&#x4E0D;&#x540C;&#x7B56;&#x7565;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id222" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_scaling_importance_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html#sphx-glr-auto-examples-preprocessing-plot-scaling-importance-py" target="_blank">&#x7279;&#x5F81;&#x7F29;&#x653E;&#x7684;&#x91CD;&#x8981;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id223" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_map_data_to_normal_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_map_data_to_normal.html#sphx-glr-auto-examples-preprocessing-plot-map-data-to-normal-py" target="_blank">&#x5730;&#x56FE;&#x6570;&#x636E;&#x6B63;&#x6001;&#x5206;&#x5E03;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id224" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_discretization_classification_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_discretization_classification.html#sphx-glr-auto-examples-preprocessing-plot-discretization-classification-py" target="_blank">&#x529F;&#x80FD;&#x79BB;&#x6563;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id225" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_all_scaling_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#sphx-glr-auto-examples-preprocessing-plot-all-scaling-py" target="_blank">&#x6BD4;&#x8F83;&#x4E0D;&#x540C;&#x7F29;&#x653E;&#x5668;&#x5BF9;&#x6570;&#x636E;&#x4E0E;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x5F71;&#x54CD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id226" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x53D1;&#x5E03;&#x8981;&#x70B9;">&#x53D1;&#x5E03;&#x8981;&#x70B9;</h2>
+<p>&#x8FD9;&#x4E9B;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;scikit-learn&#x53D1;&#x884C;&#x7248;&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_release_highlights_0_22_0_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/release_highlights/plot_release_highlights_0_22_0.html#sphx-glr-auto-examples-release-highlights-plot-release-highlights-0-22-0-py" target="_blank">scikit-learn 0.22&#x7684;&#x53D1;&#x884C;&#x8981;&#x70B9;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id227" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x534A;&#x76D1;&#x7763;&#x5206;&#x7C7B;">&#x534A;&#x76D1;&#x7763;&#x5206;&#x7C7B;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.semi_supervised" title="sklearn.semi_supervised" target="_blank"><code>sklearn.semi_supervised</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_label_propagation_versus_svm_iris_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/semi_supervised/plot_label_propagation_versus_svm_iris.html#sphx-glr-auto-examples-semi-supervised-plot-label-propagation-versus-svm-iris-py" target="_blank">Iris&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x6807;&#x7B7E;&#x4F20;&#x64AD;&#x4E0E;SVM&#x7684;&#x51B3;&#x7B56;&#x8FB9;&#x754C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id228" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_label_propagation_structure_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/semi_supervised/plot_label_propagation_structure.html#sphx-glr-auto-examples-semi-supervised-plot-label-propagation-structure-py" target="_blank">&#x6807;&#x7B7E;&#x4F20;&#x64AD;&#x5B66;&#x4E60;&#x590D;&#x6742;&#x7684;&#x7ED3;&#x6784;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id229" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_label_propagation_digits_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/semi_supervised/plot_label_propagation_digits.html#sphx-glr-auto-examples-semi-supervised-plot-label-propagation-digits-py" target="_blank">&#x6807;&#x7B7E;&#x4F20;&#x64AD;&#x6570;&#x5B57;&#xFF1A;&#x6F14;&#x793A;&#x6027;&#x80FD;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id230" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_label_propagation_digits_active_learning_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/semi_supervised/plot_label_propagation_digits_active_learning.html#sphx-glr-auto-examples-semi-supervised-plot-label-propagation-digits-active-learning-py" target="_blank">&#x6807;&#x7B7E;&#x4F20;&#x64AD;&#x6570;&#x5B57;&#x4E3B;&#x52A8;&#x5B66;&#x4E60;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id231" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;">&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm" title="sklearn.svm" target="_blank"><code>sklearn.svm</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_svm_nonlinear_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_nonlinear.html#sphx-glr-auto-examples-svm-plot-svm-nonlinear-py" target="_blank">&#x975E;&#x7EBF;&#x6027;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id232" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_separating_hyperplane_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_separating_hyperplane.html#sphx-glr-auto-examples-svm-plot-separating-hyperplane-py" target="_blank">SVM&#xFF1A;&#x6700;&#x5927;&#x4F59;&#x91CF;&#x5206;&#x9694;&#x8D85;&#x5E73;&#x9762;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id233" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_custom_kernel_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_custom_kernel.html#sphx-glr-auto-examples-svm-plot-custom-kernel-py" target="_blank">&#x5177;&#x6709;&#x81EA;&#x5B9A;&#x4E49;&#x5185;&#x6838;&#x7684;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id234" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_linearsvc_support_vectors_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_linearsvc_support_vectors.html#sphx-glr-auto-examples-svm-plot-linearsvc-support-vectors-py" target="_blank">&#x5728;LinearSVC&#x4E2D;&#x7ED8;&#x5236;&#x652F;&#x6301;&#x5411;&#x91CF;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id235" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_svm_tie_breaking_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_tie_breaking.html#sphx-glr-auto-examples-svm-plot-svm-tie-breaking-py" target="_blank">SVM&#x4E2D;&#x65AD;&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id236" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_weighted_samples_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_weighted_samples.html#sphx-glr-auto-examples-svm-plot-weighted-samples-py" target="_blank">SVM&#xFF1A;&#x52A0;&#x6743;&#x6837;&#x672C;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id237" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_separating_hyperplane_unbalanced_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_separating_hyperplane_unbalanced.html#sphx-glr-auto-examples-svm-plot-separating-hyperplane-unbalanced-py" target="_blank">SVM&#xFF1A;&#x4E3A;&#x4E0D;&#x5E73;&#x8861;&#x7684;&#x7C7B;&#x5206;&#x79BB;&#x8D85;&#x5E73;&#x9762;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id238" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_svm_kernels_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_kernels.html#sphx-glr-auto-examples-svm-plot-svm-kernels-py" target="_blank">SVM&#x5185;&#x6838;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id239" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_svm_anova_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_anova.html#sphx-glr-auto-examples-svm-plot-svm-anova-py" target="_blank">SVM-Anova&#xFF1A;&#x5177;&#x6709;&#x5355;&#x53D8;&#x91CF;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x7684;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id240" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_svm_regression_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_regression.html#sphx-glr-auto-examples-svm-plot-svm-regression-py" target="_blank">&#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x548C;&#x975E;&#x7EBF;&#x6027;&#x5185;&#x6838;&#x652F;&#x6301;&#x5411;&#x91CF;&#x56DE;&#x5F52;&#xFF08;SVR&#xFF09;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id241" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_svm_margin_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_margin.html#sphx-glr-auto-examples-svm-plot-svm-margin-py" target="_blank">SVM&#x4FDD;&#x8BC1;&#x91D1;&#x793A;&#x4F8B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id242" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_oneclass_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_oneclass.html#sphx-glr-auto-examples-svm-plot-oneclass-py" target="_blank">&#x5177;&#x6709;&#x975E;&#x7EBF;&#x6027;&#x5185;&#x6838;&#xFF08;RBF&#xFF09;&#x7684;&#x4E00;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id243" target="_blank"></a></td>
+</tr>
+<tr>
+<td><img src="img/sphx_glr_plot_iris_svc_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_iris_svc.html#sphx-glr-auto-examples-svm-plot-iris-svc-py" target="_blank">&#x5728;&#x8679;&#x819C;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7ED8;&#x5236;&#x4E0D;&#x540C;&#x7684;SVM&#x5206;&#x7C7B;&#x5668;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id244" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_svm_scale_c_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_svm_scale_c.html#sphx-glr-auto-examples-svm-plot-svm-scale-c-py" target="_blank">&#x6269;&#x5C55;SVC&#x7684;&#x6B63;&#x5219;&#x5316;&#x53C2;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id245" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_rbf_parameters_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html#sphx-glr-auto-examples-svm-plot-rbf-parameters-py" target="_blank">RBF SVM&#x53C2;&#x6570;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id246" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6559;&#x7A0B;&#x7EC3;&#x4E60;">&#x6559;&#x7A0B;&#x7EC3;&#x4E60;</h2>
+<p>&#x6559;&#x7A0B;&#x7EC3;&#x4E60;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_digits_classification_exercise_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/exercises/plot_digits_classification_exercise.html#sphx-glr-auto-examples-exercises-plot-digits-classification-exercise-py" target="_blank">&#x6570;&#x5B57;&#x5206;&#x7C7B;&#x7EC3;&#x4E60;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id247" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_cv_digits_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/exercises/plot_cv_digits.html#sphx-glr-auto-examples-exercises-plot-cv-digits-py" target="_blank">&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x6570;&#x5B57;&#x6570;&#x636E;&#x96C6;&#x7EC3;&#x4E60;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id248" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_iris_exercise_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/exercises/plot_iris_exercise.html#sphx-glr-auto-examples-exercises-plot-iris-exercise-py" target="_blank">SVM&#x7EC3;&#x4E60;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id249" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_cv_diabetes_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/exercises/plot_cv_diabetes.html#sphx-glr-auto-examples-exercises-plot-cv-diabetes-py" target="_blank">&#x7CD6;&#x5C3F;&#x75C5;&#x8FD0;&#x52A8;&#x6570;&#x636E;&#x96C6;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id250" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6587;&#x672C;&#x6587;&#x6863;&#x5DE5;&#x4F5C;">&#x6587;&#x672C;&#x6587;&#x6863;&#x5DE5;&#x4F5C;</h2>
+<p>&#x6709;&#x5173;<a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_extraction.text" title="sklearn.feature_extraction.text" target="_blank"><code>sklearn.feature_extraction.text</code></a>&#x6A21;&#x5757;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="img/sphx_glr_plot_hashing_vs_dict_vectorizer_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/text/plot_hashing_vs_dict_vectorizer.html#sphx-glr-auto-examples-text-plot-hashing-vs-dict-vectorizer-py" target="_blank">FeatureHasher&#x548C;DictVectorizer&#x6BD4;&#x8F83;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id251" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_document_clustering_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html#sphx-glr-auto-examples-text-plot-document-clustering-py" target="_blank">&#x4F7F;&#x7528;k-means&#x805A;&#x7C7B;&#x6587;&#x672C;&#x6587;&#x6863;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id252" target="_blank"></a></td>
+<td><img src="img/sphx_glr_plot_document_classification_20newsgroups_thumb.png" alt=""> <br> <a href="https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html#sphx-glr-auto-examples-text-plot-document-classification-20newsgroups-py" target="_blank">&#x4F7F;&#x7528;&#x7A00;&#x758F;&#x7279;&#x5F81;&#x5BF9;&#x6587;&#x672C;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x5206;&#x7C7B;</a><a href="https://scikit-learn.org/stable/auto_examples/index.html#id253" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"其他示例","level":"1.2","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master/docs/examples"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"README.md","mtime":"2020-11-23T10:54:46.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:49.868Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

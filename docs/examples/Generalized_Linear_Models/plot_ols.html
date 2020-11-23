@@ -1,0 +1,1057 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>线性回归示例 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="plot_ridge_path.html" />
+    
+    
+    <link rel="prev" href="plot_multi_task_lasso_support.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    其他示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    双聚类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">
+            
+                <a href="../Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html">
+            
+                    
+                    频谱共聚算法演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">
+            
+                <a href="../Biclustering/a_demo_of_the_spectral_clustering_algorithm.html">
+            
+                    
+                    频谱双聚类算法演示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">
+            
+                <a href="../Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html">
+            
+                    
+                    使用频谱共聚算法对文档进行聚合
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    校准
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    分类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    多聚类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    协方差估计
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    交叉分解
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    数据集示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    决策树
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    分解
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    集成方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    基于真实数据集的示例
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    特征选择
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" >
+            
+                <span>
+            
+                    
+                    高斯混合模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    高斯机器学习过程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    广义线性模型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="plot_lasso_and_elasticnet.html">
+            
+                <a href="plot_lasso_and_elasticnet.html">
+            
+                    
+                    Lasso 和弹性网络在稀疏信号上的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="plot_lasso_coordinate_descent_path.html">
+            
+                <a href="plot_lasso_coordinate_descent_path.html">
+            
+                    
+                    Lasso 和弹性网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.3" data-path="plot_lasso_model_selection.html">
+            
+                <a href="plot_lasso_model_selection.html">
+            
+                    
+                    Lasso 模型选择：交叉验证 / AIC / BIC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.4" data-path="plot_multi_task_lasso_support.html">
+            
+                <a href="plot_multi_task_lasso_support.html">
+            
+                    
+                    多任务 Lasso 实现联合特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17.5" data-path="plot_ols.html">
+            
+                <a href="plot_ols.html">
+            
+                    
+                    线性回归示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.6" data-path="plot_ridge_path.html">
+            
+                <a href="plot_ridge_path.html">
+            
+                    
+                    岭系数对回归系数的影响
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.7" data-path="plot_tomography_l1_reconstruction.html">
+            
+                <a href="plot_tomography_l1_reconstruction.html">
+            
+                    
+                    压缩感知：用L1先验概率进行断层重建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" >
+            
+                <span>
+            
+                    
+                    检查
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" >
+            
+                <span>
+            
+                    
+                    流行学习
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" >
+            
+                <span>
+            
+                    
+                    缺失值插补
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" >
+            
+                <span>
+            
+                    
+                    选型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" >
+            
+                <span>
+            
+                    
+                    多输出方法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" >
+            
+                <span>
+            
+                    
+                    最近邻
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" >
+            
+                <span>
+            
+                    
+                    神经网络
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" >
+            
+                <span>
+            
+                    
+                    管道和复合估计器
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" >
+            
+                <span>
+            
+                    
+                    预处理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" >
+            
+                <span>
+            
+                    
+                    发布要点
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" >
+            
+                <span>
+            
+                    
+                    半监督分类
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" >
+            
+                <span>
+            
+                    
+                    支持向量机
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" >
+            
+                <span>
+            
+                    
+                    建成练习
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" >
+            
+                <span>
+            
+                    
+                    文本文档工作
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.31.1" data-path="plot_document_classification_20newsgroups.html">
+            
+                <a href="plot_document_classification_20newsgroups.html">
+            
+                    
+                    分类特征稀疏的文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >线性回归示例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7EBF;&#x6027;&#x56DE;&#x5F52;">&#x7EBF;&#x6027;&#x56DE;&#x5F52;</h1>
+<blockquote>
+<p>&#x7FFB;&#x8BD1;&#x8005;:<a href="https://github.com/loopyme" target="_blank">@Loopy</a><br>&#x6821;&#x9A8C;&#x8005;:<a href="https://github.com/barrycg" target="_blank">@barrycg</a></p>
+</blockquote>
+<p>&#x672C;&#x4F8B;&#x4EC5;&#x4F7F;&#x7528;<code>&#x7CD6;&#x5C3F;&#x75C5;&#x6570;&#x636E;&#x96C6;</code>&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x6765;&#x5C55;&#x793A;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x5728;&#x4E8C;&#x7EF4;&#x7A7A;&#x95F4;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x3002;&#x4E0B;&#x56FE;&#x4E2D;&#x7684;&#x76F4;&#x7EBF;, &#x5373;&#x662F;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6240;&#x786E;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#x754C;&#x9650;&#xFF0C;&#x5176;&#x76EE;&#x6807;&#x662F;&#x4F7F;&#x5F97;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x5B9E;&#x9645;&#x503C;&#x4E0E;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6240;&#x5F97;&#x7684;&#x9884;&#x6D4B;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#x6700;&#x5C0F;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#x4E5F;&#x8BA1;&#x7B97;&#x4E86;&#x56DE;&#x5F52;&#x7CFB;&#x6570;&#x3001;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#x4EE5;&#x53CA;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x5F97;&#x5206;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x8BE5;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x7684;&#x8D28;&#x91CF;&#x3002;</p>
+<blockquote>
+<p><em>&#x539F;&#x6587;&#x89E3;&#x91CA;&#x548C;&#x4EE3;&#x7801;&#x4E0D;&#x7B26;&#x5408;</em>:</p>
+<blockquote>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#x8BA1;&#x7B97;&#x4E86;&#x56DE;&#x5F52;&#x7CFB;&#x6570;, &#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#xFF08;MSE&#xFF09;,&#x5224;&#x5B9A;&#x7CFB;&#x6570;(r2_score)</p>
+<blockquote>
+<p>&#x5224;&#x5B9A;&#x7CFB;&#x6570;&#x548C;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x5F97;&#x5206;&#x5E76;&#x4E0D;&#x7EDD;&#x5BF9;&#x76F8;&#x7B49;&#xFF0C;&#x5F53;&#x5B9E;&#x9645;&#x503C;&#x548C;&#x9884;&#x6D4B;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x8BEF;&#x5DEE;&#x5747;&#x503C;&#x4E3A;0&#x65F6;&#xFF0C;&#x4E24;&#x8005;&#x76F8;&#x540C;&#xFF0C;&#x5426;&#x5219;&#x6570;&#x503C;&#x4E0A;&#x6709;&#x7740;&#x7565;&#x5FAE;&#x8BEF;&#x5DEE;&#x3002;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x548C;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#x867D;&#x7136;&#x90FD;&#x662F;&#x5B9A;&#x4E49;&#x9884;&#x6D4B;&#x503C;&#x548C;&#x5B9E;&#x9645;&#x503C;&#x7684;&#x504F;&#x79BB;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x6570;&#x503C;&#x5927;&#x5C0F;&#x7684;&#x5DEE;&#x8DDD;&#x8F83;&#x5927;&#x3002;</p>
+<blockquote>
+<p>&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x5F97;&#x5206;&#x51FD;&#x6570;: explained_variance_score()&#x3002;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets, linear_model
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> mean_squared_error, r2_score, explained_variance_score
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x52A0;&#x8F7D;&#x7CD6;&#x5C3F;&#x75C5;&#x6570;&#x636E;&#x96C6;</span>
+diabetes = datasets.load_diabetes()
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x53EA;&#x4F7F;&#x7528;1&#x4E2A;&#x7279;&#x5F81;</span>
+diabetes_X = diabetes.data[:, np.newaxis, <span class="hljs-number">2</span>]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5212;&#x5206;&#x8BAD;&#x7EC3;,&#x6D4B;&#x8BD5;&#x96C6;</span>
+diabetes_X_train = diabetes_X[:<span class="hljs-number">-20</span>]
+diabetes_X_test = diabetes_X[<span class="hljs-number">-20</span>:]
+
+diabetes_y_train = diabetes.target[:<span class="hljs-number">-20</span>]
+diabetes_y_test = diabetes.target[<span class="hljs-number">-20</span>:]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x521B;&#x5EFA;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6A21;&#x578B;</span>
+regr = linear_model.LinearRegression()
+
+<span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;</span>
+regr.fit(diabetes_X_train, diabetes_y_train)
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;&#x6A21;&#x578B;&#x505A;&#x9884;&#x6D4B;</span>
+diabetes_y_pred = regr.predict(diabetes_X_test)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8BC4;&#x4EF7;&#x9884;&#x6D4B;&#x7ED3;&#x679C;</span>
+print(<span class="hljs-string">&apos;&#x56DE;&#x5F52;&#x7CFB;&#x6570;(coef_):&apos;</span>, regr.coef_)
+print(<span class="hljs-string">&quot;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;(MSE): %.2f&quot;</span>% mean_squared_error(diabetes_y_test, diabetes_y_pred))
+print(<span class="hljs-string">&apos;&#x5224;&#x65AD;&#x7CFB;&#x6570;(r2_score): %.2f&apos;</span> % r2_score(diabetes_y_test, diabetes_y_pred))
+<span class="hljs-comment"># &#x989D;&#x5916;&#x589E;&#x52A0;</span>
+print(<span class="hljs-string">&apos;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x5F97;&#x5206;(explained_variance_score): %.2f&apos;</span> % explained_variance_score(diabetes_y_test, diabetes_y_pred))
+</code></pre>
+<pre><code>&#x56DE;&#x5F52;&#x7CFB;&#x6570;(coef_): [938.23786125]
+&#x5747;&#x65B9;&#x8BEF;&#x5DEE;(MSE): 2548.07
+&#x5224;&#x65AD;&#x7CFB;&#x6570;(r2_score): 0.47
+&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x5F97;&#x5206;(explained_variance_score): 0.53
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x7ED8;&#x5236;&#x8F93;&#x51FA;</span>
+plt.scatter(diabetes_X_test, diabetes_y_test,  color=<span class="hljs-string">&apos;black&apos;</span>)
+plt.plot(diabetes_X_test, diabetes_y_pred, color=<span class="hljs-string">&apos;blue&apos;</span>, linewidth=<span class="hljs-number">3</span>)
+
+plt.xticks(())
+plt.yticks(())
+
+plt.show()
+</code></pre>
+<p><img src="data:image/png;base64,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" alt="png"></p>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="plot_multi_task_lasso_support.html" class="navigation navigation-prev " aria-label="Previous page: 多任务 Lasso 实现联合特征选择">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="plot_ridge_path.html" class="navigation navigation-next " aria-label="Next page: 岭系数对回归系数的影响">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"线性回归示例","level":"1.17.5","depth":2,"next":{"title":"岭系数对回归系数的影响","level":"1.17.6","depth":2,"path":"Generalized_Linear_Models/plot_ridge_path.md","ref":"Generalized_Linear_Models/plot_ridge_path.md","articles":[]},"previous":{"title":"多任务 Lasso 实现联合特征选择","level":"1.17.4","depth":2,"path":"Generalized_Linear_Models/plot_multi_task_lasso_support.md","ref":"Generalized_Linear_Models/plot_multi_task_lasso_support.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master/docs/examples"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"Generalized_Linear_Models/plot_ols.md","mtime":"2020-11-23T10:54:46.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:49.868Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

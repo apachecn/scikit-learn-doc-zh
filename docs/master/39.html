@@ -1,0 +1,1972 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5.2. 特征提取 · sklearn 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ApacheCN">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="40.html" />
+    
+    
+    <link rel="prev" href="38.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="62.html">
+            
+                <a href="62.html">
+            
+                    
+                    安装 scikit-learn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    用户指南
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1. 监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    1.1. 广义线性模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    1.2. 线性和二次判别分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    1.3. 内核岭回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    1.4. 支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    1.5. 随机梯度下降
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    1.6. 最近邻
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    1.7. 高斯过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    1.8. 交叉分解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    1.9. 朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    1.10. 决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    1.11. 集成方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" data-path="13.html">
+            
+                <a href="13.html">
+            
+                    
+                    1.12. 多类和多标签算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" data-path="14.html">
+            
+                <a href="14.html">
+            
+                    
+                    1.13. 特征选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" data-path="15.html">
+            
+                <a href="15.html">
+            
+                    
+                    1.14. 半监督学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" data-path="16.html">
+            
+                <a href="16.html">
+            
+                    
+                    1.15. 等式回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" data-path="17.html">
+            
+                <a href="17.html">
+            
+                    
+                    1.16. 概率校准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" data-path="18.html">
+            
+                <a href="18.html">
+            
+                    
+                    1.17. 神经网络模型（有监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="19.html">
+            
+                <a href="19.html">
+            
+                    
+                    2. 无监督学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="20.html">
+            
+                <a href="20.html">
+            
+                    
+                    2.1. 高斯混合模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    2.2. 流形学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="22.html">
+            
+                <a href="22.html">
+            
+                    
+                    2.3. 聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="23.html">
+            
+                <a href="23.html">
+            
+                    
+                    2.4. 双聚类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="24.html">
+            
+                <a href="24.html">
+            
+                    
+                    2.5. 分解成分中的信号（矩阵分解问题）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="25.html">
+            
+                <a href="25.html">
+            
+                    
+                    2.6. 协方差估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="26.html">
+            
+                <a href="26.html">
+            
+                    
+                    2.7. 新奇和异常值检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="27.html">
+            
+                <a href="27.html">
+            
+                    
+                    2.8. 密度估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="28.html">
+            
+                <a href="28.html">
+            
+                    
+                    2.9. 神经网络模型（无监督）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="29.html">
+            
+                <a href="29.html">
+            
+                    
+                    3. 模型选择和评估
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="30.html">
+            
+                <a href="30.html">
+            
+                    
+                    3.1. 交叉验证：评估估算器的表现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="31.html">
+            
+                <a href="31.html">
+            
+                    
+                    3.2. 调整估计器的超参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="32.html">
+            
+                <a href="32.html">
+            
+                    
+                    3.3. 模型评估: 量化预测的质量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="33.html">
+            
+                <a href="33.html">
+            
+                    
+                    3.4. 模型持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="34.html">
+            
+                <a href="34.html">
+            
+                    
+                    3.5. 验证曲线: 绘制分数以评估模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="35.html">
+            
+                <a href="35.html">
+            
+                    
+                    4.  检验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="36.html">
+            
+                <a href="36.html">
+            
+                    
+                    4.1. 部分依赖图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="37.html">
+            
+                <a href="37.html">
+            
+                    
+                    5. 数据集转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="38.html">
+            
+                <a href="38.html">
+            
+                    
+                    5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.5.2" data-path="39.html">
+            
+                <a href="39.html">
+            
+                    
+                    5.2. 特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="40.html">
+            
+                <a href="40.html">
+            
+                    
+                    5.3 预处理数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    5.4 缺失值插补
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    5.5. 无监督降维
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    5.6. 随机投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    5.7. 内核近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="45.html">
+            
+                <a href="45.html">
+            
+                    
+                    5.8. 成对的矩阵, 类别和核函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="46.html">
+            
+                <a href="46.html">
+            
+                    
+                    5.9. 预测目标 (y) 的转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6. 数据集加载工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.1. 通用数据集 API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.2. 玩具数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.3 真实世界中的数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.4. 样本生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="47.html">
+            
+                <a href="47.html">
+            
+                    
+                    6.5. 加载其他数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7. 使用scikit-learn计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.1. 大规模计算的策略: 更大量的数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.2. 计算性能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="48.html">
+            
+                <a href="48.html">
+            
+                    
+                    7.3. 并行性、资源管理和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="50.html">
+            
+                <a href="50.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    使用 scikit-learn 介绍机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    关于科学数据处理的统计学习教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="53.html">
+            
+                <a href="53.html">
+            
+                    
+                    机器学习: scikit-learn 中的设置以及预估对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="54.html">
+            
+                <a href="54.html">
+            
+                    
+                    监督学习：从高维观察预测输出变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="55.html">
+            
+                <a href="55.html">
+            
+                    
+                    模型选择：选择估计量及其参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="56.html">
+            
+                <a href="56.html">
+            
+                    
+                    无监督学习: 寻求数据表示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.5" data-path="57.html">
+            
+                <a href="57.html">
+            
+                    
+                    把它们放在一起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.6" data-path="58.html">
+            
+                <a href="58.html">
+            
+                    
+                    寻求帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="59.html">
+            
+                <a href="59.html">
+            
+                    
+                    处理文本数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="60.html">
+            
+                <a href="60.html">
+            
+                    
+                    选择正确的评估器(estimator.md)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="61.html">
+            
+                <a href="61.html">
+            
+                    
+                    外部资源，视频和谈话
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <a target="_blank" href="https://scikit-learn.org/stable/modules/classes.html">
+            
+                    
+                    API 参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="63.html">
+            
+                <a href="63.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="64.html">
+            
+                <a href="64.html">
+            
+                    
+                    时光轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >5.2. 特征提取</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="52-&#x7279;&#x5F81;&#x63D0;&#x53D6;">5.2. &#x7279;&#x5F81;&#x63D0;&#x53D6;</h1>
+<p>&#x6821;&#x9A8C;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@if only</a>
+&#x7FFB;&#x8BD1;&#x8005;:
+        <a href="https://github.com/apachecn/scikit-learn-doc-zh" target="_blank">@&#x7247;&#x523B;</a></p>
+<p>&#x6A21;&#x5757; <a href="classes.html#module-sklearn.feature_extraction" title="sklearn.feature_extraction"><code>sklearn.feature_extraction</code></a> &#x53EF;&#x7528;&#x4E8E;&#x63D0;&#x53D6;&#x7B26;&#x5408;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x652F;&#x6301;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x6BD4;&#x5982;&#x6587;&#x672C;&#x548C;&#x56FE;&#x7247;&#x3002;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>
+&#x7279;&#x5F81;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x4E0E;<a href="14.html#113-&#x7279;&#x5F81;&#x9009;&#x62E9;">&#x7279;&#x5F81;&#x9009;&#x62E9;</a>&#x6709;&#x5F88;&#x5927;&#x7684;&#x4E0D;&#x540C;&#xFF1A;&#x524D;&#x8005;&#x5305;&#x62EC;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#xFF08;&#x5982;&#x6587;&#x672C;&#x6216;&#x56FE;&#x50CF;&#xFF09;&#x8F6C;&#x6362;&#x4E3A;&#x53EF;&#x7528;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x6570;&#x503C;&#x7279;&#x5F81;&#x3002;&#x540E;&#x8005;&#x662F;&#x5C06;&#x8FD9;&#x4E9B;&#x7279;&#x5F81;&#x5E94;&#x7528;&#x5230;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E2D;&#x3002;</p>
+</blockquote>
+<h2 id="521-&#x4ECE;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x52A0;&#x8F7D;&#x7279;&#x5F81;">5.2.1. &#x4ECE;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x52A0;&#x8F7D;&#x7279;&#x5F81;</h2>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.DictVectorizer.html#sklearn.feature_extraction.DictVectorizer" title="sklearn.feature_extraction.DictVectorizer" target="_blank"><code>DictVectorizer</code></a> &#x53EF;&#x7528;&#x4E8E;&#x5C06;&#x6807;&#x51C6;&#x7684;Python&#x5B57;&#x5178;&#xFF08;dict&#xFF09;&#x5BF9;&#x8C61;&#x5217;&#x8868;&#x7684;&#x8981;&#x7D20;&#x6570;&#x7EC4;&#x8F6C;&#x6362;&#x4E3A; scikit-learn &#x4F30;&#x8BA1;&#x5668;&#x4F7F;&#x7528;&#x7684; NumPy/SciPy &#x8868;&#x793A;&#x5F62;&#x5F0F;&#x3002;</p>
+<p>&#x867D;&#x7136; Python &#x7684;&#x5904;&#x7406;&#x901F;&#x5EA6;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x5FEB;&#xFF0C;&#x4F46; Python &#x7684; <code>dict</code> &#x4F18;&#x70B9;&#x662F;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;&#xFF0C;&#x7A00;&#x758F;&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x5B58;&#x50A8;&#x7684;&#x7279;&#x5F81;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x9664;&#x4E86;&#x503C;&#x4E4B;&#x5916;&#x8FD8;&#x5B58;&#x50A8;&#x7279;&#x5F81;&#x540D;&#x79F0;&#x3002;</p>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.DictVectorizer.html#sklearn.feature_extraction.DictVectorizer" title="sklearn.feature_extraction.DictVectorizer" target="_blank"><code>DictVectorizer</code></a> &#x5B9E;&#x73B0;&#x4E86; &#x201C;one-of-K&#x201D; &#x6216; &#x201C;one-hot&#x201D; &#x7F16;&#x7801;&#xFF0C;&#x7528;&#x4E8E;&#x5206;&#x7C7B;&#xFF08;&#x4E5F;&#x79F0;&#x4E3A;&#x6807;&#x79F0;&#xFF0C;&#x79BB;&#x6563;&#xFF09;&#x7279;&#x5F81;&#x3002;&#x5206;&#x7C7B;&#x529F;&#x80FD;&#x662F; &#x201C;&#x5C5E;&#x6027;&#x503C;&#x201D; &#x5BF9;&#xFF0C;&#x5176;&#x4E2D;&#x8BE5;&#x503C;&#x88AB;&#x9650;&#x5236;&#x4E3A;&#x4E0D;&#x6392;&#x5E8F;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x7684;&#x79BB;&#x6563;&#x5217;&#x8868;&#xFF08;&#x4F8B;&#x5982;&#x4E3B;&#x9898;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF0C;&#x6807;&#x7B7E;&#xFF0C;&#x540D;&#x79F0;&#x2026;&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x201D;&#x57CE;&#x5E02;&#x201D; &#x662F;&#x4E00;&#x4E2A;&#x5206;&#x7C7B;&#x5C5E;&#x6027;&#xFF0C;&#x800C; &#x201C;&#x6E29;&#x5EA6;&#x201D; &#x662F;&#x4F20;&#x7EDF;&#x7684;&#x6570;&#x5B57;&#x7279;&#x5F81;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>measurements = [
+<span class="hljs-meta">... </span>    {<span class="hljs-string">&apos;city&apos;</span>: <span class="hljs-string">&apos;Dubai&apos;</span>, <span class="hljs-string">&apos;temperature&apos;</span>: <span class="hljs-number">33.</span>},
+<span class="hljs-meta">... </span>    {<span class="hljs-string">&apos;city&apos;</span>: <span class="hljs-string">&apos;London&apos;</span>, <span class="hljs-string">&apos;temperature&apos;</span>: <span class="hljs-number">12.</span>},
+<span class="hljs-meta">... </span>    {<span class="hljs-string">&apos;city&apos;</span>: <span class="hljs-string">&apos;San Francisco&apos;</span>, <span class="hljs-string">&apos;temperature&apos;</span>: <span class="hljs-number">18.</span>},
+<span class="hljs-meta">... </span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction <span class="hljs-keyword">import</span> DictVectorizer
+<span class="hljs-meta">&gt;&gt;&gt; </span>vec = DictVectorizer()
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>vec.fit_transform(measurements).toarray()
+array([[  <span class="hljs-number">1.</span>,   <span class="hljs-number">0.</span>,   <span class="hljs-number">0.</span>,  <span class="hljs-number">33.</span>],
+ [  <span class="hljs-number">0.</span>,   <span class="hljs-number">1.</span>,   <span class="hljs-number">0.</span>,  <span class="hljs-number">12.</span>],
+ [  <span class="hljs-number">0.</span>,   <span class="hljs-number">0.</span>,   <span class="hljs-number">1.</span>,  <span class="hljs-number">18.</span>]])
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>vec.get_feature_names()
+[<span class="hljs-string">&apos;city=Dubai&apos;</span>, <span class="hljs-string">&apos;city=London&apos;</span>, <span class="hljs-string">&apos;city=San Francisco&apos;</span>, <span class="hljs-string">&apos;temperature&apos;</span>]
+</code></pre>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.DictVectorizer.html#sklearn.feature_extraction.DictVectorizer" title="sklearn.feature_extraction.DictVectorizer" target="_blank"><code>DictVectorizer</code></a> &#x4E5F;&#x662F;&#x5BF9;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;&#x6A21;&#x578B;&#x4E2D;&#x8BAD;&#x7EC3;&#x5E8F;&#x5217;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x6709;&#x7528;&#x7684;&#x8868;&#x793A;&#x53D8;&#x6362;&#xFF0C;&#x901A;&#x5E38;&#x901A;&#x8FC7;&#x63D0;&#x53D6;&#x56F4;&#x7ED5;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x7279;&#x5B9A;&#x7684;&#x8BCD;&#x7684;&#x7279;&#x5F81;&#x7A97;&#x53E3;&#x6765;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5177;&#x6709;&#x63D0;&#x53D6;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7528;&#x4F5C;&#x8BAD;&#x7EC3;&#x5E8F;&#x5217;&#x5206;&#x7C7B;&#x5668;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x5757;&#xFF09;&#x7684;&#x4E92;&#x8865;&#x6807;&#x7B7E;&#x7684;&#x90E8;&#x5206;&#x8BED;&#x97F3;&#xFF08;PoS&#xFF09;&#x6807;&#x7B7E;&#x7684;&#x7B2C;&#x4E00;&#x7B97;&#x6CD5;&#x3002;&#x4EE5;&#x4E0B; dict &#x53EF;&#x4EE5;&#x662F;&#x5728; &#x201C;&#x5750;&#x5728;&#x57AB;&#x5B50;&#x4E0A;&#x7684;&#x732B;&#x201D; &#x7684;&#x53E5;&#x5B50;&#xFF0C;&#x56F4;&#x7ED5; &#x201C;sat&#x201D; &#x4E00;&#x8BCD;&#x63D0;&#x53D6;&#x7684;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#x7A97;&#x53E3;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>pos_window = [
+<span class="hljs-meta">... </span>    {
+<span class="hljs-meta">... </span>        <span class="hljs-string">&apos;word-2&apos;</span>: <span class="hljs-string">&apos;the&apos;</span>,
+<span class="hljs-meta">... </span>        <span class="hljs-string">&apos;pos-2&apos;</span>: <span class="hljs-string">&apos;DT&apos;</span>,
+<span class="hljs-meta">... </span>        <span class="hljs-string">&apos;word-1&apos;</span>: <span class="hljs-string">&apos;cat&apos;</span>,
+<span class="hljs-meta">... </span>        <span class="hljs-string">&apos;pos-1&apos;</span>: <span class="hljs-string">&apos;NN&apos;</span>,
+<span class="hljs-meta">... </span>        <span class="hljs-string">&apos;word+1&apos;</span>: <span class="hljs-string">&apos;on&apos;</span>,
+<span class="hljs-meta">... </span>        <span class="hljs-string">&apos;pos+1&apos;</span>: <span class="hljs-string">&apos;PP&apos;</span>,
+<span class="hljs-meta">... </span>    },
+<span class="hljs-meta">... </span>    <span class="hljs-comment"># in a real application one would extract many such dictionaries</span>
+<span class="hljs-meta">... </span>]
+</code></pre>
+<p>&#x8BE5;&#x63CF;&#x8FF0;&#x53EF;&#x4EE5;&#x88AB;&#x77E2;&#x91CF;&#x5316;&#x4E3A;&#x9002;&#x5408;&#x4E8E;&#x5448;&#x9012;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x7A00;&#x758F;&#x4E8C;&#x7EF4;&#x77E9;&#x9635;&#xFF08;&#x53EF;&#x80FD;&#x5728;&#x88AB;&#x7BA1;&#x9053; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer" title="sklearn.feature_extraction.text.TfidfTransformer" target="_blank"><code>text.TfidfTransformer</code></a> &#x8FDB;&#x884C;&#x5F52;&#x4E00;&#x5316;&#x4E4B;&#x540E;&#xFF09;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>vec = DictVectorizer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>pos_vectorized = vec.fit_transform(pos_window)
+<span class="hljs-meta">&gt;&gt;&gt; </span>pos_vectorized                
+&lt;<span class="hljs-number">1</span>x6 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.float64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">6</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>pos_vectorized.toarray()
+array([[ <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>,  <span class="hljs-number">1.</span>]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>vec.get_feature_names()
+[<span class="hljs-string">&apos;pos+1=PP&apos;</span>, <span class="hljs-string">&apos;pos-1=NN&apos;</span>, <span class="hljs-string">&apos;pos-2=DT&apos;</span>, <span class="hljs-string">&apos;word+1=on&apos;</span>, <span class="hljs-string">&apos;word-1=cat&apos;</span>, <span class="hljs-string">&apos;word-2=the&apos;</span>]
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x90FD;&#x63D0;&#x53D6;&#x4E86;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x5F97;&#x7684;&#x77E9;&#x9635;&#x5C06;&#x4F1A;&#x975E;&#x5E38;&#x5BBD;&#xFF08;&#x8BB8;&#x591A; one-hot-features&#xFF09;&#xFF0C;&#x5176;&#x4E2D;&#x5927;&#x90E8;&#x5206;&#x901A;&#x5E38;&#x5C06;&#x4F1A;&#x662F;0&#x3002; &#x4E3A;&#x4E86;&#x4F7F;&#x7ED3;&#x679C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x80FD;&#x591F;&#x9002;&#x5E94;&#x5185;&#x5B58;&#xFF0C;&#x8BE5;&#x7C7B;<code>DictVectorizer</code> &#x7684; <code>scipy.sparse</code> &#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; <code>numpy.ndarray</code>&#x3002;</p>
+<h2 id="522-&#x7279;&#x5F81;&#x54C8;&#x5E0C;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x6280;&#x5DE7;&#xFF09;">5.2.2. &#x7279;&#x5F81;&#x54C8;&#x5E0C;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x6280;&#x5DE7;&#xFF09;</h2>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>FeatureHasher</code></a> &#x662F;&#x4E00;&#x79CD;&#x9AD8;&#x901F;&#xFF0C;&#x4F4E;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x7684;&#x5411;&#x91CF;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x4F7F;&#x7528;&#x4E86;<a href="https://en.wikipedia.org/wiki/Feature_hashing" target="_blank">&#x7279;&#x5F81;&#x6563;&#x5217;</a>&#x6280;&#x672F; &#xFF0C;&#x6216;&#x53EF;&#x79F0;&#x4E3A; &#x201C;&#x6563;&#x5217;&#x6CD5;&#x201D; &#xFF08;hashing trick&#xFF09;&#x7684;&#x6280;&#x672F;&#x3002; &#x4EE3;&#x66FF;&#x5728;&#x6784;&#x5EFA;&#x8BAD;&#x7EC3;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x7279;&#x5F81;&#x7684;&#x54C8;&#x5E0C;&#x8868;&#xFF0C;&#x5982;&#x5411;&#x91CF;&#x5316;&#x6240;&#x505A;&#x7684;&#x90A3;&#x6837; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>FeatureHasher</code></a> &#x5C06;&#x54C8;&#x5E0C;&#x51FD;&#x6570;&#x5E94;&#x7528;&#x4E8E;&#x7279;&#x5F81;&#xFF0C;&#x4EE5;&#x4FBF;&#x76F4;&#x63A5;&#x5728;&#x6837;&#x672C;&#x77E9;&#x9635;&#x4E2D;&#x786E;&#x5B9A;&#x5B83;&#x4EEC;&#x7684;&#x5217;&#x7D22;&#x5F15;&#x3002; &#x7ED3;&#x679C;&#x662F;&#x4EE5;&#x727A;&#x7272;&#x53EF;&#x68C0;&#x6D4B;&#x6027;&#x4E3A;&#x4EE3;&#x4EF7;&#xFF0C;&#x63D0;&#x9AD8;&#x901F;&#x5EA6;&#x548C;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;; &#x54C8;&#x5E0C;&#x8868;&#x4E0D;&#x8BB0;&#x5F97;&#x8F93;&#x5165;&#x7279;&#x6027;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#xFF0C;&#x6CA1;&#x6709; <code>inverse_transform</code> &#x529E;&#x6CD5;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x6563;&#x5217;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#xFF08;&#x4E0D;&#x76F8;&#x5173;&#xFF09;&#x7279;&#x5F81;&#x4E4B;&#x95F4;&#x7684;&#x51B2;&#x7A81;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528;&#x5E26;&#x7B26;&#x53F7;&#x6563;&#x5217;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x6563;&#x5217;&#x503C;&#x7684;&#x7B26;&#x53F7;&#x786E;&#x5B9A;&#x5B58;&#x50A8;&#x5728;&#x7279;&#x5F81;&#x7684;&#x8F93;&#x51FA;&#x77E9;&#x9635;&#x4E2D;&#x7684;&#x503C;&#x7684;&#x7B26;&#x53F7;&#x3002; &#x8FD9;&#x6837;&#xFF0C;&#x78B0;&#x649E;&#x53EF;&#x80FD;&#x4F1A;&#x62B5;&#x6D88;&#x800C;&#x4E0D;&#x662F;&#x7D2F;&#x79EF;&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x4E14;&#x4EFB;&#x4F55;&#x8F93;&#x51FA;&#x8981;&#x7D20;&#x7684;&#x503C;&#x7684;&#x9884;&#x671F;&#x5E73;&#x5747;&#x503C;&#x4E3A;&#x96F6;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x673A;&#x5236;&#x5C06;&#x4F7F;&#x7528; <code>alternate_sign=True</code> &#x542F;&#x7528;&#xFF0C;&#x5BF9;&#x4E8E;&#x5C0F;&#x578B;&#x54C8;&#x5E0C;&#x8868;&#x5927;&#x5C0F;&#xFF08;<code>n_features &amp;lt; 10000</code>&#xFF09;&#x7279;&#x522B;&#x6709;&#x7528;&#x3002; &#x5BF9;&#x4E8E;&#x5927;&#x7684;&#x54C8;&#x5E0C;&#x8868;&#x5927;&#x5C0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7981;&#x7528;&#x5B83;&#xFF0C;&#x4EE5;&#x4FBF;&#x5C06;&#x8F93;&#x51FA;&#x4F20;&#x9012;&#x7ED9;&#x4F30;&#x8BA1;&#x5668;&#xFF0C;&#x5982; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB" title="sklearn.naive_bayes.MultinomialNB" target="_blank"><code>sklearn.naive_bayes.MultinomialNB</code></a> &#x6216; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.chi2.html#sklearn.feature_selection.chi2" title="sklearn.feature_selection.chi2" target="_blank"><code>sklearn.feature_selection.chi2</code></a> &#x7279;&#x5F81;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x8FD9;&#x4E9B;&#x7279;&#x5F81;&#x9009;&#x9879;&#x5668;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x975E;&#x8D1F;&#x8F93;&#x5165;&#x3002;</p>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>FeatureHasher</code></a> &#x63A5;&#x53D7;&#x6620;&#x5C04;&#xFF08;&#x5982; Python &#x7684; <code>dict</code> &#x53CA;&#x5176;&#x5728; <code>collections</code> &#x6A21;&#x5757;&#x4E2D;&#x7684;&#x53D8;&#x4F53;&#xFF09;&#xFF0C;&#x4F7F;&#x7528;&#x952E;&#x503C;&#x5BF9; <code>(feature, value)</code> &#x6216;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5177;&#x4F53;&#x53D6;&#x51B3;&#x4E8E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53C2;&#x6570; <code>input_type</code>&#x3002; &#x6620;&#x5C04;&#x88AB;&#x89C6;&#x4E3A; <code>(feature, value)</code> &#x5BF9;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x800C;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x9690;&#x542B;&#x503C;&#x4E3A;1&#xFF0C;&#x56E0;&#x6B64; <code>[&apos;feat1&apos;, &apos;feat2&apos;, &apos;feat3&apos;]</code> &#x88AB;&#x89E3;&#x91CA;&#x4E3A; <code>[(&apos;feat1&apos;, 1), (&apos;feat2&apos;, 1), (&apos;feat3&apos;, 1)]</code>&#x3002; &#x5982;&#x679C;&#x5355;&#x4E2A;&#x7279;&#x5F81;&#x5728;&#x6837;&#x672C;&#x4E2D;&#x591A;&#x6B21;&#x51FA;&#x73B0;&#xFF0C;&#x76F8;&#x5173;&#x503C;&#x5C06;&#x88AB;&#x6C42;&#x548C;&#xFF08;&#x6240;&#x4EE5; <code>(&apos;feat&apos;, 2)</code> &#x548C; <code>(&apos;feat&apos;, 3.5)</code> &#x53D8;&#x4E3A; <code>(&apos;feat&apos;, 5.5)</code>&#xFF09;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>FeatureHasher</code></a> &#x7684;&#x8F93;&#x51FA;&#x59CB;&#x7EC8;&#x662F; CSR &#x683C;&#x5F0F;&#x7684; <code>scipy.sparse</code> &#x77E9;&#x9635;&#x3002;</p>
+<p>&#x7279;&#x5F81;&#x6563;&#x5217;&#x53EF;&#x4EE5;&#x5728;&#x6587;&#x6863;&#x5206;&#x7C7B;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x4E0E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>text.CountVectorizer</code></a> &#x4E0D;&#x540C;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>FeatureHasher</code></a> &#x4E0D;&#x6267;&#x884C;&#x9664; Unicode &#x6216; UTF-8 &#x7F16;&#x7801;&#x4E4B;&#x5916;&#x7684;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x9884;&#x5904;&#x7406;; &#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x54C8;&#x5E0C;&#x6280;&#x5DE7;&#x5411;&#x91CF;&#x5316;&#x5927;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;&#xFF0C;&#x7528;&#x4E8E;&#x7EC4;&#x5408;&#x7684; tokenizer/hasher&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x8BCD;&#x7EA7;&#x522B;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x4ECE; <code>(token, part_of_speech)</code> &#x952E;&#x503C;&#x5BF9;&#x4E2D;&#x63D0;&#x53D6;&#x7279;&#x5F81;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Python &#x751F;&#x6210;&#x5668;&#x51FD;&#x6570;&#x6765;&#x63D0;&#x53D6;&#x529F;&#x80FD;:</p>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">token_features</span><span class="hljs-params">(token, part_of_speech)</span>:</span>
+    <span class="hljs-keyword">if</span> token.isdigit():
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;numeric&quot;</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;token={}&quot;</span>.format(token.lower())
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;token,pos={},{}&quot;</span>.format(token, part_of_speech)
+    <span class="hljs-keyword">if</span> token[<span class="hljs-number">0</span>].isupper():
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;uppercase_initial&quot;</span>
+    <span class="hljs-keyword">if</span> token.isupper():
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;all_uppercase&quot;</span>
+    <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;pos={}&quot;</span>.format(part_of_speech)
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C; <code>raw_X</code> &#x4E3A;&#x4E86;&#x53EF;&#x4EE5;&#x4F20;&#x5165; <code>FeatureHasher.transform</code> &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#x6784;&#x9020;:</p>
+<pre><code class="lang-py">raw_X = (token_features(tok, pos_tagger(tok)) <span class="hljs-keyword">for</span> tok <span class="hljs-keyword">in</span> corpus)
+</code></pre>
+<p>&#x5E76;&#x4F20;&#x5165;&#x4E00;&#x4E2A; hasher:</p>
+<pre><code class="lang-py">hasher = FeatureHasher(input_type=<span class="hljs-string">&apos;string&apos;</span>)
+X = hasher.transform(raw_X)
+</code></pre>
+<p>&#x5F97;&#x5230;&#x4E00;&#x4E2A; <code>scipy.sparse</code> &#x7C7B;&#x578B;&#x7684;&#x77E9;&#x9635; <code>X</code>&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x4F7F;&#x7528;&#x53D1;&#x751F;&#x5668;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x5B83;&#x5C06;&#x61D2;&#x60F0;&#x5F15;&#x5165;&#x5230;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x4E2D;&#xFF1A;&#x8BCD;&#x4EE4;&#x724C;&#xFF08;token&#xFF09;&#x53EA;&#x80FD;&#x6839;&#x636E;&#x9700;&#x8981;&#x4ECE;&#x54C8;&#x5E0C;&#x503C;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="5221-&#x5B9E;&#x73B0;&#x7EC6;&#x8282;">5.2.2.1. &#x5B9E;&#x73B0;&#x7EC6;&#x8282;</h3>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>FeatureHasher</code></a> &#x4F7F;&#x7528;&#x7B7E;&#x540D;&#x7684; 32-bit &#x53D8;&#x4F53;&#x7684; MurmurHash3&#x3002; &#x56E0;&#x6B64;&#x5BFC;&#x81F4;&#xFF08;&#x5E76;&#x4E14;&#x7531;&#x4E8E;&#x9650;&#x5236; <code>scipy.sparse</code>&#xFF09;&#xFF0C;&#x5F53;&#x524D;&#x652F;&#x6301;&#x7684;&#x529F;&#x80FD;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF; <img src="img/7a79f764bd3db11876c1065b6677af80.jpg" alt="2^{31} - 1">.</p>
+<p>&#x7279;&#x5F81;&#x54C8;&#x5E0C;&#x7684;&#x539F;&#x59CB;&#x5F62;&#x5F0F;&#x6E90;&#x4E8E;Weinberger et al&#xFF0C;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x54C8;&#x5E0C;&#x51FD;&#x6570;&#xFF0C;<img src="img/c5f49595b56010ad04fce358940848e5.jpg" alt="h"> &#x548C; <img src="img/638e0b526b8a69a226bc23950f6eeb3f.jpg" alt="\xi"> &#x5206;&#x522B;&#x786E;&#x5B9A;&#x7279;&#x5F81;&#x7684;&#x5217;&#x7D22;&#x5F15;&#x548C;&#x7B26;&#x53F7;&#x3002; &#x73B0;&#x6709;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x57FA;&#x4E8E;&#x5047;&#x8BBE;&#xFF1A;MurmurHash3&#x7684;&#x7B26;&#x53F7;&#x4F4D;&#x4E0E;&#x5176;&#x4ED6;&#x4F4D;&#x72EC;&#x7ACB;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x6570;&#x5C06;&#x54C8;&#x5E0C;&#x51FD;&#x6570;&#x8F6C;&#x6362;&#x4E3A;&#x5217;&#x7D22;&#x5F15;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;2&#x6B21;&#x5E42;&#x4F5C;&#x4E3A; <code>n_features</code> &#x53C2;&#x6570;; &#x5426;&#x5219;&#x7279;&#x5F81;&#x4E0D;&#x4F1A;&#x5747;&#x5300;&#x7684;&#x5206;&#x5E03;&#x5230;&#x5217;&#x4E2D;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong>:</p>
+<ul>
+<li>Kilian Weinberger, Anirban Dasgupta, John Langford, Alex Smola and Josh Attenberg (2009). <a href="http://alex.smola.org/papers/2009/Weinbergeretal09.pdf" target="_blank">&#x7528;&#x4E8E;&#x5927;&#x89C4;&#x6A21;&#x591A;&#x4EFB;&#x52A1;&#x5B66;&#x4E60;&#x7684;&#x7279;&#x5F81;&#x6563;&#x5217;</a>. Proc. ICML.</li>
+<li><a href="https://github.com/aappleby/smhasher" target="_blank">MurmurHash3</a>.</li>
+</ul>
+</blockquote>
+<h2 id="523-&#x6587;&#x672C;&#x7279;&#x5F81;&#x63D0;&#x53D6;">5.2.3. &#x6587;&#x672C;&#x7279;&#x5F81;&#x63D0;&#x53D6;</h2>
+<h3 id="5231-&#x8BDD;&#x8BED;&#x8868;&#x793A;">5.2.3.1. &#x8BDD;&#x8BED;&#x8868;&#x793A;</h3>
+<p>&#x6587;&#x672C;&#x5206;&#x6790;&#x662F;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x7684;&#x4E3B;&#x8981;&#x5E94;&#x7528;&#x9886;&#x57DF;&#x3002; &#x7136;&#x800C;&#xFF0C;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x7B26;&#x53F7;&#x6587;&#x5B57;&#x5E8F;&#x5217;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F20;&#x9012;&#x7ED9;&#x7B97;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5927;&#x591A;&#x6570;&#x8981;&#x6C42;&#x5177;&#x6709;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x6570;&#x5B57;&#x77E9;&#x9635;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5177;&#x6709;&#x53EF;&#x53D8;&#x957F;&#x5EA6;&#x7684;&#x539F;&#x59CB;&#x6587;&#x672C;&#x6587;&#x6863;&#x3002;</p>
+<p>&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;scikit-learn&#x63D0;&#x4F9B;&#x4E86;&#x4ECE;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x4E2D;&#x63D0;&#x53D6;&#x6570;&#x5B57;&#x7279;&#x5F81;&#x7684;&#x6700;&#x5E38;&#x89C1;&#x65B9;&#x6CD5;&#xFF0C;&#x5373;&#xFF1A;</p>
+<ul>
+<li><strong>&#x4EE4;&#x724C;&#x5316;&#xFF08;tokenizing&#xFF09;</strong> &#x5BF9;&#x6BCF;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x8BCD;&#x4EE4;&#x724C;&#x5206;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x5E76;&#x8D4B;&#x4E88;&#x6574;&#x6570;&#x5F62;&#x7684;id&#xFF0C;&#x4F8B;&#x5982;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x7A7A;&#x683C;&#x548C;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#x4F5C;&#x4E3A;&#x4EE4;&#x724C;&#x5206;&#x9694;&#x7B26;&#x3002;</li>
+<li><strong>&#x7EDF;&#x8BA1;&#xFF08;counting&#xFF09;</strong> &#x6BCF;&#x4E2A;&#x8BCD;&#x4EE4;&#x724C;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x3002;</li>
+<li><strong>&#x6807;&#x51C6;&#x5316;&#xFF08;normalizing&#xFF09;</strong> &#x5728;&#x5927;&#x591A;&#x6570;&#x7684;&#x6587;&#x6863; / &#x6837;&#x672C;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x91CD;&#x8981;&#x7684;&#x6B21;&#x4EE4;&#x724C;&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x7684;&#x6743;&#x91CD;&#x3002;&#x3002;</li>
+</ul>
+<p>&#x5728;&#x8BE5;&#x65B9;&#x6848;&#x4E2D;&#xFF0C;&#x7279;&#x5F81;&#x548C;&#x6837;&#x672C;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x6BCF;&#x4E2A;<strong>&#x5355;&#x72EC;&#x7684;&#x4EE4;&#x724C;&#x53D1;&#x751F;&#x9891;&#x7387;</strong>&#xFF08;&#x6807;&#x51C6;&#x5316;&#x6216;&#x4E0D;&#x6807;&#x51C6;&#x5316;&#xFF09;&#x88AB;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;<strong>&#x7279;&#x5F81;</strong>&#x3002;</li>
+<li>&#x7ED9;&#x5B9A;<strong>&#x6587;&#x6863;</strong>&#x4E2D;&#x6240;&#x6709;&#x7684;&#x4EE4;&#x724C;&#x9891;&#x7387;&#x5411;&#x91CF;&#x88AB;&#x770B;&#x505A;&#x4E00;&#x4E2A;&#x591A;&#x5143;sample<strong>&#x6837;&#x672C;</strong>&#x3002;</li>
+</ul>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x6587;&#x672C;&#x7684;&#x96C6;&#x5408;&#x53EF;&#x88AB;&#x8868;&#x793A;&#x4E3A;&#x77E9;&#x9635;&#x5F62;&#x5F0F;&#xFF0C;&#x6BCF;&#x884C;&#x5BF9;&#x5E94;&#x4E00;&#x6761;&#x6587;&#x672C;&#xFF0C;&#x6BCF;&#x5217;&#x5BF9;&#x5E94;&#x6BCF;&#x4E2A;&#x6587;&#x672C;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x8BCD;&#x4EE4;&#x724C;(&#x5982;&#x5355;&#x4E2A;&#x8BCD;)&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x79F0;<strong>&#x5411;&#x91CF;&#x5316;</strong>&#x662F;&#x5C06;&#x6587;&#x672C;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#x96C6;&#x5408;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7684;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x3002; &#x8FD9;&#x79CD;&#x7279;&#x6B8A;&#x601D;&#x60F3;&#xFF08;&#x4EE4;&#x724C;&#x5316;&#xFF0C;&#x8BA1;&#x6570;&#x548C;&#x5F52;&#x4E00;&#x5316;&#xFF09;&#x88AB;&#x79F0;&#x4E3A; <strong>Bag of Words</strong> &#x6216; &#x201C;Bag of n-grams&#x201D; &#x6A21;&#x578B;&#x3002; &#x6587;&#x6863;&#x7531;&#x5355;&#x8BCD;&#x51FA;&#x73B0;&#x6765;&#x63CF;&#x8FF0;&#xFF0C;&#x540C;&#x65F6;&#x5B8C;&#x5168;&#x5FFD;&#x7565;&#x6587;&#x6863;&#x4E2D;&#x5355;&#x8BCD;&#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;</p>
+<h3 id="5232-&#x7A00;&#x758F;">5.2.3.2. &#x7A00;&#x758F;</h3>
+<p>&#x7531;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x6587;&#x672C;&#x6587;&#x6863;&#x901A;&#x5E38;&#x53EA;&#x4F7F;&#x7528;&#x6587;&#x672C;&#x8BCD;&#x5411;&#x91CF;&#x5168;&#x96C6;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5C0F;&#x5B50;&#x96C6;&#xFF0C;&#x6240;&#x4EE5;&#x5F97;&#x5230;&#x7684;&#x77E9;&#x9635;&#x5C06;&#x5177;&#x6709;&#x8BB8;&#x591A;&#x7279;&#x5F81;&#x503C;&#x4E3A;&#x96F6;&#xFF08;&#x901A;&#x5E38;&#x5927;&#x4E8E;99&#xFF05;&#xFF09;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;10,000 &#x4E2A;&#x77ED;&#x6587;&#x672C;&#x6587;&#x6863;&#xFF08;&#x5982;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#xFF09;&#x7684;&#x96C6;&#x5408;&#x5C06;&#x4F7F;&#x7528;&#x603B;&#x5171;100,000&#x4E2A;&#x72EC;&#x7279;&#x8BCD;&#x7684;&#x5927;&#x5C0F;&#x7684;&#x8BCD;&#x6C47;&#xFF0C;&#x800C;&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x5C06;&#x5355;&#x72EC;&#x4F7F;&#x7528;100&#x5230;1000&#x4E2A;&#x72EC;&#x7279;&#x7684;&#x5355;&#x8BCD;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x5C06;&#x8FD9;&#x6837;&#x7684;&#x77E9;&#x9635;&#x5B58;&#x50A8;&#x5728;&#x5B58;&#x50A8;&#x5668;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x4EE3;&#x6570;&#x7684;&#x77E9;&#x9635;/&#x5411;&#x91CF;&#x8FD0;&#x7B97;&#xFF0C;&#x5B9E;&#x73B0;&#x901A;&#x5E38;&#x5C06;&#x4F7F;&#x7528;&#x8BF8;&#x5982; <code>scipy.sparse</code> &#x5305;&#x4E2D;&#x7684;&#x7A00;&#x758F;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="5233-&#x5E38;&#x89C1;-vectorizer-&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">5.2.3.3. &#x5E38;&#x89C1; Vectorizer &#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>CountVectorizer</code></a> &#x5728;&#x5355;&#x4E2A;&#x7C7B;&#x4E2D;&#x5B9E;&#x73B0;&#x4E86; tokenization &#xFF08;&#x8BCD;&#x8BED;&#x5207;&#x5206;&#xFF09;&#x548C; occurrence counting &#xFF08;&#x51FA;&#x73B0;&#x9891;&#x6570;&#x7EDF;&#x8BA1;&#xFF09;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> CountVectorizer
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x6709;&#x5F88;&#x591A;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x521D;&#x59CB;&#x503C;&#x662F;&#x76F8;&#x5F53;&#x5408;&#x7406;&#x7684;&#xFF08;&#x8BF7;&#x53C2;&#x9605; <a href="classes.html#text-feature-extraction-ref">&#x53C2;&#x8003;&#x6587;&#x6863;</a> &#x4E86;&#x89E3;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF09;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer = CountVectorizer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer                     
+CountVectorizer(analyzer=...<span class="hljs-string">&apos;word&apos;</span>, binary=<span class="hljs-keyword">False</span>, decode_error=...<span class="hljs-string">&apos;strict&apos;</span>,
+ dtype=&lt;... <span class="hljs-string">&apos;numpy.int64&apos;</span>&gt;, encoding=...<span class="hljs-string">&apos;utf-8&apos;</span>, input=...<span class="hljs-string">&apos;content&apos;</span>,
+ lowercase=<span class="hljs-keyword">True</span>, max_df=<span class="hljs-number">1.0</span>, max_features=<span class="hljs-keyword">None</span>, min_df=<span class="hljs-number">1</span>,
+ ngram_range=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), preprocessor=<span class="hljs-keyword">None</span>, stop_words=<span class="hljs-keyword">None</span>,
+ strip_accents=<span class="hljs-keyword">None</span>, token_pattern=...<span class="hljs-string">&apos;(?u)\\b\\w\\w+\\b&apos;</span>,
+ tokenizer=<span class="hljs-keyword">None</span>, vocabulary=<span class="hljs-keyword">None</span>)
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x7528;&#x5B83;&#x6765;&#x5BF9;&#x7B80;&#x7EA6;&#x7684;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;&#x8FDB;&#x884C; tokenize&#xFF08;&#x5206;&#x8BCD;&#xFF09;&#x548C;&#x7EDF;&#x8BA1;&#x5355;&#x8BCD;&#x51FA;&#x73B0;&#x9891;&#x6570;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>corpus = [
+<span class="hljs-meta">... </span>    <span class="hljs-string">&apos;This is the first document.&apos;</span>,
+<span class="hljs-meta">... </span>    <span class="hljs-string">&apos;This is the second second document.&apos;</span>,
+<span class="hljs-meta">... </span>    <span class="hljs-string">&apos;And the third one.&apos;</span>,
+<span class="hljs-meta">... </span>    <span class="hljs-string">&apos;Is this the first document?&apos;</span>,
+<span class="hljs-meta">... </span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>X = vectorizer.fit_transform(corpus)
+<span class="hljs-meta">&gt;&gt;&gt; </span>X                              
+&lt;<span class="hljs-number">4</span>x9 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.int64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">19</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x901A;&#x8FC7;&#x63D0;&#x53D6;&#x81F3;&#x5C11; 2 &#x4E2A;&#x5B57;&#x6BCD;&#x7684;&#x5355;&#x8BCD;&#x6765;&#x5BF9; string &#x8FDB;&#x884C;&#x5206;&#x8BCD;&#x3002;&#x505A;&#x8FD9;&#x4E00;&#x6B65;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x5730;&#x88AB;&#x8C03;&#x7528;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>analyze = vectorizer.build_analyzer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>analyze(<span class="hljs-string">&quot;This is a text document to analyze.&quot;</span>) == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos;this&apos;</span>, <span class="hljs-string">&apos;is&apos;</span>, <span class="hljs-string">&apos;text&apos;</span>, <span class="hljs-string">&apos;document&apos;</span>, <span class="hljs-string">&apos;to&apos;</span>, <span class="hljs-string">&apos;analyze&apos;</span>])
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>analyzer &#x5728;&#x62DF;&#x5408;&#x8FC7;&#x7A0B;&#x4E2D;&#x627E;&#x5230;&#x7684;&#x6BCF;&#x4E2A; term&#xFF08;&#x9879;&#xFF09;&#x90FD;&#x4F1A;&#x88AB;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x6574;&#x6570;&#x7D22;&#x5F15;&#xFF0C;&#x5BF9;&#x5E94;&#x4E8E; resulting matrix&#xFF08;&#x7ED3;&#x679C;&#x77E9;&#x9635;&#xFF09;&#x4E2D;&#x7684;&#x4E00;&#x5217;&#x3002;&#x6B64;&#x5217;&#x7684;&#x4E00;&#x4E9B;&#x8BF4;&#x660E;&#x53EF;&#x4EE5;&#x88AB;&#x68C0;&#x7D22;&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer.get_feature_names() == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos;and&apos;</span>, <span class="hljs-string">&apos;document&apos;</span>, <span class="hljs-string">&apos;first&apos;</span>, <span class="hljs-string">&apos;is&apos;</span>, <span class="hljs-string">&apos;one&apos;</span>,
+<span class="hljs-meta">... </span>     <span class="hljs-string">&apos;second&apos;</span>, <span class="hljs-string">&apos;the&apos;</span>, <span class="hljs-string">&apos;third&apos;</span>, <span class="hljs-string">&apos;this&apos;</span>])
+<span class="hljs-keyword">True</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>X.toarray()           
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]]...)
+</code></pre>
+<p>&#x4ECE; feature &#x540D;&#x79F0;&#x5230; column index&#xFF08;&#x5217;&#x7D22;&#x5F15;&#xFF09; &#x7684;&#x9006;&#x6620;&#x5C04;&#x5B58;&#x50A8;&#x5728; <code>vocabulary_</code> &#x5C5E;&#x6027;&#x4E2D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer.vocabulary_.get(<span class="hljs-string">&apos;document&apos;</span>)
+<span class="hljs-number">1</span>
+</code></pre>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x672A;&#x6765;&#x5BF9; transform &#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x5728; training corpus &#xFF08;&#x8BAD;&#x7EC3;&#x8BED;&#x6599;&#x5E93;&#xFF09;&#x4E2D;&#x6CA1;&#x6709;&#x770B;&#x5230;&#x7684;&#x5355;&#x8BCD;&#x5C06;&#x88AB;&#x5B8C;&#x5168;&#x5FFD;&#x7565;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer.transform([<span class="hljs-string">&apos;Something completely new.&apos;</span>]).toarray()
+<span class="hljs-meta">... </span>                          
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]]...)
+</code></pre>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x524D;&#x9762;&#x7684; corpus&#xFF08;&#x8BED;&#x6599;&#x5E93;&#xFF09;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x5177;&#x6709;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x8BCD;&#xFF0C;&#x56E0;&#x4E3A;&#x88AB;&#x7F16;&#x7801;&#x6210;&#x76F8;&#x540C;&#x7684;&#x5411;&#x91CF;&#x3002; &#x7279;&#x522B;&#x662F;&#x6211;&#x4EEC;&#x4E22;&#x5931;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x4E00;&#x4E2A;&#x7591;&#x95EE;&#x7684;&#x5F62;&#x5F0F;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x8BCD;&#x7EC4;&#x987A;&#x5E8F;&#x98A0;&#x5012;&#xFF0C;&#x9664;&#x4E86;&#x63D0;&#x53D6;&#x4E00;&#x5143;&#x6A21;&#x578B; 1-grams&#xFF08;&#x4E2A;&#x522B;&#x8BCD;&#xFF09;&#x4E4B;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x63D0;&#x53D6; 2-grams &#x7684;&#x5355;&#x8BCD;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>bigram_vectorizer = CountVectorizer(ngram_range=(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>),
+<span class="hljs-meta">... </span>                                    token_pattern=<span class="hljs-string">r&apos;\b\w+\b&apos;</span>, min_df=<span class="hljs-number">1</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>analyze = bigram_vectorizer.build_analyzer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>analyze(<span class="hljs-string">&apos;Bi-grams are cool!&apos;</span>) == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos;bi&apos;</span>, <span class="hljs-string">&apos;grams&apos;</span>, <span class="hljs-string">&apos;are&apos;</span>, <span class="hljs-string">&apos;cool&apos;</span>, <span class="hljs-string">&apos;bi grams&apos;</span>, <span class="hljs-string">&apos;grams are&apos;</span>, <span class="hljs-string">&apos;are cool&apos;</span>])
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>&#x7531; vectorizer&#xFF08;&#x5411;&#x91CF;&#x5316;&#x5668;&#xFF09;&#x63D0;&#x53D6;&#x7684; vocabulary&#xFF08;&#x8BCD;&#x6C47;&#xFF09;&#x56E0;&#x6B64;&#x4F1A;&#x53D8;&#x5F97;&#x66F4;&#x5927;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x5728;&#x5B9A;&#x4F4D;&#x6A21;&#x5F0F;&#x65F6;&#x6D88;&#x9664;&#x6B67;&#x4E49;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>X_2 = bigram_vectorizer.fit_transform(corpus).toarray()
+<span class="hljs-meta">&gt;&gt;&gt; </span>X_2
+<span class="hljs-meta">... </span>                          
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]]...)
+</code></pre>
+<p>&#x7279;&#x522B;&#x662F; &#x201C;Is this&#x201D; &#x7684;&#x7591;&#x95EE;&#x5F62;&#x5F0F;&#x53EA;&#x51FA;&#x73B0;&#x5728;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x4E2D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>feature_index = bigram_vectorizer.vocabulary_.get(<span class="hljs-string">&apos;is this&apos;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>X_2[:, feature_index]     
+array([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]...)
+</code></pre>
+<h4 id="52331-&#x4F7F;&#x7528;&#x505C;&#x6B62;&#x8BCD;">5.2.3.3.1 &#x4F7F;&#x7528;&#x505C;&#x6B62;&#x8BCD;</h4>
+<p>&#x505C;&#x6B62;&#x8BCD;&#x662F;&#x50CF;&#x201C;and&#x201D;&#x3001;&#x201C;the&#x201D;&#x3001;&#x201C;him&#x201D;&#x8FD9;&#x6837;&#x7684;&#x8BCD;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BCD;&#x5728;&#x8868;&#x793A;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x65F6;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6CA1;&#x6709;&#x4FE1;&#x606F;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5220;&#x9664;&#x5B83;&#x4EEC;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x5B83;&#x4EEC;&#x88AB;&#x7406;&#x89E3;&#x4E3A;&#x9884;&#x6D4B;&#x7684;&#x4FE1;&#x53F7;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6709;&#x65F6;&#xFF0C;&#x7C7B;&#x4F3C;&#x7684;&#x8BCD;&#x5BF9;&#x9884;&#x6D4B;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x5BF9;&#x5199;&#x4F5C;&#x98CE;&#x683C;&#x6216;&#x6027;&#x683C;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x65F6;&#x3002;</p>
+<p>&#x5728;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;&#x201C;&#x82F1;w&#x6587;&#x201D;&#x505C;&#x6B62;&#x8BCD;&#x5217;&#x8868;&#x4E2D;&#x6709;&#x51E0;&#x4E2A;&#x5DF2;&#x77E5;&#x7684;&#x95EE;&#x9898;&#x3002;&#x8BE6;&#x60C5;&#x53C2;&#x89C1;[NQY18]&#x3002;</p>
+<p>&#x8BF7;&#x614E;&#x91CD;&#x9009;&#x62E9;&#x505C;&#x6B62;&#x8BCD;&#x5217;&#x8868;&#x3002;&#x6D41;&#x884C;&#x7684;&#x505C;&#x6B62;&#x8BCD;&#x5217;&#x8868;&#x53EF;&#x80FD;&#x5305;&#x62EC;&#x5BF9;&#x67D0;&#x4E9B;&#x4EFB;&#x52A1;(&#x5982;&#x8BA1;&#x7B97;&#x673A;)&#x5177;&#x6709;&#x9AD8;&#x5EA6;&#x4FE1;&#x606F;&#x6027;&#x7684;&#x8BCD;&#x3002;</p>
+<p>&#x60A8;&#x8FD8;&#x5E94;&#x8BE5;&#x786E;&#x4FDD;&#x505C;&#x6B62;&#x5355;&#x8BCD;&#x5217;&#x8868;&#x5177;&#x6709;&#x4E0E;&#x77E2;&#x91CF;&#x5316;&#x5668;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x76F8;&#x540C;&#x7684;&#x9884;&#x5904;&#x7406;&#x548C;&#x6807;&#x8BB0;&#x3002;&#x5355;&#x8BCD;&quot;we&#x2019;ve&quot;&#x88AB;<code>CountVectorizer</code>&#x7684;&#x9ED8;&#x8BA4;&#x8BB0;&#x53F7;&#x5206;&#x914D;&#x5668;&#x5206;&#x5272;&#x6210;&quot;we&quot;&#x548C;&quot;ve&quot;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&quot;we&#x2019;ve&quot;&#x5728;&#x505C;&#x6B62;&#x8BCD;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x4F46;&quot;ve&quot;&#x4E0D;&#x5728;&#xFF0C;&quot;ve&quot;&#x4F1A;&#x88AB;&#x4FDD;&#x7559;&#x5728;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x6587;&#x672C;&#x4E2D;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x77E2;&#x91CF;&#x5316;&#x5668;&#x5C06;&#x5C1D;&#x8BD5;&#x8BC6;&#x522B;&#x548C;&#x8B66;&#x544A;&#x67D0;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x4E0D;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+<blockquote>
+<p><strong>&#x53C2;&#x8003;&#x8D44;&#x6599;</strong></p>
+<ul>
+<li>[NQY18]    J. Nothman, H. Qin and R. Yurchak (2018). &#x201C;<a href="https://aclweb.org/anthology/W18-2502" target="_blank">Stop Word Lists in Free Open-source Software Packages</a>&#x201D;. In Proc. Workshop for NLP Open Source Software.</li>
+</ul>
+</blockquote>
+<h3 id="5234-tf&#x2013;idf-&#x9879;&#x52A0;&#x6743;">5.2.3.4. Tf&#x2013;idf &#x9879;&#x52A0;&#x6743;</h3>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x5927;&#x7684;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#xFF0C;&#x4E00;&#x4E9B;&#x5355;&#x8BCD;&#x5C06;&#x51FA;&#x73B0;&#x5F88;&#x591A;&#x6B21;&#xFF08;&#x4F8B;&#x5982; &#x201C;the&#x201D;, &#x201C;a&#x201D;, &#x201C;is&#x201D; &#x662F;&#x82F1;&#x6587;&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x5BF9;&#x6587;&#x6863;&#x7684;&#x5B9E;&#x9645;&#x5185;&#x5BB9;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x6709;&#x610F;&#x4E49;&#x7684;&#x4FE1;&#x606F;&#x3002; &#x5982;&#x679C;&#x6211;&#x4EEC;&#x5C06;&#x76F4;&#x63A5;&#x8BA1;&#x6570;&#x6570;&#x636E;&#x76F4;&#x63A5;&#x63D0;&#x4F9B;&#x7ED9;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x9891;&#x7E41;&#x8BCD;&#x7EC4;&#x4F1A;&#x63A9;&#x76D6;&#x4F4F;&#x90A3;&#x4E9B;&#x6211;&#x4EEC;&#x5173;&#x6CE8;&#x4F46;&#x5F88;&#x5C11;&#x51FA;&#x73B0;&#x7684;&#x8BCD;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x7279;&#x5F81;&#x6743;&#x91CD;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8F6C;&#x5316;&#x4E3A;&#x9002;&#x5408;&#x5206;&#x7C7B;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x6D6E;&#x70B9;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528; tf-idf &#x53D8;&#x6362;&#x662F;&#x975E;&#x5E38;&#x5E38;&#x89C1;&#x7684;&#x3002;</p>
+<p>Tf&#x8868;&#x793A;<strong>&#x672F;&#x8BED;&#x9891;&#x7387;</strong>&#xFF0C;&#x800C; tf-idf &#x8868;&#x793A;&#x672F;&#x8BED;&#x9891;&#x7387;&#x4E58;&#x4EE5;<strong>&#x8F6C;&#x5236;&#x6587;&#x6863;&#x9891;&#x7387;</strong>: <img src="img/4d831898e5c564ee2d4df9fa647a97ce.jpg" alt="\text{tf-idf(t,d)}=\text{tf(t,d)} \times \text{idf(t)}">.</p>
+<p>&#x4F7F;&#x7528; <code>TfidfTransformer</code> &#x7684;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#xFF0C;<code>TfidfTransformer(norm=&apos;l2&apos;, use_idf=True, smooth_idf=True, sublinear_tf=False)</code> &#x672F;&#x8BED;&#x9891;&#x7387;&#xFF0C;&#x4E00;&#x4E2A;&#x672F;&#x8BED;&#x5728;&#x7ED9;&#x5B9A;&#x6587;&#x6863;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#x4E58;&#x4EE5; idf &#x7EC4;&#x4EF6;&#xFF0C; &#x8BA1;&#x7B97;&#x4E3A;</p>
+<p><img src="img/4bcd849c1a2c10ab9857df1dc223e175.jpg" alt="\text{idf}(t) = log{\frac{1 + n_d}{1+\text{df}(d,t)}} + 1">,</p>
+<p>&#x5176;&#x4E2D; <img src="img/6d8a1d709ef804f4629126d6e1c449f1.jpg" alt="n_d"> &#x662F;&#x6587;&#x6863;&#x7684;&#x603B;&#x6570;&#xFF0C;<img src="img/ede6a26a443c24b8cea943a4a6f144f0.jpg" alt="\text{df}(d,t)"> &#x662F;&#x5305;&#x542B;&#x672F;&#x8BED; <img src="img/12b2c1da1f9041738fa7153efc651372.jpg" alt="t"> &#x7684;&#x6587;&#x6863;&#x6570;&#x3002; &#x7136;&#x540E;&#xFF0C;&#x6240;&#x5F97;&#x5230;&#x7684; tf-idf &#x5411;&#x91CF;&#x901A;&#x8FC7;&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x8303;&#x6570;&#x5F52;&#x4E00;&#x5316;&#xFF1A;</p>
+<p><img src="img/3a378bb516408c0bd771667be478b787.jpg" alt="v_{norm} = \frac{v}{||v||_2} = \frac{v}{\sqrt{v{_1}^2 + v{_2}^2 + \dots + v{_n}^2}}">.</p>
+<p>&#x5B83;&#x6E90;&#x4E8E;&#x4E00;&#x4E2A;&#x8BCD;&#x6743;&#x91CD;&#x7684;&#x4FE1;&#x606F;&#x68C0;&#x7D22;&#x65B9;&#x5F0F;(&#x4F5C;&#x4E3A;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x7ED3;&#x679C;&#x7684;&#x8BC4;&#x7EA7;&#x51FD;&#x6570;)&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x5728;&#x6587;&#x6863;&#x5206;&#x7C7B;&#x548C;&#x805A;&#x7C7B;&#x4E2D;&#x8868;&#x73B0;&#x826F;&#x597D;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x90E8;&#x5206;&#x5305;&#x542B;&#x8FDB;&#x4E00;&#x6B65;&#x8BF4;&#x660E;&#x548C;&#x793A;&#x4F8B;&#xFF0C;&#x8BF4;&#x660E;&#x5982;&#x4F55;&#x7CBE;&#x786E;&#x8BA1;&#x7B97; tf-idfs &#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5728; scikit-learn &#x4E2D;&#x8BA1;&#x7B97; tf-idfs&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer" title="sklearn.feature_extraction.text.TfidfTransformer" target="_blank"><code>TfidfTransformer</code></a> &#x5E76; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#sklearn.feature_extraction.text.TfidfVectorizer" title="sklearn.feature_extraction.text.TfidfVectorizer" target="_blank"><code>TfidfVectorizer</code></a> &#x4E0E;&#x5B9A;&#x4E49; idf &#x7684;&#x6807;&#x51C6;&#x6559;&#x79D1;&#x4E66;&#x7B26;&#x53F7;&#x7565;&#x6709;&#x4E0D;&#x540C;</p>
+<p><img src="img/f19ea7e3ca675413d6ee0f2faff14b75.jpg" alt="\text{idf}(t) = log{\frac{n_d}{1+\text{df}(d,t)}}."></p>
+<p>&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer" title="sklearn.feature_extraction.text.TfidfTransformer" target="_blank"><code>TfidfTransformer</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#sklearn.feature_extraction.text.TfidfVectorizer" title="sklearn.feature_extraction.text.TfidfVectorizer" target="_blank"><code>TfidfVectorizer</code></a> &#x4E2D; <code>smooth_idf=False</code>&#xFF0C;&#x5C06; &#x201C;1&#x201D; &#x8BA1;&#x6570;&#x6DFB;&#x52A0;&#x5230; idf &#x800C;&#x4E0D;&#x662F; idf &#x7684;&#x5206;&#x6BCD;:</p>
+<p><img src="img/3b87b19c6aee2b7c40b6ede968a45c07.jpg" alt="\text{idf}(t) = log{\frac{n_d}{\text{df}(d,t)}} + 1"></p>
+<p>&#x8BE5;&#x5F52;&#x4E00;&#x5316;&#x7531;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer" title="sklearn.feature_extraction.text.TfidfTransformer" target="_blank"><code>TfidfTransformer</code></a> &#x5B9E;&#x73B0;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> TfidfTransformer
+<span class="hljs-meta">&gt;&gt;&gt; </span>transformer = TfidfTransformer(smooth_idf=<span class="hljs-keyword">False</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>transformer   
+TfidfTransformer(norm=...<span class="hljs-string">&apos;l2&apos;</span>, smooth_idf=<span class="hljs-keyword">False</span>, sublinear_tf=<span class="hljs-keyword">False</span>,
+ use_idf=<span class="hljs-keyword">True</span>)
+</code></pre>
+<p>&#x6709;&#x5173;&#x6240;&#x6709;&#x53C2;&#x6570;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="classes.html#text-feature-extraction-ref">&#x53C2;&#x8003;&#x6587;&#x6863;</a>&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x4EE5;&#x4E0B;&#x65B9;&#x7684;&#x8BCD;&#x9891;&#x4E3A;&#x4F8B;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x6B21;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x95F4;&#x90FD;&#x662F;100&#xFF05;&#x51FA;&#x73B0;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x662F;&#x5F88;&#x6709;&#x91CD;&#x8981;&#x3002;&#x53E6;&#x5916;&#x4E24;&#x4E2A;&#x7279;&#x5F81;&#x53EA;&#x5360;&#x4E0D;&#x5230;50&#xFF05;&#x7684;&#x6BD4;&#x4F8B;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x80FD;&#x66F4;&#x5177;&#x6709;&#x4EE3;&#x8868;&#x6027;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>counts = [[<span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+<span class="hljs-meta">... </span>          [<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+<span class="hljs-meta">... </span>          [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+<span class="hljs-meta">... </span>          [<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+<span class="hljs-meta">... </span>          [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>],
+<span class="hljs-meta">... </span>          [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>]]
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>tfidf = transformer.fit_transform(counts)
+<span class="hljs-meta">&gt;&gt;&gt; </span>tfidf                         
+&lt;<span class="hljs-number">6</span>x3 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.float64<span class="hljs-string">&apos;&gt;&apos;</span>
+    <span class="hljs-keyword">with</span> <span class="hljs-number">9</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>tfidf.toarray()                        
+array([[<span class="hljs-number">0.81940995</span>, <span class="hljs-number">0.</span>        , <span class="hljs-number">0.57320793</span>],
+       [<span class="hljs-number">1.</span>        , <span class="hljs-number">0.</span>        , <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">1.</span>        , <span class="hljs-number">0.</span>        , <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">1.</span>        , <span class="hljs-number">0.</span>        , <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">0.47330339</span>, <span class="hljs-number">0.88089948</span>, <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">0.58149261</span>, <span class="hljs-number">0.</span>        , <span class="hljs-number">0.81355169</span>]])
+</code></pre>
+<p>&#x6BCF;&#x884C;&#x90FD;&#x88AB;&#x6B63;&#x5219;&#x5316;&#xFF0C;&#x4F7F;&#x5176;&#x9002;&#x5E94;&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x6807;&#x51C6;:</p>
+<p><img src="img/3a378bb516408c0bd771667be478b787.jpg" alt="v_{norm} = \frac{v}{||v||_2} = \frac{v}{\sqrt{v{_1}^2 + v{_2}^2 + \dots + v{_n}^2}}"></p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;<code>&#x8BA1;&#x6570;</code>&#x6570;&#x7EC4;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x9879;&#x7684; tf-idf &#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<p><img src="img/cd0c1a5b7ac7d76f9fe724cc7a723374.jpg" alt="n_{d, {\text{term1}}} = 6"></p>
+<p><img src="img/15a03cac7d4ab66fdf23e702ee75da2a.jpg" alt="\text{df}(d, t)_{\text{term1}} = 6"></p>
+<p><img src="img/b3ca25c4cc9cb42878f6fc39525b7446.jpg" alt="\text{idf}(d, t)_{\text{term1}} = log \frac{n_d}{\text{df}(d, t)} + 1 = log(1)+1 = 1"></p>
+<p><img src="img/dde55f7a409ac46b5694e689c4b151f5.jpg" alt="\text{tf-idf}_{\text{term1}} = \text{tf} \times \text{idf} = 3 \times 1 = 3"></p>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5BF9;&#x6587;&#x6863;&#x4E2D;&#x5269;&#x4E0B;&#x7684;2&#x4E2A;&#x672F;&#x8BED;&#x91CD;&#x590D;&#x8FD9;&#x4E2A;&#x8BA1;&#x7B97;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x5230;:</p>
+<p><img src="img/10026a0d2a4dcca9387e58932c14f0e7.jpg" alt="\text{tf-idf}_{\text{term2}} = 0 \times log(6/1)+1 = 0"></p>
+<p><img src="img/9b85a5f7098321120773184b4673cbeb.jpg" alt="\text{tf-idf}_{\text{term3}} = 1 \times log(6/2)+1 \approx 2.0986"></p>
+<p>&#x548C;&#x539F;&#x59CB; tf-idfs &#x7684;&#x5411;&#x91CF;:</p>
+<p><img src="img/fd785ede0569b8be0bea11bc8eecd583.jpg" alt="\text{tf-idf}_raw = [3, 0, 2.0986]."></p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5E94;&#x7528;&#x6B27;&#x51E0;&#x91CC;&#x5FB7;&#xFF08;L2&#xFF09;&#x89C4;&#x8303;&#xFF0C;&#x6211;&#x4EEC;&#x83B7;&#x5F97;&#x6587;&#x6863;1&#x7684;&#x4EE5;&#x4E0B; tf-idfs:</p>
+<p><img src="img/715cb9aaddb7a5ea10028eb49f509f61.jpg" alt="\frac{[3, 0, 2.0986]}{\sqrt{\big(3^2 + 0^2 + 2.0986^2\big)}} = [ 0.819,  0,  0.573]."></p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x9ED8;&#x8BA4;&#x53C2;&#x6570; <code>smooth_idf=True</code> &#x5C06; &#x201C;1&#x201D; &#x6DFB;&#x52A0;&#x5230;&#x5206;&#x5B50;&#x548C;&#x5206;&#x6BCD;&#xFF0C;&#x5C31;&#x597D;&#x50CF;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x6587;&#x6863;&#x88AB;&#x770B;&#x5230;&#x4E00;&#x6837;&#x5305;&#x542B;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x672F;&#x8BED;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x96F6;&#x5206;&#x5272;:</p>
+<p><img src="img/4bcd849c1a2c10ab9857df1dc223e175.jpg" alt="\text{idf}(t) = log{\frac{1 + n_d}{1+\text{df}(d,t)}} + 1"></p>
+<p>&#x4F7F;&#x7528;&#x6B64;&#x4FEE;&#x6539;&#xFF0C;&#x6587;&#x6863;1&#x4E2D;&#x7B2C;&#x4E09;&#x9879;&#x7684; tf-idf &#x66F4;&#x6539;&#x4E3A; 1.8473:</p>
+<p><img src="img/06731dd14500ea710a28370843818539.jpg" alt="\text{tf-idf}_{\text{term3}} = 1 \times log(7/3)+1 \approx 1.8473"></p>
+<p>&#x800C; L2 &#x6807;&#x51C6;&#x5316;&#x7684; tf-idf &#x53D8;&#x4E3A;</p>
+<p><img src="img/1ddb602277c74f97c01c61af96da4a87.jpg" alt="\frac{[3, 0, 1.8473]}{\sqrt{\big(3^2 + 0^2 + 1.8473^2\big)}} = [0.8515, 0, 0.5243]">:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>transformer = TfidfTransformer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>transformer.fit_transform(counts).toarray()
+array([[<span class="hljs-number">0.85151335</span>, <span class="hljs-number">0.</span>        , <span class="hljs-number">0.52433293</span>],
+       [<span class="hljs-number">1.</span>        , <span class="hljs-number">0.</span>        , <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">1.</span>        , <span class="hljs-number">0.</span>        , <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">1.</span>        , <span class="hljs-number">0.</span>        , <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">0.55422893</span>, <span class="hljs-number">0.83236428</span>, <span class="hljs-number">0.</span>        ],
+       [<span class="hljs-number">0.63035731</span>, <span class="hljs-number">0.</span>        , <span class="hljs-number">0.77630514</span>]])
+</code></pre>
+<p>&#x901A;&#x8FC7; <code>&#x62DF;&#x5408;</code> &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x8BA1;&#x7B97;&#x7684;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x7684;&#x6743;&#x91CD;&#x5B58;&#x50A8;&#x5728;&#x6A21;&#x578B;&#x5C5E;&#x6027;&#x4E2D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>transformer.idf_                       
+array([<span class="hljs-number">1.</span> ..., <span class="hljs-number">2.25</span>..., <span class="hljs-number">1.84</span>...])
+</code></pre>
+<p>&#x7531;&#x4E8E; tf-idf &#x7ECF;&#x5E38;&#x7528;&#x4E8E;&#x6587;&#x672C;&#x7279;&#x5F81;&#xFF0C;&#x6240;&#x4EE5;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#sklearn.feature_extraction.text.TfidfVectorizer" title="sklearn.feature_extraction.text.TfidfVectorizer" target="_blank"><code>TfidfVectorizer</code></a> &#xFF0C;&#x5B83;&#x5C06; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>CountVectorizer</code></a> &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer" title="sklearn.feature_extraction.text.TfidfTransformer" target="_blank"><code>TfidfTransformer</code></a> &#x7684;&#x6240;&#x6709;&#x9009;&#x9879;&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#x6A21;&#x578B;&#x4E2D;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> TfidfVectorizer
+<span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer = TfidfVectorizer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer.fit_transform(corpus)
+<span class="hljs-meta">... </span>                               
+&lt;<span class="hljs-number">4</span>x9 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.float64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">19</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+</code></pre>
+<p>&#x867D;&#x7136;tf-idf&#x6807;&#x51C6;&#x5316;&#x901A;&#x5E38;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x4E8C;&#x5143;&#x53D8;&#x91CF;&#x663E;&#x793A;&#x4F1A;&#x63D0;&#x4F9B;&#x66F4;&#x597D;&#x7684;&#x7279;&#x5F81;&#x3002; &#x8FD9;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>CountVectorizer</code></a> &#x7684; <code>&#x4E8C;&#x8FDB;&#x5236;</code> &#x53C2;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x3002; &#x7279;&#x522B;&#x5730;&#xFF0C;&#x4E00;&#x4E9B;&#x4F30;&#x8BA1;&#x5668;&#xFF0C;&#x8BF8;&#x5982; <a href="naive_bayes.html#bernoulli-naive-bayes">&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</a> &#x663E;&#x5F0F;&#x7684;&#x4F7F;&#x7528;&#x79BB;&#x6563;&#x7684;&#x5E03;&#x5C14;&#x968F;&#x673A;&#x53D8;&#x91CF;&#x3002; &#x800C;&#x4E14;&#xFF0C;&#x975E;&#x5E38;&#x77ED;&#x7684;&#x6587;&#x672C;&#x5F88;&#x53EF;&#x80FD;&#x5F71;&#x54CD; tf-idf &#x503C;&#xFF0C;&#x800C;&#x4E8C;&#x8FDB;&#x5236;&#x51FA;&#x73B0;&#x4FE1;&#x606F;&#x66F4;&#x7A33;&#x5B9A;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8C03;&#x6574;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x53C2;&#x6570;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x7684;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#xFF0C;&#x4F8B;&#x5982;&#x901A;&#x8FC7;&#x5C06;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x5668;&#x4E0E;&#x5206;&#x7C7B;&#x5668;&#x8FDB;&#x884C;&#x6D41;&#x6C34;&#x7EBF;&#x5316;:</p>
+<blockquote>
+<ul>
+<li>&#x7528;&#x4E8E;&#x6587;&#x672C;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x548C;&#x8BC4;&#x4F30;&#x7684;&#x6837;&#x672C;&#x7BA1;&#x9053; <a href="https://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html#sphx-glr-auto-examples-model-selection-grid-search-text-feature-extraction-py" target="_blank">Sample pipeline for text feature extraction and evaluation</a></li>
+</ul>
+</blockquote>
+<h3 id="5235-&#x89E3;&#x7801;&#x6587;&#x672C;&#x6587;&#x4EF6;">5.2.3.5. &#x89E3;&#x7801;&#x6587;&#x672C;&#x6587;&#x4EF6;</h3>
+<p>&#x6587;&#x672C;&#x7531;&#x5B57;&#x7B26;&#x7EC4;&#x6210;&#xFF0C;&#x4F46;&#x6587;&#x4EF6;&#x7531;&#x5B57;&#x8282;&#x7EC4;&#x6210;&#x3002;&#x5B57;&#x8282;&#x8F6C;&#x5316;&#x6210;&#x5B57;&#x7B26;&#x4F9D;&#x7167;&#x4E00;&#x5B9A;&#x7684;&#x7F16;&#x7801;(encoding)&#x65B9;&#x5F0F;&#x3002; &#x4E3A;&#x4E86;&#x5728;Python&#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x6587;&#x672C;&#x6587;&#x6863;&#xFF0C;&#x8FD9;&#x4E9B;&#x5B57;&#x8282;&#x5FC5;&#x987B;&#x88AB; <em>&#x89E3;&#x7801;</em> &#x4E3A; Unicode &#x7684;&#x5B57;&#x7B26;&#x96C6;&#x3002; &#x5E38;&#x7528;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x6709; ASCII&#xFF0C;Latin-1&#xFF08;&#x897F;&#x6B27;&#xFF09;&#xFF0C;KOI8-R&#xFF08;&#x4FC4;&#x8BED;&#xFF09;&#x548C;&#x901A;&#x7528;&#x7F16;&#x7801; UTF-8 &#x548C; UTF-16&#x3002;&#x8FD8;&#x6709;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x7684;&#x7F16;&#x7801;&#x5B58;&#x5728;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong></p>
+<p>&#x7F16;&#x7801;&#x4E5F;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A; &#x2018;&#x5B57;&#x7B26;&#x96C6;&#x2019;, &#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x672F;&#x8BED;&#x4E0D;&#x592A;&#x51C6;&#x786E;: &#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x96C6;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7F16;&#x7801;&#x3002;</p>
+</blockquote>
+<p>scikit-learn &#x4E2D;&#x7684;&#x6587;&#x672C;&#x63D0;&#x53D6;&#x5668;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x89E3;&#x7801;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C; &#x4F46;&#x53EA;&#x6709;&#x5F53;&#x60A8;&#x544A;&#x8BC9;&#x4ED6;&#x4EEC;&#x6587;&#x4EF6;&#x7684;&#x7F16;&#x7801;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x884C;&#xFF0C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>CountVectorizer</code></a> &#x624D;&#x9700;&#x8981;&#x4E00;&#x4E2A; <code>encoding</code> &#x53C2;&#x6570;&#x3002; &#x5BF9;&#x4E8E;&#x73B0;&#x4EE3;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x6B63;&#x786E;&#x7684;&#x7F16;&#x7801;&#x53EF;&#x80FD;&#x662F; UTF-8&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4E5F;&#x662F;&#x9ED8;&#x8BA4;&#x89E3;&#x7801;&#x65B9;&#x5F0F; (<code>encoding=&quot;utf-8&quot;</code>).</p>
+<p>&#x5982;&#x679C;&#x6B63;&#x5728;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x672C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;UTF-8&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x5219;&#x4F1A;&#x5F97;&#x5230; <code>UnicodeDecodeError</code>. &#x77E2;&#x91CF;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x5B9A; <code>decode_error</code> &#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A; <code>&quot;ignore&quot;</code> &#x6216; <code>&quot;replace&quot;</code> &#x6765;&#x907F;&#x514D;&#x629B;&#x51FA;&#x89E3;&#x7801;&#x9519;&#x8BEF;&#x3002; &#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;Python&#x51FD;&#x6570; <code>bytes.decode</code> &#x7684;&#x6587;&#x6863;&#xFF08;&#x5728;Python&#x63D0;&#x793A;&#x7B26;&#x4E0B;&#x952E;&#x5165; <code>help(bytes.decode)</code> &#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60A8;&#x5728;&#x89E3;&#x7801;&#x6587;&#x672C;&#x65F6;&#x9047;&#x5230;&#x95EE;&#x9898;&#xFF0C;&#x8BF7;&#x5C1D;&#x8BD5;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;:</p>
+<ul>
+<li>&#x4E86;&#x89E3;&#x6587;&#x672C;&#x7684;&#x5B9E;&#x9645;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x3002;&#x8BE5;&#x6587;&#x4EF6;&#x53EF;&#x80FD;&#x5E26;&#x6709;&#x6807;&#x9898;&#x6216; README&#xFF0C;&#x544A;&#x8BC9;&#x60A8;&#x7F16;&#x7801;&#xFF0C;&#x6216;&#x8005;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E9B;&#x6807;&#x51C6;&#x7F16;&#x7801;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6587;&#x672C;&#x7684;&#x6765;&#x6E90;&#x6765;&#x63A8;&#x65AD;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x3002;</li>
+<li>&#x60A8;&#x53EF;&#x80FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; UNIX &#x547D;&#x4EE4; <code>file</code> &#x627E;&#x51FA;&#x5B83;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x7F16;&#x7801;&#x3002; Python <code>chardet</code> &#x6A21;&#x5757;&#x9644;&#x5E26;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>chardetect.py</code> &#x7684;&#x811A;&#x672C;&#xFF0C;&#x5B83;&#x4F1A;&#x731C;&#x6D4B;&#x5177;&#x4F53;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x5C3D;&#x7BA1;&#x4F60;&#x4E0D;&#x80FD;&#x4F9D;&#x9760;&#x5B83;&#x7684;&#x731C;&#x6D4B;&#x662F;&#x6B63;&#x786E;&#x7684;&#x3002;</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5; UTF-8 &#x5E76;&#x5FFD;&#x7565;&#x9519;&#x8BEF;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>bytes.decode(errors=&apos;replace&apos;)</code> &#x5BF9;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x4E32;&#x8FDB;&#x884C;&#x89E3;&#x7801;&#xFF0C;&#x7528;&#x65E0;&#x610F;&#x4E49;&#x5B57;&#x7B26;&#x66FF;&#x6362;&#x6240;&#x6709;&#x89E3;&#x7801;&#x9519;&#x8BEF;&#xFF0C;&#x6216;&#x5728;&#x5411;&#x91CF;&#x5316;&#x5668;&#x4E2D;&#x8BBE;&#x7F6E; <code>decode_error=&apos;replace&apos;</code>. &#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x635F;&#x574F;&#x60A8;&#x7684;&#x529F;&#x80FD;&#x7684;&#x6709;&#x7528;&#x6027;&#x3002;</li>
+<li>&#x771F;&#x5B9E;&#x6587;&#x672C;&#x53EF;&#x80FD;&#x6765;&#x81EA;&#x5404;&#x79CD;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7F16;&#x7801;&#x7684;&#x6765;&#x6E90;&#xFF0C;&#x6216;&#x8005;&#x751A;&#x81F3;&#x4EE5;&#x4E0E;&#x7F16;&#x7801;&#x7684;&#x7F16;&#x7801;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x7801;&#x8FDB;&#x884C;&#x7C97;&#x7565;&#x89E3;&#x7801;&#x3002;&#x8FD9;&#x5728;&#x4ECE; Web &#x68C0;&#x7D22;&#x7684;&#x6587;&#x672C;&#x4E2D;&#x662F;&#x5E38;&#x89C1;&#x7684;&#x3002;Python &#x5305; <a href="https://github.com/LuminosoInsight/python-ftfy" target="_blank">ftfy</a> &#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x6392;&#x5E8F;&#x4E00;&#x4E9B;&#x89E3;&#x7801;&#x9519;&#x8BEF;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x60A8;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x5C06;&#x672A;&#x77E5;&#x6587;&#x672C;&#x89E3;&#x7801;&#x4E3A; <code>latin-1</code>&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528; <code>ftfy</code> &#x4FEE;&#x590D;&#x9519;&#x8BEF;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x6587;&#x672C;&#x7684;&#x7F16;&#x7801;&#x7684;&#x6DF7;&#x5408;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5F88;&#x96BE;&#x6574;&#x7406;&#x5206;&#x7C7B;&#xFF08;20&#x4E2A;&#x65B0;&#x95FB;&#x7EC4;&#x6570;&#x636E;&#x96C6;&#x7684;&#x60C5;&#x51B5;&#xFF09;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x4EEC;&#x56DE;&#x5230;&#x7B80;&#x5355;&#x7684;&#x5355;&#x5B57;&#x8282;&#x7F16;&#x7801;&#xFF0C;&#x5982; <code>latin-1</code>&#x3002;&#x67D0;&#x4E9B;&#x6587;&#x672C;&#x53EF;&#x80FD;&#x663E;&#x793A;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x4F46;&#x81F3;&#x5C11;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x5C06;&#x59CB;&#x7EC8;&#x4EE3;&#x8868;&#x76F8;&#x540C;&#x7684;&#x529F;&#x80FD;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x6BB5;&#x4F7F;&#x7528; <code>chardet</code> &#xFF08;&#x672A;&#x9644;&#x5E26; scikit-learn&#xFF0C;&#x5FC5;&#x987B;&#x5355;&#x72EC;&#x5B89;&#x88C5;&#xFF09;&#x6765;&#x8BA1;&#x7B97;&#x51FA;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5B83;&#x5C06;&#x6587;&#x672C;&#x5411;&#x91CF;&#x5316;&#x5E76;&#x6253;&#x5370;&#x5B66;&#x4E60;&#x7684;&#x8BCD;&#x6C47;&#xFF08;&#x7279;&#x5F81;&#xFF09;&#x3002;&#x8F93;&#x51FA;&#x5728;&#x4E0B;&#x65B9;&#x7ED9;&#x51FA;&#x3002;</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> chardet    
+<span class="hljs-meta">&gt;&gt;&gt; </span>text1 = <span class="hljs-string">b&quot;Sei mir gegr\xc3\xbc\xc3\x9ft mein Sauerkraut&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text2 = <span class="hljs-string">b&quot;holdselig sind deine Ger\xfcche&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text3 = <span class="hljs-string">b&quot;\xff\xfeA\x00u\x00f\x00 \x00F\x00l\x00\xfc\x00g\x00e\x00l\x00n\x00 \x00d\x00e\x00s\x00 \x00G\x00e\x00s\x00a\x00n\x00g\x00e\x00s\x00,\x00 \x00H\x00e\x00r\x00z\x00l\x00i\x00e\x00b\x00c\x00h\x00e\x00n\x00,\x00 \x00t\x00r\x00a\x00g\x00 \x00i\x00c\x00h\x00 \x00d\x00i\x00c\x00h\x00 \x00f\x00o\x00r\x00t\x00&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>decoded = [x.decode(chardet.detect(x)[<span class="hljs-string">&apos;encoding&apos;</span>])
+<span class="hljs-meta">... </span>           <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> (text1, text2, text3)]        
+<span class="hljs-meta">&gt;&gt;&gt; </span>v = CountVectorizer().fit(decoded).vocabulary_    
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> term <span class="hljs-keyword">in</span> v: print(v)
+</code></pre>
+<p>&#xFF08;&#x6839;&#x636E; <code>chardet</code> &#x7684;&#x7248;&#x672C;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x9519;&#x8BEF;&#x7684;&#x7ED3;&#x679C;&#x3002;&#xFF09; &#x6709;&#x5173; Unicode &#x548C;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x7684;&#x4E00;&#x822C;&#x4ECB;&#x7ECD;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;Joel Spolsky&#x7684; <a href="http://www.joelonsoftware.com/articles/Unicode.html" target="_blank">&#x7EDD;&#x5BF9;&#x6700;&#x4F4E;&#x8981;&#x6C42;&#x6BCF;&#x4E2A;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5FC5;&#x987B;&#x4E86;&#x89E3; Unicode</a>.</p>
+<h3 id="5236-&#x5E94;&#x7528;&#x548C;&#x5B9E;&#x4F8B;">5.2.3.6. &#x5E94;&#x7528;&#x548C;&#x5B9E;&#x4F8B;</h3>
+<p>&#x8BCD;&#x6C47;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#x76F8;&#x5F53;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x5374;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x7279;&#x522B;&#x662F;&#x5728; <strong>&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x7684;&#x8BBE;&#x7F6E;</strong> &#x4E2D;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x628A;&#x5FEB;&#x901F;&#x548C;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x7EC4;&#x5408;&#x6765;&#x8BAD;&#x7EC3; <strong>&#x6587;&#x6863;&#x5206;&#x7C7B;&#x5668;</strong>, &#x4F8B;&#x5982;:</p>
+<blockquote>
+<ul>
+<li>&#x4F7F;&#x7528;&#x7A00;&#x758F;&#x7279;&#x5F81;&#x5BF9;&#x6587;&#x672C;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x5206;&#x7C7B; <a href="https://scikit-learn.org/stable/auto_examples/text/document_classification_20newsgroups.html#sphx-glr-auto-examples-text-document-classification-20newsgroups-py" target="_blank">Classification of text documents using sparse features</a></li>
+</ul>
+</blockquote>
+<p>&#x5728; <strong>&#x65E0;&#x76D1;&#x7763;&#x7684;&#x8BBE;&#x7F6E;</strong> &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5E94;&#x7528;&#x8BF8;&#x5982; <a href="clustering.html#k-means">K-means</a> &#x7684;&#x805A;&#x7C7B;&#x7B97;&#x6CD5;&#x6765;&#x5C06;&#x76F8;&#x4F3C;&#x6587;&#x6863;&#x5206;&#x7EC4;&#x5728;&#x4E00;&#x8D77;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x4F7F;&#x7528;k-means&#x805A;&#x7C7B;&#x6587;&#x672C;&#x6587;&#x6863; <a href="https://scikit-learn.org/stable/auto_examples/text/document_clustering.html#sphx-glr-auto-examples-text-document-clustering-py" target="_blank">Clustering text documents using k-means</a></li>
+</ul>
+</blockquote>
+<p>&#x6700;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x677E;&#x5F1B;&#x805A;&#x7C7B;&#x7684;&#x7EA6;&#x675F;&#x6761;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x975E;&#x8D1F;&#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF08; <a href="decomposition.html#nmf">&#x975E;&#x8D1F;&#x77E9;&#x9635;&#x5206;&#x89E3;(NMF &#x6216; NNMF)</a> &#x6216;NNMF&#xFF09;&#x6765;&#x53D1;&#x73B0;&#x8BED;&#x6599;&#x5E93;&#x7684;&#x4E3B;&#x8981;&#x4E3B;&#x9898;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>&#x4E3B;&#x9898;&#x63D0;&#x53D6;&#x4E0E;&#x975E;&#x8D1F;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x548C;&#x6F5C;&#x5728;Dirichlet&#x5206;&#x914D; <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html#sphx-glr-auto-examples-applications-plot-topics-extraction-with-nmf-lda-py" target="_blank">Topic extraction with Non-negative Matrix Factorization and Latent Dirichlet Allocation</a></li>
+</ul>
+</blockquote>
+<h3 id="5237-&#x8BCD;&#x8BED;&#x8868;&#x793A;&#x7684;&#x9650;&#x5236;">5.2.3.7. &#x8BCD;&#x8BED;&#x8868;&#x793A;&#x7684;&#x9650;&#x5236;</h3>
+<p>&#x4E00;&#x7EC4;&#x5355;&#x8BCD;&#xFF08;&#x4EC0;&#x4E48;&#x662F;&#x5355;&#x8BCD;&#xFF09;&#x65E0;&#x6CD5;&#x6355;&#x83B7;&#x77ED;&#x8BED;&#x548C;&#x591A;&#x5B57;&#x8868;&#x8FBE;&#xFF0C;&#x6709;&#x6548;&#x5730;&#x5FFD;&#x7565;&#x4EFB;&#x4F55;&#x5355;&#x8BCD;&#x987A;&#x5E8F;&#x4F9D;&#x8D56;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x6A21;&#x578B;&#x4E0D;&#x5305;&#x542B;&#x6F5C;&#x5728;&#x7684;&#x62FC;&#x5199;&#x9519;&#x8BEF;&#x6216;&#x8BCD;&#x6C47;&#x5BFC;&#x51FA;&#x3002;</p>
+<p>N-grams &#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#xFF01;&#x800C;&#x4E0D;&#x662F;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;unigrams&#x96C6;&#x5408; (n=1)&#xFF0C;&#x53EF;&#x80FD;&#x66F4;&#x559C;&#x6B22;&#x4E00;&#x7EC4;&#x4E8C;&#x8FDB;&#x5236; (n=2)&#xFF0C;&#x5176;&#x4E2D;&#x8BA1;&#x7B97;&#x8FDE;&#x7EED;&#x5B57;&#x5BF9;&#x3002;</p>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x5B57;&#x7B26; n-grams &#x7684;&#x96C6;&#x5408;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x5BF9;&#x62FC;&#x5199;&#x9519;&#x8BEF;&#x548C;&#x6D3E;&#x751F;&#x6709;&#x5F39;&#x6027;&#x7684;&#x8868;&#x793A;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x5904;&#x7406;&#x4E24;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x8BED;&#x6599;&#x5E93;&#xFF1A; <code>[&apos;words&apos;, &apos;wprds&apos;]</code>. &#x7B2C;&#x4E8C;&#x4E2A;&#x6587;&#x4EF6;&#x5305;&#x542B; &#x2018;words&#x2019; &#x4E00;&#x8BCD;&#x7684;&#x62FC;&#x5199;&#x9519;&#x8BEF;&#x3002; &#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5355;&#x8BCD;&#x8868;&#x793A;&#x5C06;&#x628A;&#x8FD9;&#x4E24;&#x4E2A;&#x89C6;&#x4E3A;&#x975E;&#x5E38;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x4E24;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x7279;&#x5F81;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002; &#x7136;&#x800C;&#xFF0C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26; 2-gram &#x7684;&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x5339;&#x914D;&#x7684;&#x6587;&#x6863;&#x4E2D;&#x7684;8&#x4E2A;&#x7279;&#x5F81;&#x4E2D;&#x7684;4&#x4E2A;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x6709;&#x52A9;&#x4E8E;&#x4F18;&#x9009;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x66F4;&#x597D;&#x5730;&#x51B3;&#x5B9A;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer = CountVectorizer(analyzer=<span class="hljs-string">&apos;char_wb&apos;</span>, ngram_range=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>counts = ngram_vectorizer.fit_transform([<span class="hljs-string">&apos;words&apos;</span>, <span class="hljs-string">&apos;wprds&apos;</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer.get_feature_names() == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos; w&apos;</span>, <span class="hljs-string">&apos;ds&apos;</span>, <span class="hljs-string">&apos;or&apos;</span>, <span class="hljs-string">&apos;pr&apos;</span>, <span class="hljs-string">&apos;rd&apos;</span>, <span class="hljs-string">&apos;s &apos;</span>, <span class="hljs-string">&apos;wo&apos;</span>, <span class="hljs-string">&apos;wp&apos;</span>])
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>counts.toarray().astype(int)
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+ [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]])
+</code></pre>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528; <code>&apos;char_wb</code> &#x5206;&#x6790;&#x5668;&#x2019;&#xFF0C;&#x5B83;&#x53EA;&#x80FD;&#x4ECE;&#x5B57;&#x8FB9;&#x754C;&#x5185;&#x7684;&#x5B57;&#x7B26;&#xFF08;&#x6BCF;&#x4FA7;&#x586B;&#x5145;&#x7A7A;&#x683C;&#xFF09;&#x521B;&#x5EFA; n-grams&#x3002; <code>&apos;char&apos;</code> &#x5206;&#x6790;&#x5668;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x8DE8;&#x8D8A;&#x5355;&#x8BCD;&#x7684; n-grams:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer = CountVectorizer(analyzer=<span class="hljs-string">&apos;char_wb&apos;</span>, ngram_range=(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer.fit_transform([<span class="hljs-string">&apos;jumpy fox&apos;</span>])
+<span class="hljs-meta">... </span>                               
+&lt;<span class="hljs-number">1</span>x4 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.int64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">4</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer.get_feature_names() == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos; fox &apos;</span>, <span class="hljs-string">&apos; jump&apos;</span>, <span class="hljs-string">&apos;jumpy&apos;</span>, <span class="hljs-string">&apos;umpy &apos;</span>])
+<span class="hljs-keyword">True</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer = CountVectorizer(analyzer=<span class="hljs-string">&apos;char&apos;</span>, ngram_range=(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer.fit_transform([<span class="hljs-string">&apos;jumpy fox&apos;</span>])
+<span class="hljs-meta">... </span>                               
+&lt;<span class="hljs-number">1</span>x5 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.int64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">5</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>ngram_vectorizer.get_feature_names() == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos;jumpy&apos;</span>, <span class="hljs-string">&apos;mpy f&apos;</span>, <span class="hljs-string">&apos;py fo&apos;</span>, <span class="hljs-string">&apos;umpy &apos;</span>, <span class="hljs-string">&apos;y fox&apos;</span>])
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x4F7F;&#x7528;&#x767D;&#x8272;&#x7A7A;&#x683C;&#x8FDB;&#x884C;&#x5355;&#x8BCD;&#x5206;&#x79BB;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5BF9;&#x4E8E;&#x8BED;&#x8A00;&#x8FB9;&#x754C;&#x611F;&#x77E5;&#x53D8;&#x4F53; <code>char_wb</code> &#x5C24;&#x5176;&#x6709;&#x8DA3;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x4F1A;&#x4EA7;&#x751F;&#x6BD4;&#x539F;&#x59CB; <code>char</code> &#x53D8;&#x4F53;&#x663E;&#x7740;&#x66F4;&#x5C11;&#x7684;&#x566A;&#x97F3;&#x7279;&#x5F81;&#x3002; &#x5BF9;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x7279;&#x5F81;&#x8BAD;&#x7EC3;&#x7684;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x9884;&#x6D4B;&#x7CBE;&#x5EA6;&#x548C;&#x6536;&#x655B;&#x901F;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;&#x4FDD;&#x6301;&#x5173;&#x4E8E;&#x62FC;&#x5199;&#x9519;&#x8BEF;&#x548C;&#x8BCD;&#x5BFC;&#x51FA;&#x7684;&#x7A33;&#x5065;&#x6027;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x63D0;&#x53D6; n-grams &#x800C;&#x4E0D;&#x662F;&#x5355;&#x72EC;&#x7684;&#x5355;&#x8BCD;&#x6765;&#x4FDD;&#x5B58;&#x4E00;&#x4E9B;&#x672C;&#x5730;&#x5B9A;&#x4F4D;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x5305;&#x542B; n-grams &#x7684;&#x5355;&#x8BCD;&#x548C;&#x888B;&#x5B50;&#x53EF;&#x4EE5;&#x7834;&#x574F;&#x6587;&#x6863;&#x7684;&#x5927;&#x90E8;&#x5206;&#x5185;&#x90E8;&#x7ED3;&#x6784;&#xFF0C;&#x56E0;&#x6B64;&#x7834;&#x574F;&#x4E86;&#x8BE5;&#x5185;&#x90E8;&#x7ED3;&#x6784;&#x7684;&#x5927;&#x90E8;&#x5206;&#x542B;&#x4E49;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x5904;&#x7406;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x7406;&#x89E3;&#x7684;&#x66F4;&#x5E7F;&#x6CDB;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x8003;&#x8651;&#x5230;&#x53E5;&#x5B50;&#x548C;&#x6BB5;&#x843D;&#x7684;&#x5730;&#x65B9;&#x7ED3;&#x6784;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8BB8;&#x591A;&#x8FD9;&#x6837;&#x7684;&#x6A21;&#x578B;&#x5C06;&#x88AB;&#x79F0;&#x4E3A; &#x201C;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x51FA;&#x201D; &#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x76EE;&#x524D;&#x4E0D;&#x5728; scikit-learn &#x7684;&#x8303;&#x56F4;&#x4E4B;&#x5185;&#x3002;</p>
+<h3 id="5238-&#x7528;&#x54C8;&#x5E0C;&#x6280;&#x5DE7;&#x77E2;&#x91CF;&#x5316;&#x5927;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;">5.2.3.8. &#x7528;&#x54C8;&#x5E0C;&#x6280;&#x5DE7;&#x77E2;&#x91CF;&#x5316;&#x5927;&#x6587;&#x672C;&#x8BED;&#x6599;&#x5E93;</h3>
+<p>&#x4E0A;&#x8FF0;&#x5411;&#x91CF;&#x5316;&#x65B9;&#x6848;&#x662F;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x5B58;&#x5728; <strong>&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x4EE4;&#x724C;&#x5230;&#x6574;&#x6570;&#x7279;&#x5F81;&#x7D22;&#x5F15;&#x7684;&#x5185;&#x5B58;&#x6620;&#x5C04;</strong> &#xFF08; <code>vocabulary_</code> &#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x5728;&#x5904;&#x7406; <strong>&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;&#x65F6;&#x4F1A;&#x5F15;&#x8D77;&#x51E0;&#x4E2A;&#x95EE;&#x9898;</strong> :</p>
+<ul>
+<li>&#x8BED;&#x6599;&#x5E93;&#x8D8A;&#x5927;&#xFF0C;&#x8BCD;&#x6C47;&#x91CF;&#x8D8A;&#x5927;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5B58;&#x4E5F;&#x8D8A;&#x5927;.</li>
+<li>&#x62DF;&#x5408;&#xFF08;fitting&#xFF09;&#x9700;&#x8981;&#x6839;&#x636E;&#x539F;&#x59CB;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5927;&#x5C0F;&#x7B49;&#x6BD4;&#x4F8B;&#x5206;&#x914D;&#x4E2D;&#x95F4;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x5927;&#x5C0F;.</li>
+<li>&#x6784;&#x5EFA;&#x8BCD;&#x6620;&#x5C04;&#x9700;&#x8981;&#x5B8C;&#x6574;&#x7684;&#x4F20;&#x9012;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x53EF;&#x80FD;&#x4EE5;&#x4E25;&#x683C;&#x5728;&#x7EBF;&#x7684;&#x65B9;&#x5F0F;&#x62DF;&#x5408;&#x6587;&#x672C;&#x5206;&#x7C7B;&#x5668;.</li>
+<li>pickling&#x548C;un-pickling vocabulary &#x5F88;&#x5927;&#x7684;&#x5411;&#x91CF;&#x5668;&#x4F1A;&#x975E;&#x5E38;&#x6162;&#xFF08;&#x901A;&#x5E38;&#x6BD4;pickling/un-pickling&#x5355;&#x7EAF;&#x6570;&#x636E;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6BD4;&#x5982;&#x540C;&#x7B49;&#x5927;&#x5C0F;&#x7684;Numpy&#x6570;&#x7EC4;&#xFF09;.</li>
+<li>&#x5C06;&#x5411;&#x91CF;&#x5316;&#x4EFB;&#x52A1;&#x5206;&#x9694;&#x6210;&#x5E76;&#x884C;&#x7684;&#x5B50;&#x4EFB;&#x52A1;&#x5F88;&#x4E0D;&#x5BB9;&#x6613;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x4E3A; <code>vocabulary_</code> &#x5C5E;&#x6027;&#x8981;&#x5171;&#x4EAB;&#x72B6;&#x6001;&#x6709;&#x4E00;&#x4E2A;&#x7EC6;&#x9897;&#x7C92;&#x5EA6;&#x7684;&#x540C;&#x6B65;&#x969C;&#x788D;&#xFF1A;&#x4ECE;&#x6807;&#x8BB0;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6620;&#x5C04;&#x7279;&#x5F81;&#x7D22;&#x5F15;&#x4E0E;&#x6BCF;&#x4E2A;&#x6807;&#x8BB0;&#x7684;&#x9996;&#x6B21;&#x51FA;&#x73B0;&#x987A;&#x5E8F;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x8BE5;&#x88AB;&#x5171;&#x4EAB;&#xFF0C;&#x5728;&#x8FD9;&#x70B9;&#x4E0A;&#x5E76;&#x884C;worker&#x7684;&#x6027;&#x80FD;&#x6536;&#x5230;&#x4E86;&#x635F;&#x5BB3;&#xFF0C;&#x4F7F;&#x4ED6;&#x4EEC;&#x6BD4;&#x4E32;&#x884C;&#x66F4;&#x6162;&#x3002;</li>
+</ul>
+<p>&#x901A;&#x8FC7;&#x7EC4;&#x5408;&#x7531; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher" title="sklearn.feature_extraction.FeatureHasher" target="_blank"><code>sklearn.feature_extraction.FeatureHasher</code></a> &#x7C7B;&#x5B9E;&#x73B0;&#x7684; &#x201C;&#x6563;&#x5217;&#x6280;&#x5DE7;&#x201D; (<a href="#feature-hashing">&#x7279;&#x5F81;&#x54C8;&#x5E0C;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x6280;&#x5DE7;&#xFF09;</a>) &#x548C; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>CountVectorizer</code></a> &#x7684;&#x6587;&#x672C;&#x9884;&#x5904;&#x7406;&#x548C;&#x6807;&#x8BB0;&#x5316;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x514B;&#x670D;&#x8FD9;&#x4E9B;&#x9650;&#x5236;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x7EC4;&#x5408;&#x662F;&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html#sklearn.feature_extraction.text.HashingVectorizer" title="sklearn.feature_extraction.text.HashingVectorizer" target="_blank"><code>HashingVectorizer</code></a> &#x4E2D;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x8BE5;&#x7C7B;&#x662F;&#x4E0E; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer" target="_blank"><code>CountVectorizer</code></a> &#x5927;&#x90E8;&#x5206; API &#x517C;&#x5BB9;&#x7684;&#x53D8;&#x538B;&#x5668;&#x7C7B;&#x3002; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html#sklearn.feature_extraction.text.HashingVectorizer" title="sklearn.feature_extraction.text.HashingVectorizer" target="_blank"><code>HashingVectorizer</code></a> &#x662F;&#x65E0;&#x72B6;&#x6001;&#x7684;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x60A8;&#x4E0D;&#x9700;&#x8981; <code>fit</code> &#x5B83;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction.text <span class="hljs-keyword">import</span> HashingVectorizer
+<span class="hljs-meta">&gt;&gt;&gt; </span>hv = HashingVectorizer(n_features=<span class="hljs-number">10</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>hv.transform(corpus)
+<span class="hljs-meta">... </span>                               
+&lt;<span class="hljs-number">4</span>x10 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.float64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">16</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4ECE;&#x5411;&#x91CF;&#x8F93;&#x51FA;&#x4E2D;&#x62BD;&#x53D6;&#x4E86;16&#x4E2A;&#x975E;0&#x7279;&#x5F81;&#x6807;&#x8BB0;&#xFF1A;&#x4E0E;&#x4E4B;&#x524D;&#x7531;CountVectorizer&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6837;&#x672C;&#x8BED;&#x6599;&#x5E93;&#x62BD;&#x53D6;&#x7684;19&#x4E2A;&#x975E;0&#x7279;&#x5F81;&#x8981;&#x5C11;&#x3002;&#x5DEE;&#x5F02;&#x6765;&#x81EA;&#x54C8;&#x5E0C;&#x65B9;&#x6CD5;&#x7684;&#x51B2;&#x7A81;&#xFF0C;&#x56E0;&#x4E3A;&#x8F83;&#x4F4E;&#x7684;n_features&#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x5728;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;n_features&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;2 <strong> 20&#xFF08;&#x5C06;&#x8FD1;100&#x4E07;&#x53EF;&#x80FD;&#x7684;&#x7279;&#x5F81;&#xFF09;&#x3002;&#x5982;&#x679C;&#x5185;&#x5B58;&#x6216;&#x8005;&#x4E0B;&#x6E38;&#x6A21;&#x578B;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x4E48;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x8F83;&#x5C0F;&#x7684;&#x503C;&#x6BD4;&#x5982;2 </strong> 18&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E9B;&#x5E2E;&#x52A9;&#xFF0C;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x4E3A;&#x5178;&#x578B;&#x7684;&#x6587;&#x672C;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#x5F15;&#x5165;&#x592A;&#x591A;&#x989D;&#x5916;&#x7684;&#x51B2;&#x7A81;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x7EF4;&#x5EA6;&#x5E76;&#x4E0D;&#x5F71;&#x54CD;CPU&#x7684;&#x7B97;&#x6CD5;&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x662F;&#x5728;&#x64CD;&#x4F5C;CSR&#x6307;&#x6807;&#xFF08;LinearSVC(dual=True), Perceptron, SGDClassifier, PassiveAggressive&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x5BF9;CSC matrices (LinearSVC(dual=False), Lasso(), etc)&#x7B97;&#x6CD5;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x518D;&#x6B21;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>hv = HashingVectorizer()
+<span class="hljs-meta">&gt;&gt;&gt; </span>hv.transform(corpus)
+<span class="hljs-meta">... </span>                              
+&lt;<span class="hljs-number">4</span>x1048576 sparse matrix of type <span class="hljs-string">&apos;&lt;... &apos;</span>numpy.float64<span class="hljs-string">&apos;&gt;&apos;</span>
+ <span class="hljs-keyword">with</span> <span class="hljs-number">19</span> stored elements <span class="hljs-keyword">in</span> Compressed Sparse ... format&gt;
+</code></pre>
+<p>&#x51B2;&#x7A81;&#x6CA1;&#x6709;&#x518D;&#x51FA;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x4EE3;&#x4EF7;&#x662F;&#x8F93;&#x51FA;&#x7A7A;&#x95F4;&#x7684;&#x7EF4;&#x5EA6;&#x503C;&#x975E;&#x5E38;&#x5927;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;19&#x8BCD;&#x4EE5;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x8BCD;&#x4E4B;&#x524D;&#x4ECD;&#x4F1A;&#x6709;&#x51B2;&#x7A81;&#x3002;</p>
+<p>&#x7C7B; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html#sklearn.feature_extraction.text.HashingVectorizer" title="sklearn.feature_extraction.text.HashingVectorizer" target="_blank"><code>HashingVectorizer</code></a> &#x8FD8;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x9650;&#x5236;&#xFF1A;</p>
+<ul>
+<li>&#x4E0D;&#x80FD;&#x53CD;&#x8F6C;&#x6A21;&#x578B;&#xFF08;&#x6CA1;&#x6709;inverse_transform&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x4E5F;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x539F;&#x59CB;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x5F81;&#xFF0C;&#x56E0;&#x4E3A;&#xFF0C;&#x8FDB;&#x884C;mapping&#x7684;&#x54C8;&#x5E0C;&#x65B9;&#x6CD5;&#x662F;&#x5355;&#x5411;&#x672C;&#x6027;&#x3002;</li>
+<li>&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x4E86;IDF&#x6743;&#x91CD;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x9700;&#x8981;&#x5728;&#x6A21;&#x578B;&#x4E2D;&#x5F15;&#x5165;&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7BA1;&#x9053;&#x4E2D;&#x6DFB;&#x52A0; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer" title="sklearn.feature_extraction.text.TfidfTransformer" target="_blank"><code>TfidfTransformer</code></a> &#x3002;</li>
+</ul>
+<h3 id="5239-&#x4F7F;&#x7528;-hashingvectorizer-&#x6267;&#x884C;&#x5916;&#x6838;&#x7F29;&#x653E;">5.2.3.9. &#x4F7F;&#x7528; HashingVectorizer &#x6267;&#x884C;&#x5916;&#x6838;&#x7F29;&#x653E;</h3>
+<p>&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html#sklearn.feature_extraction.text.HashingVectorizer" title="sklearn.feature_extraction.text.HashingVectorizer" target="_blank"><code>HashingVectorizer</code></a> &#x7684;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x5F00;&#x53D1;&#x662F;&#x6267;&#x884C;&#x5916;&#x6838; <a href="https://en.wikipedia.org/wiki/Out-of-core_algorithm" target="_blank">out-of-core</a> &#x7F29;&#x653E;&#x7684;&#x80FD;&#x529B;&#x3002; &#x8FD9;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x65E0;&#x6CD5;&#x653E;&#x5165;&#x7535;&#x8111;&#x4E3B;&#x5185;&#x5B58;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x8FDB;&#x884C;&#x5B66;&#x4E60;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;&#x6838;&#x5916;&#x6269;&#x5C55;&#x7684;&#x4E00;&#x4E2A;&#x7B56;&#x7565;&#x662F;&#x5C06;&#x6570;&#x636E;&#x4EE5;&#x6D41;&#x7684;&#x65B9;&#x5F0F;&#x4EE5;&#x4E00;&#x5C0F;&#x6279;&#x63D0;&#x4EA4;&#x7ED9;&#x8BC4;&#x4F30;&#x5668;&#x3002;&#x6BCF;&#x6279;&#x7684;&#x5411;&#x91CF;&#x5316;&#x90FD;&#x662F;&#x7528;HashingVectorizer&#x8FD9;&#x6837;&#x6765;&#x4FDD;&#x8BC1;&#x8BC4;&#x4F30;&#x5668;&#x7684;&#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x7684;&#x7EF4;&#x5EA6;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x3002;&#x56E0;&#x6B64;&#x4EFB;&#x4F55;&#x65F6;&#x95F4;&#x4F7F;&#x7528;&#x7684;&#x5185;&#x5B58;&#x6570;&#x90FD;&#x9650;&#x5B9A;&#x5728;&#x5C0F;&#x9891;&#x6B21;&#x7684;&#x5927;&#x5C0F;&#x3002; &#x5C3D;&#x7BA1;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7684;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x4F46;&#x662F;&#x4ECE;&#x5B9E;&#x7528;&#x89D2;&#x5EA6;&#x5B66;&#x4E60;&#x65F6;&#x95F4;&#x53D7;&#x5230;&#x60F3;&#x8981;&#x5728;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#x82B1;&#x8D39;&#x7684;CPU&#x65F6;&#x95F4;&#x7684;&#x9650;&#x5236;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x6587;&#x672C;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5916;&#x6838;&#x7F29;&#x653E;&#x7684;&#x5B8C;&#x6574;&#x793A;&#x4F8B;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x6587;&#x672C;&#x6587;&#x6863;&#x7684;&#x5916;&#x6838;&#x5206;&#x7C7B; <a href="https://scikit-learn.org/stable/auto_examples/applications/plot_out_of_core_classification.html#sphx-glr-auto-examples-applications-plot-out-of-core-classification-py" target="_blank">Out-of-core classification of text documents</a>.</p>
+<h3 id="52310-&#x81EA;&#x5B9A;&#x4E49;&#x77E2;&#x91CF;&#x5316;&#x5668;&#x7C7B;">5.2.3.10. &#x81EA;&#x5B9A;&#x4E49;&#x77E2;&#x91CF;&#x5316;&#x5668;&#x7C7B;</h3>
+<p>&#x901A;&#x8FC7;&#x5C06;&#x53EF;&#x8C03;&#x7528;&#x4F20;&#x9012;&#x7ED9;&#x5411;&#x91CF;&#x5316;&#x7A0B;&#x5E8F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x884C;&#x4E3A;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_tokenizer</span><span class="hljs-params">(s)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> s.split()
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer = CountVectorizer(tokenizer=my_tokenizer)
+<span class="hljs-meta">&gt;&gt;&gt; </span>vectorizer.build_analyzer()(<span class="hljs-string">u&quot;Some... punctuation!&quot;</span>) == (
+<span class="hljs-meta">... </span>    [<span class="hljs-string">&apos;some...&apos;</span>, <span class="hljs-string">&apos;punctuation!&apos;</span>])
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>&#x7279;&#x522B;&#x662F;&#x6211;&#x4EEC;&#x547D;&#x540D;&#xFF1A;</p>
+<ul>
+<li><code>&#x9884;&#x5904;&#x7406;&#x5668;</code>: &#x53EF;&#x4EE5;&#x5C06;&#x6574;&#x4E2A;&#x6587;&#x6863;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF08;&#x4F5C;&#x4E3A;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF09;&#x7684;&#x53EF;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x7684;&#x53EF;&#x80FD;&#x8F6C;&#x6362;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x4ECD;&#x7136;&#x662F;&#x6574;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5220;&#x9664;HTML&#x6807;&#x7B7E;&#xFF0C;&#x5C0F;&#x5199;&#x6574;&#x4E2A;&#x6587;&#x6863;&#x7B49;&#x3002;</li>
+<li><code>tokenizer</code>: &#x4E00;&#x4E2A;&#x53EF;&#x4ECE;&#x9884;&#x5904;&#x7406;&#x5668;&#x63A5;&#x6536;&#x8F93;&#x51FA;&#x5E76;&#x5C06;&#x5176;&#x5206;&#x6210;&#x6807;&#x8BB0;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x8FD9;&#x4E9B;&#x5217;&#x8868;&#x3002;</li>
+<li><code>&#x5206;&#x6790;&#x5668;</code>: &#x4E00;&#x4E2A;&#x53EF;&#x66FF;&#x4EE3;&#x9884;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x548C;&#x6807;&#x8BB0;&#x5668;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x7A0B;&#x5E8F;&#x3002;&#x9ED8;&#x8BA4;&#x5206;&#x6790;&#x4EEA;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x9884;&#x5904;&#x7406;&#x5668;&#x548C;&#x523B;&#x5F55;&#x673A;&#xFF0C;&#x4F46;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x5206;&#x6790;&#x4EEA;&#x5C06;&#x4F1A;&#x8DF3;&#x8FC7;&#x8FD9;&#x4E2A;&#x3002; N-gram&#x63D0;&#x53D6;&#x548C;&#x505C;&#x6B62;&#x5B57;&#x8FC7;&#x6EE4;&#x5728;&#x5206;&#x6790;&#x5668;&#x7EA7;&#x8FDB;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x5B9A;&#x5236;&#x5206;&#x6790;&#x5668;&#x53EF;&#x80FD;&#x5FC5;&#x987B;&#x91CD;&#x73B0;&#x8FD9;&#x4E9B;&#x6B65;&#x9AA4;&#x3002;</li>
+</ul>
+<p>&#xFF08;Lucene &#x7528;&#x6237;&#x53EF;&#x80FD;&#x4F1A;&#x8BC6;&#x522B;&#x8FD9;&#x4E9B;&#x540D;&#x79F0;&#xFF0C;&#x4F46;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;scikit-learn &#x6982;&#x5FF5;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;&#x5230; Lucene &#x6982;&#x5FF5;&#x4E0A;&#x3002;&#xFF09;</p>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x9884;&#x5904;&#x7406;&#x5668;&#xFF0C;&#x6807;&#x8BB0;&#x5668;&#x548C;&#x5206;&#x6790;&#x5668;&#x4E86;&#x89E3;&#x6A21;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x7C7B;&#x6D3E;&#x751F;&#x5E76;&#x8986;&#x76D6; <code>build_preprocessor</code>, <code>build_tokenizer</code> &#x548C; <code>build_analyzer</code> &#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F20;&#x9012;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4E00;&#x4E9B;&#x63D0;&#x793A;&#x548C;&#x6280;&#x5DE7;:</p>
+<ul>
+<li>&#x5982;&#x679C;&#x6587;&#x6863;&#x7531;&#x5916;&#x90E8;&#x5305;&#x8FDB;&#x884C;&#x9884;&#x5148;&#x6807;&#x8BB0;&#xFF0C;&#x5219;&#x5C06;&#x5B83;&#x4EEC;&#x5B58;&#x50A8;&#x5728;&#x6587;&#x4EF6;&#xFF08;&#x6216;&#x5B57;&#x7B26;&#x4E32;&#xFF09;&#x4E2D;&#xFF0C;&#x4EE4;&#x724C;&#x7531;&#x7A7A;&#x683C;&#x5206;&#x9694;&#xFF0C;&#x5E76;&#x901A;&#x8FC7; <code>analyzer=str.split</code></li>
+<li>Fancy &#x4EE4;&#x724C;&#x7EA7;&#x5206;&#x6790;&#xFF0C;&#x5982;&#x8BCD;&#x5E72;&#xFF0C;&#x8BCD;&#x6CD5;&#xFF0C;&#x590D;&#x5408;&#x5206;&#x5272;&#xFF0C;&#x57FA;&#x4E8E;&#x8BCD;&#x6027;&#x7684;&#x8FC7;&#x6EE4;&#x7B49;&#x4E0D;&#x5305;&#x62EC;&#x5728; scikit-learn &#x4EE3;&#x7801;&#x5E93;&#x4E2D;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B9A;&#x5236;&#x5206;&#x8BCD;&#x5668;&#x6216;&#x5206;&#x6790;&#x5668;&#x6765;&#x6DFB;&#x52A0;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A; <code>CountVectorizer</code>, &#x4F7F;&#x7528; <a href="http://www.nltk.org" target="_blank">NLTK</a> &#x7684; tokenizer &#x548C; lemmatizer:<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> nltk <span class="hljs-keyword">import</span> word_tokenize          
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> nltk.stem <span class="hljs-keyword">import</span> WordNetLemmatizer
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LemmaTokenizer</span><span class="hljs-params">(object)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+<span class="hljs-meta">... </span>        self.wnl = WordNetLemmatizer()
+<span class="hljs-meta">... </span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, doc)</span>:</span>
+<span class="hljs-meta">... </span>        <span class="hljs-keyword">return</span> [self.wnl.lemmatize(t) <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> word_tokenize(doc)]
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>vect = CountVectorizer(tokenizer=LemmaTokenizer())
+</code></pre>
+&#xFF08;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E0D;&#x4F1A;&#x8FC7;&#x6EE4;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#x3002;&#xFF09;
+&#x4F8B;&#x5982;&#xFF0C;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5C06;&#x82F1;&#x56FD;&#x7684;&#x4E00;&#x4E9B;&#x62FC;&#x5199;&#x53D8;&#x6210;&#x7F8E;&#x56FD;&#x62FC;&#x5199;::<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> re
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_british</span><span class="hljs-params">(tokens)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> tokens:
+<span class="hljs-meta">... </span>        t = re.sub(<span class="hljs-string">r&quot;(...)our$&quot;</span>, <span class="hljs-string">r&quot;\1or&quot;</span>, t)
+<span class="hljs-meta">... </span>        t = re.sub(<span class="hljs-string">r&quot;([bt])re$&quot;</span>, <span class="hljs-string">r&quot;\1er&quot;</span>, t)
+<span class="hljs-meta">... </span>        t = re.sub(<span class="hljs-string">r&quot;([iy])s(e$|ing|ation)&quot;</span>, <span class="hljs-string">r&quot;\1z\2&quot;</span>, t)
+<span class="hljs-meta">... </span>        t = re.sub(<span class="hljs-string">r&quot;ogue$&quot;</span>, <span class="hljs-string">&quot;og&quot;</span>, t)
+<span class="hljs-meta">... </span>        <span class="hljs-keyword">yield</span> t
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomVectorizer</span><span class="hljs-params">(CountVectorizer)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build_tokenizer</span><span class="hljs-params">(self)</span>:</span>
+<span class="hljs-meta">... </span>        tokenize = super().build_tokenizer()
+<span class="hljs-meta">... </span>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">lambda</span> doc: list(to_british(tokenize(doc)))
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(CustomVectorizer().build_analyzer()(<span class="hljs-string">u&quot;color colour&quot;</span>))
+[...<span class="hljs-string">&apos;color&apos;</span>, ...<span class="hljs-string">&apos;color&apos;</span>]
+</code></pre>
+&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x6837;&#x5F0F;&#x7684;&#x9884;&#x5904;&#x7406;; &#x793A;&#x4F8B;&#x5305;&#x62EC; stemming, lemmatization, &#x6216; normalizing numerical tokens, &#x540E;&#x8005;&#x8BF4;&#x660E;&#x5982;&#x4E0B;:<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/bicluster/plot_bicluster_newsgroups.html#sphx-glr-auto-examples-bicluster-plot-bicluster-newsgroups-py" target="_blank">Biclustering documents with the Spectral Co-clustering algorithm
+</a></li>
+</ul>
+</li>
+</ul>
+<p>&#x5728;&#x5904;&#x7406;&#x4E0D;&#x4F7F;&#x7528;&#x663E;&#x5F0F;&#x5B57;&#x5206;&#x9694;&#x7B26;&#xFF08;&#x4F8B;&#x5982;&#x7A7A;&#x683C;&#xFF09;&#x7684;&#x4E9A;&#x6D32;&#x8BED;&#x8A00;&#x65F6;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x5411;&#x91CF;&#x5316;&#x5668;&#x4E5F;&#x662F;&#x6709;&#x7528;&#x7684;&#x3002;</p>
+<h2 id="524-&#x56FE;&#x50CF;&#x7279;&#x5F81;&#x63D0;&#x53D6;">5.2.4. &#x56FE;&#x50CF;&#x7279;&#x5F81;&#x63D0;&#x53D6;</h2>
+<h3 id="5241-&#x8865;&#x4E01;&#x63D0;&#x53D6;">5.2.4.1. &#x8865;&#x4E01;&#x63D0;&#x53D6;</h3>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.image.extract_patches_2d.html#sklearn.feature_extraction.image.extract_patches_2d" title="sklearn.feature_extraction.image.extract_patches_2d" target="_blank"><code>extract_patches_2d</code></a> &#x51FD;&#x6570;&#x4ECE;&#x5B58;&#x50A8;&#x4E3A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x56FE;&#x50CF;&#x6216;&#x6CBF;&#x7740;&#x7B2C;&#x4E09;&#x8F74;&#x7684;&#x989C;&#x8272;&#x4FE1;&#x606F;&#x4E09;&#x7EF4;&#x63D0;&#x53D6;&#x4FEE;&#x8865;&#x7A0B;&#x5E8F;&#x3002; &#x8981;&#x4ECE;&#x5176;&#x6240;&#x6709;&#x8865;&#x4E01;&#x91CD;&#x5EFA;&#x56FE;&#x50CF;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.image.reconstruct_from_patches_2d.html#sklearn.feature_extraction.image.reconstruct_from_patches_2d" title="sklearn.feature_extraction.image.reconstruct_from_patches_2d" target="_blank"><code>reconstruct_from_patches_2d</code></a>. &#x4F8B;&#x5982;&#x8BA9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;3&#x4E2A;&#x5F69;&#x8272;&#x901A;&#x9053;&#xFF08;&#x4F8B;&#x5982; RGB &#x683C;&#x5F0F;&#xFF09;&#x751F;&#x6210;&#x4E00;&#x4E2A; 4x4 &#x50CF;&#x7D20;&#x7684;&#x56FE;&#x50CF;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.feature_extraction <span class="hljs-keyword">import</span> image
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>one_image = np.arange(<span class="hljs-number">4</span> * <span class="hljs-number">4</span> * <span class="hljs-number">3</span>).reshape((<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>one_image[:, :, <span class="hljs-number">0</span>]  <span class="hljs-comment"># R channel of a fake RGB picture</span>
+array([[ <span class="hljs-number">0</span>,  <span class="hljs-number">3</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">9</span>],
+ [<span class="hljs-number">12</span>, <span class="hljs-number">15</span>, <span class="hljs-number">18</span>, <span class="hljs-number">21</span>],
+ [<span class="hljs-number">24</span>, <span class="hljs-number">27</span>, <span class="hljs-number">30</span>, <span class="hljs-number">33</span>],
+ [<span class="hljs-number">36</span>, <span class="hljs-number">39</span>, <span class="hljs-number">42</span>, <span class="hljs-number">45</span>]])
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches = image.extract_patches_2d(one_image, (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), max_patches=<span class="hljs-number">2</span>,
+<span class="hljs-meta">... </span>    random_state=<span class="hljs-number">0</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches.shape
+(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches[:, :, :, <span class="hljs-number">0</span>]
+array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">3</span>],
+ [<span class="hljs-number">12</span>, <span class="hljs-number">15</span>]],
+
+ [[<span class="hljs-number">15</span>, <span class="hljs-number">18</span>],
+ [<span class="hljs-number">27</span>, <span class="hljs-number">30</span>]]])
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches = image.extract_patches_2d(one_image, (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches.shape
+(<span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches[<span class="hljs-number">4</span>, :, :, <span class="hljs-number">0</span>]
+array([[<span class="hljs-number">15</span>, <span class="hljs-number">18</span>],
+ [<span class="hljs-number">27</span>, <span class="hljs-number">30</span>]])
+</code></pre>
+<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x901A;&#x8FC7;&#x5728;&#x91CD;&#x53E0;&#x533A;&#x57DF;&#x8FDB;&#x884C;&#x5E73;&#x5747;&#x6765;&#x4ECE;&#x8865;&#x4E01;&#x91CD;&#x5EFA;&#x539F;&#x59CB;&#x56FE;&#x50CF;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>reconstructed = image.reconstruct_from_patches_2d(patches, (<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span>np.testing.assert_array_equal(one_image, reconstructed)
+</code></pre>
+<p>&#x5728; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.image.PatchExtractor.html#sklearn.feature_extraction.image.PatchExtractor" title="sklearn.feature_extraction.image.PatchExtractor" target="_blank"><code>PatchExtractor</code></a> &#x4EE5;&#x540C;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x7C7B;&#x4F5C;&#x54C1; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.image.extract_patches_2d.html#sklearn.feature_extraction.image.extract_patches_2d" title="sklearn.feature_extraction.image.extract_patches_2d" target="_blank"><code>extract_patches_2d</code></a>, &#x53EA;&#x662F;&#x5B83;&#x652F;&#x6301;&#x591A;&#x79CD;&#x56FE;&#x50CF;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x3002;&#x5B83;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x4E00;&#x4E2A;&#x4F30;&#x8BA1;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x7BA1;&#x9053;&#x4E2D;&#x4F7F;&#x7528;&#x3002;&#x770B;&#x5230;:</p>
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;&gt; </span>five_images = np.arange(<span class="hljs-number">5</span> * <span class="hljs-number">4</span> * <span class="hljs-number">4</span> * <span class="hljs-number">3</span>).reshape(<span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches = image.PatchExtractor((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).transform(five_images)
+<span class="hljs-meta">&gt;&gt;&gt; </span>patches.shape
+(<span class="hljs-number">45</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+</code></pre>
+<h3 id="5242-&#x56FE;&#x50CF;&#x7684;&#x8FDE;&#x63A5;&#x56FE;">5.2.4.2. &#x56FE;&#x50CF;&#x7684;&#x8FDE;&#x63A5;&#x56FE;</h3>
+<p>scikit-learn &#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x4F30;&#x8BA1;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7279;&#x5F81;&#x6216;&#x6837;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;&#x3002; &#x4F8B;&#x5982;&#xFF0C;Ward&#x805A;&#x7C7B;&#xFF08;&#x5C42;&#x6B21;&#x805A;&#x7C7B; <a href="clustering.html#hierarchical-clustering">&#x5C42;&#x6B21;&#x805A;&#x7C7B;</a> &#xFF09;&#x53EF;&#x4EE5;&#x805A;&#x96C6;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x53EA;&#x6709;&#x56FE;&#x50CF;&#x7684;&#x76F8;&#x90BB;&#x50CF;&#x7D20;&#xFF0C;&#x4ECE;&#x800C;&#x5F62;&#x6210;&#x8FDE;&#x7EED;&#x7684;&#x6591;&#x5757;:</p>
+<p><a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_coin_ward_segmentation.html" target="_blank"><img src="img/sphx_glr_plot_coin_ward_segmentation_0011.png" alt="http://sklearn.apachecn.org/cn/0.19.0/_images/sphx_glr_plot_face_ward_segmentation_0011.png"></a></p>
+<p>&#x4E3A;&#x6B64;&#xFF0C;&#x4F30;&#x8BA1;&#x5668;&#x4F7F;&#x7528; &#x2018;&#x8FDE;&#x63A5;&#x6027;&#x2019; &#x77E9;&#x9635;&#xFF0C;&#x7ED9;&#x51FA;&#x8FDE;&#x63A5;&#x7684;&#x6837;&#x672C;&#x3002;</p>
+<p>&#x8BE5;&#x51FD;&#x6570; <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.image.img_to_graph.html#sklearn.feature_extraction.image.img_to_graph" title="sklearn.feature_extraction.image.img_to_graph" target="_blank"><code>img_to_graph</code></a> &#x4ECE;2D&#x6216;3D&#x56FE;&#x50CF;&#x8FD4;&#x56DE;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x3002;&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;<a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.image.grid_to_graph.html#sklearn.feature_extraction.image.grid_to_graph" title="sklearn.feature_extraction.image.grid_to_graph" target="_blank"><code>grid_to_graph</code></a> &#x4E3A;&#x7ED9;&#x5B9A;&#x8FD9;&#x4E9B;&#x56FE;&#x50CF;&#x7684;&#x5F62;&#x72B6;&#x7684;&#x56FE;&#x50CF;&#x6784;&#x5EFA;&#x8FDE;&#x63A5;&#x77E9;&#x9635;&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x77E9;&#x9635;&#x53EF;&#x7528;&#x4E8E;&#x5728;&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;&#x7684;&#x4F30;&#x8BA1;&#x5668;&#x4E2D;&#x5F3A;&#x52A0;&#x8FDE;&#x63A5;&#xFF0C;&#x5982; Ward &#x805A;&#x7C7B;&#xFF08;&#x5C42;&#x6B21;&#x805A;&#x7C7B; <a href="clustering.html#hierarchical-clustering">&#x5C42;&#x6B21;&#x805A;&#x7C7B;</a> &#xFF09;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x8981;&#x6784;&#x5EFA;&#x9884;&#x8BA1;&#x7B97;&#x7684;&#x5185;&#x6838;&#x6216;&#x76F8;&#x4F3C;&#x77E9;&#x9635;&#x3002;</p>
+<blockquote>
+<p><strong>&#x793A;&#x4F8B;</strong></p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_face_ward_segmentation.html#sphx-glr-auto-examples-cluster-plot-face-ward-segmentation-py" target="_blank">A demo of structured Ward hierarchical clustering on a raccoon face image</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_segmentation_toy.html#sphx-glr-auto-examples-cluster-plot-segmentation-toy-py" target="_blank">Spectral clustering for image segmentation</a></li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_feature_agglomeration_vs_univariate_selection.html#sphx-glr-auto-examples-cluster-plot-feature-agglomeration-vs-univariate-selection-py" target="_blank">Feature agglomeration vs. univariate selection</a></li>
+</ul>
+</blockquote>
+<p><hr></p>
+<div align="center">
+    <p><a href="http://www.apachecn.org" target="_blank"><font face="KaiTi" size="6" color="red">&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x52AA;&#x529B;</font></a></p>
+    <p><a href="https://github.com/apachecn/sklearn-doc-zh/" target="_blank">apachecn/sklearn-doc-zh</a></p>
+    <p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&amp;repo=sklearn-doc-zh&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>
+    <a target="_blank" href="../../shang.qq.com/wpa/qunwpa"><img border="0" src="http://data.apachecn.org/img/logo/ApacheCN-group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>
+</div>
+ <div style="text-align:center;margin:0 0 10.5px;">
+     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-3565452474788507" data-ad-slot="2543897000">
+     </ins>
+     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9cbab13b4d28a9811ae1d2d2176dab66";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102475051-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-102475051-5');
+    </script>
+</div>
+
+<p><meta name="google-site-verification" content="pyo9N70ZWyh8JB43bIu633mhxesJ1IcwWCZlM3jUfFo"></p>
+<p><iframe src="https://www.bilibili.com/read/cv2710377" style="display:none"></iframe>
+<img src="http://t.cn/AiCoDHwb" hidden="hidden"></p>
+<div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+        clientID: 'c56c649fa375b552e607',
+        clientSecret: '21401635722aa1b9518d38d5ff1f0f151b4786ca',
+        repo: 'sklearn-doc-zh',
+        owner: 'apachecn',
+        admin: ['jiangzhonglian', 'wizardforcel'],
+        id: md5(location.pathname),
+        distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+    </script>
+</div>
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; ibooker.org.cn 2019 all right reserved&#xFF0C;&#x7531; ApacheCN &#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x652F;&#x6301;</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A; 
+2020-11-23 10:54:46
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="38.html" class="navigation navigation-prev " aria-label="Previous page: 5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="40.html" class="navigation navigation-next " aria-label="Next page: 5.3 预处理数据">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.2. 特征提取","level":"1.3.5.2","depth":3,"next":{"title":"5.3 预处理数据","level":"1.3.5.3","depth":3,"path":"docs/master/40.md","ref":"docs/master/40.md","articles":[]},"previous":{"title":"5.1. Pipeline（管道）和 FeatureUnion（特征联合）: 合并的评估器","level":"1.3.5.1","depth":3,"path":"docs/master/38.md","ref":"docs/master/38.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","-sharing","insert-logo","sharing-plus","back-to-top-button","code","copy-code-button","katex","pageview-count","edit-link","emphasize","alerts","auto-scroll-table","popup","hide-element","page-toc-button","tbfed-pagefooter","sitemap","advanced-emoji","expandable-chapters","splitter","search-pro"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"},"emphasize":{},"github":{"url":"https://github.com/apachecn/sklearn-doc-zh"},"splitter":{},"search-pro":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"http://sklearn.apachecn.org"},"page-toc-button":{"maxTocDepth":4,"minTocSize":4},"back-to-top-button":{},"pageview-count":{},"alerts":{},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["qq","douban","facebook","google","linkedin","twitter","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"line":false,"google":false,"qzone":true},"edit-link":{"label":"编辑本页","base":"https://github.com/apachecn/sklearn-doc-zh/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 150px; min-height: 150px","url":"http://data.apachecn.org/img/logo.jpg"},"expandable-chapters":{}},"my_links":{"sidebar":{"Home":"https://www.baidu.com"}},"theme":"default","author":"ApacheCN","my_plugins":["donate","todo","-lunr","-search","expandable-chapters-small","chapter-fold","expandable-chapters","expandable-chapters-small","back-to-top-button","ga","baidu","sitemap","tbfed-pagefooter","advanced-emoji","sectionx","page-treeview","simple-page-toc","ancre-navigation","theme-apachecn@git+https://github.com/apachecn/theme-apachecn#HEAD","pagefooter-apachecn@git+https://github.com/apachecn/gitbook-plugin-pagefooter-apachecn#HEAD"],"my_pluginsConfig":{"page-treeview":{"copyright":"Copyright &#169; aleen42","minHeaderCount":"2","minHeaderDeep":"2"},"ignores":["node_modules"],"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"page-copyright":{"wisdom":"Designer, Frontend Developer & overall web enthusiast","noPowered":false,"copyright":"Copyright &#169; 你的名字","style":"normal","timeColor":"#666","utcOffset":"8","format":"YYYY-MM-dd hh:mm:ss","signature":"你的签名","copyrightColor":"#666","description":"modified at"},"donate":{"wechat":"微信收款的二维码URL","alipay":"支付宝收款的二维码URL","title":"","button":"赏","alipayText":"支付宝打赏","wechatText":"微信打赏"},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"github-buttons":{"buttons":[{"user":"apachecn","repo":"sklearn-doc-zh","type":"star","count":true,"size":"small"},{"user":"apachecn","width":"160","type":"follow","count":true,"size":"small"}]},"ga":{"token":"UA-102475051-10"},"baidu":{"token":"75439e2cbd22bdd813226000e9dcc12f"},"pagefooter-apachecn":{"copyright":"Copyright &copy ibooker.org.cn 2019","modify_label":"该文件修订时间： ","modify_format":"YYYY-MM-DD HH:mm:ss"}},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"sklearn 中文文档","language":"zh-hans","gitbook":"*","description":"sklearn 中文文档: 教程和文档"},"file":{"path":"docs/master/39.md","mtime":"2020-11-23T10:54:46.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-23T10:55:32.780Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

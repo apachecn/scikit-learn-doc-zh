@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>http://sklearn.apachecn.org/./</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Biclustering/a_demo_of_the_spectral_co-clustering_algorithm.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Biclustering/a_demo_of_the_spectral_clustering_algorithm.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Biclustering/biclustering_documents_with_the_spectral_co-clustering_algorithm.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_lasso_and_elasticnet.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_lasso_coordinate_descent_path.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_lasso_model_selection.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_multi_task_lasso_support.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_ols.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_ridge_path.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_tomography_l1_reconstruction.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://sklearn.apachecn.org/Generalized_Linear_Models/plot_document_classification_20newsgroups.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>
